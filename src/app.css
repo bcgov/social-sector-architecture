@@ -1,0 +1,167 @@
+/* Design tokens.
+   Palette is drawn from the BC coast and interior: stone, spruce, river,
+   moss and cedar bark. Each option owns one hue and keeps it everywhere:
+   river = Salesforce S, moss = Salesforce H, cedar = event-driven. */
+
+:root {
+  --paper: #e8ebe3;
+  --surface: #f6f7f2;
+  --surface-2: #dfe3d8;
+  --ink: #1f2a24;
+  --ink-soft: #46534b;
+  --line: #b9c0b2;
+  --line-strong: #6f7a70;
+
+  --river: #2c6670;
+  --moss: #4f6b3a;
+  --cedar: #7b4a2a;
+  --ochre: #a86f12;
+  --on-hue: #ffffff;
+
+  --river-tint: #d3e3e4;
+  --moss-tint: #dbe5cf;
+  --cedar-tint: #ecdccd;
+
+  /* diagram zones */
+  --z-experience: #f1e6c4;
+  --z-api: #d8e5cb;
+  --z-domain: #ecd6cc;
+  --z-intelligence: #efdcbf;
+  --z-events: #ddd6e4;
+  --z-commodity: #d2e2e4;
+  --z-salesforce: #d6e4ea;
+  --z-mulesoft: #d7e8dc;
+  --z-ministry: #dedad1;
+  --z-people: #f6f7f2;
+  --z-border-experience: #b8963c;
+  --z-border-api: #6c9152;
+  --z-border-domain: #a5604a;
+  --z-border-intelligence: #b07a3a;
+  --z-border-events: #76668f;
+  --z-border-commodity: #4f8590;
+  --z-border-salesforce: #3f7290;
+  --z-border-mulesoft: #3f8a5c;
+  --z-border-ministry: #7c766a;
+  --z-border-people: #9aa293;
+
+  /* the strata on the problems page: topsoil to bedrock */
+  --soil-1: #e9dcc3;
+  --soil-2: #c9ab84;
+  --soil-3: #4a3a2c;
+  --soil-3-ink: #f4ede2;
+
+  --focus: #1f2a24;
+  --focus-halo: #f0c65a;
+
+  --font-display: 'Schibsted Grotesk Variable', 'Arial Narrow', system-ui, sans-serif;
+  --font-body: 'Atkinson Hyperlegible Next', 'Verdana', system-ui, sans-serif;
+
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.95rem);
+  --step-0: clamp(1.05rem, 1rem + 0.2vw, 1.15rem);
+  --step-1: clamp(1.3rem, 1.2rem + 0.4vw, 1.5rem);
+  --step-2: clamp(1.6rem, 1.4rem + 0.9vw, 2.1rem);
+  --step-3: clamp(2.1rem, 1.7rem + 1.8vw, 3.2rem);
+  --step-4: clamp(2.8rem, 2rem + 4vw, 5.6rem);
+
+  --measure: 66ch;
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2.5rem);
+  --radius-s: 6px;
+  --radius-m: 14px;
+  --radius-l: 28px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #141b17;
+    --surface: #1d2620;
+    --surface-2: #263129;
+    --ink: #e4e9df;
+    --ink-soft: #b4bfb2;
+    --line: #3b473f;
+    --line-strong: #8a968b;
+    --river: #86c3cb;
+    --moss: #a8c98e;
+    --cedar: #dcaa86;
+    --ochre: #e7b85a;
+    --on-hue: #141b17;
+    --river-tint: #1f3437;
+    --moss-tint: #263222;
+    --cedar-tint: #35271d;
+    --z-experience: #332d1b;
+    --z-api: #24301f;
+    --z-domain: #362622;
+    --z-intelligence: #352a1b;
+    --z-events: #2b2734;
+    --z-commodity: #1e3033;
+    --z-salesforce: #1e2e36;
+    --z-mulesoft: #1d3026;
+    --z-ministry: #2c2a26;
+    --z-people: #1d2620;
+    --soil-1: #3a3125;
+    --soil-2: #5a4632;
+    --soil-3: #0d0a08;
+    --soil-3-ink: #f4ede2;
+    --focus: #f0c65a;
+    --focus-halo: #141b17;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5rem; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--step-4); font-weight: 820; letter-spacing: -0.035em; }
+h2 { font-size: var(--step-3); font-weight: 780; }
+h3 { font-size: var(--step-1); font-weight: 700; letter-spacing: -0.01em; }
+
+p { margin: 0 0 1em; max-width: var(--measure); text-wrap: pretty; }
+
+a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 0.16em; }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px var(--focus-halo);
+  border-radius: 4px;
+}
+
+.wrap { width: min(100% - 2 * var(--gutter), 76rem); margin-inline: auto; }
+
+.lede { font-size: var(--step-1); line-height: 1.45; color: var(--ink-soft); }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip {
+  position: absolute; left: 1rem; top: -10rem; z-index: 100;
+  background: var(--ink); color: var(--paper); padding: 0.75rem 1rem; border-radius: var(--radius-s);
+}
+.skip:focus { top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
