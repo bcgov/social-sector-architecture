@@ -1,7 +1,7 @@
 # Future of Case Management: the three options
 
 A plain-language site for interest-holders who know the business but not the
-technology. It covers three ways to replace ICM: Salesforce S, Salesforce H and
+technology. It covers three ways to replace ICM: SaaS CRM S, SaaS CRM H and
 event-driven. Each option has a diagram you can click. There is also a page on
 today's problems and a switchable delivery timeline.
 
@@ -34,7 +34,7 @@ Your wording is protected in three ways:
 
 - **The lock.** `copy.lock.txt` holds every string. `npm run copy:check` lists any
   string that differs from it, by location, e.g.
-  `salesforce-h › components › ledger › why`.
+  `crm-h › components › ledger › why`.
 - **The commit check.** A git pre-commit hook runs the copy check. Code changes
   that alter wording can't be committed unless the lock is updated too, and only
   `copy:save` / `copy:update` do that.
@@ -78,6 +78,6 @@ it can't cover focused items.
 ## Sources
 
 Facts come from the project's research in `../projects/001-icm-modernization/`:
-RSCH-005 v1.1 for the Salesforce routes, target-architecture-v2 and RSCH-002
+RSCH-005 v1.1 for the SaaS CRM routes, target-architecture-v2 and RSCH-002
 v1.4 for event-driven, and RSCH-003 v1.1 and ADR-010 for payments. Nothing on
 the site is a government decision.

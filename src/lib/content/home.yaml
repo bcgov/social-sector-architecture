@@ -7,31 +7,27 @@
 hero:
   title: Three ways to replace ICM
   lede: >-
-    ICM supports employment assistance, disability assistance and child protection. This
-    site shows three ways it could be replaced, in plain words, so you can see what each
-    would mean.
+    ICM powers the social sector. This site shows three ways it could be replaced.
 why:
   heading: Why ICM needs replacing
   paragraphs:
-    - ICM works, but it takes a lot of effort to keep it working. Staff move between
-      several systems to finish one task, and they type the same numbers more than once.
-      The rules that decide what people get are spread across six places, including
-      spreadsheets.
-    - Running ICM costs more each year as support and licence fees grow. The last
-      project replaced only about a third of the older systems. The most important older
-      system is still running beside ICM.
+    - ICM works...except when it doesn't. It takes a lot of effort to keep it working. 
+     Workers must contend with an arcane and complex system that makes even simple things tediously complex and slow.
+    - It is not just slow or clunky, ICM is missing core capabilities such as the ability to manage monthly payments. 
+     It has failed to keep pace with the changes needed by business - leading to a sprawling mess of hacks, workarounds and bolt-ons.
+    - ICM costs more and more each year, but the value it provides has been shrinking, and it never delivered on its promises.
 optionsIntro:
   heading: The three options
   text: >-
-    Salesforce S puts everything on Salesforce and runs it the way ICM runs today.
-    Salesforce H uses Salesforce for case work and rules, and keeps money, evidence and
+    SaaS S puts everything on a SaaS CRM and runs it the way ICM runs today.
+    SaaS H has the SaaS product used for case work and rules, and keeps money, evidence and
     records on the ministry's own servers. Event-driven has the ministry build in parts,
-    buy or reuse common parts, and link them by passing messages whenever something
+    buy or adopt common components, and link them through an event stream updated when something
     happens, such as a payment being issued.
 howToRead:
   heading: How to read the diagrams
   steps:
-    - Each option has a diagram. Boxes are grouped by who runs them, such as Salesforce
+    - Each option has a diagram. Boxes are grouped by who runs them, such as the SaaS provider
       or the ministry.
     - Click or tap any box to learn what it is, what it does and why it matters.
     - Look for the coloured notes. They show where an option falls short or fixes a
@@ -41,10 +37,10 @@ compare:
   rows:
     - question: Who controls when it changes?
       s: >-
-        Salesforce. It sets three major updates a year, and the ministry cannot pause
+        SaaS Provider. It sets three major updates a year, and the ministry cannot pause
         them.
       h: >-
-        Salesforce for case work and rules. The ministry for the payment run.
+        SaaS Provider for case work and rules. The ministry for the payment run.
       e: >-
         The ministry. It runs the parts on its own servers and sets its own timing.
     - question: What happens if the supplier cuts us off?
@@ -56,16 +52,16 @@ compare:
       e: >-
         Data stays on ministry servers. Open source parts limit reliance on one supplier.
     - question: Where does the money run?
-      s: On Salesforce, in a monthly batch run.
+      s: On the CRM platform, in a monthly batch run.
       h: >-
         On the ministry's own servers, with the ministry's own ledger.
       e: >-
         In payment and finance parts built for the ministry, on its own servers.
     - question: How much custom work?
       s: >-
-        A lot. 346 of 481 requirements need building on top of Salesforce.
+        A lot. 346 of 481 requirements need building on top of the CRM platform.
       h: >-
-        The same as S, plus the parts kept off Salesforce.
+        The same as S, plus the parts kept off the CRM platform.
       e: >-
         Custom building only for work unique to the ministry. Open source elsewhere.
     - question: What are the yearly licence costs?
@@ -78,7 +74,7 @@ compare:
       s: >-
         Yes. The ministry loses its change freeze around the monthly cheque run.
       h: >-
-        Less so. The payment run keeps its freeze; work on Salesforce does not.
+        Less so. The payment run keeps its freeze; work on the CRM platform does not.
       e: Not yet estimated
     - question: When could people use something new?
       s: >-

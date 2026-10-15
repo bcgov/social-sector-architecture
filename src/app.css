@@ -1,7 +1,7 @@
 /* Design tokens.
    Palette is drawn from the BC coast and interior: stone, spruce, river,
    moss and cedar bark. Each option owns one hue and keeps it everywhere:
-   river = Salesforce S, moss = Salesforce H, cedar = event-driven. */
+   river = SaaS CRM S, moss = SaaS CRM H, cedar = event-driven. */
 
 :root {
   --paper: #e8ebe3;
@@ -29,8 +29,8 @@
   --z-intelligence: #efdcbf;
   --z-events: #ddd6e4;
   --z-commodity: #d2e2e4;
-  --z-salesforce: #d6e4ea;
-  --z-mulesoft: #d7e8dc;
+  --z-crm: #d6e4ea;
+  --z-integration: #d7e8dc;
   --z-ministry: #dedad1;
   --z-people: #f6f7f2;
   --z-border-experience: #b8963c;
@@ -39,8 +39,8 @@
   --z-border-intelligence: #b07a3a;
   --z-border-events: #76668f;
   --z-border-commodity: #4f8590;
-  --z-border-salesforce: #3f7290;
-  --z-border-mulesoft: #3f8a5c;
+  --z-border-crm: #3f7290;
+  --z-border-integration: #3f8a5c;
   --z-border-ministry: #7c766a;
   --z-border-people: #9aa293;
 
@@ -95,8 +95,8 @@
     --z-intelligence: #352a1b;
     --z-events: #2b2734;
     --z-commodity: #1e3033;
-    --z-salesforce: #1e2e36;
-    --z-mulesoft: #1d3026;
+    --z-crm: #1e2e36;
+    --z-integration: #1d3026;
     --z-ministry: #2c2a26;
     --z-people: #1d2620;
     --soil-1: #3a3125;

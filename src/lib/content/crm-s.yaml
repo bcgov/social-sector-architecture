@@ -1,27 +1,27 @@
-# Salesforce S: the words on this option's page and in every part's pop-up.
+# SaaS CRM S: the words on this option's page and in every part's pop-up.
 #
 # Edit the words freely. Keep the names before each colon (what:, does:, ...)
 # and the indentation as they are. Lines under a ">-" are one paragraph:
 # wrap them however you like. Save with: npm run copy:save -- "what you changed"
 
-name: Salesforce S
-nickname: All on Salesforce
+name: SaaS CRM S
+nickname: All on the CRM platform
 tagline: >-
-  Every part of the new system runs on Salesforce, set up to work the way ICM works
+  Every part of the new system runs on the CRM platform, set up to work the way ICM works
   today.
 summary:
-  - In this option, Salesforce replaces Siebel, the rules engine, the mainframe payment
+  - In this option, the CRM platform replaces Siebel, the rules engine, the mainframe payment
     system and the monthly cheque run. Case work, applications, rules, notices, payments
-    and the online portals all live in one Salesforce system. Rules, payments and
+    and the online portals all live in one CRM system. Rules, payments and
     history keep the shape they have today.
   - The research found the whole system can be built this way. Of 481 business
-    requirements, 107 are met by setting up Salesforce products and 346 by custom work
-    inside Salesforce. None is impossible as a whole. In most areas the result is no
+    requirements, 107 are met by setting up CRM products and 346 by custom work
+    inside the CRM platform. None is impossible as a whole. In most areas the result is no
     worse than ICM today, and in several it is better.
-  - "The catch is control. Salesforce, not the ministry, decides when the platform
-    changes and whether it runs. Six needs cannot be met at all on Salesforce, and two
+  - "The catch is control. The CRM provider, not the ministry, decides when the platform
+    changes and whether it runs. Six needs cannot be met at all on the CRM platform, and two
     of them are worse than today: the freeze around the monthly cheque run, and keeping
-    key services going if Salesforce cuts off access."
+    key services going if the CRM provider cuts off access."
 facts:
   - label: Likely build effort
     value: 19,385 person-days, about 88 person-years
@@ -33,20 +33,20 @@ facts:
   - label: Requirements met by setup alone
     value: 107 of 481
 goodAt:
-  - It is the lowest-effort way to build the system on Salesforce.
+  - It is the lowest-effort way to build the system on the CRM platform.
   - Rules become dated versions in one place, instead of old and new rule sets kept side
     by side.
   - Sealed records become possible. ICM has no way to seal a record today.
   - Overpayment amounts are worked out in the system, not printed, scanned and typed
     into the mainframe again.
-  - The ministry already runs Salesforce for contract management and some portals, so it
+  - The ministry already runs the CRM platform for contract management and some portals, so it
     is not new.
 watchOut:
-  - Salesforce sets its own upgrade dates three times a year. The ministry cannot freeze
+  - The CRM provider sets its own upgrade dates three times a year. The ministry cannot freeze
     change around the monthly cheque run, which it can do today.
-  - If Salesforce cuts off access, no rules or screens can run anywhere else. Staff fall
+  - If the CRM provider cuts off access, no rules or screens can run anywhere else. Staff fall
     back to a manual payment procedure.
-  - Salesforce publishes no promise on how much recent data could be lost in an outage,
+  - The CRM provider publishes no promise on how much recent data could be lost in an outage,
     and no availability guarantee.
   - Licences cost tens of millions of dollars a year at list price, every year, on top
     of the build.
@@ -58,19 +58,19 @@ zones:
     blurb: >-
       The people who use the system: ministry staff, clients and the partners who work
       with them.
-  salesforce:
-    name: Salesforce
+  crm:
+    name: SaaS CRM platform
     blurb: >-
-      One Salesforce system holds the screens, the case work for each program family and
+      One CRM system holds the screens, the case work for each program family and
       the services they share.
     groups:
       experience: Experience
       case-work-one-package-per-program-family: Case work, one package per program family
       shared-services: Shared services
-  mulesoft:
-    name: MuleSoft, on ministry servers
+  integration:
+    name: Integration platform, on ministry servers
     blurb: >-
-      MuleSoft is the Salesforce product that connects the new system to banks, other
+      The integration platform is the CRM provider's product that connects the new system to banks, other
       governments and old systems. It runs on ministry servers.
   counterparties:
     name: Outside organizations
@@ -93,7 +93,7 @@ parts:
       They take applications, assess need, record evidence, make decisions, issue
       notices and approve payments.
     why: >-
-      Each staff account needs a Salesforce licence. With about 9,400 accounts, staff
+      Each staff account needs a CRM licence. With about 9,400 accounts, staff
       numbers drive most of the yearly licence cost.
   clients:
     name: Clients and representatives
@@ -124,7 +124,7 @@ parts:
     name: Worker screens
     short: Where staff do their daily work
     what: >-
-      The main screens ministry staff use, built on the Salesforce service console. It
+      The main screens ministry staff use, built on the CRM service console. It
       includes the phone system for the child protection reporting line.
     does: >-
       It shows each worker their cases and tasks, routes new work to the right queue,
@@ -135,17 +135,16 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Buy: Salesforce licence for each staff account
+        Buy: CRM licence for each staff account
       summary: >-
-        The screens come from Public Sector Solutions (now called Agentforce Public
-        Sector) and Service Cloud. The research priced them at US$275 to $500 per user
+        The screens come from the public sector package and the service desk product. The research priced them at US$275 to $500 per user
         per month at list price. Not every account may need the full licence, and no
         quote was sought.
       options:
-        - name: Public Sector Solutions with Service Cloud
+        - name: Public sector package with the service desk product
           kind: buy
           note: Case screens, routing and supervision
-        - name: Service Cloud Voice
+        - name: Phone add-on for the service desk product
           kind: buy
           note: >-
             Phone calls for the reporting line, priced per user plus phone costs
@@ -153,7 +152,7 @@ parts:
       tone: gap
       text: >-
         The 24/7 child protection reporting line runs on the same system as everything
-        else. Salesforce picks the maintenance and upgrade times for all of it. The line
+        else. The CRM provider picks the maintenance and upgrade times for all of it. The line
         cannot get its own change window. That is not met today either.
     procurement: true
   portals:
@@ -161,7 +160,7 @@ parts:
     short: Online services for clients and partners
     what: >-
       Websites where clients, representatives, youth, caregivers and partner agencies
-      sign in. They are built with Salesforce Experience Cloud.
+      sign in. They are built with the CRM portal product.
     does: >-
       Clients apply, send monthly reports, ask for supplements and ask for reviews.
       Partners work on their share of a case. The public can make reports.
@@ -171,25 +170,24 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Buy: Experience Cloud, priced per member or per login
+        Buy: the CRM portal product, priced per member or per login
       summary: >-
-        Salesforce Experience Cloud is a separate licence from the staff licence. The
-        forms inside are built with OmniStudio, which comes with Public Sector
-        Solutions. The ministry already runs some Salesforce portals today.
+        The CRM portal product is a separate licence from the staff licence. The
+        forms inside are built with the CRM's form tools, which come with the public sector package. The ministry already runs some CRM portals today.
       options:
-        - name: Salesforce Experience Cloud
+        - name: CRM portal product
           kind: buy
           note: Client, partner and public sites
-        - name: Existing Salesforce portals
+        - name: Existing CRM portals
           kind: existing
           note: >-
-            Some current ministry portals already run on Salesforce
+            Some current ministry portals already run on the CRM platform
     procurement: true
   field-service:
-    name: Field Service
+    name: Field service
     short: Mobile work, even offline
     what: >-
-      The Salesforce mobile tool for staff who work away from the office.
+      The CRM mobile tool for staff who work away from the office.
     does: >-
       It lets workers record visits in remote areas, even with no signal, and sends the
       notes in when they reconnect.
@@ -199,9 +197,9 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Buy: Salesforce Field Service, priced per user
+        Buy: the CRM field service add-on, priced per user
       summary: >-
-        Field Service is an add-on licence for the staff who need it. It is not part of
+        The field service add-on is a separate licence for the staff who need it. It is not part of
         the basic staff licence.
       options: []
     procurement: true
@@ -210,7 +208,7 @@ parts:
     short: Employment and disability assistance cases
     what: >-
       The case work for employment assistance and disability assistance. It is one
-      package of custom work inside Salesforce.
+      package of custom work inside the CRM platform.
     does: >-
       It handles applications, eligibility, monthly reports, supplements, overpayments,
       reviews and appeals.
@@ -220,42 +218,42 @@ parts:
     buildBuy:
       approach: build
       label: >-
-        Build on Salesforce, using Public Sector Solutions parts
+        Build on the CRM platform, using parts of the public sector package
       summary: >-
-        No Salesforce product models BC assistance law, so most of this is custom.
-        Public Sector Solutions gives a starting data model for benefits, payments and
+        No CRM product models BC assistance law, so most of this is custom.
+        The public sector package gives a starting data model for benefits, payments and
         assessments. Likely effort is about 5,570 person-days.
       options: []
     watch:
       tone: limit
       text: >-
-        All program families share one Salesforce system and one data model. They cannot
+        All program families share one CRM system and one data model. They cannot
         be changed or upgraded on their own timetables. ICM has the same problem today.
   child-protection:
     name: Child protection and care
     short: Reports, investigations, care, court
     what: >-
       The case work for child protection, guardianship, children in care and caregivers.
-      It is custom work inside Salesforce.
+      It is custom work inside the CRM platform.
     does: >-
       It records reports and investigations, safety assessments, court orders, care
       plans and Indigenous jurisdiction steps.
     why: >-
       Children's safety depends on this work being recorded correctly and on time. BC
-      child protection law needs custom work on any product, not only Salesforce.
+      child protection law needs custom work on any product, not only the CRM platform.
     buildBuy:
       approach: build
       label: >-
-        Build on Salesforce, using Public Sector Solutions parts
+        Build on the CRM platform, using parts of the public sector package
       summary: >-
-        Public Sector Solutions gives building blocks for care plans, assessments,
+        The public sector package gives building blocks for care plans, assessments,
         provider management and court proceedings. The rules, deadlines and Indigenous
         jurisdiction steps are custom.
       options: []
     watch:
       tone: limit
       text: >-
-        Salesforce maintenance happens at night and on weekends, when the reporting line
+        CRM maintenance happens at night and on weekends, when the reporting line
         is busiest. During those windows the system can be read-only, so staff may have
         to write reports down and enter them later.
   adoption:
@@ -273,9 +271,9 @@ parts:
     buildBuy:
       approach: build
       label: >-
-        Build on Salesforce, using Public Sector Solutions parts
+        Build on the CRM platform, using parts of the public sector package
       summary: >-
-        Benefit and care plan parts in Public Sector Solutions cover some of the work.
+        Benefit and care plan parts in the public sector package cover some of the work.
         BC adoption steps are custom.
       options: []
   support-needs:
@@ -288,17 +286,17 @@ parts:
       as autism funding.
     why: >-
       Families rely on this funding. The ministry's current support needs portal already
-      runs on Salesforce.
+      runs on the CRM platform.
     buildBuy:
       approach: build
-      label: Build on Salesforce, mostly by setup
+      label: Build on the CRM platform, mostly by setup
       summary: >-
-        Much of this fits Public Sector Solutions benefit management with little custom
+        Much of this fits the public sector package's benefit management with little custom
         code. Likely effort is about 260 person-days.
       options:
         - name: Existing support needs portal
           kind: existing
-          note: Already a Salesforce partner portal
+          note: Already a CRM partner portal
   conditional-four:
     name: Four more services, if in scope
     short: Only if the ministry adds them
@@ -310,15 +308,15 @@ parts:
       requests and custody records.
     why: >-
       Adding them raises effort by about 2,710 person-days. Mental health would also
-      need Health Cloud, a separate licence.
+      need the CRM provider's health product, a separate licence.
     buildBuy:
       approach: build
-      label: Build on Salesforce, if in scope
+      label: Build on the CRM platform, if in scope
       summary: >-
-        Mental health would use Health Cloud. No Salesforce product runs custody
+        Mental health would use the CRM provider's health product. No CRM product runs custody
         centres, so the research suggests buying a custody product and connecting it.
       options:
-        - name: Salesforce Health Cloud
+        - name: CRM health product
           kind: buy
           note: >-
             Clinical records, only for mental health and integrated teams
@@ -332,7 +330,7 @@ parts:
     name: Evidence
     short: Facts about each case, with dates
     what: >-
-      Custom Salesforce records that hold the facts a decision is based on, such as
+      Custom CRM records that hold the facts a decision is based on, such as
       income, household and address.
     does: >-
       Each fact has the dates it was true and when it was recorded. Changes are kept in
@@ -343,9 +341,9 @@ parts:
     buildBuy:
       approach: build
       label: >-
-        Build on Salesforce, with Shield history tracking
+        Build on the CRM platform, with field history from the security add-on
       summary: >-
-        Built as custom records inside Salesforce. Field Audit Trail, part of Shield,
+        Built as custom records inside the CRM platform. Field history tracking, part of the security add-on,
         keeps the history of up to 60 fields per record type for 10 years.
       options: []
     watch:
@@ -357,8 +355,7 @@ parts:
     name: Rules
     short: Eligibility and payment rules
     what: >-
-      The rules that decide who is eligible and how much they get. They run in the
-      Salesforce Business Rules Engine.
+      The rules that decide who is eligible and how much they get. They run in the CRM provider's rules engine.
     does: >-
       It replaces the 29 rulebases in Oracle Policy Automation, the mainframe
       calculations, a rate table and 5 spreadsheets. Each decision keeps a record of the
@@ -369,16 +366,16 @@ parts:
     buildBuy:
       approach: platform
       label: >-
-        Platform: Business Rules Engine, part of Public Sector Solutions
+        Platform: the rules engine, part of the public sector package
       summary: >-
-        Comes with the Public Sector Solutions licence. Rewriting today's rules into it
+        Comes with the public sector package licence. Rewriting today's rules into it
         is about 1,180 person-days. How many rule runs the licence allows each month is
         unconfirmed.
       options: []
     watch:
       tone: limit
       text: >-
-        Each decision is fully recorded, but administrators and Salesforce staff could
+        Each decision is fully recorded, but administrators and CRM provider staff could
         change that record. The record is not sealed against tampering.
   clocks:
     name: Clocks and delegation
@@ -395,9 +392,9 @@ parts:
       overturned on appeal.
     buildBuy:
       approach: build
-      label: Build on Salesforce
+      label: Build on the CRM platform
       summary: >-
-        Salesforce has business hours, holidays and case milestones to build on. The
+        The CRM platform has business hours, holidays and case milestones to build on. The
         deadline list and the authority check are custom work.
       options: []
   access:
@@ -408,16 +405,16 @@ parts:
       sealed records.
     does: >-
       Each record gets an access class that limits who can open it. Sealed and
-      restricted records are kept apart. Shield watches who looks at what and can block
+      restricted records are kept apart. The security add-on watches who looks at what and can block
       unusual access.
     why: >-
       Today more than a third of about 9,400 users held access they should not have had.
       Sealed records are new: ICM cannot seal a record.
     buildBuy:
       approach: build
-      label: Build on Salesforce, with Shield monitoring
+      label: Build on the CRM platform, with security add-on monitoring
       summary: >-
-        Built from Salesforce sharing and restriction rules. Shield Event Monitoring
+        Built from CRM sharing and restriction rules. Event monitoring in the security add-on
         reports access to the province's security team.
       options: []
     watch:
@@ -441,15 +438,15 @@ parts:
     buildBuy:
       approach: platform
       label: >-
-        Platform: OmniStudio Document Generation, part of Public Sector Solutions
+        Platform: document generation tool, part of the public sector package
       summary: >-
-        Document generation comes with Public Sector Solutions. Salesforce sells no
+        Document generation comes with the public sector package. The CRM provider sells no
         e-signature product, so signing needs a separate product. DocuSign is already
-        used with the ministry's Salesforce contract system.
+        used with the ministry's CRM contract system.
       options:
-        - name: OmniStudio Document Generation
+        - name: Document generation tool
           kind: buy
-          note: Part of the Public Sector Solutions licence
+          note: Part of the public sector package licence
         - name: DocuSign
           kind: existing
           note: >-
@@ -458,14 +455,14 @@ parts:
       tone: gap
       text: >-
         If legal advice requires a digital certificate signature on some documents, no
-        Salesforce product can do it. A separate product such as DocuSign would be
+        CRM product can do it. A separate product such as DocuSign would be
         needed.
   payments:
     name: Payments and debt
     short: Monthly payments and overpayments
     what: >-
       The monthly payment run and the records of what each client is owed and owes,
-      built inside Salesforce.
+      built inside the CRM platform.
     does: >-
       It runs the monthly payments and sends cheque and direct deposit files to the
       bank, the mail service and the province's accounting system. It keeps debt records
@@ -475,23 +472,23 @@ parts:
       real hardship.
     buildBuy:
       approach: build
-      label: Build on Salesforce
+      label: Build on the CRM platform
       summary: >-
-        Salesforce has no benefit ledger. Its billing and loan collection products were
+        The CRM platform has no benefit ledger. Its billing and loan collection products were
         judged a poor fit for public sector overpayment rules. So the payment run and
         debt records are custom work.
       options: []
     watch:
       tone: gap
       text: >-
-        Salesforce sets its own upgrade dates three times a year. The ministry cannot
+        The CRM provider sets its own upgrade dates three times a year. The ministry cannot
         stop an upgrade during the monthly cheque run, which it can do today.
   platform-services:
     name: Platform services
     short: Security, privacy, backup and reports
     what: >-
-      Salesforce add-ons that every part of the system uses: encryption and access
-      monitoring (Shield), privacy tools, test data masking, backup, dashboards and
+      CRM add-ons that every part of the system uses: encryption and access
+      monitoring, privacy tools, test data masking, backup, dashboards and
       release tools.
     does: >-
       They protect data, keep history, apply retention rules, back up records and show
@@ -502,39 +499,37 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Buy: several Salesforce add-ons
+        Buy: several CRM add-ons
       summary: >-
-        Shield is priced as a share of spend. Privacy Center, Data Mask, Backup and
-        Recover, extra storage and test environments are each separate add-ons. CRM
-        Analytics or Tableau is priced per user. None of these is in the staff licence
+        The security add-on is priced as a share of spend. The privacy, test data masking and backup add-ons, extra storage and test environments are each separate add-ons. Each analytics tool is priced per user. None of these is in the staff licence
         price.
       options:
-        - name: Salesforce Shield
+        - name: Security add-on
           kind: buy
           note: >-
             Encryption, access monitoring, 10-year field history
-        - name: Privacy Center and Data Mask
+        - name: Privacy and test data masking add-ons
           kind: buy
           note: >-
             Retention, deletion, and no personal data in test copies
-        - name: Backup and Recover
+        - name: Backup add-on
           kind: buy
           note: Priced by storage
-        - name: CRM Analytics or Tableau
+        - name: Analytics tools
           kind: buy
           note: Dashboards and reports
     watch:
       tone: gap
       text: >-
-        Salesforce does not say how much recent data could be lost in an outage. It is
-        also unknown whether a record can be fully removed from Salesforce's backups
+        The CRM provider does not say how much recent data could be lost in an outage. It is
+        also unknown whether a record can be fully removed from the CRM provider's backups
         when the law requires it.
     procurement: true
   integration-hub:
     name: Integration hub
     short: Connects to outside organizations
     what: >-
-      MuleSoft, the Salesforce product for connecting systems, running on ministry
+      The integration platform, the CRM provider's product for connecting systems, running on ministry
       servers.
     does: >-
       It passes data to and from banks, the mail service, the accounting system, Canada
@@ -546,23 +541,23 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Buy: MuleSoft Anypoint Platform, priced by capacity
+        Buy: the CRM provider's integration platform, priced by capacity
       summary: >-
-        MuleSoft is sold separately from the Salesforce licence. It runs on the
-        ministry's own servers, so it is not affected by Salesforce maintenance.
+        The integration platform is sold separately from the CRM licence. It runs on the
+        ministry's own servers, so it is not affected by CRM maintenance.
         Building the connections is about 1,140 person-days.
       options: []
     watch:
       tone: limit
       text: >-
-        Salesforce keeps change messages for only 72 hours. A long weekend outage could
+        The CRM platform keeps change messages for only 72 hours. A long weekend outage could
         lose some. That is still better than today.
     procurement: true
   siebel-connector:
     name: Siebel connector
     short: Links old and new during the switch
     what: >-
-      A MuleSoft connector that lets Salesforce and Siebel share data while both are
+      A connector on the integration platform that lets the CRM platform and Siebel share data while both are
       running.
     does: >-
       It keeps cases in step between the two systems while work moves over in stages.
@@ -572,9 +567,9 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Buy: MuleSoft connector for Oracle Siebel
+        Buy: an integration platform connector for Oracle Siebel
       summary: >-
-        This is a premium MuleSoft connector, bought on top of MuleSoft itself.
+        This is a premium connector, bought on top of the integration platform itself.
       options: []
     procurement: true
   finance:
@@ -617,13 +612,13 @@ parts:
       label: >-
         Build: nightly extract to ministry servers
       summary: >-
-        Salesforce dashboards come from CRM Analytics or Tableau. A nightly extract
+        CRM dashboards come from the CRM provider's analytics tools. A nightly extract
         feeds the ministry's own reporting store.
       options:
-        - name: CRM Analytics
+        - name: Built-in CRM analytics
           kind: buy
-          note: Salesforce dashboards, priced per user
-        - name: Tableau
+          note: CRM dashboards, priced per user
+        - name: Separate dashboard product
           kind: buy
           note: Can also run on ministry servers
     watch:
@@ -636,19 +631,18 @@ parts:
     short: Backup copy of records, no functions
     what: >-
       A copy of the system's records on ministry servers, kept up to date by a steady
-      feed of changes from Salesforce.
+      feed of changes from the CRM platform.
     does: >-
       It holds the records so staff can still look up cases and drive emergency payments
-      if Salesforce is unavailable.
+      if the CRM platform is unavailable.
     why: >-
       Without it, a supplier cut-off would leave staff with no case information and
       clients with no payments.
     buildBuy:
       approach: build
-      label: Build on ministry servers, fed from Salesforce
+      label: Build on ministry servers, fed from the CRM platform
       summary: >-
-        The feed uses Salesforce change data capture, a paid add-on. Salesforce Backup
-        and Recover adds a second copy.
+        The feed uses the CRM platform's change data capture, a paid add-on. The CRM backup add-on adds a second copy.
       options:
         - name: Change data capture add-on
           kind: buy
@@ -656,14 +650,14 @@ parts:
     watch:
       tone: gap
       text: >-
-        The copy holds records only. No Salesforce rules or screens can run outside
-        Salesforce, so the system itself cannot keep working if Salesforce cuts off
+        The copy holds records only. No CRM rules or screens can run outside
+        the CRM platform, so the system itself cannot keep working if the CRM provider cuts off
         access. Siebel never faced this risk.
   manual-payment:
     name: Manual payment procedure
     short: Emergency payments by hand
     what: >-
-      The written plan for paying clients by hand if Salesforce is cut off. It carries
+      The written plan for paying clients by hand if the CRM platform is cut off. It carries
       over today's business continuity plan.
     does: >-
       Staff use the continuity copy to make payments manually until service returns.
@@ -690,7 +684,7 @@ parts:
       ICM, the current case management system, built on Oracle Siebel and running on
       government servers.
     does: >-
-      It keeps running for programs not yet moved, and shares data with Salesforce
+      It keeps running for programs not yet moved, and shares data with the CRM platform
       through the connector.
     why: >-
       Switching off ICM too early would leave staff without records. Running both costs
@@ -701,5 +695,5 @@ parts:
         Existing: runs until it is retired
       summary: >-
         Siebel stays in place during the move and is shut down once every program is on
-        Salesforce.
+        the CRM platform.
       options: []

@@ -1,60 +1,60 @@
-# Salesforce H: the words on this option's page and in every part's pop-up.
+# SaaS CRM H: the words on this option's page and in every part's pop-up.
 #
 # Edit the words freely. Keep the names before each colon (what:, does:, ...)
 # and the indentation as they are. Lines under a ">-" are one paragraph:
 # wrap them however you like. Save with: npm run copy:save -- "what you changed"
 
-name: Salesforce H
-nickname: Salesforce plus ministry servers
+name: SaaS CRM H
+nickname: CRM platform plus ministry servers
 tagline: >-
-  Case work and rules on Salesforce. Money, decision records and a backup copy stay with
+  Case work and rules on the CRM platform. Money, decision records and a backup copy stay with
   the ministry.
 summary:
-  - In this option, workers, clients and partners use Salesforce for case work, online
-    portals, notices and the rules that work out what people get. Salesforce is a large
+  - In this option, workers, clients and partners use the CRM platform for case work, online
+    portals, notices and the rules that work out what people get. The CRM platform is a large
     commercial product that runs on the supplier's own computers, not the ministry's.
   - The parts that carry the most risk move to the ministry's own servers. These are the
     payment run, the record of money owed and paid, the evidence, the record of each
     decision, and a live backup copy of the records. The ministry changes those parts on
-    its own calendar, so Salesforce's upgrade dates cannot land in the middle of the
+    its own calendar, so the CRM provider's upgrade dates cannot land in the middle of the
     monthly payment run.
-  - This costs more than putting everything on Salesforce. The team has to build and run
-    the ministry-side parts and join two platforms together. In return, if Salesforce
+  - This costs more than putting everything on the CRM platform. The team has to build and run
+    the ministry-side parts and join two platforms together. In return, if the CRM platform
     ever cut off access, clients could still be paid the same amount as last time. New
-    decisions would wait until Salesforce came back.
+    decisions would wait until the CRM platform came back.
 facts:
-  - label: Salesforce-side effort (likely)
+  - label: CRM-side effort (likely)
     value: >-
       22,185 person-days, in a range of 14,225 to 34,380. About $24M to $38M at the
       architecture's day rates.
   - label: Ministry-side parts
     value: >-
       Not estimated in the research. The money, evidence, decision record and backup
-      parts come on top of the Salesforce figure.
-  - label: Salesforce licences
+      parts come on top of the CRM figure.
+  - label: CRM licences
     value: >-
       Roughly USD 31M to 56M a year at list price for about 9,400 staff, before
-      discount. Portal logins, MuleSoft and add-ons are extra.
+      discount. Portal logins, the integration platform and add-ons are extra.
   - label: Upgrade testing
     value: >-
-      About 90 to 210 person-days a year to test each of Salesforce's three yearly
+      About 90 to 210 person-days a year to test each of the CRM provider's three yearly
       upgrades.
 goodAt:
   - The monthly payment run sits on the ministry's own servers and is changed on the
     ministry's own calendar.
-  - Each decision is copied off Salesforce into a store that shows if anyone changes it
+  - Each decision is copied off the CRM platform into a store that shows if anyone changes it
     later.
-  - If Salesforce cut off access, staff could still view cases, take new applications
+  - If the CRM provider cut off access, staff could still view cases, take new applications
     and repeat last month's payments.
   - The ministry gets a real ledger that balances every payment and checks it against
     the bank every day.
-  - Most day-to-day screens, portals and rules come ready-made with Salesforce, as in
-    the all-Salesforce option.
+  - Most day-to-day screens, portals and rules come ready-made with the CRM platform, as in
+    the all-CRM option.
 watchOut:
-  - If Salesforce cut off access, no new decisions could be made. The rules only run
-    inside Salesforce.
-  - Anything left in Salesforce, including the rules, still gets upgraded on
-    Salesforce's dates, three times a year.
+  - If the CRM provider cut off access, no new decisions could be made. The rules only run
+    inside the CRM platform.
+  - Anything left in the CRM platform, including the rules, still gets upgraded on
+    the CRM provider's dates, three times a year.
   - The ministry-side parts have no cost estimate yet, so the full price is unknown.
   - Two platforms must be joined and kept in step, which adds work and more places for
     things to break.
@@ -70,20 +70,20 @@ zones:
     blurb: >-
       The bank and government finance offices that receive payment files and send back
       what was paid.
-  salesforce:
-    name: Salesforce
+  crm:
+    name: SaaS CRM platform
     blurb: >-
-      The part run by Salesforce on its own computers: the screens, the case work, the
+      The part run by the CRM provider on its own computers: the screens, the case work, the
       rules and the notices.
     groups:
       experience: Experience
       case-work: Case work
-      services-in-salesforce: Services in Salesforce
-  mulesoft:
-    name: MuleSoft, on ministry servers
+      services-in-crm: Services in the CRM platform
+  integration:
+    name: Integration platform, on ministry servers
     blurb: >-
-      Connecting software, bought from Salesforce but run on the ministry's own servers,
-      that carries information between Salesforce and everything else.
+      Connecting software, bought from the CRM provider but run on the ministry's own servers,
+      that carries information between the CRM platform and everything else.
   ministry:
     name: The ministry's own servers
     blurb: >-
@@ -107,7 +107,7 @@ parts:
       protection reporting line. The research counts about 9,400 staff accounts.
     does: >-
       They take applications, check eligibility, plan services, protect children and
-      approve payments. They do almost all of this in Salesforce screens.
+      approve payments. They do almost all of this in CRM screens.
     why: >-
       Staff spend their whole working day in this system. How well it works decides how
       fast clients get help and how much time goes to paperwork.
@@ -152,7 +152,7 @@ parts:
     name: Worker screens
     short: Staff screens, routing and phone line
     what: >-
-      The main screen staff work in, built from Salesforce's standard tools. It includes
+      The main screen staff work in, built from the CRM platform's standard tools. It includes
       work queues and the phone system for the reporting line.
     does: >-
       It shows each worker their cases and tasks, sends new work to the right person and
@@ -160,33 +160,33 @@ parts:
       case.
     why: >-
       A clear console means less time hunting for information and fewer missed tasks.
-      Its look and its upgrade dates are set by Salesforce, not the ministry.
+      Its look and its upgrade dates are set by the CRM provider, not the ministry.
     buildBuy:
       approach: buy
       label: >-
-        Buy: Salesforce licence for each staff member
+        Buy: CRM licence for each staff member
       summary: >-
-        The console comes with Salesforce's public sector product, licensed per staff
+        The console comes with the CRM provider's public sector product, licensed per staff
         member. The phone feature is a separate per-user licence plus phone charges.
       options:
-        - name: Salesforce Public Sector Solutions console
+        - name: Public sector package console
           kind: buy
           note: Included in the per-user licence.
-        - name: Salesforce Service Cloud Voice
+        - name: Phone add-on for the service desk product
           kind: buy
           note: >-
             For reporting-line calls. Extra per-user licence plus phone charges.
     watch:
       tone: gap
       text: >-
-        Salesforce upgrades this three times a year on its own dates. The ministry
+        The CRM provider upgrades this three times a year on its own dates. The ministry
         cannot pause those upgrades.
     procurement: true
   portals:
     name: Online portals
     short: Websites for clients and partners
     what: >-
-      Websites built on Salesforce for clients, representatives, youth, caregivers and
+      Websites built on the CRM platform for clients, representatives, youth, caregivers and
       partner agencies.
     does: >-
       Clients apply, send monthly reports and request supplements. Partners see their
@@ -197,25 +197,25 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Buy: Salesforce Experience Cloud
+        Buy: the CRM portal product
       summary: >-
-        Portals use Salesforce Experience Cloud, licensed per member or per login. The
-        ministry already runs some Salesforce portals today.
+        Portals use the CRM portal product, licensed per member or per login. The
+        ministry already runs some CRM portals today.
       options:
-        - name: Salesforce Experience Cloud
+        - name: CRM portal product
           kind: buy
           note: >-
             Priced per member or per login, on top of staff licences.
     watch:
       tone: gap
       text: >-
-        Portals are on Salesforce's upgrade dates and stop if Salesforce cuts off access.
+        Portals are on the CRM provider's upgrade dates and stop if the CRM provider cuts off access.
     procurement: true
   case-work:
     name: Case work
     short: Applications, case plans, deadlines, approvals
     what: >-
-      The heart of the system, built on Salesforce's public sector product. There is one
+      The heart of the system, built on the CRM provider's public sector product. There is one
       package for each program family, such as adult assistance and child protection.
     does: >-
       It handles intake, case plans, court steps, work lists and legal deadlines. It
@@ -226,13 +226,13 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Buy: Salesforce Public Sector Solutions, then configure
+        Buy: the CRM provider's public sector package, then configure
       summary: >-
-        Salesforce supplies the basic records for benefits, care plans, providers and
+        The CRM provider supplies the basic records for benefits, care plans, providers and
         court steps. The ministry's own law and practice are built on top. The research
         found the same was true of Merative Cúram.
       options:
-        - name: Salesforce Public Sector Solutions
+        - name: CRM public sector package
           kind: buy
           note: >-
             Basic records and workflow. BC-specific work is built on top.
@@ -243,48 +243,48 @@ parts:
     watch:
       tone: limit
       text: >-
-        All programs share one Salesforce setup, so they cannot be changed and released
+        All programs share one CRM setup, so they cannot be changed and released
         fully on their own.
     procurement: true
   rules:
     name: Rules
     short: Works out eligibility and amounts
     what: >-
-      Salesforce's Business Rules Engine. It holds every rule that decides who qualifies
+      The CRM provider's rules engine. It holds every rule that decides who qualifies
       and how much they get, with the date each rule starts.
     does: >-
       It works out eligibility and payment amounts and explains how it got there. Each
-      result, with its inputs and the rule version used, is sent off Salesforce as the
+      result, with its inputs and the rule version used, is sent off the CRM platform as the
       record of the decision.
     why: >-
       Rules decide what people get, so they must be right and traceable. This option
-      keeps them in Salesforce to save building a separate rules system.
+      keeps them in the CRM platform to save building a separate rules system.
     buildBuy:
       approach: platform
       label: >-
-        Platform: part of the Salesforce licence
+        Platform: part of the CRM licence
       summary: >-
-        The rules engine comes with Salesforce's public sector product. Running rules
-        off Salesforce was looked at in an earlier version and dropped, once the
+        The rules engine comes with the CRM provider's public sector product. Running rules
+        off the CRM platform was looked at in an earlier version and dropped, once the
         programme decided a full stored record of each decision is enough evidence.
       options:
-        - name: Salesforce Business Rules Engine
+        - name: CRM rules engine
           kind: buy
           note: >-
-            Included. Monthly usage limit not confirmed by Salesforce.
+            Included. Monthly usage limit not confirmed by the CRM provider.
         - name: Separate rules service on ministry servers
           kind: build
           note: Earlier design, now set aside for this option.
     watch:
       tone: gap
       text: >-
-        If Salesforce cut off access, no new decisions could be made. The rules only run
-        inside Salesforce.
+        If the CRM provider cut off access, no new decisions could be made. The rules only run
+        inside the CRM platform.
   notices:
     name: Notices and documents
     short: Letters, forms and court papers
     what: >-
-      Salesforce's document tool. It fills in letters, notices, forms and court
+      The CRM provider's document tool. It fills in letters, notices, forms and court
       documents from approved templates.
     does: >-
       It produces each notice and keeps the finished copy as the record of what was
@@ -295,29 +295,29 @@ parts:
     buildBuy:
       approach: platform
       label: >-
-        Platform: part of the Salesforce licence
+        Platform: part of the CRM licence
       summary: >-
-        Document creation comes with Salesforce's public sector product. Salesforce does
+        Document creation comes with the CRM provider's public sector product. The CRM provider does
         not sell its own e-signature product, so that would come from another supplier.
       options:
-        - name: Salesforce document generation
+        - name: CRM document generation
           kind: buy
           note: >-
             Included. Reported limit of about 1,000 documents an hour, not confirmed.
         - name: DocuSign
           kind: existing
           note: >-
-            Already used by the ministry with another Salesforce system, for e-signature.
+            Already used by the ministry with another CRM system, for e-signature.
     watch:
       tone: limit
       text: >-
-        Month-end runs may hit Salesforce's hourly document limit. The research could
+        Month-end runs may hit the CRM provider's hourly document limit. The research could
         not confirm that limit.
   platform-services:
     name: Platform services
     short: Security, privacy, backup add-ons
     what: >-
-      Add-ons bought from Salesforce. Shield handles encryption and access monitoring.
+      Add-ons bought from the CRM provider. The security add-on handles encryption and access monitoring.
       Other add-ons handle privacy requests, hiding personal data in test copies, and
       backup.
     does: >-
@@ -325,31 +325,31 @@ parts:
       and apply retention and deletion rules.
     why: >-
       Client and child protection records are among the most sensitive the province
-      holds. These add-ons are how Salesforce protects them and proves who saw them.
+      holds. These add-ons are how the CRM provider protects them and proves who saw them.
     buildBuy:
       approach: buy
       label: >-
-        Buy: Salesforce add-ons
+        Buy: CRM add-ons
       summary: >-
-        Each is a separate Salesforce product. Shield is priced as a share of total
-        Salesforce spend. The others are per-organization add-ons.
+        Each is a separate CRM product. The security add-on is priced as a share of total
+        CRM spend. The others are per-organization add-ons.
       options:
-        - name: Salesforce Shield
+        - name: Security add-on
           kind: buy
           note: Encryption, access monitoring, field history.
-        - name: Salesforce Privacy Center
+        - name: Privacy add-on
           kind: buy
           note: Retention, deletion and privacy requests.
-        - name: Salesforce Data Mask
+        - name: Test data masking add-on
           kind: buy
           note: Hides personal data in test copies.
-        - name: Salesforce Backup and Recover
+        - name: Backup add-on
           kind: buy
           note: Backup and restore.
     watch:
       tone: limit
       text: >-
-        Encryption keys cover the whole Salesforce setup, not one person, so one
+        Encryption keys cover the whole CRM setup, not one person, so one
         person's data cannot be erased by destroying their key.
     procurement: true
   open-host:
@@ -357,32 +357,32 @@ parts:
     short: One agreed way in and out
     what: >-
       A single, published way for other systems to talk to the case system, using the
-      ministry's own words for things. It runs on MuleSoft on ministry servers.
+      ministry's own words for things. It runs on the integration platform on ministry servers.
     does: >-
-      It brings decision records, evidence and payment requests out of Salesforce to the
+      It brings decision records, evidence and payment requests out of the CRM platform to the
       ministry-side parts. It sends payment status back in.
     why: >-
-      Other systems connect to this front door, not to Salesforce's inner workings. That
+      Other systems connect to this front door, not to the CRM platform's inner workings. That
       makes it easier to change or replace parts later.
     buildBuy:
       approach: buy
       label: >-
-        Buy: MuleSoft, run on ministry servers
+        Buy: the integration platform, run on ministry servers
       summary: >-
-        MuleSoft is Salesforce's own connecting software. Here it runs on the ministry's
-        servers rather than Salesforce's. Licences are priced by computing capacity or
+        The integration platform is the CRM provider's own connecting software. Here it runs on the ministry's
+        servers rather than the CRM provider's. Licences are priced by computing capacity or
         by connection.
       options:
-        - name: MuleSoft Anypoint Platform
+        - name: Integration platform
           kind: buy
           note: >-
             Run on ministry servers, with the gateway managed by the ministry.
     procurement: true
   change-relay:
     name: Change feed
-    short: Sends every Salesforce change out
+    short: Sends every CRM change out
     what: >-
-      A feed that notices each change to records in Salesforce and passes it on.
+      A feed that notices each change to records in the CRM platform and passes it on.
     does: >-
       It passes changes to the event stream on ministry servers. From there they reach
       the backup copy and the analysis store.
@@ -392,30 +392,30 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Buy: Salesforce add-on, carried by MuleSoft
+        Buy: CRM add-on, carried by the integration platform
       summary: >-
-        Salesforce sells a change-feed add-on with higher limits, priced by use.
-        MuleSoft carries the changes to the ministry's servers.
+        The CRM provider sells a change-feed add-on with higher limits, priced by use.
+        The integration platform carries the changes to the ministry's servers.
       options:
         - name: >-
-            Salesforce Platform Events and Change Data Capture add-on
+            CRM platform events and change data capture add-on
           kind: buy
           note: >-
             Default limit is 50,000 delivered events a day; more can be bought.
-        - name: MuleSoft
+        - name: Integration platform
           kind: buy
           note: Carries the feed to ministry servers.
     watch:
       tone: limit
       text: >-
-        Salesforce keeps changes for only 72 hours. A long weekend outage of the feed
+        The CRM platform keeps changes for only 72 hours. A long weekend outage of the feed
         could lose changes.
     procurement: true
   secure-exchange:
     name: Secure data exchange
     short: Logged sharing with other ministries
     what: >-
-      The connection to the province's secure data exchange service, run on MuleSoft on
+      The connection to the province's secure data exchange service, run on the integration platform on
       ministry servers.
     does: >-
       It sends and receives information with other ministries and keeps a chained log of
@@ -426,14 +426,14 @@ parts:
     buildBuy:
       approach: platform
       label: >-
-        Platform: built on the MuleSoft licence
+        Platform: built on the integration platform licence
       summary: >-
-        Salesforce cannot hold this itself, so MuleSoft acts as the client to the
-        province's exchange. The logging is a custom add-on to MuleSoft.
+        The CRM platform cannot hold this itself, so the integration platform acts as the client to the
+        province's exchange. The logging is a custom add-on to the integration platform.
       options:
-        - name: MuleSoft with a custom logging policy
+        - name: Integration platform with a custom logging policy
           kind: buy
-          note: Uses the MuleSoft licence already needed.
+          note: Uses the integration platform licence already needed.
   financial-components:
     name: Financial components
     short: Debts, recovery and payment amounts
@@ -474,8 +474,7 @@ parts:
     watch:
       tone: fixed
       text: >-
-        Overpayments and debts are kept off Salesforce, out of reach of Salesforce
-        administrators and its upgrade dates.
+        Overpayments and debts are kept off the CRM platform, out of reach of CRM administrators and its upgrade dates.
   ledger:
     name: Ledger
     short: The money record, balanced every day
@@ -522,7 +521,7 @@ parts:
     watch:
       tone: fixed
       text: >-
-        On all-Salesforce there is no true ledger. Here every entry balances and is
+        On all-CRM there is no true ledger. Here every entry balances and is
         checked against the bank daily.
   payments:
     name: Payments and benefit issuance
@@ -535,7 +534,7 @@ parts:
       government accounts. It records what was paid, returned or rejected.
     why: >-
       Clients count on money arriving on the same day each month. Running it on the
-      ministry's servers means a Salesforce upgrade cannot land in the middle of a
+      ministry's servers means a CRM upgrade cannot land in the middle of a
       payment run.
     buildBuy:
       approach: build
@@ -569,7 +568,7 @@ parts:
       tone: fixed
       text: >-
         The payment run is released on the ministry's own calendar, so it can be frozen
-        around payment day. All-Salesforce cannot do this.
+        around payment day. All-CRM cannot do this.
   decision-store:
     name: Decision record store
     short: Locked record of every decision
@@ -578,11 +577,11 @@ parts:
       are linked in a chain, so any later change shows.
     does: >-
       It receives each decision's inputs, the rules version used, the step-by-step
-      working and the outcome from Salesforce. It keeps them for as long as the law
+      working and the outcome from the CRM platform. It keeps them for as long as the law
       requires.
     why: >-
       When a client asks for a review or appeals, this record shows exactly what was
-      decided and why. Nobody, including Salesforce staff, can quietly change it.
+      decided and why. Nobody, including CRM provider staff, can quietly change it.
     buildBuy:
       approach: build
       label: >-
@@ -596,15 +595,15 @@ parts:
         - name: Build
           kind: build
           note: Already part of the target design.
-        - name: Keep the record inside Salesforce
+        - name: Keep the record inside the CRM platform
           kind: buy
           note: >-
-            The all-Salesforce way. Administrators could change it.
+            The all-CRM way. Administrators could change it.
     watch:
       tone: fixed
       text: >-
-        Decision records are kept off Salesforce in a chain that shows any change. On
-        all-Salesforce, administrators could edit them.
+        Decision records are kept off the CRM platform in a chain that shows any change. On
+        all-CRM, administrators could edit them.
   rules-archive:
     name: Rules snapshot archive
     short: A copy of every rules version
@@ -616,13 +615,13 @@ parts:
       rules it used.
     why: >-
       Years later, anyone can see the exact rule that applied to a client's decision. It
-      does not matter whether Salesforce still has it.
+      does not matter whether the CRM platform still has it.
     buildBuy:
       approach: build
       label: >-
         Build: on the ministry's own servers
       summary: >-
-        The rules are exported from Salesforce when each version is switched on and
+        The rules are exported from the CRM platform when each version is switched on and
         stored here. This is new work for this option.
       options:
         - name: Build
@@ -632,26 +631,26 @@ parts:
     watch:
       tone: limit
       text: >-
-        The copies are evidence only. They cannot run outside Salesforce to make new
+        The copies are evidence only. They cannot run outside the CRM platform to make new
         decisions.
   drift-check:
     name: Drift check
     short: Catches rules changed in place
     what: >-
-      A scheduled check that compares the live rules in Salesforce with the archived
+      A scheduled check that compares the live rules in the CRM platform with the archived
       copies.
     does: >-
       If they differ, it raises an alarm and lists every decision made since the last
       clean check.
     why: >-
-      A Salesforce administrator could switch off a rules version, edit it and switch it
+      A CRM administrator could switch off a rules version, edit it and switch it
       back on. This check is how the ministry would find out.
     buildBuy:
       approach: build
       label: >-
         Build: a scheduled check
       summary: >-
-        Salesforce does not offer this check, so the team builds it with the rules
+        The CRM provider does not offer this check, so the team builds it with the rules
         archive.
       options:
         - name: Build
@@ -686,14 +685,14 @@ parts:
         - name: Build on Apache Kafka
           kind: build
           note: Recommended direction.
-        - name: Evidence kept in Salesforce
+        - name: Evidence kept in the CRM platform
           kind: buy
           note: >-
-            The all-Salesforce way: dated records that can be edited.
+            The all-CRM way: dated records that can be edited.
     watch:
       tone: fixed
       text: >-
-        Facts are kept off Salesforce as a permanent history. On all-Salesforce they are
+        Facts are kept off the CRM platform as a permanent history. On all-CRM they are
         editable records with partial history.
   kafka:
     name: Event stream (Kafka)
@@ -703,10 +702,10 @@ parts:
       or decision goes on in order and stays there for as long as needed. A registry
       checks every message has the agreed shape.
     does: >-
-      It carries changes from Salesforce to the evidence store, backup copy and analysis
+      It carries changes from the CRM platform to the evidence store, backup copy and analysis
       store. Any part can replay past messages to rebuild its records.
     why: >-
-      Salesforce's own messages vanish after 72 hours. This stream keeps them, so a part
+      The CRM platform's own messages vanish after 72 hours. This stream keeps them, so a part
       that falls behind can catch up without losing anything.
     buildBuy:
       approach: open-source
@@ -728,23 +727,23 @@ parts:
         - name: Confluent or Redpanda
           kind: buy
           note: Not recommended because of licence terms.
-        - name: Salesforce event bus
+        - name: CRM event bus
           kind: buy
           note: Keeps messages only 72 hours.
     watch:
       tone: fixed
       text: >-
-        Changes can be replayed long after 72 hours, in order. All-Salesforce cannot do
+        Changes can be replayed long after 72 hours, in order. All-CRM cannot do
         this.
   continuity-copy:
     name: Continuity copy
     short: Live backup of the records
     what: >-
       A copy of the case records kept on ministry servers. It is updated all the time
-      while Salesforce is running.
+      while the CRM platform is running.
     does: >-
       It keeps the records current, so the fallback applications can run from it if
-      Salesforce is cut off.
+      the CRM platform is cut off.
     why: >-
       If the supplier ever cut off access, the ministry would still have its records. A
       nightly export would not be current enough.
@@ -754,7 +753,7 @@ parts:
         Build: on the ministry's own servers
       summary: >-
         The ministry requires a live, on-premise copy for any core product run by a
-        supplier. Salesforce's change feed fills it. The copy itself is built and run by
+        supplier. The CRM platform's change feed fills it. The copy itself is built and run by
         the ministry.
       options:
         - name: Build, fed by the change feed
@@ -764,14 +763,14 @@ parts:
         - name: Scheduled export
           kind: buy
           note: >-
-            The all-Salesforce way. Older data, not a live copy.
+            The all-CRM way. Older data, not a live copy.
     watch:
       tone: fixed
       text: >-
-        The records stay current on ministry servers if Salesforce is cut off.
+        The records stay current on ministry servers if the CRM platform is cut off.
   fallback-apps:
     name: Fallback applications
-    short: Keep going if Salesforce is cut off
+    short: Keep going if the CRM platform is cut off
     what: >-
       Small applications on ministry servers that run from the continuity copy.
     does: >-
@@ -779,7 +778,7 @@ parts:
       repeats last month's amounts through the same ledger checks.
     why: >-
       Clients would still be paid if the supplier cut off access. They would get the
-      same amount as last time until Salesforce came back.
+      same amount as last time until the CRM platform came back.
     buildBuy:
       approach: build
       label: >-
@@ -794,11 +793,11 @@ parts:
         - name: Manual emergency payments
           kind: existing
           note: >-
-            The all-Salesforce way, carried over from today's plan.
+            The all-CRM way, carried over from today's plan.
     watch:
       tone: fixed
       text: >-
-        Payments can repeat last month's amounts if Salesforce is cut off. New decisions
+        Payments can repeat last month's amounts if the CRM platform is cut off. New decisions
         and changes in amount would wait.
   lakehouse:
     name: Analysis store
@@ -818,23 +817,22 @@ parts:
       A simple intake path on ministry servers for the 24-hour child protection
       reporting line.
     does: >-
-      It lets staff record reports of a child at risk when Salesforce is down for
+      It lets staff record reports of a child at risk when the CRM platform is down for
       maintenance or cut off. The reports are added to the case later with their true
       times.
     why: >-
-      The director must receive and assess every report, day or night. Salesforce
-      maintenance often falls at nights and weekends, when these lines are busiest.
+      The director must receive and assess every report, day or night. CRM maintenance often falls at nights and weekends, when these lines are busiest.
     buildBuy:
       approach: build
       label: >-
         Build: on the ministry's own servers
       summary: >-
-        Salesforce cannot exempt one part of the system from its maintenance. A small
+        The CRM provider cannot exempt one part of the system from its maintenance. A small
         separate path is built instead.
       options:
         - name: Build
           kind: build
-          note: A small intake path off Salesforce.
+          note: A small intake path off the CRM platform.
         - name: Paper or offline capture
           kind: existing
           note: Back-entered later.
@@ -842,7 +840,7 @@ parts:
       tone: limit
       text: >-
         Only a basic intake path. The full reporting-line screens still follow
-        Salesforce's maintenance dates.
+        the CRM provider's maintenance dates.
   government:
     name: Government and justice partners
     short: Canada Revenue Agency, courts, police and others
@@ -851,7 +849,7 @@ parts:
       Statistics, Pacific Blue Cross and Indigenous authorities.
     does: >-
       They send and receive information, such as income checks and court orders, through
-      MuleSoft.
+      the integration platform.
     why: >-
       Many decisions rely on facts from these partners. Getting the information quickly
       and safely means fewer delays and fewer errors for clients.

@@ -123,7 +123,7 @@ parts:
           note: >-
             Used behind the ministry's own library. Still early, about 20 to 30 parts.
         - name: >-
-            Case platform screens (Salesforce, Dynamics 365, Pega, Appian)
+            Case platform screens (a SaaS CRM, Dynamics 365, Pega, Appian)
           kind: buy
           note: >-
             Not recommended. High licence cost for a small part of the product.
@@ -354,7 +354,7 @@ parts:
       label: Build (assemble on the shared parts)
       summary: >-
         The research recommends building the five program areas and not buying a case
-        platform to hold the record. Platforms like Salesforce, Dynamics 365, Pega and
+        platform to hold the record. Platforms like a SaaS CRM, Dynamics 365, Pega and
         Appian keep only the current state of a case, not the full history of facts, and
         published licence prices for about 9,400 staff run from about CAD 49 to 164
         million over three years before setup. An independent check later found Merative
@@ -368,7 +368,7 @@ parts:
           note: >-
             Meets the legal needs on current documents, but is one shared case model. A
             demonstration has been suggested.
-        - name: Salesforce, Dynamics 365, Pega, Appian
+        - name: A SaaS CRM, Dynamics 365, Pega, Appian
           kind: buy
           note: >-
             Not recommended as the record. Keep current state, not history.

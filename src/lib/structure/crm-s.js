@@ -1,14 +1,14 @@
-// Diagram structure for Salesforce S: where each zone sits and which parts it holds.
-// The words live in ../content/salesforce-s.yaml.
+// Diagram structure for SaaS CRM S: where each zone sits and which parts it holds.
+// The words live in ../content/crm-s.yaml.
 export default {
   "id": "s",
-  "slug": "salesforce-s",
+  "slug": "crm-s",
   "hue": "river",
   "layout": {
     "columns": "2.2fr 1fr 1fr",
     "areas": [
       "\"people people .\"",
-      "\"salesforce mulesoft counterparties\"",
+      "\"crm integration counterparties\"",
       "\"ministry ministry ministry\""
     ]
   },
@@ -29,8 +29,8 @@ export default {
       ]
     },
     {
-      "id": "salesforce",
-      "tone": "salesforce",
+      "id": "crm",
+      "tone": "crm",
       "shape": "box",
       "groups": [
         {
@@ -66,8 +66,8 @@ export default {
       ]
     },
     {
-      "id": "mulesoft",
-      "tone": "mulesoft",
+      "id": "integration",
+      "tone": "integration",
       "shape": "box",
       "groups": [
         {

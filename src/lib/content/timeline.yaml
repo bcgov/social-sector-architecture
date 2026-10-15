@@ -8,8 +8,7 @@ team:
   - role: Developers
     count: 6 to 9
     focus: >-
-      Build, test and release the system. On the Salesforce plans they need Salesforce
-      and MuleSoft skills. On the event-driven plan they need skills in the open-source
+      Build, test and release the system. On the SaaS CRM plans they need CRM and integration platform skills. On the event-driven plan they need skills in the open-source
       parts and in recording facts with their dates.
   - role: UX designers
     count: 1 to 2
@@ -34,23 +33,23 @@ team:
 plans:
   s:
     summary: >-
-      A planning sketch, not a commitment. Everything moves onto Salesforce and runs the
+      A planning sketch, not a commitment. Everything moves onto the CRM platform and runs the
       way ICM (today's case system) runs now. The first 7 months go to design work while
-      Salesforce and MuleSoft licences are bought, because almost nothing can be built
+      CRM and integration platform licences are bought, because almost nothing can be built
       without them. After that, a release goes out every 3 months, one program at a
       time, from the smallest programs to child protection.
     firstValueMonth: 13
     totalMonths: 100
     realism: >-
-      The research puts the Salesforce build at 19,385 person-days, its likely figure.
+      The research puts the CRM build at 19,385 person-days, its likely figure.
       This team can do about 2,640 person-days a year. 19,385 divided by 2,640 is 7.3
       years of build. Once the first release is live, the team must also retest the
-      system before each of Salesforce's three upgrades a year, about 135 person-days a
+      system before each of the CRM provider's three upgrades a year, about 135 person-days a
       year. That adds about 4 months. With the 7-month wait for licences, the plan runs
       about 100 months, a little over 8 years. With 10 people it is closer to 10 years;
       with 14, about 7. The research's own range, 12,475 to 29,940 person-days, means
       anywhere from about 4 to 14 years of build. The estimate also leaves out project
-      management, training, running ICM and Salesforce side by side, and contingency, so
+      management, training, running ICM and CRM side by side, and contingency, so
       the real time will be longer. Two teams of this size could bring the whole plan
       down to roughly 4 and a half years, if the work splits cleanly between them. It
       rarely splits perfectly.
@@ -61,31 +60,31 @@ plans:
       - "We count the whole team of 12 as delivery capacity: 12 people times 220 working
         days is 2,640 person-days a year. That is generous, because the director and
         product manager will not build software."
-      - Effort comes from the Salesforce research (19,385 person-days likely). It
-        assumes a mixed team of Salesforce specialists, MuleSoft and data engineers, and
-        testers. This team has no dedicated testers or MuleSoft engineers, so developers
+      - Effort comes from the SaaS CRM research (19,385 person-days likely). It
+        assumes a mixed team of CRM specialists, integration and data engineers, and
+        testers. This team has no dedicated testers or integration engineers, so developers
         cover that work or the team hires for it.
       - The 7 months before building starts are spent on discovery, service design and a
-        prototype on Salesforce's free trial systems, using made-up data only. That
+        prototype on the CRM provider's free trial systems, using made-up data only. That
         design work is not counted in the build estimate.
-      - The ministry already runs Salesforce for its contract management system and some
+      - The ministry already runs the CRM platform for its contract management system and some
         portals. Buying through that relationship might shorten the 7-month licence
-        wait. Whether the new system shares that Salesforce setup or has its own is
+        wait. Whether the new system shares that CRM setup or has its own is
         still an open question.
       - Licences for about 9,400 staff are listed at roughly 31 to 56 million US dollars
         a year before discounts. We assume they can be bought in steps as each program
-        moves. Salesforce has not been asked.
+        moves. The CRM provider has not been asked.
       - "The order of programs follows the target architecture's rule: smallest set of
         rules and lowest harm first, employment assistance late, child protection last."
-      - Before any program's decisions go live, Salesforce's answers are checked against
+      - Before any program's decisions go live, the CRM provider's answers are checked against
         ICM's for three monthly cycles, as the research assumes.
       - Payment work assumes the Comptroller General's office accepts a new ministry
         payment system. Provincial policy requires that, and nobody has asked yet. The
         bank's file format is also not confirmed.
-      - Salesforce's limit on how often its rules engine can be called each month is not
+      - The CRM provider's limit on how often its rules engine can be called each month is not
         confirmed. A low limit could slow the side-by-side checks.
       - Child protection estimates have not had a second reader, so they may grow.
-      - Moving onto Salesforce needs written exceptions to four requirements, including
+      - Moving onto the CRM platform needs written exceptions to four requirements, including
         keeping payments going if the supplier cuts off access. This plan assumes those
         are approved before building starts.
     phases:
@@ -100,18 +99,18 @@ plans:
         releases: []
         blockedBy: []
       - id: s-found
-        name: Set up Salesforce and the link to ICM
+        name: Set up the CRM platform and the link to ICM
         start: 7
         end: 14
         lane: foundation
         goal: >-
-          Set up Salesforce, its security and access rules, and the MuleSoft link that
+          Set up the CRM platform, its security and access rules, and the integration platform link that
           reads from and writes to ICM.
         releases: []
         blockedBy:
-          - sf-core
-          - sf-protect
-          - mulesoft
+          - crm-core
+          - crm-protect
+          - integration
       - id: s-view
         name: >-
           First release: a better worker view
@@ -134,9 +133,9 @@ plans:
             what: >-
               The same search and summary, with fixes from the pilot.
         blockedBy:
-          - sf-core
-          - sf-protect
-          - mulesoft
+          - crm-core
+          - crm-protect
+          - integration
       - id: s-small
         name: Two smaller programs first
         start: 15
@@ -157,7 +156,7 @@ plans:
             name: Decisions and letters
             who: Child care subsidy workers
             what: >-
-              Eligibility is worked out by rules kept in Salesforce, and the letter is
+              Eligibility is worked out by rules kept in the CRM platform, and the letter is
               made from the decision.
           - month: 25
             name: Existing cases move
@@ -170,7 +169,7 @@ plans:
             who: >-
               Employment services workers and service providers
             what: >-
-              Referrals and plans are made in Salesforce. Providers use a partner
+              Referrals and plans are made in the CRM platform. Providers use a partner
               website.
           - month: 31
             name: Employment services cases move
@@ -182,43 +181,43 @@ plans:
               Clients asking for a review, and the staff who handle it
             what: >-
               Requests to review a decision, and their legal deadlines, are handled in
-              Salesforce for both programs.
+              the CRM platform for both programs.
         blockedBy:
-          - sf-core
-          - mulesoft
+          - crm-core
+          - integration
           - esign
           - scan-redact
-          - sf-analytics
+          - crm-analytics
       - id: s-pay
         name: Payments and overpayments
         start: 33
         end: 48
         lane: release
         goal: >-
-          Pay clients of the moved programs from Salesforce, with files sent to the
-          bank, BC Mail Plus and the government's accounting system through MuleSoft.
+          Pay clients of the moved programs from the CRM platform, with files sent to the
+          bank, BC Mail Plus and the government's accounting system through the integration platform.
         releases:
           - month: 40
             name: Side-by-side payment run
             who: Finance staff
             what: >-
-              Salesforce works out each payment while the old system still pays. Staff
-              compare the two each month. No money moves from Salesforce yet.
+              The CRM platform works out each payment while the old system still pays. Staff
+              compare the two each month. No money moves from the CRM platform yet.
           - month: 43
             name: First live payment run
             who: >-
               Child care subsidy and employment services clients
             what: >-
-              Payments for these two programs are issued from Salesforce.
+              Payments for these two programs are issued from the CRM platform.
           - month: 46
             name: Overpayments and debts
             who: Finance and recovery staff
             what: >-
-              Overpayments and repayments are recorded in Salesforce. They are no longer
+              Overpayments and repayments are recorded in the CRM platform. They are no longer
               printed, scanned and typed into another system.
         blockedBy:
-          - sf-core
-          - mulesoft
+          - crm-core
+          - integration
       - id: s-adult
         name: Disability assistance and employment assistance
         start: 46
@@ -242,7 +241,7 @@ plans:
             name: Side-by-side decisions
             who: Program staff
             what: >-
-              Salesforce works out entitlement for real cases next to ICM for three
+              The CRM platform works out entitlement for real cases next to ICM for three
               monthly cycles. Every difference is explained before anyone relies on the
               new answer.
           - month: 61
@@ -250,7 +249,7 @@ plans:
             who: Clients and workers in one region
             what: >-
               Cases, decisions, letters and payments for both programs move to
-              Salesforce together, because the disability decision sets the rate
+              the CRM platform together, because the disability decision sets the rate
               employment assistance pays.
           - month: 64
             name: Two more regions
@@ -272,8 +271,8 @@ plans:
             what: >-
               ICM screens and links for these programs are turned off.
         blockedBy:
-          - sf-core
-          - mulesoft
+          - crm-core
+          - integration
       - id: s-cp
         name: Child protection
         start: 68
@@ -288,18 +287,18 @@ plans:
             who: >-
               Foster caregivers, service providers and the workers who support them
             what: >-
-              Caregiver and provider records and licensing move to Salesforce, with a
+              Caregiver and provider records and licensing move to the CRM platform, with a
               partner website.
           - month: 77
             name: Family plans and agreements
             who: Child protection workers
             what: >-
-              Care plans and agreements with families are made and tracked in Salesforce.
+              Care plans and agreements with families are made and tracked in the CRM platform.
           - month: 80
             name: Court documents
             who: Child protection workers who go to court
             what: >-
-              Court proceedings and orders are tracked in Salesforce. About 150 forms
+              Court proceedings and orders are tracked in the CRM platform. About 150 forms
               and letters are made there.
           - month: 83
             name: Visits on mobile
@@ -311,17 +310,17 @@ plans:
             who: The 24/7 reporting line and intake workers
             what: >-
               Calls about a child's safety go straight into the case. A backup way to
-              record reports is used during Salesforce's maintenance windows.
+              record reports is used during the CRM provider's maintenance windows.
           - month: 89
             name: Investigations
             who: Child protection workers
             what: >-
-              Investigations and safety assessments are done in Salesforce.
+              Investigations and safety assessments are done in the CRM platform.
           - month: 92
             name: Adoption
             who: Adoption workers
             what: >-
-              Adoption records move to Salesforce. This is the largest single piece of
+              Adoption records move to the CRM platform. This is the largest single piece of
               child protection work.
           - month: 95
             name: Remaining cases move
@@ -329,9 +328,9 @@ plans:
             what: >-
               The rest of the open child protection cases move from ICM in groups.
         blockedBy:
-          - sf-core
-          - mulesoft
-          - sf-field
+          - crm-core
+          - integration
+          - crm-field
           - scan-redact
       - id: s-migrate
         name: Move the remaining history
@@ -346,12 +345,12 @@ plans:
             name: History check complete
             who: Records staff and auditors
             what: >-
-              Every old record is in Salesforce or in a checked archive, with its
+              Every old record is in the CRM platform or in a checked archive, with its
               original dates.
         blockedBy:
-          - sf-core
-          - sf-protect
-          - mulesoft
+          - crm-core
+          - crm-protect
+          - integration
       - id: s-retire
         name: Switch off ICM
         start: 96
@@ -368,12 +367,11 @@ plans:
               ICM is turned off. Its licence, support and servers stop costing money.
         blockedBy: []
     procurement:
-      - id: sf-core
+      - id: crm-core
         item: >-
-          Salesforce licences: the platform, Public Sector Solutions, the portal add-on
-          (Experience Cloud) and 24/7 support
+          CRM licences: the platform, the public sector package, the portal add-on and 24/7 support
         why: >-
-          Every Salesforce screen, form and record runs on these, for about 9,400 staff
+          Every CRM screen, form and record runs on these, for about 9,400 staff
           accounts. Published list prices come to roughly 31 to 56 million US dollars a
           year before discounts.
         leadMonths: 7
@@ -386,9 +384,9 @@ plans:
           - s-cp
           - s-migrate
         startBy: Month 0, the day the project starts
-      - id: sf-protect
+      - id: crm-protect
         item: >-
-          Salesforce Shield, Privacy Center, Data Mask, Backup and Recover, extra
+          Security, privacy, test data masking and backup add-ons, extra
           storage and test copies (sandboxes)
         why: >-
           Needed before any real client data goes in. They give encryption, access
@@ -400,12 +398,12 @@ plans:
           - s-view
           - s-migrate
         startBy: Month 0, with the main licences
-      - id: mulesoft
+      - id: integration
         item: >-
-          MuleSoft Anypoint Platform, run on the ministry's own servers, with its
+          The CRM provider's integration platform, run on the ministry's own servers, with its
           connector for ICM's Siebel product
         why: >-
-          MuleSoft is Salesforce's tool for linking systems. It links Salesforce to ICM
+          The integration platform is the CRM provider's tool for linking systems. It links the CRM platform to ICM
           while both run, and to the bank, Treasury, BC Mail Plus, the Canada Revenue
           Agency, courts and others.
         leadMonths: 7
@@ -418,9 +416,9 @@ plans:
           - s-cp
           - s-migrate
         startBy: Month 0, the day the project starts
-      - id: sf-analytics
+      - id: crm-analytics
         item: >-
-          Reporting tools: CRM Analytics or Tableau
+          Reporting tools: the CRM provider's analytics tools
         why: >-
           Dashboards for workers and managers, and reports that replace today's data
           warehouse feeds as each program moves.
@@ -431,7 +429,7 @@ plans:
       - id: esign
         item: Electronic signature service
         why: >-
-          Salesforce does not sell one. The ministry already uses DocuSign with its
+          The CRM provider does not sell one. The ministry already uses DocuSign with its
           contract management system, so extending that contract may be quicker.
         leadMonths: 4
         blocks:
@@ -442,17 +440,17 @@ plans:
           Virus scanning for uploaded files and a document redaction tool, on the
           ministry's own servers
         why: >-
-          Salesforce has no built-in scanning of uploads, and no tool for blacking out
+          The CRM platform has no built-in scanning of uploads, and no tool for blacking out
           parts of a record before it is released.
         leadMonths: 5
         blocks:
           - s-small
           - s-cp
         startBy: By month 9
-      - id: sf-field
-        item: Salesforce Field Service and Service Cloud Voice
+      - id: crm-field
+        item: Field service and phone add-ons
         why: >-
-          Field Service lets child protection workers record visits on a phone or
+          The field service add-on lets child protection workers record visits on a phone or
           tablet, even offline. Voice connects calls to the 24/7 reporting line to the
           case.
         leadMonths: 6
@@ -461,20 +459,20 @@ plans:
         startBy: By month 62
   h:
     summary: >-
-      A planning sketch, not a commitment. Case work and rules move onto Salesforce.
+      A planning sketch, not a commitment. Case work and rules move onto the CRM platform.
       Money, evidence, decision records, the event stream and a backup copy of the
       records stay on the ministry's own servers. The ministry-side parts need no
-      Salesforce licence, so the team starts building them during the licence wait.
+      CRM licence, so the team starts building them during the licence wait.
       Releases then go out every 3 months, one program at a time, as in the
-      all-Salesforce plan.
+      all-CRM plan.
     firstValueMonth: 13
     totalMonths: 120
     realism: >-
-      The research puts the Salesforce side at 22,185 person-days, its likely figure. It
+      The research puts the CRM side at 22,185 person-days, its likely figure. It
       does not estimate the parts on the ministry's own servers. Other research gives a
       rough floor for some of them: event stream and evidence store 1,040, payment run
       800, ledger 240, and matching accounts with the bank 200. That makes 2,280, and
-      the total at least 24,465. Retesting before Salesforce's three upgrades a year
+      the total at least 24,465. Retesting before the CRM provider's three upgrades a year
       adds about 1,200 over 9 years. At 2,640 person-days a year, that is 9.7 years of
       work. About 750 person-days get done during the licence wait, so the plan runs
       about 120 months, or 10 years. It is still missing the decision record store, the
@@ -489,7 +487,7 @@ plans:
       - "We count the whole team of 12 as delivery capacity: 12 people times 220 working
         days is 2,640 person-days a year. That is generous, because the director and
         product manager will not build software."
-      - Salesforce-side effort comes from the Salesforce research (22,185 person-days
+      - CRM-side effort comes from the SaaS CRM research (22,185 person-days
         likely). The ministry-side floor comes from rough rules of thumb in the
         technology and payments research. Those researchers call their figures a floor.
       - In months 2 to 7, part of the team builds the ministry-side parts (about 750
@@ -497,13 +495,13 @@ plans:
       - The ministry-side parts run on the government's own private cloud. That is an
         existing service, not a purchase. The event stream software is free, but who
         supports it on that platform is not confirmed in writing.
-      - The ministry already runs Salesforce for its contract management system and some
+      - The ministry already runs the CRM platform for its contract management system and some
         portals. Buying through that relationship might shorten the 7-month licence
         wait.
       - Licences for about 9,400 staff are listed at roughly 31 to 56 million US dollars
-        a year before discounts. We assume they can be bought in steps. Salesforce has
+        a year before discounts. We assume they can be bought in steps. The CRM provider has
         not been asked.
-      - The backup copy only needs to repeat last month's payments if Salesforce cuts
+      - The backup copy only needs to repeat last month's payments if the CRM provider cuts
         off access. No business area has asked for more. If more services must keep
         running, this plan grows.
       - Payment work assumes the Comptroller General's office accepts a new ministry
@@ -511,7 +509,7 @@ plans:
         not confirmed.
       - "The order of programs follows the target architecture: smallest set of rules
         and lowest harm first, employment assistance late, child protection last."
-      - Salesforce's monthly limit on rules engine calls is not confirmed. A low limit
+      - The CRM provider's monthly limit on rules engine calls is not confirmed. A low limit
         could slow the side-by-side checks.
       - Child protection estimates have not had a second reader, so they may grow.
     phases:
@@ -531,24 +529,23 @@ plans:
         end: 20
         lane: foundation
         goal: >-
-          Build the parts that live on the ministry's own servers and need no Salesforce
-          licence: the event stream, the evidence store, the decision record store and
+          Build the parts that live on the ministry's own servers and need no CRM licence: the event stream, the evidence store, the decision record store and
           the ledger.
         releases: []
         blockedBy: []
       - id: h-found
-        name: Set up Salesforce and the links
+        name: Set up the CRM platform and the links
         start: 7
         end: 15
         lane: foundation
         goal: >-
-          Set up Salesforce, its security and access rules, and MuleSoft links to ICM
+          Set up the CRM platform, its security and access rules, and the integration platform links to ICM
           and to the ministry-side parts.
         releases: []
         blockedBy:
-          - sf-core
-          - sf-protect
-          - mulesoft
+          - crm-core
+          - crm-protect
+          - integration
       - id: h-view
         name: >-
           First release: a better worker view
@@ -571,9 +568,9 @@ plans:
             what: >-
               The same search and summary, with fixes from the pilot.
         blockedBy:
-          - sf-core
-          - sf-protect
-          - mulesoft
+          - crm-core
+          - crm-protect
+          - integration
       - id: h-small
         name: Two smaller programs first
         start: 16
@@ -594,7 +591,7 @@ plans:
             name: Decisions and letters
             who: Child care subsidy workers
             what: >-
-              Rules in Salesforce work out eligibility. A full record of each decision,
+              Rules in the CRM platform work out eligibility. A full record of each decision,
               its facts and its rules is kept on the ministry's servers.
           - month: 26
             name: Existing cases move
@@ -607,7 +604,7 @@ plans:
             who: >-
               Employment services workers and service providers
             what: >-
-              Referrals and plans are made in Salesforce. Providers use a partner
+              Referrals and plans are made in the CRM platform. Providers use a partner
               website.
           - month: 32
             name: Employment services cases move
@@ -619,20 +616,20 @@ plans:
               Clients asking for a review, and the staff who handle it
             what: >-
               Requests to review a decision, and their legal deadlines, are handled in
-              Salesforce for both programs.
+              the CRM platform for both programs.
           - month: 38
             name: Decision record check
             who: Program staff and auditors
             what: >-
               Staff can pull the full record of any decision made so far, and a regular
-              check confirms the rules in Salesforce still match the saved copies.
+              check confirms the rules in the CRM platform still match the saved copies.
         blockedBy:
-          - sf-core
-          - mulesoft
+          - crm-core
+          - integration
           - kafka-support
           - esign
           - scan-redact
-          - sf-analytics
+          - crm-analytics
       - id: h-pay
         name: Payments on the ministry's own servers
         start: 36
@@ -654,7 +651,7 @@ plans:
               Child care subsidy and employment services clients
             what: >-
               Payments for these two programs come from the ministry's own payment run.
-              Salesforce upgrades cannot interrupt it.
+              CRM upgrades cannot interrupt it.
           - month: 50
             name: Daily matching
             who: Finance staff
@@ -665,7 +662,7 @@ plans:
             name: Cut-off rehearsal
             who: Finance and operations staff
             what: >-
-              With Salesforce switched off in a test, the backup copy repeats last
+              With the CRM platform switched off in a test, the backup copy repeats last
               month's payments through the same controls.
           - month: 56
             name: Overpayments and debts
@@ -674,7 +671,7 @@ plans:
               Overpayments and repayments are recorded with their history and posted to
               the ledger.
         blockedBy:
-          - mulesoft
+          - integration
           - recon
       - id: h-adult
         name: Disability assistance and employment assistance
@@ -699,14 +696,14 @@ plans:
             name: Side-by-side decisions
             who: Program staff
             what: >-
-              Salesforce works out entitlement for real cases next to ICM for three
+              The CRM platform works out entitlement for real cases next to ICM for three
               monthly cycles. Every difference is explained before anyone relies on the
               new answer.
           - month: 69
             name: First region moves
             who: Clients and workers in one region
             what: >-
-              Cases and decisions move to Salesforce and payments move to the ministry's
+              Cases and decisions move to the CRM platform and payments move to the ministry's
               payment run, for both programs together.
           - month: 72
             name: Two more regions
@@ -732,8 +729,8 @@ plans:
             what: >-
               ICM screens and links for these programs are turned off.
         blockedBy:
-          - sf-core
-          - mulesoft
+          - crm-core
+          - integration
       - id: h-cp
         name: Child protection
         start: 80
@@ -748,18 +745,18 @@ plans:
             who: >-
               Foster caregivers, service providers and the workers who support them
             what: >-
-              Caregiver and provider records and licensing move to Salesforce, with a
+              Caregiver and provider records and licensing move to the CRM platform, with a
               partner website.
           - month: 89
             name: Family plans and agreements
             who: Child protection workers
             what: >-
-              Care plans and agreements with families are made and tracked in Salesforce.
+              Care plans and agreements with families are made and tracked in the CRM platform.
           - month: 92
             name: Court documents
             who: Child protection workers who go to court
             what: >-
-              Court proceedings and orders are tracked in Salesforce. About 150 forms
+              Court proceedings and orders are tracked in the CRM platform. About 150 forms
               and letters are made there.
           - month: 95
             name: Visits on mobile
@@ -771,17 +768,17 @@ plans:
             who: The 24/7 reporting line and intake workers
             what: >-
               Calls about a child's safety go straight into the case. A backup intake
-              path on the ministry's servers works when Salesforce is down.
+              path on the ministry's servers works when the CRM platform is down.
           - month: 101
             name: Investigations
             who: Child protection workers
             what: >-
-              Investigations and safety assessments are done in Salesforce.
+              Investigations and safety assessments are done in the CRM platform.
           - month: 104
             name: Adoption
             who: Adoption workers
             what: >-
-              Adoption records move to Salesforce. This is the largest single piece of
+              Adoption records move to the CRM platform. This is the largest single piece of
               child protection work.
           - month: 110
             name: Remaining cases move
@@ -789,9 +786,9 @@ plans:
             what: >-
               The rest of the open child protection cases move from ICM in groups.
         blockedBy:
-          - sf-core
-          - mulesoft
-          - sf-field
+          - crm-core
+          - integration
+          - crm-field
           - scan-redact
       - id: h-migrate
         name: Move the remaining history
@@ -809,9 +806,9 @@ plans:
               Every old record is in the new system or in a checked archive, with its
               original dates.
         blockedBy:
-          - sf-core
-          - sf-protect
-          - mulesoft
+          - crm-core
+          - crm-protect
+          - integration
       - id: h-retire
         name: Switch off ICM
         start: 115
@@ -828,12 +825,11 @@ plans:
               ICM is turned off. Its licence, support and servers stop costing money.
         blockedBy: []
     procurement:
-      - id: sf-core
+      - id: crm-core
         item: >-
-          Salesforce licences: the platform, Public Sector Solutions, the portal add-on
-          (Experience Cloud) and 24/7 support
+          CRM licences: the platform, the public sector package, the portal add-on and 24/7 support
         why: >-
-          Every Salesforce screen, form and record runs on these, for about 9,400 staff
+          Every CRM screen, form and record runs on these, for about 9,400 staff
           accounts. Published list prices come to roughly 31 to 56 million US dollars a
           year before discounts.
         leadMonths: 7
@@ -845,9 +841,9 @@ plans:
           - h-cp
           - h-migrate
         startBy: Month 0, the day the project starts
-      - id: sf-protect
+      - id: crm-protect
         item: >-
-          Salesforce Shield, Privacy Center, Data Mask, Backup and Recover, extra
+          Security, privacy, test data masking and backup add-ons, extra
           storage and test copies (sandboxes)
         why: >-
           Needed before any real client data goes in. They give encryption, access
@@ -859,12 +855,12 @@ plans:
           - h-view
           - h-migrate
         startBy: Month 0, with the main licences
-      - id: mulesoft
+      - id: integration
         item: >-
-          MuleSoft Anypoint Platform, run on the ministry's own servers, with its
+          The CRM provider's integration platform, run on the ministry's own servers, with its
           connector for ICM's Siebel product
         why: >-
-          MuleSoft is Salesforce's tool for linking systems. Here it links Salesforce to
+          The integration platform is the CRM provider's tool for linking systems. Here it links the CRM platform to
           ICM, to the ministry-side parts, and to the bank, Treasury, courts and others.
         leadMonths: 7
         blocks:
@@ -881,16 +877,16 @@ plans:
           Support contract for the event stream software (Apache Kafka), only if the
           government's private cloud team cannot support it
         why: >-
-          The event stream carries every fact and decision between Salesforce and the
+          The event stream carries every fact and decision between the CRM platform and the
           ministry-side parts. The software is free, but someone must be on call when it
           breaks.
         leadMonths: 4
         blocks:
           - h-small
         startBy: Month 1
-      - id: sf-analytics
+      - id: crm-analytics
         item: >-
-          Reporting tools: CRM Analytics or Tableau
+          Reporting tools: the CRM provider's analytics tools
         why: >-
           Dashboards for workers and managers, and reports that replace today's data
           warehouse feeds as each program moves.
@@ -901,7 +897,7 @@ plans:
       - id: esign
         item: Electronic signature service
         why: >-
-          Salesforce does not sell one. The ministry already uses DocuSign with its
+          The CRM provider does not sell one. The ministry already uses DocuSign with its
           contract management system, so extending that contract may be quicker.
         leadMonths: 4
         blocks:
@@ -912,7 +908,7 @@ plans:
           Virus scanning for uploaded files and a document redaction tool, on the
           ministry's own servers
         why: >-
-          Salesforce has no built-in scanning of uploads, and no tool for blacking out
+          The CRM platform has no built-in scanning of uploads, and no tool for blacking out
           parts of a record before it is released.
         leadMonths: 5
         blocks:
@@ -931,10 +927,10 @@ plans:
         blocks:
           - h-pay
         startBy: By month 28
-      - id: sf-field
-        item: Salesforce Field Service and Service Cloud Voice
+      - id: crm-field
+        item: Field service and phone add-ons
         why: >-
-          Field Service lets child protection workers record visits on a phone or
+          The field service add-on lets child protection workers record visits on a phone or
           tablet, even offline. Voice connects calls to the 24/7 reporting line to the
           case.
         leadMonths: 6
@@ -954,7 +950,7 @@ plans:
       No one has made a bottom-up estimate for this option, so we built one. The
       technology and payments research gives a floor for the ten main parts: 13,040
       person-days. That floor leaves out child protection, moving data and links to
-      other organizations. For those we borrowed the Salesforce research's figures as
+      other organizations. For those we borrowed the SaaS CRM research's figures as
       stand-ins: child protection 6,495, moving data 1,330, links 1,140 and running
       beside ICM 930. The total is 22,935. At 2,640 person-days a year that is 8.7
       years. Starting after 2 months of discovery, the plan runs about 106 months. With
@@ -976,7 +972,7 @@ plans:
         product manager will not build software."
       - Effort is built from rough rules of thumb in the technology and payments
         research, which the authors call a floor, plus figures borrowed from the
-        Salesforce research for the parts the floor leaves out. Treat it as a low
+        SaaS CRM research for the parts the floor leaves out. Treat it as a low
         estimate.
       - This plan moves a thin, read-only worker view ahead of the full shared
         foundations. The target architecture's own order builds all foundations first

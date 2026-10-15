@@ -7,7 +7,7 @@
 //
 // Two sources are captured, no build needed:
 //   1. src/lib/content/*.yaml: every string, keyed by where it sits, e.g.
-//      "salesforce-h › components › ledger › why". Layout values are skipped.
+//      "crm-h › components › ledger › why". Layout values are skipped.
 //   2. .svelte files: text in markup and string literals in <script>, as a sorted set.
 
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';

@@ -1,14 +1,14 @@
-// Diagram structure for Salesforce H: where each zone sits and which parts it holds.
-// The words live in ../content/salesforce-h.yaml.
+// Diagram structure for SaaS CRM H: where each zone sits and which parts it holds.
+// The words live in ../content/crm-h.yaml.
 export default {
   "id": "h",
-  "slug": "salesforce-h",
+  "slug": "crm-h",
   "hue": "moss",
   "layout": {
     "columns": "1.15fr 0.8fr 1.6fr",
     "areas": [
       "\"people people finance\"",
-      "\"salesforce mulesoft ministry\"",
+      "\"crm integration ministry\"",
       "\"government government government\""
     ]
   },
@@ -42,8 +42,8 @@ export default {
       ]
     },
     {
-      "id": "salesforce",
-      "tone": "salesforce",
+      "id": "crm",
+      "tone": "crm",
       "shape": "box",
       "groups": [
         {
@@ -60,7 +60,7 @@ export default {
           ]
         },
         {
-          "id": "services-in-salesforce",
+          "id": "services-in-crm",
           "parts": [
             "rules",
             "notices",
@@ -70,8 +70,8 @@ export default {
       ]
     },
     {
-      "id": "mulesoft",
-      "tone": "mulesoft",
+      "id": "integration",
+      "tone": "integration",
       "shape": "box",
       "groups": [
         {

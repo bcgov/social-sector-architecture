@@ -59,7 +59,7 @@
 <section class="wrap next">
   <h2>Three ways forward</h2>
   <p>Each option deals with these root causes in a different way. See what each one would change.</p>
-  <a class="button" href="{base}/options/salesforce-s/">Start with Salesforce S</a>
+  <a class="button" href="{base}/options/crm-s/">Start with SaaS CRM S</a>
 </section>
 
 <style>

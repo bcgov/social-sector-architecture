@@ -142,8 +142,8 @@
   .tone-intelligence { background: var(--z-intelligence); border-color: var(--z-border-intelligence); }
   .tone-events { background: var(--z-events); border-color: var(--z-border-events); }
   .tone-commodity { background: var(--z-commodity); border-color: var(--z-border-commodity); }
-  .tone-salesforce { background: var(--z-salesforce); border-color: var(--z-border-salesforce); }
-  .tone-mulesoft { background: var(--z-mulesoft); border-color: var(--z-border-mulesoft); }
+  .tone-crm { background: var(--z-crm); border-color: var(--z-border-crm); }
+  .tone-integration { background: var(--z-integration); border-color: var(--z-border-integration); }
   .tone-ministry { background: var(--z-ministry); border-color: var(--z-border-ministry); }
   .tone-people { background: var(--z-people); border-color: var(--z-border-people); border-style: dashed; }
 

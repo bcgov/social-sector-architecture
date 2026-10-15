@@ -5,7 +5,7 @@ All the words on the site live in `src/lib/content/`, one YAML file per page:
 | File | What it holds |
 | --- | --- |
 | `home.yaml` | The home page: headline, why, how to read, the side-by-side table |
-| `salesforce-s.yaml`, `salesforce-h.yaml`, `event-driven.yaml` | One option each: the summary, facts, strengths and cautions, the box names on the diagram, and every part's pop-up |
+| `crm-s.yaml`, `crm-h.yaml`, `event-driven.yaml` | One option each: the summary, facts, strengths and cautions, the box names on the diagram, and every part's pop-up |
 | `problems.yaml` | The problems page. Set `placeholder: false` when the real causes replace the sample text |
 | `timeline.yaml` | The team, the three plans and the purchases |
 
