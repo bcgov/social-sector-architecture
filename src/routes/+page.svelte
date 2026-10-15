@@ -81,7 +81,12 @@
 <section class="wrap cta" aria-labelledby="cta-h">
   <h2 id="cta-h">{cta.heading}</h2>
   <p>{cta.text}</p>
-  <a class="button" href="{base}/timeline/">See the timelines</a>
+  <div class="buttons">
+    {#each options as o}
+      <a class="button" href="{base}/options/{o.slug}/" style="--dot: var(--{o.hue})">{o.name}</a>
+    {/each}
+    <a class="button ghost" href="{base}/timeline/">See the timelines</a>
+  </div>
 </section>
 
 <style>
@@ -240,4 +245,15 @@
     text-decoration: none;
   }
   .button:hover { background: var(--focus-halo); color: #1f2a24; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .button[style]::before {
+    content: '';
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: var(--dot);
+    margin-right: 0.5rem;
+  }
+  .button.ghost { background: transparent; color: var(--paper); border: 2px solid var(--paper); }
+  .button.ghost:hover { color: #1f2a24; }
 </style>

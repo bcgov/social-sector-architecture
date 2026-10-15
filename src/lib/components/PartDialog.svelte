@@ -13,7 +13,7 @@
     if (!part && dialog.open) dialog.close();
   });
 
-  const watchLabel = { gap: 'Cannot be met', limit: 'Met in a weaker form', fixed: 'Fixed in this option' };
+  const watchLabel = { gap: 'Cannot be met', limit: 'Met in a weaker form', fixed: 'Fixed in this option', risk: 'Risk to watch' };
   const kindLabel = { buy: 'Buy', build: 'Build', 'open-source': 'Open source', existing: 'Already in government' };
 
   function onclick(e) {
@@ -161,10 +161,12 @@
   .watch.gap { border-color: #9b2c1f; background: color-mix(in srgb, #9b2c1f 9%, var(--surface)); }
   .watch.limit { border-color: var(--ochre); background: color-mix(in srgb, var(--ochre) 10%, var(--surface)); }
   .watch.fixed { border-color: var(--moss); background: color-mix(in srgb, var(--moss) 10%, var(--surface)); }
+  .watch.risk { border-color: var(--line-strong); border-style: dashed; background: var(--surface-2); }
   .watch h3::before { margin-right: 0.4rem; }
   .watch.gap h3::before { content: '✕'; }
   .watch.limit h3::before { content: '◐'; }
   .watch.fixed h3::before { content: '✓'; }
+  .watch.risk h3::before { content: '!'; font-weight: 800; }
 
   .bb {
     background: var(--hue-tint);

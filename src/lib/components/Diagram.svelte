@@ -13,7 +13,7 @@
     Object.fromEntries(option.zones.flatMap((z) => z.groups.flatMap((g) => g.components.map((c) => [c, z.name]))))
   );
 
-  const watchText = { gap: 'Cannot be met', limit: 'Weaker form', fixed: 'Fixed here' };
+  const watchText = { gap: 'Cannot be met', limit: 'Weaker form', fixed: 'Fixed here', risk: 'Risk' };
 
   function open(id, el) {
     lastTrigger = el;
@@ -83,6 +83,7 @@
   <div><dt><span class="flag gap">Cannot be met</span></dt><dd>Something this option can't do</dd></div>
   <div><dt><span class="flag limit">Weaker form</span></dt><dd>Done, but in a weaker way</dd></div>
   <div><dt><span class="flag fixed">Fixed here</span></dt><dd>Solves a problem another option has</dd></div>
+  <div><dt><span class="flag risk">Risk</span></dt><dd>An open question or risk to manage</dd></div>
   <div><dt><span class="flag proc">Procure</span></dt><dd>Has to be bought through procurement</dd></div>
 </dl>
 
@@ -207,6 +208,7 @@
   .flag.gap { color: #8c2416; border-color: #8c2416; background: #f7e3de; }
   .flag.limit { color: #6b4708; border-color: #8a5c0d; background: #f6ead2; }
   .flag.fixed { color: #33502a; border-color: #4f6b3a; background: #e3edd9; }
+  .flag.risk { color: #3a4048; border-color: #4b535c; background: #e4e7e9; }
   .flag.proc { color: var(--ink); border-color: var(--ink); background: transparent; border-style: dashed; }
 
   /* side gateways drawn as circles, like the source drawing */

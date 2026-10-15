@@ -214,7 +214,7 @@ export default {
       "procurement": false
     },
     "console": {
-      "name": "Worker console",
+      "name": "Worker screens",
       "short": "Staff screens, routing and phone line",
       "what": "The main screen staff work in, built from Salesforce's standard tools. It includes work queues and the phone system for the reporting line.",
       "does": "It shows each worker their cases and tasks, sends new work to the right person and lets supervisors watch the workload. Reporting-line calls come straight into the case.",

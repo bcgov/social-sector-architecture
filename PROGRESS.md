@@ -27,9 +27,16 @@ event-driven. Kept separate from `../site`, whose copy is locked.
 - [x] Scaffold, tokens, data contract, skeleton data
 - [x] Content: salesforce-s.js ("Worker console" renamed "Worker screens")
 - [x] Content: salesforce-h.js (renames: Service front door, Change feed, Analysis store)
-- [ ] Content: event-driven.js (agent)
+- [x] Content: event-driven.js (watch notes retagged as "risk"; 8 components marked not yet analysed)
 - [ ] Content: timeline.js (agent)
 - [x] Content: problems.js + home.js (causes are Sample: text)
 - [x] UI: layout, home, option pages, diagram + modal (untested)
 - [x] UI: problems page, timeline page (untested)
 - [ ] Accessibility audit (axe) and reading-level pass
+
+## QA log
+
+- axe 4.10 (wcag2a/aa, 21aa, 22aa, best-practice): 0 violations on home, problems, three option pages, light and dark.
+- Dialog: keyboard open, next, Escape, focus returns to the part last shown. Desktop and mobile.
+- Flesch-Kincaid grade per file: home 5.0, problems 6.7, S 7.9, H 7.1, E 7.5.
+- QA scripts live in the session scratchpad (puppeteer-core + system Chrome), not in the project.
