@@ -67,6 +67,9 @@
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
+  @media (max-width: 48rem) {
+    .masthead { position: static; }
+  }
   .bar {
     display: flex;
     flex-wrap: wrap;

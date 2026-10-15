@@ -71,9 +71,9 @@ export const compare = {
     },
     {
       question: 'When could people use something new?',
-      s: 'Not yet estimated',
-      h: 'Not yet estimated',
-      e: 'In the second stage, once a groundwork stage that replaces nothing is done.'
+      s: 'About month 13 in our timeline sketch, after the licences are bought.',
+      h: 'About month 13 in our timeline sketch, after the licences are bought.',
+      e: 'About month 9 in our timeline sketch, with a read-only worker view.'
     }
   ]
 };

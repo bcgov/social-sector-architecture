@@ -28,11 +28,11 @@ event-driven. Kept separate from `../site`, whose copy is locked.
 - [x] Content: salesforce-s.js ("Worker console" renamed "Worker screens")
 - [x] Content: salesforce-h.js (renames: Service front door, Change feed, Analysis store)
 - [x] Content: event-driven.js (watch notes retagged as "risk"; 8 components marked not yet analysed)
-- [ ] Content: timeline.js (agent)
+- [x] Content: timeline.js (first value: S month 13, H month 13, E month 9; totals 100/120/106 months at 12 people)
 - [x] Content: problems.js + home.js (causes are Sample: text)
-- [x] UI: layout, home, option pages, diagram + modal (untested)
-- [x] UI: problems page, timeline page (untested)
-- [ ] Accessibility audit (axe) and reading-level pass
+- [x] UI: layout, home, option pages, diagram + modal (tested)
+- [x] UI: problems page, timeline page (tested)
+- [x] Accessibility audit (axe) and reading-level pass
 
 ## QA log
 
@@ -40,3 +40,14 @@ event-driven. Kept separate from `../site`, whose copy is locked.
 - Dialog: keyboard open, next, Escape, focus returns to the part last shown. Desktop and mobile.
 - Flesch-Kincaid grade per file: home 5.0, problems 6.7, S 7.9, H 7.1, E 7.5.
 - QA scripts live in the session scratchpad (puppeteer-core + system Chrome), not in the project.
+- Timeline: 0 axe violations; switcher works by keyboard and from the URL hash (#s, #h, #e); grade 7.8.
+- Mobile header no longer sticky (WCAG 2.4.11 focus not obscured).
+
+## Open items for the project lead
+
+- Problems page: `apparent` and `real` are sample text. Set `placeholder = false` once replaced.
+- Timeline assumptions to check: 7-month Salesforce licence procurement (no source); the event-driven plan
+  puts a read-only worker view ahead of the architecture's Module 0; all payment phases assume the
+  Comptroller General accepts a new ministry payment system; Route H's ministry-side effort uses a floor
+  from RSCH-002/003, and the event-driven total is assembled from stand-in figures.
+- Event-driven: 8 components have no build-vs-buy research behind them; they say "not yet analysed".

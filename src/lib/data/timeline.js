@@ -1,0 +1,1274 @@
+// Delivery timelines for the three options. A planning sketch, not a commitment.
+// Shape and writing rules: see CONTRACT.md.
+//
+// Working, for maintainers (all figures in person-days unless stated):
+//   Team capacity: 12 people (midpoint of 10 to 14) x 220 days = 2,640 a year, 220 a month.
+//   S: RSCH-005 v1.1 s2.3 likely 19,385 (range 12,475 to 29,940).
+//      + Salesforce upgrade retesting, RSCH-005 s2.3: about 135 a year once live (~7.3 years) = ~980.
+//      = ~20,365 / 2,640 = 7.7 years = ~93 months, after a 7-month licence wait. Total ~100.
+//   H: RSCH-005 v1.1 s2.3 Salesforce side likely 22,185. Off-platform not estimated there.
+//      Floor from RSCH-002 v1.4 (event backbone and evidence store 208 person-weeks = 1,040)
+//      and RSCH-003 v1.1 (issuance 160 pw = 800, ledger 48 pw = 240, reconciliation 40 pw = 200)
+//      = 2,280. + retesting ~1,200 over ~9 years. = ~25,665.
+//      ~750 done in months 2 to 7 during the licence wait; rest / 220 a month = ~113 months
+//      from month 7. Total ~120.
+//   E: no bottom-up estimate exists. RSCH-002 v1.4 floors for ten parts = 2,608 pw = 13,040
+//      (REQ v1.5 scope: no children's requirements, no migration, no external integrations).
+//      + stand-ins from RSCH-005 s5.4: children and family 6,495, migration 1,330,
+//      integration layer 1,140, legacy coexistence 930. = 22,935 / 220 a month = ~104 months
+//      from month 2. Total ~106.
+//      Target architecture E.3.4: $142M to $249M; E.3.2 rate $220k to $340k per FTE-year
+//      plus 18% non-labour. 142/1.18/0.34 = ~354 FTE-years; 249/1.18/0.22 = ~959 FTE-years.
+
+export const team = [
+  {
+    role: "Developers",
+    count: "6 to 9",
+    focus:
+      "Build, test and release the system. On the Salesforce plans they need Salesforce and MuleSoft skills. On the event-driven plan they need skills in the open-source parts and in recording facts with their dates."
+  },
+  {
+    role: "UX designers",
+    count: "1 to 2",
+    focus:
+      "Design the screens and online forms. Test them with workers and clients, including people who use screen readers."
+  },
+  {
+    role: "Service designer",
+    count: "1",
+    focus:
+      "Map how the work really happens across workers, clients and partners. Plan how each program moves to the new system, one group at a time."
+  },
+  {
+    role: "Product manager",
+    count: "1",
+    focus:
+      "Decide what goes into each release and in what order. Keep the list of work tied to what workers and clients need most."
+  },
+  {
+    role: "Director",
+    count: "1",
+    focus:
+      "Lead the team. Get the funding, decisions and purchases each release needs, and report progress to ministry leaders."
+  }
+];
+
+const leadTimeNote =
+  "Procurement lead times are planning assumptions, not figures from the research. We assume 4 to 9 months for a large competitive purchase, and 2 to 4 months when an existing agreement or standing offer can be used.";
+
+const capacityNote =
+  "We count the whole team of 12 as delivery capacity: 12 people times 220 working days is 2,640 person-days a year. That is generous, because the director and product manager will not build software.";
+
+export const plans = {
+  s: {
+    summary:
+      "A planning sketch, not a commitment. Everything moves onto Salesforce and runs the way ICM (today's case system) runs now. The first 7 months go to design work while Salesforce and MuleSoft licences are bought, because almost nothing can be built without them. After that, a release goes out every 3 months, one program at a time, from the smallest programs to child protection.",
+    firstValueMonth: 13,
+    totalMonths: 100,
+    realism:
+      "The research puts the Salesforce build at 19,385 person-days, its likely figure. This team can do about 2,640 person-days a year. 19,385 divided by 2,640 is 7.3 years of build. Once the first release is live, the team must also retest the system before each of Salesforce's three upgrades a year, about 135 person-days a year. That adds about 4 months. With the 7-month wait for licences, the plan runs about 100 months, a little over 8 years. With 10 people it is closer to 10 years; with 14, about 7. The research's own range, 12,475 to 29,940 person-days, means anywhere from about 4 to 14 years of build. The estimate also leaves out project management, training, running ICM and Salesforce side by side, and contingency, so the real time will be longer. Two teams of this size could bring the whole plan down to roughly 4 and a half years, if the work splits cleanly between them. It rarely splits perfectly.",
+    assumptions: [
+      leadTimeNote,
+      capacityNote,
+      "Effort comes from the Salesforce research (19,385 person-days likely). It assumes a mixed team of Salesforce specialists, MuleSoft and data engineers, and testers. This team has no dedicated testers or MuleSoft engineers, so developers cover that work or the team hires for it.",
+      "The 7 months before building starts are spent on discovery, service design and a prototype on Salesforce's free trial systems, using made-up data only. That design work is not counted in the build estimate.",
+      "The ministry already runs Salesforce for its contract management system and some portals. Buying through that relationship might shorten the 7-month licence wait. Whether the new system shares that Salesforce setup or has its own is still an open question.",
+      "Licences for about 9,400 staff are listed at roughly 31 to 56 million US dollars a year before discounts. We assume they can be bought in steps as each program moves. Salesforce has not been asked.",
+      "The order of programs follows the target architecture's rule: smallest set of rules and lowest harm first, employment assistance late, child protection last.",
+      "Before any program's decisions go live, Salesforce's answers are checked against ICM's for three monthly cycles, as the research assumes.",
+      "Payment work assumes the Comptroller General's office accepts a new ministry payment system. Provincial policy requires that, and nobody has asked yet. The bank's file format is also not confirmed.",
+      "Salesforce's limit on how often its rules engine can be called each month is not confirmed. A low limit could slow the side-by-side checks.",
+      "Child protection estimates have not had a second reader, so they may grow.",
+      "Moving onto Salesforce needs written exceptions to four requirements, including keeping payments going if the supplier cuts off access. This plan assumes those are approved before building starts."
+    ],
+    phases: [
+      {
+        id: "s-discover",
+        name: "Discovery and design while licences are bought",
+        start: 0,
+        end: 7,
+        lane: "foundation",
+        goal: "Learn how the work is done today and design the first releases while procurement runs.",
+        releases: [],
+        blockedBy: []
+      },
+      {
+        id: "s-found",
+        name: "Set up Salesforce and the link to ICM",
+        start: 7,
+        end: 14,
+        lane: "foundation",
+        goal: "Set up Salesforce, its security and access rules, and the MuleSoft link that reads from and writes to ICM.",
+        releases: [],
+        blockedBy: ["sf-core", "sf-protect", "mulesoft"]
+      },
+      {
+        id: "s-view",
+        name: "First release: a better worker view",
+        start: 9,
+        end: 16,
+        lane: "release",
+        goal: "Give workers a fast client search and a one-page case summary, read from ICM, without changing how cases are decided.",
+        releases: [
+          {
+            month: 13,
+            name: "Pilot in one office",
+            who: "Workers in one office",
+            what: "Search for a client and see a one-page summary of their cases. ICM stays the official record, so nothing done here can damage it."
+          },
+          {
+            month: 16,
+            name: "All offices",
+            who: "Workers in every office",
+            what: "The same search and summary, with fixes from the pilot."
+          }
+        ],
+        blockedBy: ["sf-core", "sf-protect", "mulesoft"]
+      },
+      {
+        id: "s-small",
+        name: "Two smaller programs first",
+        start: 15,
+        end: 36,
+        lane: "release",
+        goal: "Move child care subsidy and employment services first, because their rules are the smallest and a mistake does the least harm.",
+        releases: [
+          {
+            month: 19,
+            name: "Online application, one region",
+            who: "New child care subsidy applicants in one region, and their workers",
+            what: "Apply online and upload documents. Each application is copied into ICM, so nothing is lost."
+          },
+          {
+            month: 22,
+            name: "Decisions and letters",
+            who: "Child care subsidy workers",
+            what: "Eligibility is worked out by rules kept in Salesforce, and the letter is made from the decision."
+          },
+          {
+            month: 25,
+            name: "Existing cases move",
+            who: "All child care subsidy clients and workers",
+            what: "Open cases move from ICM in groups. A group can be moved back if something goes wrong."
+          },
+          {
+            month: 28,
+            name: "Employment services referrals and plans",
+            who: "Employment services workers and service providers",
+            what: "Referrals and plans are made in Salesforce. Providers use a partner website."
+          },
+          {
+            month: 31,
+            name: "Employment services cases move",
+            who: "All employment services clients and workers",
+            what: "Open cases move from ICM in groups."
+          },
+          {
+            month: 34,
+            name: "Reviews and appeals",
+            who: "Clients asking for a review, and the staff who handle it",
+            what: "Requests to review a decision, and their legal deadlines, are handled in Salesforce for both programs."
+          }
+        ],
+        blockedBy: ["sf-core", "mulesoft", "esign", "scan-redact", "sf-analytics"]
+      },
+      {
+        id: "s-pay",
+        name: "Payments and overpayments",
+        start: 33,
+        end: 48,
+        lane: "release",
+        goal: "Pay clients of the moved programs from Salesforce, with files sent to the bank, BC Mail Plus and the government's accounting system through MuleSoft.",
+        releases: [
+          {
+            month: 40,
+            name: "Side-by-side payment run",
+            who: "Finance staff",
+            what: "Salesforce works out each payment while the old system still pays. Staff compare the two each month. No money moves from Salesforce yet."
+          },
+          {
+            month: 43,
+            name: "First live payment run",
+            who: "Child care subsidy and employment services clients",
+            what: "Payments for these two programs are issued from Salesforce."
+          },
+          {
+            month: 46,
+            name: "Overpayments and debts",
+            who: "Finance and recovery staff",
+            what: "Overpayments and repayments are recorded in Salesforce. They are no longer printed, scanned and typed into another system."
+          }
+        ],
+        blockedBy: ["sf-core", "mulesoft"]
+      },
+      {
+        id: "s-adult",
+        name: "Disability assistance and employment assistance",
+        start: 46,
+        end: 74,
+        lane: "release",
+        goal: "Move the two largest programs together, late on purpose, because a wrong answer here can mean someone cannot buy food this month.",
+        releases: [
+          {
+            month: 52,
+            name: "Online monthly report, one region",
+            who: "Employment assistance clients in one region",
+            what: "Send the monthly report online. ICM still makes the decision."
+          },
+          {
+            month: 55,
+            name: "Disability applications online",
+            who: "People applying for disability assistance, and people helping them",
+            what: "Apply online and see where the application is."
+          },
+          {
+            month: 58,
+            name: "Side-by-side decisions",
+            who: "Program staff",
+            what: "Salesforce works out entitlement for real cases next to ICM for three monthly cycles. Every difference is explained before anyone relies on the new answer."
+          },
+          {
+            month: 61,
+            name: "First region moves",
+            who: "Clients and workers in one region",
+            what: "Cases, decisions, letters and payments for both programs move to Salesforce together, because the disability decision sets the rate employment assistance pays."
+          },
+          {
+            month: 64,
+            name: "Two more regions",
+            who: "Clients and workers in two more regions",
+            what: "The same move, with fixes from the first region."
+          },
+          {
+            month: 67,
+            name: "Half the province",
+            who: "Clients and workers in about half the province",
+            what: "More regions move in groups."
+          },
+          {
+            month: 70,
+            name: "Rest of the province",
+            who: "All remaining clients and workers in both programs",
+            what: "The rest of the caseload moves. ICM no longer handles these programs."
+          },
+          {
+            month: 73,
+            name: "Old screens switched off",
+            who: "Workers in both programs",
+            what: "ICM screens and links for these programs are turned off."
+          }
+        ],
+        blockedBy: ["sf-core", "mulesoft"]
+      },
+      {
+        id: "s-cp",
+        name: "Child protection",
+        start: 68,
+        end: 96,
+        lane: "release",
+        goal: "Move child protection last, with its own design work, because it has the least structured practice, the strictest privacy needs and court-ordered records.",
+        releases: [
+          {
+            month: 74,
+            name: "Caregivers and providers",
+            who: "Foster caregivers, service providers and the workers who support them",
+            what: "Caregiver and provider records and licensing move to Salesforce, with a partner website."
+          },
+          {
+            month: 77,
+            name: "Family plans and agreements",
+            who: "Child protection workers",
+            what: "Care plans and agreements with families are made and tracked in Salesforce."
+          },
+          {
+            month: 80,
+            name: "Court documents",
+            who: "Child protection workers who go to court",
+            what: "Court proceedings and orders are tracked in Salesforce. About 150 forms and letters are made there."
+          },
+          {
+            month: 83,
+            name: "Visits on mobile",
+            who: "Workers visiting families in remote areas",
+            what: "Record visits on a phone or tablet, even with no signal."
+          },
+          {
+            month: 86,
+            name: "Reports of concern",
+            who: "The 24/7 reporting line and intake workers",
+            what: "Calls about a child's safety go straight into the case. A backup way to record reports is used during Salesforce's maintenance windows."
+          },
+          {
+            month: 89,
+            name: "Investigations",
+            who: "Child protection workers",
+            what: "Investigations and safety assessments are done in Salesforce."
+          },
+          {
+            month: 92,
+            name: "Adoption",
+            who: "Adoption workers",
+            what: "Adoption records move to Salesforce. This is the largest single piece of child protection work."
+          },
+          {
+            month: 95,
+            name: "Remaining cases move",
+            who: "All child protection workers",
+            what: "The rest of the open child protection cases move from ICM in groups."
+          }
+        ],
+        blockedBy: ["sf-core", "mulesoft", "sf-field", "scan-redact"]
+      },
+      {
+        id: "s-migrate",
+        name: "Move the remaining history",
+        start: 88,
+        end: 98,
+        lane: "migration",
+        goal: "Move closed cases and old records out of ICM with their original dates, and check that every record arrived.",
+        releases: [
+          {
+            month: 97,
+            name: "History check complete",
+            who: "Records staff and auditors",
+            what: "Every old record is in Salesforce or in a checked archive, with its original dates."
+          }
+        ],
+        blockedBy: ["sf-core", "sf-protect", "mulesoft"]
+      },
+      {
+        id: "s-retire",
+        name: "Switch off ICM",
+        start: 96,
+        end: 100,
+        lane: "retire",
+        goal: "Turn off ICM and the Siebel product it runs on, close its links to other systems, and keep a controlled archive.",
+        releases: [
+          {
+            month: 100,
+            name: "ICM switched off",
+            who: "Everyone",
+            what: "ICM is turned off. Its licence, support and servers stop costing money."
+          }
+        ],
+        blockedBy: []
+      }
+    ],
+    procurement: [
+      {
+        id: "sf-core",
+        item: "Salesforce licences: the platform, Public Sector Solutions, the portal add-on (Experience Cloud) and 24/7 support",
+        why: "Every Salesforce screen, form and record runs on these, for about 9,400 staff accounts. Published list prices come to roughly 31 to 56 million US dollars a year before discounts.",
+        leadMonths: 7,
+        blocks: ["s-found", "s-view", "s-small", "s-pay", "s-adult", "s-cp", "s-migrate"],
+        startBy: "Month 0, the day the project starts"
+      },
+      {
+        id: "sf-protect",
+        item: "Salesforce Shield, Privacy Center, Data Mask, Backup and Recover, extra storage and test copies (sandboxes)",
+        why: "Needed before any real client data goes in. They give encryption, access monitoring, field history, deletion rules, test copies with no personal information, and backups.",
+        leadMonths: 7,
+        blocks: ["s-found", "s-view", "s-migrate"],
+        startBy: "Month 0, with the main licences"
+      },
+      {
+        id: "mulesoft",
+        item: "MuleSoft Anypoint Platform, run on the ministry's own servers, with its connector for ICM's Siebel product",
+        why: "MuleSoft is Salesforce's tool for linking systems. It links Salesforce to ICM while both run, and to the bank, Treasury, BC Mail Plus, the Canada Revenue Agency, courts and others.",
+        leadMonths: 7,
+        blocks: ["s-found", "s-view", "s-small", "s-pay", "s-adult", "s-cp", "s-migrate"],
+        startBy: "Month 0, the day the project starts"
+      },
+      {
+        id: "sf-analytics",
+        item: "Reporting tools: CRM Analytics or Tableau",
+        why: "Dashboards for workers and managers, and reports that replace today's data warehouse feeds as each program moves.",
+        leadMonths: 5,
+        blocks: ["s-small"],
+        startBy: "By month 8"
+      },
+      {
+        id: "esign",
+        item: "Electronic signature service",
+        why: "Salesforce does not sell one. The ministry already uses DocuSign with its contract management system, so extending that contract may be quicker.",
+        leadMonths: 4,
+        blocks: ["s-small"],
+        startBy: "By month 10"
+      },
+      {
+        id: "scan-redact",
+        item: "Virus scanning for uploaded files and a document redaction tool, on the ministry's own servers",
+        why: "Salesforce has no built-in scanning of uploads, and no tool for blacking out parts of a record before it is released.",
+        leadMonths: 5,
+        blocks: ["s-small", "s-cp"],
+        startBy: "By month 9"
+      },
+      {
+        id: "sf-field",
+        item: "Salesforce Field Service and Service Cloud Voice",
+        why: "Field Service lets child protection workers record visits on a phone or tablet, even offline. Voice connects calls to the 24/7 reporting line to the case.",
+        leadMonths: 6,
+        blocks: ["s-cp"],
+        startBy: "By month 62"
+      }
+    ]
+  },
+
+  h: {
+    summary:
+      "A planning sketch, not a commitment. Case work and rules move onto Salesforce. Money, evidence, decision records, the event stream and a backup copy of the records stay on the ministry's own servers. The ministry-side parts need no Salesforce licence, so the team starts building them during the licence wait. Releases then go out every 3 months, one program at a time, as in the all-Salesforce plan.",
+    firstValueMonth: 13,
+    totalMonths: 120,
+    realism:
+      "The research puts the Salesforce side at 22,185 person-days, its likely figure. It does not estimate the parts on the ministry's own servers. Other research gives a rough floor for some of them: event stream and evidence store 1,040, payment run 800, ledger 240, and matching accounts with the bank 200. That makes 2,280, and the total at least 24,465. Retesting before Salesforce's three upgrades a year adds about 1,200 over 9 years. At 2,640 person-days a year, that is 9.7 years of work. About 750 person-days get done during the licence wait, so the plan runs about 120 months, or 10 years. It is still missing the decision record store, the backup copy and its fallback tools, and a backup path for the reporting line, so it will run longer. With 10 people it is about 12 years; with 14, about 8 and a half. Two teams of this size could bring it to roughly 5 and a half years if the work splits cleanly.",
+    assumptions: [
+      leadTimeNote,
+      capacityNote,
+      "Salesforce-side effort comes from the Salesforce research (22,185 person-days likely). The ministry-side floor comes from rough rules of thumb in the technology and payments research. Those researchers call their figures a floor.",
+      "In months 2 to 7, part of the team builds the ministry-side parts (about 750 person-days) while others do discovery and service design.",
+      "The ministry-side parts run on the government's own private cloud. That is an existing service, not a purchase. The event stream software is free, but who supports it on that platform is not confirmed in writing.",
+      "The ministry already runs Salesforce for its contract management system and some portals. Buying through that relationship might shorten the 7-month licence wait.",
+      "Licences for about 9,400 staff are listed at roughly 31 to 56 million US dollars a year before discounts. We assume they can be bought in steps. Salesforce has not been asked.",
+      "The backup copy only needs to repeat last month's payments if Salesforce cuts off access. No business area has asked for more. If more services must keep running, this plan grows.",
+      "Payment work assumes the Comptroller General's office accepts a new ministry payment system, as provincial policy requires. The bank's file format is also not confirmed.",
+      "The order of programs follows the target architecture: smallest set of rules and lowest harm first, employment assistance late, child protection last.",
+      "Salesforce's monthly limit on rules engine calls is not confirmed. A low limit could slow the side-by-side checks.",
+      "Child protection estimates have not had a second reader, so they may grow."
+    ],
+    phases: [
+      {
+        id: "h-discover",
+        name: "Discovery and design while licences are bought",
+        start: 0,
+        end: 7,
+        lane: "foundation",
+        goal: "Learn how the work is done today and design the first releases while procurement runs.",
+        releases: [],
+        blockedBy: []
+      },
+      {
+        id: "h-own",
+        name: "Build the ministry-side parts",
+        start: 2,
+        end: 20,
+        lane: "foundation",
+        goal: "Build the parts that live on the ministry's own servers and need no Salesforce licence: the event stream, the evidence store, the decision record store and the ledger.",
+        releases: [],
+        blockedBy: []
+      },
+      {
+        id: "h-found",
+        name: "Set up Salesforce and the links",
+        start: 7,
+        end: 15,
+        lane: "foundation",
+        goal: "Set up Salesforce, its security and access rules, and MuleSoft links to ICM and to the ministry-side parts.",
+        releases: [],
+        blockedBy: ["sf-core", "sf-protect", "mulesoft"]
+      },
+      {
+        id: "h-view",
+        name: "First release: a better worker view",
+        start: 10,
+        end: 16,
+        lane: "release",
+        goal: "Give workers a fast client search and a one-page case summary, read from ICM, without changing how cases are decided.",
+        releases: [
+          {
+            month: 13,
+            name: "Pilot in one office",
+            who: "Workers in one office",
+            what: "Search for a client and see a one-page summary of their cases. ICM stays the official record, so nothing done here can damage it."
+          },
+          {
+            month: 16,
+            name: "All offices",
+            who: "Workers in every office",
+            what: "The same search and summary, with fixes from the pilot."
+          }
+        ],
+        blockedBy: ["sf-core", "sf-protect", "mulesoft"]
+      },
+      {
+        id: "h-small",
+        name: "Two smaller programs first",
+        start: 16,
+        end: 40,
+        lane: "release",
+        goal: "Move child care subsidy and employment services first, with each fact and each decision recorded on the ministry's own servers from day one.",
+        releases: [
+          {
+            month: 20,
+            name: "Online application, one region",
+            who: "New child care subsidy applicants in one region, and their workers",
+            what: "Apply online and upload documents. Each application is copied into ICM, so nothing is lost."
+          },
+          {
+            month: 23,
+            name: "Decisions and letters",
+            who: "Child care subsidy workers",
+            what: "Rules in Salesforce work out eligibility. A full record of each decision, its facts and its rules is kept on the ministry's servers."
+          },
+          {
+            month: 26,
+            name: "Existing cases move",
+            who: "All child care subsidy clients and workers",
+            what: "Open cases move from ICM in groups. A group can be moved back if something goes wrong."
+          },
+          {
+            month: 29,
+            name: "Employment services referrals and plans",
+            who: "Employment services workers and service providers",
+            what: "Referrals and plans are made in Salesforce. Providers use a partner website."
+          },
+          {
+            month: 32,
+            name: "Employment services cases move",
+            who: "All employment services clients and workers",
+            what: "Open cases move from ICM in groups."
+          },
+          {
+            month: 35,
+            name: "Reviews and appeals",
+            who: "Clients asking for a review, and the staff who handle it",
+            what: "Requests to review a decision, and their legal deadlines, are handled in Salesforce for both programs."
+          },
+          {
+            month: 38,
+            name: "Decision record check",
+            who: "Program staff and auditors",
+            what: "Staff can pull the full record of any decision made so far, and a regular check confirms the rules in Salesforce still match the saved copies."
+          }
+        ],
+        blockedBy: ["sf-core", "mulesoft", "kafka-support", "esign", "scan-redact", "sf-analytics"]
+      },
+      {
+        id: "h-pay",
+        name: "Payments on the ministry's own servers",
+        start: 36,
+        end: 56,
+        lane: "release",
+        goal: "Run payments, the ledger and daily account matching on the ministry's own servers, on the ministry's own release calendar.",
+        releases: [
+          {
+            month: 44,
+            name: "Side-by-side payment run",
+            who: "Finance staff",
+            what: "The new payment run works out each payment while the old system still pays. Staff compare the two each month. No money moves yet."
+          },
+          {
+            month: 47,
+            name: "First live payment run",
+            who: "Child care subsidy and employment services clients",
+            what: "Payments for these two programs come from the ministry's own payment run. Salesforce upgrades cannot interrupt it."
+          },
+          {
+            month: 50,
+            name: "Daily matching",
+            who: "Finance staff",
+            what: "Every day, the ministry's ledger is matched against the bank and the government's accounts. Each mismatch is tracked until it is cleared."
+          },
+          {
+            month: 53,
+            name: "Cut-off rehearsal",
+            who: "Finance and operations staff",
+            what: "With Salesforce switched off in a test, the backup copy repeats last month's payments through the same controls."
+          },
+          {
+            month: 56,
+            name: "Overpayments and debts",
+            who: "Finance and recovery staff",
+            what: "Overpayments and repayments are recorded with their history and posted to the ledger."
+          }
+        ],
+        blockedBy: ["mulesoft", "recon"]
+      },
+      {
+        id: "h-adult",
+        name: "Disability assistance and employment assistance",
+        start: 54,
+        end: 86,
+        lane: "release",
+        goal: "Move the two largest programs together, late on purpose, because a wrong answer here can mean someone cannot buy food this month.",
+        releases: [
+          {
+            month: 60,
+            name: "Online monthly report, one region",
+            who: "Employment assistance clients in one region",
+            what: "Send the monthly report online. ICM still makes the decision."
+          },
+          {
+            month: 63,
+            name: "Disability applications online",
+            who: "People applying for disability assistance, and people helping them",
+            what: "Apply online and see where the application is."
+          },
+          {
+            month: 66,
+            name: "Side-by-side decisions",
+            who: "Program staff",
+            what: "Salesforce works out entitlement for real cases next to ICM for three monthly cycles. Every difference is explained before anyone relies on the new answer."
+          },
+          {
+            month: 69,
+            name: "First region moves",
+            who: "Clients and workers in one region",
+            what: "Cases and decisions move to Salesforce and payments move to the ministry's payment run, for both programs together."
+          },
+          {
+            month: 72,
+            name: "Two more regions",
+            who: "Clients and workers in two more regions",
+            what: "The same move, with fixes from the first region."
+          },
+          {
+            month: 75,
+            name: "Half the province",
+            who: "Clients and workers in about half the province",
+            what: "More regions move in groups."
+          },
+          {
+            month: 78,
+            name: "More regions",
+            who: "Clients and workers in further regions",
+            what: "More regions move in groups."
+          },
+          {
+            month: 81,
+            name: "Rest of the province",
+            who: "All remaining clients and workers in both programs",
+            what: "The rest of the caseload moves. ICM no longer handles these programs."
+          },
+          {
+            month: 84,
+            name: "Old screens switched off",
+            who: "Workers in both programs",
+            what: "ICM screens and links for these programs are turned off."
+          }
+        ],
+        blockedBy: ["sf-core", "mulesoft"]
+      },
+      {
+        id: "h-cp",
+        name: "Child protection",
+        start: 80,
+        end: 114,
+        lane: "release",
+        goal: "Move child protection last, with its own design work, because it has the least structured practice, the strictest privacy needs and court-ordered records.",
+        releases: [
+          {
+            month: 86,
+            name: "Caregivers and providers",
+            who: "Foster caregivers, service providers and the workers who support them",
+            what: "Caregiver and provider records and licensing move to Salesforce, with a partner website."
+          },
+          {
+            month: 89,
+            name: "Family plans and agreements",
+            who: "Child protection workers",
+            what: "Care plans and agreements with families are made and tracked in Salesforce."
+          },
+          {
+            month: 92,
+            name: "Court documents",
+            who: "Child protection workers who go to court",
+            what: "Court proceedings and orders are tracked in Salesforce. About 150 forms and letters are made there."
+          },
+          {
+            month: 95,
+            name: "Visits on mobile",
+            who: "Workers visiting families in remote areas",
+            what: "Record visits on a phone or tablet, even with no signal."
+          },
+          {
+            month: 98,
+            name: "Reports of concern",
+            who: "The 24/7 reporting line and intake workers",
+            what: "Calls about a child's safety go straight into the case. A backup intake path on the ministry's servers works when Salesforce is down."
+          },
+          {
+            month: 101,
+            name: "Investigations",
+            who: "Child protection workers",
+            what: "Investigations and safety assessments are done in Salesforce."
+          },
+          {
+            month: 104,
+            name: "Adoption",
+            who: "Adoption workers",
+            what: "Adoption records move to Salesforce. This is the largest single piece of child protection work."
+          },
+          {
+            month: 110,
+            name: "Remaining cases move",
+            who: "All child protection workers",
+            what: "The rest of the open child protection cases move from ICM in groups."
+          }
+        ],
+        blockedBy: ["sf-core", "mulesoft", "sf-field", "scan-redact"]
+      },
+      {
+        id: "h-migrate",
+        name: "Move the remaining history",
+        start: 106,
+        end: 117,
+        lane: "migration",
+        goal: "Move closed cases and old records out of ICM with their original dates, and check that every record arrived.",
+        releases: [
+          {
+            month: 116,
+            name: "History check complete",
+            who: "Records staff and auditors",
+            what: "Every old record is in the new system or in a checked archive, with its original dates."
+          }
+        ],
+        blockedBy: ["sf-core", "sf-protect", "mulesoft"]
+      },
+      {
+        id: "h-retire",
+        name: "Switch off ICM",
+        start: 115,
+        end: 120,
+        lane: "retire",
+        goal: "Turn off ICM and the Siebel product it runs on, close its links to other systems, and keep a controlled archive.",
+        releases: [
+          {
+            month: 120,
+            name: "ICM switched off",
+            who: "Everyone",
+            what: "ICM is turned off. Its licence, support and servers stop costing money."
+          }
+        ],
+        blockedBy: []
+      }
+    ],
+    procurement: [
+      {
+        id: "sf-core",
+        item: "Salesforce licences: the platform, Public Sector Solutions, the portal add-on (Experience Cloud) and 24/7 support",
+        why: "Every Salesforce screen, form and record runs on these, for about 9,400 staff accounts. Published list prices come to roughly 31 to 56 million US dollars a year before discounts.",
+        leadMonths: 7,
+        blocks: ["h-found", "h-view", "h-small", "h-adult", "h-cp", "h-migrate"],
+        startBy: "Month 0, the day the project starts"
+      },
+      {
+        id: "sf-protect",
+        item: "Salesforce Shield, Privacy Center, Data Mask, Backup and Recover, extra storage and test copies (sandboxes)",
+        why: "Needed before any real client data goes in. They give encryption, access monitoring, field history, deletion rules, test copies with no personal information, and backups.",
+        leadMonths: 7,
+        blocks: ["h-found", "h-view", "h-migrate"],
+        startBy: "Month 0, with the main licences"
+      },
+      {
+        id: "mulesoft",
+        item: "MuleSoft Anypoint Platform, run on the ministry's own servers, with its connector for ICM's Siebel product",
+        why: "MuleSoft is Salesforce's tool for linking systems. Here it links Salesforce to ICM, to the ministry-side parts, and to the bank, Treasury, courts and others.",
+        leadMonths: 7,
+        blocks: ["h-found", "h-view", "h-small", "h-pay", "h-adult", "h-cp", "h-migrate"],
+        startBy: "Month 0, the day the project starts"
+      },
+      {
+        id: "kafka-support",
+        item: "Support contract for the event stream software (Apache Kafka), only if the government's private cloud team cannot support it",
+        why: "The event stream carries every fact and decision between Salesforce and the ministry-side parts. The software is free, but someone must be on call when it breaks.",
+        leadMonths: 4,
+        blocks: ["h-small"],
+        startBy: "Month 1"
+      },
+      {
+        id: "sf-analytics",
+        item: "Reporting tools: CRM Analytics or Tableau",
+        why: "Dashboards for workers and managers, and reports that replace today's data warehouse feeds as each program moves.",
+        leadMonths: 5,
+        blocks: ["h-small"],
+        startBy: "By month 9"
+      },
+      {
+        id: "esign",
+        item: "Electronic signature service",
+        why: "Salesforce does not sell one. The ministry already uses DocuSign with its contract management system, so extending that contract may be quicker.",
+        leadMonths: 4,
+        blocks: ["h-small"],
+        startBy: "By month 11"
+      },
+      {
+        id: "scan-redact",
+        item: "Virus scanning for uploaded files and a document redaction tool, on the ministry's own servers",
+        why: "Salesforce has no built-in scanning of uploads, and no tool for blacking out parts of a record before it is released.",
+        leadMonths: 5,
+        blocks: ["h-small", "h-cp"],
+        startBy: "By month 10"
+      },
+      {
+        id: "recon",
+        item: "Account matching (reconciliation) product, only if the ministry decides to buy rather than build",
+        why: "Matches the ministry's ledger with the bank and the government's accounts every day. It is the one payments part where buying is plausible. A request for information is drafted but not sent.",
+        leadMonths: 6,
+        blocks: ["h-pay"],
+        startBy: "By month 28"
+      },
+      {
+        id: "sf-field",
+        item: "Salesforce Field Service and Service Cloud Voice",
+        why: "Field Service lets child protection workers record visits on a phone or tablet, even offline. Voice connects calls to the 24/7 reporting line to the case.",
+        leadMonths: 6,
+        blocks: ["h-cp"],
+        startBy: "By month 74"
+      }
+    ]
+  },
+
+  e: {
+    summary:
+      "A planning sketch, not a commitment. The ministry builds its own target design in parts, using free open-source software and services the government already runs, and buys only a few common tools. With no big licence to wait for, a first worker release can come in month 9. Releases then go out every 3 months, and each part of ICM is switched off as its replacement lands.",
+    firstValueMonth: 9,
+    totalMonths: 106,
+    realism:
+      "No one has made a bottom-up estimate for this option, so we built one. The technology and payments research gives a floor for the ten main parts: 13,040 person-days. That floor leaves out child protection, moving data and links to other organizations. For those we borrowed the Salesforce research's figures as stand-ins: child protection 6,495, moving data 1,330, links 1,140 and running beside ICM 930. The total is 22,935. At 2,640 person-days a year that is 8.7 years. Starting after 2 months of discovery, the plan runs about 106 months. With 10 people it is about 10 and a half years; with 14, about 7 and a half. This is the least certain of the three figures. The target architecture's own costing for the full design is 142 to 249 million dollars over 9 to 13 years, with 55 to 110 people. At its own rates that is roughly 350 to 960 person-years of work, because it also counts project management, training, running two systems side by side and contingency. At 12 people that would take 30 to 80 years. So one team this size cannot deliver the full design. It can deliver the first parts and prove the approach. The full design needs several teams, with child protection run by its own team from the start, as the architecture intends.",
+    assumptions: [
+      leadTimeNote,
+      capacityNote,
+      "Effort is built from rough rules of thumb in the technology and payments research, which the authors call a floor, plus figures borrowed from the Salesforce research for the parts the floor leaves out. Treat it as a low estimate.",
+      "This plan moves a thin, read-only worker view ahead of the full shared foundations. The target architecture's own order builds all foundations first and puts the first visible release at 18 to 27 months. Only read-only pieces can safely move earlier, because they cannot damage ICM's records.",
+      "The first release reads a copy of changes from ICM's database. Oracle's written position on doing that continuously from the live database is needed first.",
+      "Free software runs on the government's own private cloud, an existing service. The event stream software (Kafka) is not yet on that platform's supported list. We assume the platform team supports the pilot, and that support is confirmed in writing before the new system becomes the official record for anything.",
+      "Changes inside ICM must go through the team that configures it, on its monthly release cycle. Its time must be booked ahead.",
+      "The order of programs follows the target architecture: smallest set of rules and lowest harm first, employment assistance late, child protection last.",
+      "Payment work assumes the Comptroller General's office accepts a new ministry payment system, as provincial policy requires. The bank's file format is also not confirmed.",
+      "Payments for a program go live only after side-by-side runs show zero difference for three monthly cycles, as the architecture requires.",
+      "The team needs skills it may not have, such as recording facts with several dates and running the event stream. The architecture names the first as the biggest skills gap in the program.",
+      "Child protection estimates have not had a second reader, so they may grow."
+    ],
+    phases: [
+      {
+        id: "e-discover",
+        name: "Discovery and setup",
+        start: 0,
+        end: 3,
+        lane: "foundation",
+        goal: "Learn how the work is done today, and set up hosting on the government's own private cloud.",
+        releases: [],
+        blockedBy: []
+      },
+      {
+        id: "e-found",
+        name: "Shared foundations, built in thin layers",
+        start: 2,
+        end: 16,
+        lane: "foundation",
+        goal: "Build only the shared parts the next release needs: the event stream, the evidence store, the ministry's own data rules for other systems, and the link layer to ICM.",
+        releases: [],
+        blockedBy: []
+      },
+      {
+        id: "e-view",
+        name: "First release: a better worker view",
+        start: 4,
+        end: 15,
+        lane: "release",
+        goal: "Give workers a fast client search and one summary across programs, without writing anything back to ICM.",
+        releases: [
+          {
+            month: 9,
+            name: "Pilot in one office",
+            who: "Workers in one office",
+            what: "Search for a client and see one summary across programs. It reads a copy of ICM's changes and writes nothing, so it cannot damage ICM's records."
+          },
+          {
+            month: 12,
+            name: "All offices",
+            who: "Workers in every office",
+            what: "The same search and summary, with fixes from the pilot."
+          },
+          {
+            month: 15,
+            name: "Duplicate review",
+            who: "Workers and records staff",
+            what: "Likely duplicate client records are flagged for a person to decide. Merges are recorded so they can be undone."
+          }
+        ],
+        blockedBy: []
+      },
+      {
+        id: "e-notices",
+        name: "Letters and notices",
+        start: 14,
+        end: 30,
+        lane: "release",
+        goal: "Make letters in the new system, tie each one to its decision, and switch off ICM's letters. This is the first part of ICM to be retired.",
+        releases: [
+          {
+            month: 18,
+            name: "Letters for one program",
+            who: "Clients and workers in one small program",
+            what: "Letters come from the new system, each tied to the decision it reports, with the right appeal wording."
+          },
+          {
+            month: 21,
+            name: "Letters for all programs",
+            who: "All clients and workers",
+            what: "Every program's letters come from the new system."
+          },
+          {
+            month: 24,
+            name: "ICM letters switched off",
+            who: "All workers",
+            what: "ICM's letter function is turned off and its links closed."
+          },
+          {
+            month: 27,
+            name: "Proof of delivery",
+            who: "Workers and clients",
+            what: "Workers can see when each letter was sent and whether it arrived."
+          }
+        ],
+        blockedBy: ["kafka-support"]
+      },
+      {
+        id: "e-docs",
+        name: "Documents and online applications",
+        start: 28,
+        end: 44,
+        lane: "release",
+        goal: "Move documents, signatures and new applications to the new system. Existing cases stay in ICM for now.",
+        releases: [
+          {
+            month: 31,
+            name: "Upload and sign online",
+            who: "Clients and workers",
+            what: "Clients upload documents and sign forms online. Workers see them on the case."
+          },
+          {
+            month: 34,
+            name: "Online application, child care subsidy",
+            who: "New child care subsidy applicants",
+            what: "New applications start in the new system and are copied into ICM. Existing cases are not touched."
+          },
+          {
+            month: 37,
+            name: "Online applications for all programs",
+            who: "New applicants in every program",
+            what: "Every new application starts in the new system."
+          },
+          {
+            month: 40,
+            name: "ICM documents switched off",
+            who: "All workers",
+            what: "ICM's document storage is turned off and its links closed."
+          },
+          {
+            month: 43,
+            name: "Move-back tested",
+            who: "Program staff",
+            what: "A group of applications is moved back to ICM and forward again for real, to prove it can be done if something goes wrong."
+          }
+        ],
+        blockedBy: ["esign", "capture"]
+      },
+      {
+        id: "e-work",
+        name: "Work queues",
+        start: 42,
+        end: 52,
+        lane: "release",
+        goal: "Build one set of work queues for every program, so workers see all their tasks and deadlines in one place.",
+        releases: [
+          {
+            month: 46,
+            name: "Work queues, one office",
+            who: "Workers and supervisors in one office",
+            what: "Tasks, caseloads and overdue items are managed in the new system."
+          },
+          {
+            month: 49,
+            name: "Work queues everywhere",
+            who: "Workers and supervisors in every office",
+            what: "The same, in every office."
+          },
+          {
+            month: 52,
+            name: "ICM queues switched off",
+            who: "All workers",
+            what: "ICM's task and queue functions are turned off. Task times must be no slower than before."
+          }
+        ],
+        blockedBy: []
+      },
+      {
+        id: "e-rules",
+        name: "Decisions for the two smaller programs",
+        start: 50,
+        end: 70,
+        lane: "release",
+        goal: "Build the ministry's rules tools and decision records, then move child care subsidy and employment services decisions, smallest first.",
+        releases: [
+          {
+            month: 55,
+            name: "Side-by-side, child care subsidy",
+            who: "Program staff",
+            what: "The new rules work out child care subsidy for real cases next to ICM for three monthly cycles. Every difference is explained."
+          },
+          {
+            month: 58,
+            name: "Child care subsidy decisions live",
+            who: "Child care subsidy clients and workers",
+            what: "Decisions are made in the new system, each with a full record of its facts and rules."
+          },
+          {
+            month: 61,
+            name: "Side-by-side, employment services",
+            who: "Program staff",
+            what: "The same three-cycle check for employment services."
+          },
+          {
+            month: 64,
+            name: "Employment services decisions live",
+            who: "Employment services clients and workers",
+            what: "Decisions are made in the new system."
+          },
+          {
+            month: 67,
+            name: "Old rules switched off",
+            who: "Program staff",
+            what: "ICM's decision paths for both programs are turned off."
+          }
+        ],
+        blockedBy: ["rules-quote"]
+      },
+      {
+        id: "e-pay",
+        name: "Payments and overpayments",
+        start: 64,
+        end: 82,
+        lane: "release",
+        goal: "Pay clients of the moved programs through one payment service with its own ledger, matched every day to the bank and the government's accounts.",
+        releases: [
+          {
+            month: 70,
+            name: "Side-by-side payment runs",
+            who: "Finance staff",
+            what: "The new payment run works out each payment next to the old one. It must match to the cent for three monthly cycles."
+          },
+          {
+            month: 73,
+            name: "First live payment run",
+            who: "Child care subsidy and employment services clients",
+            what: "Payments for these two programs come from the new system."
+          },
+          {
+            month: 76,
+            name: "Overpayments and debts",
+            who: "Finance and recovery staff",
+            what: "Overpayments are raised, repaid, written off or sent to collections in the new system."
+          },
+          {
+            month: 79,
+            name: "Emergency payments tested",
+            who: "Finance and operations staff",
+            what: "The emergency payment path is run for real in a test, not just written down."
+          },
+          {
+            month: 82,
+            name: "Old payment path switched off",
+            who: "Finance staff",
+            what: "The old payment path for these programs is turned off."
+          }
+        ],
+        blockedBy: ["recon"]
+      },
+      {
+        id: "e-appeals",
+        name: "Reviews and appeals",
+        start: 78,
+        end: 86,
+        lane: "release",
+        goal: "Handle reviews and appeals once, for every program, with their legal deadlines.",
+        releases: [
+          {
+            month: 84,
+            name: "Reviews and appeals",
+            who: "Clients asking for a review, and the staff who handle it",
+            what: "Reviews and appeals run in the new system for every program moved so far. A successful appeal is paid through the same payment service."
+          }
+        ],
+        blockedBy: []
+      },
+      {
+        id: "e-adult",
+        name: "Disability assistance and employment assistance",
+        start: 84,
+        end: 104,
+        lane: "release",
+        goal: "Move the two largest programs together, last among the adult programs, because a wrong answer here can mean someone cannot buy food this month.",
+        releases: [
+          {
+            month: 87,
+            name: "Side-by-side decisions",
+            who: "Program staff",
+            what: "The new rules work out disability and employment assistance for real cases next to ICM for three monthly cycles."
+          },
+          {
+            month: 90,
+            name: "First region moves",
+            who: "Clients and workers in one region",
+            what: "Decisions and payments for both programs move together, because the disability decision sets the rate employment assistance pays."
+          },
+          {
+            month: 93,
+            name: "More regions",
+            who: "Clients and workers in more regions",
+            what: "More regions move in groups."
+          },
+          {
+            month: 96,
+            name: "Half the province",
+            who: "Clients and workers in about half the province",
+            what: "More regions move in groups."
+          },
+          {
+            month: 99,
+            name: "Rest of the province",
+            who: "All remaining clients and workers in both programs",
+            what: "The rest of the caseload moves."
+          },
+          {
+            month: 102,
+            name: "Old decision paths switched off",
+            who: "Program staff",
+            what: "ICM's decision paths for both programs are turned off."
+          }
+        ],
+        blockedBy: []
+      },
+      {
+        id: "e-cp",
+        name: "Child protection",
+        start: 80,
+        end: 104,
+        lane: "release",
+        goal: "Move child protection last, with its own design work and permission to build rather than configure, because it has the least structured practice and the strictest privacy needs.",
+        releases: [
+          {
+            month: 85,
+            name: "Caregivers and providers",
+            who: "Foster caregivers, service providers and the workers who support them",
+            what: "Caregiver and provider records move to the new system."
+          },
+          {
+            month: 88,
+            name: "Family plans and agreements",
+            who: "Child protection workers",
+            what: "Care plans and agreements with families are made and tracked in the new system."
+          },
+          {
+            month: 91,
+            name: "Court documents",
+            who: "Child protection workers who go to court",
+            what: "Court proceedings, orders and their documents are tracked in the new system."
+          },
+          {
+            month: 94,
+            name: "Reports of concern",
+            who: "The 24/7 reporting line and intake workers",
+            what: "Calls about a child's safety go straight into the case, on the ministry's own release calendar."
+          },
+          {
+            month: 97,
+            name: "Investigations",
+            who: "Child protection workers",
+            what: "Investigations and safety assessments are done in the new system."
+          },
+          {
+            month: 100,
+            name: "Adoption",
+            who: "Adoption workers",
+            what: "Adoption records move to the new system."
+          },
+          {
+            month: 103,
+            name: "Remaining cases move",
+            who: "All child protection workers",
+            what: "The rest of the open child protection cases move from ICM in groups."
+          }
+        ],
+        blockedBy: []
+      },
+      {
+        id: "e-migrate",
+        name: "Move the remaining history",
+        start: 96,
+        end: 104,
+        lane: "migration",
+        goal: "Move closed cases and old records out of ICM with their original dates, and check that every record arrived.",
+        releases: [
+          {
+            month: 103,
+            name: "History check complete",
+            who: "Records staff and auditors",
+            what: "Every old record is in the new system or in a checked archive, with its original dates."
+          }
+        ],
+        blockedBy: []
+      },
+      {
+        id: "e-retire",
+        name: "Switch off ICM",
+        start: 102,
+        end: 106,
+        lane: "retire",
+        goal: "Turn off what is left of ICM and the Siebel product it runs on, close its last links, and keep a controlled archive.",
+        releases: [
+          {
+            month: 106,
+            name: "ICM switched off",
+            who: "Everyone",
+            what: "ICM is turned off. Its licence, support and servers stop costing money."
+          }
+        ],
+        blockedBy: []
+      }
+    ],
+    procurement: [
+      {
+        id: "kafka-support",
+        item: "Support contract for the event stream software (Apache Kafka), only if the government's private cloud team cannot support it",
+        why: "The event stream carries every fact and decision between the parts. The software is free, but someone must be on call when it breaks.",
+        leadMonths: 4,
+        blocks: ["e-notices"],
+        startBy: "Month 1"
+      },
+      {
+        id: "esign",
+        item: "Electronic signature service",
+        why: "Clients and workers need to sign forms online. The research suggests asking OneSpan. The ministry already uses DocuSign elsewhere.",
+        leadMonths: 4,
+        blocks: ["e-docs"],
+        startBy: "By month 22"
+      },
+      {
+        id: "capture",
+        item: "Document scanning and capture tool, only if government services do not cover it",
+        why: "Paper and uploaded documents must be scanned, read and filed against the right case. The research says buy or adopt this, not build it.",
+        leadMonths: 5,
+        blocks: ["e-docs"],
+        startBy: "By month 20"
+      },
+      {
+        id: "rules-quote",
+        item: "Price quote for a commercial rules-writing tool (GoRules' paid product)",
+        why: "The plan builds rule-writing tools around a free rules engine. The rules engine decision needs a priced commercial option to compare. If the paid tool wins, it becomes a purchase.",
+        leadMonths: 3,
+        blocks: ["e-rules"],
+        startBy: "By month 44"
+      },
+      {
+        id: "recon",
+        item: "Account matching (reconciliation) product, only if the ministry decides to buy rather than build",
+        why: "Matches the ministry's ledger with the bank and the government's accounts every day. It is the one payments part where buying is plausible. A request for information is drafted but not sent.",
+        leadMonths: 6,
+        blocks: ["e-pay"],
+        startBy: "By month 56"
+      }
+    ]
+  }
+};
