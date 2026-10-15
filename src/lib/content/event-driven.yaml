@@ -1,0 +1,1074 @@
+# Event-driven: the words on this option's page and in every part's pop-up.
+#
+# Edit the words freely. Keep the names before each colon (what:, does:, ...)
+# and the indentation as they are. Lines under a ">-" are one paragraph:
+# wrap them however you like. Save with: npm run copy:save -- "what you changed"
+
+name: Event-driven
+nickname: Built in parts
+tagline: >-
+  Smaller replaceable parts linked by messages. Reuse or buy common parts; build what is
+  unique to BC.
+summary:
+  - This is the ministry's own target design. Instead of one big system, it is a set of
+    smaller parts. Each part does one job, keeps its own records and has its own team.
+    Common parts, like sign-in, email and printing, are reused from government or
+    adopted as free software. The ministry builds only the parts that are unique to BC's
+    programs, such as eligibility rules and the record of facts behind each decision.
+  - The parts talk to each other through events. An event is a short message that says
+    something happened, like "a client reported new income" or "a payment was approved".
+    Any part that cares can listen and act. Because no part reaches into another part's
+    records, one part can be replaced without breaking the rest.
+  - The new parts are switched on one area at a time, while ICM keeps running. A bridge
+    into ICM lets old and new work side by side until each piece of ICM can be turned
+    off. The first stage builds the foundations and replaces nothing that staff will
+    see.
+facts:
+  - label: Rough cost
+    value: >-
+      $142M to $249M over 9 to 13 years (early estimate, no supplier quotes)
+  - label: First 6 to 12 months
+    value: Foundations only. Nothing in ICM is replaced yet
+  - label: First money saved
+    value: >-
+      At stage three, when notices and letters move off ICM and that part of ICM is
+      turned off
+  - label: Bought vs free software
+    value: >-
+      Mostly free open-source software and existing government services. Few commercial
+      purchases
+goodAt:
+  - Each part can be replaced on its own, so the ministry is not locked to one supplier.
+  - Every decision keeps the facts and the version of the rules used, so it can be
+    explained at a reconsideration or tribunal years later.
+  - Policy staff can change rates and rules through a tested release process, without
+    waiting for a full software release.
+  - ICM is replaced a piece at a time, with no single big switch-over day.
+  - Sensitive data stays on the Province's own servers, and payments can carry on if any
+    supplier cuts off access.
+watchOut:
+  - The first 6 to 12 months build foundations and replace nothing visible. There will
+    be pressure to cut this short, and stopping here is the worst place to stop.
+  - Running costs go up before they come down, for two to three years, because old and
+    new systems run side by side.
+  - The ministry, or those it hires, must build and run several parts itself. It needs a
+    funded team, and who builds it is not yet decided.
+  - Teams must keep to the agreed message formats. If parts start reading each other's
+    records, they become tangled again like ICM.
+  - An independent check found one product, Merative Cúram, could meet the legal needs.
+    The reasons for building case work still need a second look.
+zones:
+  experience:
+    name: Unified user experience
+    blurb: >-
+      The screens people use, one set for each kind of user, all built from the same
+      shared building blocks.
+  api:
+    name: Service abstraction layer
+    blurb: >-
+      One shared doorway that every screen and partner uses to reach the system, so the
+      parts behind it can change without anyone noticing.
+  domain:
+    name: Domain capabilities
+    blurb: >-
+      The parts unique to BC's programs, each with its own records and its own team.
+      Most of these are built by the ministry.
+  intelligence:
+    name: Service intelligence
+    blurb: >-
+      The parts that work out eligibility, move work along, and help the ministry learn
+      from its data.
+  events:
+    name: Event broker
+    blurb: >-
+      The message line that carries news of every change from one part to the others.
+  commodity:
+    name: Commodity components
+    blurb: >-
+      Common tools every large organisation needs. These are reused from government,
+      adopted as free software or bought, not built.
+  gateways:
+    name: Links to other systems
+    blurb: >-
+      Bridges to other organisations, and to ICM while old and new run side by side.
+parts:
+  worker-context:
+    name: Worker screens
+    short: What caseworkers and contact centre staff use
+    what: >-
+      The screens ministry staff use every day. Caseworkers, supervisors and contact
+      centre staff each get screens shaped to their own tasks.
+    does: >-
+      Shows a client's case, evidence, decisions, payments and tasks in one place. Staff
+      record facts, act on work queues and see what is overdue.
+    why: >-
+      Staff work in ICM today with many screens and workarounds. Screens built around
+      their real tasks save time on every case, and they can be improved without
+      touching the records underneath.
+    buildBuy:
+      approach: build
+      label: Build from a shared library of screen parts
+      summary: >-
+        The design builds screens from a shared library of building blocks, with the
+        Province's design system used where it fits. The research found a case platform
+        would add little here: at most it could supply screens, at platform prices. No
+        product-by-product comparison of screen tools has been done.
+      options:
+        - name: Shared library of screen parts
+          kind: build
+          note: >-
+            The design's choice. Each building block is tested for accessibility.
+        - name: Provincial design system
+          kind: existing
+          note: >-
+            Used behind the ministry's own library. Still early, about 20 to 30 parts.
+        - name: >-
+            Case platform screens (Salesforce, Dynamics 365, Pega, Appian)
+          kind: buy
+          note: >-
+            Not recommended. High licence cost for a small part of the product.
+  client-context:
+    name: Client screens
+    short: What people already receiving help use
+    what: >-
+      The online screens for people already receiving assistance or services, and for
+      those acting on their behalf.
+    does: >-
+      Lets clients report changes, upload documents, read their notices and see their
+      payments. Anything they can do online can also be done by phone, in person or on
+      paper.
+    why: >-
+      Many clients cannot easily use a website. The design says no right or deadline can
+      be online only, so clients get the same result whichever way they reach the
+      ministry.
+    buildBuy:
+      approach: build
+      label: Build from the shared library of screen parts
+      summary: >-
+        Client screens use the same shared building blocks as the worker screens. They
+        reach the system through the same doorway, so they keep working as parts behind
+        it are replaced. No product comparison has been done for client screens.
+      options:
+        - name: Shared library of screen parts
+          kind: build
+          note: Same blocks as the worker screens.
+        - name: Provincial design system
+          kind: existing
+          note: >-
+            Used where it fits, behind the ministry's library.
+  applicant-context:
+    name: Applicant screens
+    short: Where people apply for help
+    what: >-
+      The screens for people applying for the first time, on their own or with help from
+      a worker or agency.
+    does: >-
+      Takes an application, collects the facts and documents needed, and starts the
+      eligibility check. A worker can complete an application on someone's behalf, and
+      the system records who did it.
+    why: >-
+      Applying is the first contact many people have with the ministry, often at a hard
+      moment. A clear application with no lost paperwork means faster decisions and
+      fewer repeat visits.
+    buildBuy:
+      approach: build
+      label: Build from the shared library of screen parts
+      summary: >-
+        Built with the same shared building blocks as the other screens. No product
+        comparison has been done for application screens.
+      options:
+        - name: Shared library of screen parts
+          kind: build
+          note: Same blocks as the other screens.
+        - name: Provincial design system
+          kind: existing
+          note: Used where it fits.
+  vendor-context:
+    name: Partner and vendor screens
+    short: What service providers and partners use
+    what: >-
+      The screens and connections for outside organisations, such as service providers,
+      contracted agencies and other partners.
+    does: >-
+      Lets partners see referrals and service agreements, report on services delivered,
+      and send or receive information the law allows them to share.
+    why: >-
+      Partners do much of the hands-on work for clients. Giving them their own access,
+      limited to what an agreement allows, cuts phone calls and paper and protects
+      client privacy.
+    buildBuy:
+      approach: build
+      label: Build from the shared library of screen parts
+      summary: >-
+        Built with the same building blocks as the other screens. What each partner may
+        see is set by information-sharing agreements held in a register, not granted by
+        hand. No product comparison has been done for partner screens.
+      options:
+        - name: Shared library of screen parts
+          kind: build
+          note: Same blocks as the other screens.
+  service-layer:
+    name: Service abstraction layer
+    short: One doorway into the system (APIs)
+    what: >-
+      The single doorway that every screen, partner and report uses to reach the system.
+      It is made of APIs. An API is a published, agreed way for one computer program to
+      ask another for information or to get something done, a bit like a standard order
+      form.
+    does: >-
+      Takes each request, checks the person is allowed to make it, records it, and
+      passes it to the right part. Behind it sit microservices: small programs that each
+      do one job, like a counter that only handles one kind of request.
+    why: >-
+      This doorway stays the same while the parts behind it change. Today some requests
+      go to ICM; later the same requests go to new parts. Screens and partners do not
+      have to change each time, which saves money and avoids disruption.
+    buildBuy:
+      approach: build
+      label: >-
+        Build the doorway, reuse the Province's API tools
+      summary: >-
+        The agreed request formats are the ministry's own and must outlive every part
+        behind them, so they are designed and owned in-house. The design reuses the
+        Province's API programme for the gateway software and directory. The research
+        did not compare products for this part.
+      options:
+        - name: Ministry-owned request formats
+          kind: build
+          note: >-
+            Owned by the ministry, built to last longer than any one part.
+        - name: Provincial API programme
+          kind: existing
+          note: Gateway and directory, reused.
+    watch:
+      tone: risk
+      text: >-
+        If ICM's own codes and record numbers leak into the doorway and a partner starts
+        relying on them, the doorway can no longer outlive ICM. The design names this as
+        its quietest risk and checks for it automatically.
+  participant-identity:
+    name: Participant identity
+    short: Knowing two records are the same person
+    what: >-
+      A deliberately small part that holds the identifiers for each person the ministry
+      serves, such as BC Services Card number and program numbers, and just enough
+      detail to match records.
+    does: >-
+      Spots records that belong to the same person and sends uncertain matches to a
+      staff member to decide. When records are merged or split, it tells every other
+      part, and a wrong merge can be undone.
+    why: >-
+      ICM has many duplicate records and a search that only finds exact matches. Mixing
+      up two people can mean wrong payments or a privacy breach. Getting identity right
+      underpins everything else.
+    buildBuy:
+      approach: build
+      label: >-
+        Build a small service, adopt a matching library inside it
+      summary: >-
+        Matching names and dates is a common problem, so the research recommends
+        adopting an existing matching library rather than writing one. The small service
+        around it, with the review screen and undoable merges, is built. Products that
+        hold a single master record of each client were ruled out, because that record
+        would hold information that belongs to other parts.
+      options:
+        - name: Splink, Zingg, dedupe
+          kind: open-source
+          note: >-
+            Free matching libraries that run on the ministry's own servers.
+        - name: Senzing SDK
+          kind: buy
+          note: >-
+            Commercial matching library that runs on the ministry's own servers.
+        - name: Tamr, Reltio, Informatica, Semarchy
+          kind: buy
+          note: >-
+            Not recommended. They keep a master copy of each person.
+  financial-components:
+    name: Financial components
+    short: The ministry's record of money owed and paid
+    what: >-
+      The ministry's own ledger for benefits: what each person is owed, what was paid,
+      what was recovered and what was written off. The Province's corporate financial
+      system stays the official book.
+    does: >-
+      Turns each approved decision into a payment instruction. It checks its totals
+      every day against the bank and the corporate financial system. It also tracks
+      money paid now that may have to be repaid later, such as help while an appeal is
+      decided.
+    why: >-
+      This is where public money is accounted for. Clean daily checks catch errors
+      before they reach clients, and keeping the ledger apart from the payment run means
+      each can be audited on its own.
+    buildBuy:
+      approach: build
+      label: Build in the ministry's own database (proposed)
+      summary: >-
+        A test compared a plain ledger table in the ministry's own database with three
+        open-source ledger products. The plain table passed all nine tests, including
+        posting a full monthly run of about 74,000 entries in under two seconds. No
+        product did better. This direction is in a decision record that has not yet been
+        accepted. How to check the ledger against the bank each day is still open, and
+        suppliers may be asked to quote.
+      options:
+        - name: Ledger table in the ministry's own database
+          kind: build
+          note: >-
+            Proposed. Passed all nine tests, but it was one test.
+        - name: TigerBeetle, Formance Ledger, Blnk Core
+          kind: open-source
+          note: >-
+            Not recommended. Each adds a second store, and two let the link to the
+            decision be rewritten.
+        - name: Apache Fineract, Kill Bill
+          kind: open-source
+          note: >-
+            Not recommended. They hold payments and debts together in one model.
+        - name: Commercial reconciliation products
+          kind: buy
+          note: Not yet decided. Prices on request only.
+    watch:
+      tone: risk
+      text: >-
+        Provincial financial policy says ministries must use the Province's corporate
+        financial systems where practical, and a new financial system needs the
+        Comptroller General's approval. The research did not consider this, and the
+        answer is not yet known.
+  service-delivery:
+    name: Service delivery
+    short: Case work, one area per program
+    what: >-
+      The everyday case work, split into five separate areas: employment assistance,
+      persons with disabilities, child care subsidy, employment services and child
+      protection. Each has its own records and its own team.
+    does: >-
+      Handles applications, eligibility checks, supplements, service plans and case
+      reviews for its program. Each area uses the shared parts for identity, evidence,
+      rules, workflow and letters.
+    why: >-
+      Child protection and child care subsidy work very differently. Forcing them into
+      one shared case model is what made ICM hard to change. Separate areas let each
+      program improve without risking the others.
+    buildBuy:
+      approach: build
+      label: Build (assemble on the shared parts)
+      summary: >-
+        The research recommends building the five program areas and not buying a case
+        platform to hold the record. Platforms like Salesforce, Dynamics 365, Pega and
+        Appian keep only the current state of a case, not the full history of facts, and
+        published licence prices for about 9,400 staff run from about CAD 49 to 164
+        million over three years before setup. An independent check later found Merative
+        Cúram does keep that history, so this direction is now rated low in firmness.
+      options:
+        - name: Five program areas built on shared parts
+          kind: build
+          note: Recommended, low firmness. Needs a funded team.
+        - name: Merative Cúram
+          kind: buy
+          note: >-
+            Meets the legal needs on current documents, but is one shared case model. A
+            demonstration has been suggested.
+        - name: Salesforce, Dynamics 365, Pega, Appian
+          kind: buy
+          note: >-
+            Not recommended as the record. Keep current state, not history.
+    watch:
+      tone: risk
+      text: >-
+        The main reason for building was that no product keeps the history of facts.
+        That does not hold for Cúram. A legal answer on what a tribunal needs, and a
+        second look at the reasons for building, are needed before deciding.
+  provider-outcome:
+    name: Provider and outcome management
+    short: Service providers, placements and results
+    what: >-
+      The part that manages outside services: facilities, placements, service
+      agreements, referrals, plans and how well services worked.
+    does: >-
+      Records which provider is authorised to deliver which service to whom, under what
+      agreement, and tracks the results.
+    why: >-
+      Much of the help clients get comes from contracted providers. Clear agreements and
+      outcome tracking help the ministry pay the right providers and see which services
+      actually help people.
+    buildBuy:
+      approach: build
+      label: >-
+        Not yet analysed (default: build on the shared parts)
+      summary: >-
+        No build-vs-buy analysis has been done for this part yet. The design treats it
+        like the other program areas, with its own records and team. The sensible
+        default is to build it on the shared parts, while checking whether a
+        provider-management product could serve as its store without becoming a second
+        official record.
+      options:
+        - name: Build on shared parts
+          kind: build
+          note: Default, not yet analysed.
+  evidence-verification:
+    name: Evidence and verification
+    short: The permanent record of every fact
+    what: >-
+      The permanent record of every fact the ministry relies on, such as income, rent or
+      family size. Each fact keeps three dates: when it was true, when the ministry
+      recorded it, and, for facts carried over from ICM, when ICM said it.
+    does: >-
+      Records facts, corrections and changes without ever erasing the old version. It
+      tracks whether each fact has been checked, and announces every change so other
+      parts can act on it.
+    why: >-
+      A tribunal may ask years later what the ministry knew and when. This record
+      answers that. It also tells a ministry mistake apart from a change in the client's
+      life, which decides whether a client owes money back.
+    buildBuy:
+      approach: build
+      label: Build on top of the free event broker
+      summary: >-
+        The research recommends building the evidence store on the open-source message
+        software. How the ministry records facts, corrections and dates is specific to
+        its needs, and no ordinary database or event store tracks the third date. The
+        independent check noted Cúram also keeps fact history, but as part of one shared
+        case model.
+      options:
+        - name: Evidence store built on Apache Kafka
+          kind: build
+          note: Recommended.
+        - name: Merative Cúram
+          kind: buy
+          note: >-
+            Keeps fact history, but only inside its own case model.
+  rules-engine:
+    name: Rules engine
+    short: Works out who is eligible, and for what
+    what: >-
+      The part that applies BC's laws and policies to the facts to work out who is
+      eligible and how much they get. Policy staff write the rules; the engine runs
+      them.
+    does: >-
+      Takes the facts and the rules in force on a given date and produces a decision
+      with its reasons. It saves exactly what it used, so any past decision can be
+      re-run and checked.
+    why: >-
+      Rules are BC law written as code, and they change often. Getting them wrong means
+      people are paid wrongly or go without. Letting policy staff test and release rule
+      changes safely saves time and protects clients.
+    buildBuy:
+      approach: build
+      label: >-
+        Build the rule-writing tools, on a free open-source engine (ZEN)
+      summary: >-
+        The design has chosen GoRules' free ZEN engine, which runs inside the ministry's
+        own decision service so past decisions can be re-run exactly. The ministry
+        builds the tools to write, test and release rules. GoRules' paid authoring
+        product already covers about two thirds of those tools, so a quote is to be
+        sought for comparison. Oracle Intelligent Advisor and IBM Operational Decision
+        Manager were first ruled out on a wrong fact and could be looked at again.
+      options:
+        - name: ZEN engine plus ministry-built tools
+          kind: build
+          note: Recommended, medium firmness.
+        - name: GoRules paid authoring product
+          kind: buy
+          note: Quote to be sought for comparison.
+        - name: >-
+            Oracle Intelligent Advisor, IBM Operational Decision Manager
+          kind: buy
+          note: >-
+            Wrongly ruled out at first. Whether to ask them is open again.
+        - name: InRule
+          kind: buy
+          note: >-
+            Runs only as a separate network service, so it cannot re-run past decisions
+            the way the design requires.
+    watch:
+      tone: risk
+      text: >-
+        Nobody has yet tested whether policy analysts can write and release a real rate
+        change on their own with these tools. The design calls for two analysts to try
+        it, unassisted.
+  orchestration:
+    name: Workflow (orchestration)
+    short: Moves work between people and systems
+    what: >-
+      The part that moves work along: work queues, due dates set by law, supervision and
+      escalation, scheduled reviews, and long jobs like a payment run.
+    does: >-
+      Puts tasks in the right queue, tracks deadlines and flags work that is overdue. If
+      a long job fails part way, it picks up where it stopped or undoes the steps
+      already done.
+    why: >-
+      Missed deadlines in child protection or on a reconsideration can harm people and
+      break the law. Clear queues and automatic reminders help staff keep on top of
+      their work.
+    buildBuy:
+      approach: open-source
+      label: Adopt free open-source software (jBPM)
+      summary: >-
+        This is a common need with mature products, and every assessment agreed. The
+        strongest option, jBPM, costs nothing to license and can run on the ministry's
+        own servers. Free to license is not free to run: hosting, support and setup need
+        a budget.
+      options:
+        - name: jBPM
+          kind: open-source
+          note: >-
+            Recommended. Must be tested on undoing steps cleanly.
+        - name: Orkes Conductor
+          kind: buy
+          note: >-
+            Commercial. Can keep a current copy of data on ministry servers.
+        - name: Camunda and Flowable cloud services
+          kind: buy
+          note: >-
+            Not for this core part. Cannot show a ministry-held copy of data.
+        - name: Temporal Cloud
+          kind: buy
+          note: Copies only finished work, not work in progress.
+  intelligence:
+    name: Intelligence
+    short: Learning from the data
+    what: >-
+      Tools for studying the ministry's data as a whole: spotting trends, planning
+      services and, in future, using machine learning on data with personal details
+      removed.
+    does: >-
+      Lets analysts ask questions of the data without making new copies of it. Any work
+      in the public cloud uses only data stripped of personal details.
+    why: >-
+      Today data is copied again and again for reports, and each copy is a privacy risk.
+      Asking questions of one well-protected store means better planning with less
+      exposure.
+    buildBuy:
+      approach: open-source
+      label: >-
+        Not yet analysed (default: free open-source tools)
+      summary: >-
+        The build-vs-buy research did not cover this part. The design names free
+        open-source tools, such as Apache Spark, working over one protected data store
+        on the ministry's own servers. Treat that as the default until it is analysed.
+      options:
+        - name: Apache Spark and related open-source tools
+          kind: open-source
+          note: Named in the design. Not yet analysed.
+  event-broker:
+    name: Event broker
+    short: Carries news of every change
+    what: >-
+      The message line that links all the parts. An event is a short message that says
+      something happened, like "income reported" or "payment approved". The broker
+      delivers each event to every part that needs to know.
+    does: >-
+      Carries every fact and decision between the parts, and checks each message has the
+      agreed shape. It keeps messages in order so a part that was offline can catch up.
+    why: >-
+      Because parts only talk through events, any part can be swapped out without
+      rewiring the others. This is what lets ICM be replaced a piece at a time.
+    buildBuy:
+      approach: open-source
+      label: >-
+        Adopt free open-source software (Apache Kafka with Strimzi)
+      summary: >-
+        The messaging layer is standard, widely used and free to license. The research
+        recommends Apache Kafka, run on the Province's private cloud with the Strimzi
+        tool, and an open-source register of message formats. Some commercial versions
+        carry licence terms that limit how they can be used, so they are not
+        recommended.
+      options:
+        - name: Apache Kafka with Strimzi
+          kind: open-source
+          note: Recommended.
+        - name: Apicurio Registry or Karapace
+          kind: open-source
+          note: Register of agreed message formats.
+        - name: Confluent
+          kind: buy
+          note: Not recommended. Licence terms restrict use.
+        - name: Redpanda
+          kind: buy
+          note: >-
+            Not recommended. Useful features are behind a paid licence.
+    watch:
+      tone: risk
+      text: >-
+        Kafka is not yet on the provincial platform's supported list, so the support
+        arrangement must be confirmed in writing first. Teams must also hold the line on
+        the agreed message formats, or the parts will tangle again.
+  client-identity:
+    name: Client identity service
+    short: Proving who a client is
+    what: >-
+      The provincial BC Services Card service, which proves a person is who they say
+      they are when they sign in online.
+    does: >-
+      Confirms a client's identity at a high level of trust. The ministry keeps a
+      reference to the result, not a copy of the person's details.
+    why: >-
+      Clients use the same card they use for other provincial services. The ministry
+      does not have to build or guard its own identity checks, and it holds less
+      personal data.
+    buildBuy:
+      approach: existing
+      label: >-
+        Existing: BC Services Card
+      summary: >-
+        The design treats identity as a common service and says reusing the provincial
+        service is not a close call. The BC Services Card service is in production and
+        is reached through the Province's single sign-on.
+      options:
+        - name: BC Services Card Authentication Service
+          kind: existing
+          note: In production.
+  notifications:
+    name: Notifications
+    short: Emails and text messages
+    what: >-
+      The service that sends emails and text messages to clients and partners.
+    does: >-
+      Sends reminders, alerts and notice that a new letter is ready, and reports back
+      whether each message was delivered.
+    why: >-
+      A timely reminder can stop a missed deadline or a cut-off payment. Reusing a
+      government service saves building and running one.
+    buildBuy:
+      approach: existing
+      label: >-
+        Existing: provincial notification service, with a fallback
+      summary: >-
+        The design reuses the Province's notification service, which is still being
+        developed. Because it may not be ready in time, it names fallbacks: the federal
+        GC Notify service or the Province's Common Hosted Email Service.
+      options:
+        - name: Provincial notification service
+          kind: existing
+          note: In development. Readiness date to confirm.
+        - name: Common Hosted Email Service (CHES)
+          kind: existing
+          note: Provincial email service. Fallback.
+        - name: GC Notify
+          kind: existing
+          note: >-
+            Federal service. Fallback, sends up to Protected A messages.
+  documents:
+    name: Documents
+    short: Letters, notices and signatures
+    what: >-
+      The tools that build letters and notices from each decision, store documents, and
+      collect electronic signatures.
+    does: >-
+      Fills a notice template with the decision, its reasons and the client's appeal
+      rights. It stores documents and links each one to the fact it supports.
+    why: >-
+      A notice must always match its decision and state the right appeal period. Getting
+      this right protects clients' rights and the ministry at a tribunal.
+    buildBuy:
+      approach: buy
+      label: >-
+        Buy or adopt several tools; build the link to each decision
+      summary: >-
+        Producing, storing and signing documents are common needs with many low-cost
+        tools. The research recommends using provincial services where they fit, buying
+        or adopting the rest, and building only the link that ties each notice to its
+        decision. Expect several tools, not one. A request for information on electronic
+        signatures was proposed.
+      options:
+        - name: Common Document Generation Service (CDOGS)
+          kind: existing
+          note: >-
+            Provincial service for building documents from templates.
+        - name: OneSpan Sign
+          kind: buy
+          note: >-
+            Electronic signatures. Request for information proposed.
+        - name: Docusign, OpenText, SmartCOMM, Quadient
+          kind: buy
+          note: Other commercial options looked at.
+        - name: Documenso, DocuSeal
+          kind: open-source
+          note: Free electronic signature options.
+    watch:
+      tone: risk
+      text: >-
+        Per-user pricing for electronic signatures could become large if every staff
+        account needs a licence.
+    procurement: true
+  chat-bots:
+    name: Chat bots
+    short: Automatic answers to common questions
+    what: >-
+      Online helpers that answer common questions by chat, any time of day.
+    does: >-
+      Answers questions like when the next payment is due or what documents to bring,
+      and passes harder questions to a person.
+    why: >-
+      Quick answers to simple questions can cut phone wait times and free staff for
+      clients who need more help.
+    buildBuy:
+      approach: buy
+      label: >-
+        Not yet analysed (default: buy or reuse)
+      summary: >-
+        No build-vs-buy analysis has been done for chat bots yet. As a common tool, the
+        design's rule points to buying or reusing one rather than building it, and it
+        must never make decisions about eligibility.
+      options:
+        - name: Commercial or government chat service
+          kind: buy
+          note: Default, not yet analysed.
+  printing:
+    name: Printing
+    short: Paper letters and cheques
+    what: >-
+      The Province's own print-and-mail service, which prints and posts letters and
+      cheques.
+    does: >-
+      Receives letters and cheques in batches, prints them and mails them, and reports
+      back when they were sent.
+    why: >-
+      Many clients rely on paper. When a client prefers paper, every decision notice
+      goes out on paper by default, with the same deadlines as online.
+    buildBuy:
+      approach: existing
+      label: >-
+        Existing: provincial print-and-mail service
+      summary: >-
+        The design reuses the provincial print-and-mail operation. No published way to
+        connect to it automatically was found, so sending files in batches is assumed
+        until confirmed.
+      options:
+        - name: Provincial print-and-mail service
+          kind: existing
+          note: Batch file connection assumed.
+  verified-credentials:
+    name: Verified credentials
+    short: Digital proof clients can carry
+    what: >-
+      Digital proofs, held by the client in a secure app, that show a fact about them
+      has been confirmed, such as being in receipt of a benefit.
+    does: >-
+      Lets a client prove a confirmed fact to another organisation without the ministry
+      having to share their file.
+    why: >-
+      Clients often need to prove they get assistance. A digital proof saves trips and
+      letters and shares only what is needed.
+    buildBuy:
+      approach: existing
+      label: >-
+        Not yet analysed (default: reuse a government service)
+      summary: >-
+        No build-vs-buy analysis has been done for verified credentials yet. The
+        sensible default is to reuse a government service if one fits, and not build
+        one.
+      options:
+        - name: Government digital credential service
+          kind: existing
+          note: Default, not yet analysed.
+  document-scanning:
+    name: Document scanning
+    short: Turning paper into records
+    what: >-
+      Tools that scan paper documents, sort them, and read key details from them.
+    does: >-
+      Takes in documents from mail, fax, email, uploads and offices. It records the date
+      each arrived, because legal deadlines run from that date.
+    why: >-
+      Lost or slow paperwork delays decisions. Values read by a machine are treated as
+      unconfirmed until checked, so a scanning error cannot silently change a client's
+      benefit.
+    buildBuy:
+      approach: open-source
+      label: Adopt or buy; no product chosen yet
+      summary: >-
+        The research looked at capture tools as part of documents and notices but gave
+        no clear winner. The direction is to adopt or buy, not build.
+      options:
+        - name: Paperless-ngx
+          kind: open-source
+          note: Free scanning, indexing and archiving.
+        - name: ABBYY Vantage
+          kind: buy
+          note: Commercial capture and data extraction.
+  speech:
+    name: Text-to-speech and speech-to-text
+    short: Reading aloud and typing from speech
+    what: >-
+      Tools that read text aloud and turn spoken words into text.
+    does: >-
+      Reads screens and letters aloud for people who need it, and lets staff or clients
+      speak instead of type.
+    why: >-
+      Some clients have trouble reading or typing. These tools help them use the service
+      on equal terms, and they can save staff time on notes.
+    buildBuy:
+      approach: buy
+      label: >-
+        Not yet analysed (default: buy)
+      summary: >-
+        No build-vs-buy analysis has been done for speech tools yet. These are common
+        products, so the default is to buy or adopt one that keeps data in Canada.
+      options:
+        - name: Commercial speech service
+          kind: buy
+          note: Default, not yet analysed.
+  call-centre:
+    name: Call centre systems
+    short: Phones and contact centre tools
+    what: >-
+      The phone system and tools the contact centre uses to take calls.
+    does: >-
+      Routes calls and shows the agent the caller's file as the call arrives. Agents get
+      their own screens, built for their tasks and time pressure.
+    why: >-
+      The phone is how many clients reach the ministry. Agents who see the right file at
+      once can resolve calls faster and with fewer transfers.
+    buildBuy:
+      approach: existing
+      label: >-
+        Not yet analysed (default: keep and connect the current phone system)
+      summary: >-
+        No build-vs-buy analysis has been done for call centre systems yet. The design
+        says the current phone system's links to ICM must first be mapped, then
+        connected through the shared doorway. Keeping the existing phone system is the
+        default.
+      options:
+        - name: Current contact centre phone system
+          kind: existing
+          note: How it links to ICM today is not yet known.
+  payment-processing:
+    name: Payment processing
+    short: Sends money by deposit and cheque
+    what: >-
+      The single controlled path every payment leaves by: the monthly and off-cycle
+      payment runs, direct deposit and cheques.
+    does: >-
+      Takes approved payment instructions and sends the money. It handles stop payments,
+      reissues, returned payments and month-end cutoffs, and makes sure nothing is paid
+      twice.
+    why: >-
+      A system that decides correctly but does not pay has failed completely. Clients
+      depend on these payments for basic needs, so this part comes first if a supplier
+      ever cuts off access.
+    buildBuy:
+      approach: build
+      label: >-
+        Build one payment service (proposed); reuse provincial services
+      summary: >-
+        The design builds one payment service that every payment passes through. The
+        highest-scoring products held payments, ledgers and debts together, which the
+        design does not allow, and no hosted product showed it keeps data in Canada with
+        a ministry-held copy. Card payments go through the Province's approved payment
+        path, and the corporate financial system remains the official book. This
+        direction is in a decision record not yet accepted.
+      options:
+        - name: Ministry-built payment service
+          kind: build
+          note: Proposed.
+        - name: >-
+            Provincial payment path and corporate financial system
+          kind: existing
+          note: Card payments and accounting go through these.
+        - name: cadeft
+          kind: open-source
+          note: >-
+            Small library to write the bank file. Still being developed.
+        - name: Hosted payment hubs
+          kind: buy
+          note: >-
+            Not shortlisted. None showed Canadian data or a ministry-held copy.
+    watch:
+      tone: risk
+      text: >-
+        Provincial policy says payments are made by the Ministry of Finance unless
+        approved otherwise. Whether the ministry sends a file to the bank at all, and in
+        what format, is not yet known.
+  user-analytics:
+    name: User analytics
+    short: How people use the screens
+    what: >-
+      Tools that measure how people use the screens, such as where they get stuck or
+      give up.
+    does: >-
+      Counts visits, clicks and drop-offs, and compares how clients do by phone, in
+      person and online.
+    why: >-
+      It shows where a screen confuses people, so it can be fixed. It also checks that
+      clients who do not go online get the same results.
+    buildBuy:
+      approach: open-source
+      label: >-
+        Not yet analysed (default: adopt a free tool)
+      summary: >-
+        No build-vs-buy analysis has been done for user analytics yet. The default is a
+        free open-source tool run on the ministry's own servers, so data about clients'
+        visits stays in Canada.
+      options:
+        - name: Open-source web analytics
+          kind: open-source
+          note: Default, not yet analysed.
+  reporting:
+    name: Reporting
+    short: Reports without extra copies
+    what: >-
+      The reports managers, finance and the public rely on, drawn from one protected
+      data store.
+    does: >-
+      Produces caseload, payment and performance reports by reading from one store,
+      rather than from a new copy of the data for each report.
+    why: >-
+      ICM's data is copied over and over for reports, and every copy is another privacy
+      risk. One store makes it possible to answer where a client's information is held.
+    buildBuy:
+      approach: open-source
+      label: >-
+        Not yet analysed (default: free open-source tools)
+      summary: >-
+        The build-vs-buy research did not cover reporting. The design names free
+        open-source tools, Apache Iceberg for storing tables and Trino for queries, on
+        the Province's own storage. Treat that as the default until analysed.
+      options:
+        - name: Apache Iceberg and Trino
+          kind: open-source
+          note: Named in the design. Not yet analysed.
+  health-monitoring:
+    name: Health monitoring
+    short: Spotting problems early
+    what: >-
+      Tools that watch every part of the system and alert the support team when
+      something slows down or breaks.
+    does: >-
+      Tracks speed, errors and failed messages across the new parts, ICM, the payment
+      path and printing.
+    why: >-
+      Problems are caught before clients or staff feel them. This matters most on
+      payment days.
+    buildBuy:
+      approach: existing
+      label: >-
+        Existing: provincial monitoring services
+      summary: >-
+        The design reuses the monitoring built into the Province's private cloud, and
+        the Province's monitoring service for systems outside it. Keeping records longer
+        than thirteen months is the ministry's to build.
+      options:
+        - name: Private cloud platform monitoring
+          kind: existing
+          note: For parts on the platform.
+        - name: Provincial monitoring service
+          kind: existing
+          note: For parts outside the platform.
+  policy-governance:
+    name: Policy governance
+    short: Written, tested rules on who sees what
+    what: >-
+      Rules about who may see or change which records, written down as tested files
+      rather than settings scattered across the system.
+    does: >-
+      Checks every request against the access rules and records who looked at what, for
+      what purpose, and under what law.
+    why: >-
+      An audit found over a third of ICM's 9,400 users had access outside the approved
+      model. Written, tested rules make it clear who can see a child protection file,
+      and why.
+    buildBuy:
+      approach: open-source
+      label: Adopt a free open-source policy engine
+      summary: >-
+        The design adopts a free general-purpose policy engine for access rules,
+        released through the same tested process as eligibility rules. It is not used
+        for eligibility itself. No product-by-product research has been done.
+      options:
+        - name: >-
+            Open-source policy engine (for example Rego or Cedar based)
+          kind: open-source
+          note: Named in the design.
+  auth:
+    name: Sign-in and access
+    short: Signing in for staff and businesses
+    what: >-
+      The provincial sign-in services for staff, businesses and partners.
+    does: >-
+      Lets staff sign in once with their government account, and lets businesses and
+      partners sign in with BCeID. Clients sign in with their BC Services Card through
+      the same service.
+    why: >-
+      Reusing provincial sign-in saves building and securing a new login, and staff use
+      the same account as for other work.
+    buildBuy:
+      approach: existing
+      label: >-
+        Existing: Province's single sign-on and BCeID
+      summary: >-
+        The design reuses the Province's Common Hosted Single Sign-On, which is free to
+        ministry teams and already in production, and BCeID for businesses. Passing a
+        person's legal permission between organisations is a gap that must still be
+        built.
+      options:
+        - name: Common Hosted Single Sign-On
+          kind: existing
+          note: Staff sign-in. In production.
+        - name: BCeID Basic and Business
+          kind: existing
+          note: Business and partner sign-in.
+  data-gateway:
+    name: Data integration gateway
+    short: Sharing data with other organisations
+    what: >-
+      The approved route for sharing information with other ministries and
+      organisations, through the Province's Secure Data Exchange.
+    does: >-
+      Checks that each exchange is allowed under a recorded agreement and law, sends it
+      securely, and keeps proof of what was shared.
+    why: >-
+      Clients' information must only go where the law allows. Keeping proof of every
+      exchange protects clients and lets the ministry answer access-to-information
+      requests.
+    buildBuy:
+      approach: existing
+      label: >-
+        Existing: Secure Data Exchange, with ministry-built proof records
+      summary: >-
+        The design uses the Province's Secure Data Exchange for transport and access
+        control. It does not keep tamper-proof records of what was shared, so the
+        ministry builds that part. No product research has been done.
+      options:
+        - name: Provincial Secure Data Exchange
+          kind: existing
+          note: Still early in its development.
+        - name: Proof-of-exchange records
+          kind: build
+          note: Built by the ministry.
+    watch:
+      tone: risk
+      text: >-
+        The Secure Data Exchange is still at an early stage, and the part that checks
+        legal permission is not yet funded. Dates and availability need confirming in
+        writing.
+  icm-api:
+    name: ICM API
+    short: Temporary bridge to the old system
+    what: >-
+      A temporary bridge into ICM, so new parts and ICM can work side by side while ICM
+      is replaced piece by piece.
+    does: >-
+      Translates requests between the new system's language and ICM's. It sends changes
+      made in ICM out as events, and writes back to ICM where needed.
+    why: >-
+      It avoids a risky single switch-over day. Its team's job is to shrink it until it
+      can be turned off, so ICM is truly retired and its costs end.
+    buildBuy:
+      approach: build
+      label: Build, then remove
+      summary: >-
+        Nothing on the market is shaped like a bridge to one specific old system that is
+        meant to be thrown away. The ministry builds it, and its team is set up to take
+        it apart. It also needs changes inside ICM itself, made by whoever holds ICM's
+        configuration.
+      options:
+        - name: Ministry-built bridge
+          kind: build
+          note: Temporary by design.
+    watch:
+      tone: risk
+      text: >-
+        A partial API over ICM is already in use. If it exposes ICM's own codes and
+        record numbers, the people using it are tied to ICM. A decision is needed before
+        more users depend on it.

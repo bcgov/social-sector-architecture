@@ -1,0 +1,857 @@
+# Salesforce H: the words on this option's page and in every part's pop-up.
+#
+# Edit the words freely. Keep the names before each colon (what:, does:, ...)
+# and the indentation as they are. Lines under a ">-" are one paragraph:
+# wrap them however you like. Save with: npm run copy:save -- "what you changed"
+
+name: Salesforce H
+nickname: Salesforce plus ministry servers
+tagline: >-
+  Case work and rules on Salesforce. Money, decision records and a backup copy stay with
+  the ministry.
+summary:
+  - In this option, workers, clients and partners use Salesforce for case work, online
+    portals, notices and the rules that work out what people get. Salesforce is a large
+    commercial product that runs on the supplier's own computers, not the ministry's.
+  - The parts that carry the most risk move to the ministry's own servers. These are the
+    payment run, the record of money owed and paid, the evidence, the record of each
+    decision, and a live backup copy of the records. The ministry changes those parts on
+    its own calendar, so Salesforce's upgrade dates cannot land in the middle of the
+    monthly payment run.
+  - This costs more than putting everything on Salesforce. The team has to build and run
+    the ministry-side parts and join two platforms together. In return, if Salesforce
+    ever cut off access, clients could still be paid the same amount as last time. New
+    decisions would wait until Salesforce came back.
+facts:
+  - label: Salesforce-side effort (likely)
+    value: >-
+      22,185 person-days, in a range of 14,225 to 34,380. About $24M to $38M at the
+      architecture's day rates.
+  - label: Ministry-side parts
+    value: >-
+      Not estimated in the research. The money, evidence, decision record and backup
+      parts come on top of the Salesforce figure.
+  - label: Salesforce licences
+    value: >-
+      Roughly USD 31M to 56M a year at list price for about 9,400 staff, before
+      discount. Portal logins, MuleSoft and add-ons are extra.
+  - label: Upgrade testing
+    value: >-
+      About 90 to 210 person-days a year to test each of Salesforce's three yearly
+      upgrades.
+goodAt:
+  - The monthly payment run sits on the ministry's own servers and is changed on the
+    ministry's own calendar.
+  - Each decision is copied off Salesforce into a store that shows if anyone changes it
+    later.
+  - If Salesforce cut off access, staff could still view cases, take new applications
+    and repeat last month's payments.
+  - The ministry gets a real ledger that balances every payment and checks it against
+    the bank every day.
+  - Most day-to-day screens, portals and rules come ready-made with Salesforce, as in
+    the all-Salesforce option.
+watchOut:
+  - If Salesforce cut off access, no new decisions could be made. The rules only run
+    inside Salesforce.
+  - Anything left in Salesforce, including the rules, still gets upgraded on
+    Salesforce's dates, three times a year.
+  - The ministry-side parts have no cost estimate yet, so the full price is unknown.
+  - Two platforms must be joined and kept in step, which adds work and more places for
+    things to break.
+  - Licences are large and recurring, and no quote has been sought.
+zones:
+  people:
+    name: People and partners
+    blurb: >-
+      The people who use the system every day: ministry staff, clients and the agencies
+      and caregivers who work with them.
+  finance:
+    name: Finance partners
+    blurb: >-
+      The bank and government finance offices that receive payment files and send back
+      what was paid.
+  salesforce:
+    name: Salesforce
+    blurb: >-
+      The part run by Salesforce on its own computers: the screens, the case work, the
+      rules and the notices.
+    groups:
+      experience: Experience
+      case-work: Case work
+      services-in-salesforce: Services in Salesforce
+  mulesoft:
+    name: MuleSoft, on ministry servers
+    blurb: >-
+      Connecting software, bought from Salesforce but run on the ministry's own servers,
+      that carries information between Salesforce and everything else.
+  ministry:
+    name: The ministry's own servers
+    blurb: >-
+      The parts the ministry runs itself and changes on its own calendar: money,
+      decision records, evidence and the backup copy.
+    groups:
+      money: Money
+      decisions-and-evidence: Decisions and evidence
+      events-and-backup: Events and backup
+  government:
+    name: Government and justice partners
+    blurb: >-
+      Other governments, courts, police and health partners that share information with
+      the ministry.
+parts:
+  workers:
+    name: Workers
+    short: About 9,400 ministry staff
+    what: >-
+      Caseworkers, supervisors, intake staff and the people who answer the child
+      protection reporting line. The research counts about 9,400 staff accounts.
+    does: >-
+      They take applications, check eligibility, plan services, protect children and
+      approve payments. They do almost all of this in Salesforce screens.
+    why: >-
+      Staff spend their whole working day in this system. How well it works decides how
+      fast clients get help and how much time goes to paperwork.
+  clients:
+    name: Clients and representatives
+    short: People applying for or getting help
+    what: >-
+      People who apply for employment assistance or disability assistance, youth and
+      families, and anyone acting for them.
+    does: >-
+      They apply, send monthly reports, ask for supplements, ask for a decision to be
+      looked at again and upload documents through online portals.
+    why: >-
+      Clients depend on the money and services arriving on time. A system they can use
+      on their own saves them trips and phone calls.
+  partners:
+    name: Partners
+    short: Agencies, caregivers and youth
+    what: >-
+      Delegated and contracted agencies, Indigenous authorities, foster caregivers and
+      youth in care.
+    does: >-
+      They see and update the parts of a case they are allowed to, through their own
+      portals.
+    why: >-
+      Much of child protection work is done by partners. They need the right
+      information, and only the right information, to keep children safe.
+  finance:
+    name: Finance partners
+    short: >-
+      Bank, BC Mail Plus, government accounting, Treasury
+    what: >-
+      The bank, the print vendor BC Mail Plus, the government's corporate accounting
+      system and Provincial Treasury.
+    does: >-
+      They receive the payment files for direct deposits and cheques. They send back
+      what was paid, returned or rejected so it can be matched up.
+    why: >-
+      This is where money actually reaches clients. Every file must be right, on time
+      and checked against what the bank says it paid.
+  console:
+    name: Worker screens
+    short: Staff screens, routing and phone line
+    what: >-
+      The main screen staff work in, built from Salesforce's standard tools. It includes
+      work queues and the phone system for the reporting line.
+    does: >-
+      It shows each worker their cases and tasks, sends new work to the right person and
+      lets supervisors watch the workload. Reporting-line calls come straight into the
+      case.
+    why: >-
+      A clear console means less time hunting for information and fewer missed tasks.
+      Its look and its upgrade dates are set by Salesforce, not the ministry.
+    buildBuy:
+      approach: buy
+      label: >-
+        Buy: Salesforce licence for each staff member
+      summary: >-
+        The console comes with Salesforce's public sector product, licensed per staff
+        member. The phone feature is a separate per-user licence plus phone charges.
+      options:
+        - name: Salesforce Public Sector Solutions console
+          kind: buy
+          note: Included in the per-user licence.
+        - name: Salesforce Service Cloud Voice
+          kind: buy
+          note: >-
+            For reporting-line calls. Extra per-user licence plus phone charges.
+    watch:
+      tone: gap
+      text: >-
+        Salesforce upgrades this three times a year on its own dates. The ministry
+        cannot pause those upgrades.
+    procurement: true
+  portals:
+    name: Online portals
+    short: Websites for clients and partners
+    what: >-
+      Websites built on Salesforce for clients, representatives, youth, caregivers and
+      partner agencies.
+    does: >-
+      Clients apply, send monthly reports and request supplements. Partners see their
+      share of a case. Guided forms walk people through each step.
+    why: >-
+      Good portals cut phone calls and office visits. They also cut retyping by staff,
+      which is where errors creep in.
+    buildBuy:
+      approach: buy
+      label: >-
+        Buy: Salesforce Experience Cloud
+      summary: >-
+        Portals use Salesforce Experience Cloud, licensed per member or per login. The
+        ministry already runs some Salesforce portals today.
+      options:
+        - name: Salesforce Experience Cloud
+          kind: buy
+          note: >-
+            Priced per member or per login, on top of staff licences.
+    watch:
+      tone: gap
+      text: >-
+        Portals are on Salesforce's upgrade dates and stop if Salesforce cuts off access.
+    procurement: true
+  case-work:
+    name: Case work
+    short: Applications, case plans, deadlines, approvals
+    what: >-
+      The heart of the system, built on Salesforce's public sector product. There is one
+      package for each program family, such as adult assistance and child protection.
+    does: >-
+      It handles intake, case plans, court steps, work lists and legal deadlines. It
+      also checks that a worker has the authority to make a decision on that date.
+    why: >-
+      This is where most of the building happens. No product knows BC law, so the rules,
+      deadlines and approval checks are custom work on any product.
+    buildBuy:
+      approach: buy
+      label: >-
+        Buy: Salesforce Public Sector Solutions, then configure
+      summary: >-
+        Salesforce supplies the basic records for benefits, care plans, providers and
+        court steps. The ministry's own law and practice are built on top. The research
+        found the same was true of Merative Cúram.
+      options:
+        - name: Salesforce Public Sector Solutions
+          kind: buy
+          note: >-
+            Basic records and workflow. BC-specific work is built on top.
+        - name: Merative Cúram
+          kind: buy
+          note: >-
+            Separate research found the same amount of custom work for BC.
+    watch:
+      tone: limit
+      text: >-
+        All programs share one Salesforce setup, so they cannot be changed and released
+        fully on their own.
+    procurement: true
+  rules:
+    name: Rules
+    short: Works out eligibility and amounts
+    what: >-
+      Salesforce's Business Rules Engine. It holds every rule that decides who qualifies
+      and how much they get, with the date each rule starts.
+    does: >-
+      It works out eligibility and payment amounts and explains how it got there. Each
+      result, with its inputs and the rule version used, is sent off Salesforce as the
+      record of the decision.
+    why: >-
+      Rules decide what people get, so they must be right and traceable. This option
+      keeps them in Salesforce to save building a separate rules system.
+    buildBuy:
+      approach: platform
+      label: >-
+        Platform: part of the Salesforce licence
+      summary: >-
+        The rules engine comes with Salesforce's public sector product. Running rules
+        off Salesforce was looked at in an earlier version and dropped, once the
+        programme decided a full stored record of each decision is enough evidence.
+      options:
+        - name: Salesforce Business Rules Engine
+          kind: buy
+          note: >-
+            Included. Monthly usage limit not confirmed by Salesforce.
+        - name: Separate rules service on ministry servers
+          kind: build
+          note: Earlier design, now set aside for this option.
+    watch:
+      tone: gap
+      text: >-
+        If Salesforce cut off access, no new decisions could be made. The rules only run
+        inside Salesforce.
+  notices:
+    name: Notices and documents
+    short: Letters, forms and court papers
+    what: >-
+      Salesforce's document tool. It fills in letters, notices, forms and court
+      documents from approved templates.
+    does: >-
+      It produces each notice and keeps the finished copy as the record of what was
+      sent. Children's services alone need about 150 templates.
+    why: >-
+      Clients have a right to know what was decided and why. The stored copy is what
+      goes to a reconsideration or appeal.
+    buildBuy:
+      approach: platform
+      label: >-
+        Platform: part of the Salesforce licence
+      summary: >-
+        Document creation comes with Salesforce's public sector product. Salesforce does
+        not sell its own e-signature product, so that would come from another supplier.
+      options:
+        - name: Salesforce document generation
+          kind: buy
+          note: >-
+            Included. Reported limit of about 1,000 documents an hour, not confirmed.
+        - name: DocuSign
+          kind: existing
+          note: >-
+            Already used by the ministry with another Salesforce system, for e-signature.
+    watch:
+      tone: limit
+      text: >-
+        Month-end runs may hit Salesforce's hourly document limit. The research could
+        not confirm that limit.
+  platform-services:
+    name: Platform services
+    short: Security, privacy, backup add-ons
+    what: >-
+      Add-ons bought from Salesforce. Shield handles encryption and access monitoring.
+      Other add-ons handle privacy requests, hiding personal data in test copies, and
+      backup.
+    does: >-
+      They encrypt data, watch who opens what, keep field history for up to 10 years,
+      and apply retention and deletion rules.
+    why: >-
+      Client and child protection records are among the most sensitive the province
+      holds. These add-ons are how Salesforce protects them and proves who saw them.
+    buildBuy:
+      approach: buy
+      label: >-
+        Buy: Salesforce add-ons
+      summary: >-
+        Each is a separate Salesforce product. Shield is priced as a share of total
+        Salesforce spend. The others are per-organization add-ons.
+      options:
+        - name: Salesforce Shield
+          kind: buy
+          note: Encryption, access monitoring, field history.
+        - name: Salesforce Privacy Center
+          kind: buy
+          note: Retention, deletion and privacy requests.
+        - name: Salesforce Data Mask
+          kind: buy
+          note: Hides personal data in test copies.
+        - name: Salesforce Backup and Recover
+          kind: buy
+          note: Backup and restore.
+    watch:
+      tone: limit
+      text: >-
+        Encryption keys cover the whole Salesforce setup, not one person, so one
+        person's data cannot be erased by destroying their key.
+    procurement: true
+  open-host:
+    name: Service front door
+    short: One agreed way in and out
+    what: >-
+      A single, published way for other systems to talk to the case system, using the
+      ministry's own words for things. It runs on MuleSoft on ministry servers.
+    does: >-
+      It brings decision records, evidence and payment requests out of Salesforce to the
+      ministry-side parts. It sends payment status back in.
+    why: >-
+      Other systems connect to this front door, not to Salesforce's inner workings. That
+      makes it easier to change or replace parts later.
+    buildBuy:
+      approach: buy
+      label: >-
+        Buy: MuleSoft, run on ministry servers
+      summary: >-
+        MuleSoft is Salesforce's own connecting software. Here it runs on the ministry's
+        servers rather than Salesforce's. Licences are priced by computing capacity or
+        by connection.
+      options:
+        - name: MuleSoft Anypoint Platform
+          kind: buy
+          note: >-
+            Run on ministry servers, with the gateway managed by the ministry.
+    procurement: true
+  change-relay:
+    name: Change feed
+    short: Sends every Salesforce change out
+    what: >-
+      A feed that notices each change to records in Salesforce and passes it on.
+    does: >-
+      It passes changes to the event stream on ministry servers. From there they reach
+      the backup copy and the analysis store.
+    why: >-
+      This is what keeps the ministry's backup copy current. Without it the backup would
+      be out of date when it is needed most.
+    buildBuy:
+      approach: buy
+      label: >-
+        Buy: Salesforce add-on, carried by MuleSoft
+      summary: >-
+        Salesforce sells a change-feed add-on with higher limits, priced by use.
+        MuleSoft carries the changes to the ministry's servers.
+      options:
+        - name: >-
+            Salesforce Platform Events and Change Data Capture add-on
+          kind: buy
+          note: >-
+            Default limit is 50,000 delivered events a day; more can be bought.
+        - name: MuleSoft
+          kind: buy
+          note: Carries the feed to ministry servers.
+    watch:
+      tone: limit
+      text: >-
+        Salesforce keeps changes for only 72 hours. A long weekend outage of the feed
+        could lose changes.
+    procurement: true
+  secure-exchange:
+    name: Secure data exchange
+    short: Logged sharing with other ministries
+    what: >-
+      The connection to the province's secure data exchange service, run on MuleSoft on
+      ministry servers.
+    does: >-
+      It sends and receives information with other ministries and keeps a chained log of
+      each exchange as evidence.
+    why: >-
+      Sharing personal information between ministries must follow the law. A log of each
+      exchange shows what was shared, when and why.
+    buildBuy:
+      approach: platform
+      label: >-
+        Platform: built on the MuleSoft licence
+      summary: >-
+        Salesforce cannot hold this itself, so MuleSoft acts as the client to the
+        province's exchange. The logging is a custom add-on to MuleSoft.
+      options:
+        - name: MuleSoft with a custom logging policy
+          kind: buy
+          note: Uses the MuleSoft licence already needed.
+  financial-components:
+    name: Financial components
+    short: Debts, recovery and payment amounts
+    what: >-
+      The ministry-built part that turns each decision into amounts to pay and tracks
+      money owed back. It covers overpayments and repayable amounts.
+    does: >-
+      It creates payment requests from decisions, works out overpayments and sets up
+      repayment. It writes every entry to the ledger.
+    why: >-
+      Today overpayments are printed, scanned and retyped into another system. Getting
+      debts right protects clients from wrong deductions and the province from lost
+      money.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: on the ministry's own servers
+      summary: >-
+        Research compared open-source finance suites and a commercial debt product.
+        Suites such as Apache Fineract and Kill Bill keep payments, ledger and debts in
+        one model of their own, and none models BC overpayment rules. The direction, not
+        yet accepted, is to build.
+      options:
+        - name: Build
+          kind: build
+          note: Recommended direction.
+        - name: Apache Fineract
+          kind: open-source
+          note: >-
+            Top score, but brings its own client and loan model.
+        - name: Kill Bill
+          kind: open-source
+          note: Built for subscriptions; same problem.
+        - name: C&R Software Debt Manager
+          kind: buy
+          note: >-
+            Commercial collections product; only relevant to outside collections.
+    watch:
+      tone: fixed
+      text: >-
+        Overpayments and debts are kept off Salesforce, out of reach of Salesforce
+        administrators and its upgrade dates.
+  ledger:
+    name: Ledger
+    short: The money record, balanced every day
+    what: >-
+      A ledger is the book of every dollar owed, paid, recovered or written off. Each
+      entry balances, so money cannot appear or vanish. Here it is a locked table in the
+      ministry's own database.
+    does: >-
+      It records every payment and recovery as balanced entries that can never be
+      changed. It is checked against the bank and the government's accounts every day.
+    why: >-
+      Today reconciliation is done by eye with a spreadsheet of cheques. A ledger that
+      balances daily catches errors and fraud early.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: a locked table in the ministry's own database
+      summary: >-
+        A test compared a plain table in the free PostgreSQL database with three
+        open-source ledger engines: TigerBeetle, Formance Ledger and Blnk Core. The
+        plain table passed all nine tests and no engine did better, so the proposed
+        direction is to build. TigerBeetle is the one to revisit if volumes outgrow one
+        database.
+      options:
+        - name: Table in PostgreSQL
+          kind: build
+          note: >-
+            Recommended. Passed all nine tests; one test run only.
+        - name: TigerBeetle
+          kind: open-source
+          note: >-
+            Fast, but needs a second store for details. Revisit if volumes grow.
+        - name: Formance Ledger
+          kind: open-source
+          note: >-
+            Allowed details to be rewritten; kept deleted values.
+        - name: Blnk Core
+          kind: open-source
+          note: >-
+            Allowed details to be rewritten; needs extra moving parts.
+        - name: Apache Fineract
+          kind: open-source
+          note: Brings its own client and loan model.
+    watch:
+      tone: fixed
+      text: >-
+        On all-Salesforce there is no true ledger. Here every entry balances and is
+        checked against the bank daily.
+  payments:
+    name: Payments and benefit issuance
+    short: The monthly payment run
+    what: >-
+      The one place payments leave the ministry. It runs on ministry servers and makes
+      the direct deposit and cheque files.
+    does: >-
+      It turns approved payment requests into files for the bank, BC Mail Plus and
+      government accounts. It records what was paid, returned or rejected.
+    why: >-
+      Clients count on money arriving on the same day each month. Running it on the
+      ministry's servers means a Salesforce upgrade cannot land in the middle of a
+      payment run.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: on the ministry's own servers
+      summary: >-
+        Research compared commercial payment hubs, Bottomline and Kyriba, with
+        open-source options. The commercial hubs are hosted by the supplier and showed
+        no Canadian hosting or backup copy, so they were set aside. The proposed
+        direction is to build, maybe with a free library for direct deposit files.
+        Matching payments to the bank is still open, and a request for information to
+        suppliers is drafted.
+      options:
+        - name: Build
+          kind: build
+          note: Recommended direction.
+        - name: Bottomline Payments Hub
+          kind: buy
+          note: Top score, but hosted by the supplier.
+        - name: Kyriba Payments
+          kind: buy
+          note: Hosted by the supplier.
+        - name: moov-io/cadeft
+          kind: open-source
+          note: >-
+            Library for direct deposit files; still in development.
+        - name: Payment Hub EE and OpenG2P
+          kind: open-source
+          note: Designs to learn from, not to adopt.
+    watch:
+      tone: fixed
+      text: >-
+        The payment run is released on the ministry's own calendar, so it can be frozen
+        around payment day. All-Salesforce cannot do this.
+  decision-store:
+    name: Decision record store
+    short: Locked record of every decision
+    what: >-
+      A store on ministry servers that keeps the full record of each decision. Records
+      are linked in a chain, so any later change shows.
+    does: >-
+      It receives each decision's inputs, the rules version used, the step-by-step
+      working and the outcome from Salesforce. It keeps them for as long as the law
+      requires.
+    why: >-
+      When a client asks for a review or appeals, this record shows exactly what was
+      decided and why. Nobody, including Salesforce staff, can quietly change it.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: on the ministry's own servers
+      summary: >-
+        No product keeps decision records the way the ministry needs. The design already
+        planned to build this store. The programme decided a full stored record is
+        enough to show a past decision, so the old decision does not need to be run
+        again.
+      options:
+        - name: Build
+          kind: build
+          note: Already part of the target design.
+        - name: Keep the record inside Salesforce
+          kind: buy
+          note: >-
+            The all-Salesforce way. Administrators could change it.
+    watch:
+      tone: fixed
+      text: >-
+        Decision records are kept off Salesforce in a chain that shows any change. On
+        all-Salesforce, administrators could edit them.
+  rules-archive:
+    name: Rules snapshot archive
+    short: A copy of every rules version
+    what: >-
+      A store on ministry servers holding an exact copy of every version of the rules,
+      made the moment it is switched on.
+    does: >-
+      Each copy gets a fingerprint. Each decision record carries the fingerprint of the
+      rules it used.
+    why: >-
+      Years later, anyone can see the exact rule that applied to a client's decision. It
+      does not matter whether Salesforce still has it.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: on the ministry's own servers
+      summary: >-
+        The rules are exported from Salesforce when each version is switched on and
+        stored here. This is new work for this option.
+      options:
+        - name: Build
+          kind: build
+          note: >-
+            Export, fingerprint and store each rules version.
+    watch:
+      tone: limit
+      text: >-
+        The copies are evidence only. They cannot run outside Salesforce to make new
+        decisions.
+  drift-check:
+    name: Drift check
+    short: Catches rules changed in place
+    what: >-
+      A scheduled check that compares the live rules in Salesforce with the archived
+      copies.
+    does: >-
+      If they differ, it raises an alarm and lists every decision made since the last
+      clean check.
+    why: >-
+      A Salesforce administrator could switch off a rules version, edit it and switch it
+      back on. This check is how the ministry would find out.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: a scheduled check
+      summary: >-
+        Salesforce does not offer this check, so the team builds it with the rules
+        archive.
+      options:
+        - name: Build
+          kind: build
+          note: Small piece of work, part of the rules archive.
+    watch:
+      tone: limit
+      text: >-
+        It finds changes after they happen. It cannot stop an administrator changing a
+        rule.
+  evidence-store:
+    name: Evidence and verification store
+    short: Permanent record of the facts
+    what: >-
+      A store on ministry servers that keeps every fact about a client's case. Facts are
+      added, never overwritten.
+    does: >-
+      It keeps when each fact was true, when the ministry learned it, and whether it was
+      a correction. It holds this for the full retention period.
+    why: >-
+      Decisions are only as good as the facts behind them. A full history shows what the
+      ministry knew on any date, which matters in appeals and audits.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: on the event stream
+      summary: >-
+        Research found no product that records facts and corrections the way the
+        ministry needs. The direction is to adopt free event software and build the
+        evidence store on top.
+      options:
+        - name: Build on Apache Kafka
+          kind: build
+          note: Recommended direction.
+        - name: Evidence kept in Salesforce
+          kind: buy
+          note: >-
+            The all-Salesforce way: dated records that can be edited.
+    watch:
+      tone: fixed
+      text: >-
+        Facts are kept off Salesforce as a permanent history. On all-Salesforce they are
+        editable records with partial history.
+  kafka:
+    name: Event stream (Kafka)
+    short: Carries every change, in order
+    what: >-
+      Kafka is free software that works like a conveyor belt for messages. Each change
+      or decision goes on in order and stays there for as long as needed. A registry
+      checks every message has the agreed shape.
+    does: >-
+      It carries changes from Salesforce to the evidence store, backup copy and analysis
+      store. Any part can replay past messages to rebuild its records.
+    why: >-
+      Salesforce's own messages vanish after 72 hours. This stream keeps them, so a part
+      that falls behind can catch up without losing anything.
+    buildBuy:
+      approach: open-source
+      label: >-
+        Open source: Apache Kafka, run by the ministry
+      summary: >-
+        The direction is to adopt Apache Kafka, run with the Strimzi tool on the
+        provincial platform, with a free schema registry. Commercial versions with
+        restrictive licences are not recommended. Support on the provincial platform
+        still has to be confirmed.
+      options:
+        - name: Apache Kafka with Strimzi
+          kind: open-source
+          note: Recommended.
+        - name: Apicurio Registry or Karapace
+          kind: open-source
+          note: >-
+            Free schema registries named by the architecture.
+        - name: Confluent or Redpanda
+          kind: buy
+          note: Not recommended because of licence terms.
+        - name: Salesforce event bus
+          kind: buy
+          note: Keeps messages only 72 hours.
+    watch:
+      tone: fixed
+      text: >-
+        Changes can be replayed long after 72 hours, in order. All-Salesforce cannot do
+        this.
+  continuity-copy:
+    name: Continuity copy
+    short: Live backup of the records
+    what: >-
+      A copy of the case records kept on ministry servers. It is updated all the time
+      while Salesforce is running.
+    does: >-
+      It keeps the records current, so the fallback applications can run from it if
+      Salesforce is cut off.
+    why: >-
+      If the supplier ever cut off access, the ministry would still have its records. A
+      nightly export would not be current enough.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: on the ministry's own servers
+      summary: >-
+        The ministry requires a live, on-premise copy for any core product run by a
+        supplier. Salesforce's change feed fills it. The copy itself is built and run by
+        the ministry.
+      options:
+        - name: Build, fed by the change feed
+          kind: build
+          note: >-
+            Required by the programme's continuity direction.
+        - name: Scheduled export
+          kind: buy
+          note: >-
+            The all-Salesforce way. Older data, not a live copy.
+    watch:
+      tone: fixed
+      text: >-
+        The records stay current on ministry servers if Salesforce is cut off.
+  fallback-apps:
+    name: Fallback applications
+    short: Keep going if Salesforce is cut off
+    what: >-
+      Small applications on ministry servers that run from the continuity copy.
+    does: >-
+      They let staff view cases and take new applications. They also run a payment that
+      repeats last month's amounts through the same ledger checks.
+    why: >-
+      Clients would still be paid if the supplier cut off access. They would get the
+      same amount as last time until Salesforce came back.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: on the ministry's own servers
+      summary: >-
+        The team builds a case viewer, intake and a repeat-payment run. No business area
+        has yet said it needs more than repeating last month's payments.
+      options:
+        - name: Build
+          kind: build
+          note: Case viewer, intake and repeat payments.
+        - name: Manual emergency payments
+          kind: existing
+          note: >-
+            The all-Salesforce way, carried over from today's plan.
+    watch:
+      tone: fixed
+      text: >-
+        Payments can repeat last month's amounts if Salesforce is cut off. New decisions
+        and changes in amount would wait.
+  lakehouse:
+    name: Analysis store
+    short: Reports without extra copies
+    what: >-
+      A store on ministry servers for reports and analysis, fed from the event stream.
+    does: >-
+      It lets analysts and managers report on caseloads, payments and outcomes from the
+      same records the system uses.
+    why: >-
+      Today reporting relies on a separate copy of the data. Each extra copy is another
+      place personal information can leak or go out of date.
+  reporting-line:
+    name: Reporting-line backup path
+    short: Child protection calls during outages
+    what: >-
+      A simple intake path on ministry servers for the 24-hour child protection
+      reporting line.
+    does: >-
+      It lets staff record reports of a child at risk when Salesforce is down for
+      maintenance or cut off. The reports are added to the case later with their true
+      times.
+    why: >-
+      The director must receive and assess every report, day or night. Salesforce
+      maintenance often falls at nights and weekends, when these lines are busiest.
+    buildBuy:
+      approach: build
+      label: >-
+        Build: on the ministry's own servers
+      summary: >-
+        Salesforce cannot exempt one part of the system from its maintenance. A small
+        separate path is built instead.
+      options:
+        - name: Build
+          kind: build
+          note: A small intake path off Salesforce.
+        - name: Paper or offline capture
+          kind: existing
+          note: Back-entered later.
+    watch:
+      tone: limit
+      text: >-
+        Only a basic intake path. The full reporting-line screens still follow
+        Salesforce's maintenance dates.
+  government:
+    name: Government and justice partners
+    short: Canada Revenue Agency, courts, police and others
+    what: >-
+      Partners such as the Canada Revenue Agency, Service Canada, courts, police, Vital
+      Statistics, Pacific Blue Cross and Indigenous authorities.
+    does: >-
+      They send and receive information, such as income checks and court orders, through
+      MuleSoft.
+    why: >-
+      Many decisions rely on facts from these partners. Getting the information quickly
+      and safely means fewer delays and fewer errors for clients.

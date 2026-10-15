@@ -19,8 +19,8 @@ npm run preview
 
 ## Editing copy
 
-1. Edit the text in `src/lib/data/` (or in a `.svelte` page). Keep the quotes and
-   commas around each string; change only the words inside them.
+1. Edit the words in the YAML files in `src/lib/content/`. `EDITING.md` explains
+   the format: change the words, and keep the field names and indentation.
 2. Check it in the browser with `npm run dev`.
 3. Save it:
 
@@ -40,7 +40,7 @@ Your wording is protected in three ways:
   `copy:save` / `copy:update` do that.
 - **The Claude hook.** `scripts/guard-copy.sh` (wired in `../.claude/settings.json`)
   stops Claude from rewriting whole copy files. It also asks you first before
-  Claude edits a data file that has uncommitted changes, or runs `copy:save` /
+  Claude edits a content file that is new or has uncommitted changes, or runs `copy:save` /
   `copy:update`. `CLAUDE.md` sets out the same rules.
 
 If you're midway through edits and want Claude to do other work, commit your
@@ -49,20 +49,15 @@ before touching those files.
 
 ## Where the words live
 
-All reader-facing text sits in `src/lib/data/`. The pages only lay it out.
-`src/lib/data/CONTRACT.md` describes each file's shape and the writing rules
-(grade 8, plain words, no AI-slop phrasing).
+Words and structure are kept apart:
 
-| File | Page |
-| --- | --- |
-| `home.js` | Home: hero, why, how to read, side-by-side table |
-| `salesforce-s.js`, `salesforce-h.js`, `event-driven.js` | One option page each: summary, facts, diagram, every part's dialog |
-| `problems.js` | The problem. `apparent` and `real` are sample text; set `placeholder = false` when the real analysis replaces them |
-| `timeline.js` | Timeline: team, one plan per option, procurement |
-
-The diagram layout sits in each option file: `layout.areas` places the zones
-and `zones[].groups` lists the parts in reading order. Keep component keys
-stable. The dialog's previous and next buttons follow that order.
+- `src/lib/content/*.yaml`: every reader-facing word. `EDITING.md` lists the
+  files, the format and the writing rules.
+- `src/lib/structure/*.js`: each diagram's layout. `layout.areas` places the
+  zones, and `zones[].groups[].parts` lists the parts in reading order, which the
+  dialog's previous and next buttons follow.
+- `src/lib/build-option.js` joins the two and stops the build with a list of
+  mismatches if a part is in one but not the other.
 
 ## Design
 

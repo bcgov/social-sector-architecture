@@ -51,3 +51,12 @@ event-driven. Kept separate from `../site`, whose copy is locked.
   Comptroller General accepts a new ministry payment system; Route H's ministry-side effort uses a floor
   from RSCH-002/003, and the event-driven total is assembled from stand-in figures.
 - Event-driven: 8 components have no build-vs-buy research behind them; they say "not yet analysed".
+
+## 2026-10-15: copy moved to YAML
+
+- Words: `src/lib/content/*.yaml` (folded `>-` blocks for prose). Diagram layout: `src/lib/structure/*.js`.
+  `src/lib/build-option.js` joins them and fails the build on mismatched part ids.
+- Proof of no wording change: the copy snapshot was identical line for line (1,637 lines, headers aside),
+  and all 7 prerendered pages render identical HTML (asset hashes normalised).
+- Guard hook now covers `src/lib/content/`, and treats untracked content files as the author's work.
+- `EDITING.md` is the author's guide; `src/lib/data/CONTRACT.md` retired.

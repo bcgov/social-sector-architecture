@@ -1,7 +1,9 @@
 <script>
   import { base } from '$app/paths';
   import { options, byId } from '$lib/options.js';
-  import { hero, why, optionsIntro, compare, howToRead, cta } from '$lib/data/home.js';
+  import content from '$lib/content/home.yaml';
+
+  const { hero, why, optionsIntro, compare, howToRead, cta } = content;
 </script>
 
 <svelte:head>

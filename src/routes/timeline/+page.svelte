@@ -2,7 +2,9 @@
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
   import { options, byId } from '$lib/options.js';
-  import { team, plans } from '$lib/data/timeline.js';
+  import content from '$lib/content/timeline.yaml';
+
+  const { team, plans } = content;
 
   let chosen = $state('e');
 

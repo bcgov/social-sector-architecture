@@ -3,11 +3,11 @@
 The wording on this site is written and owned by the author. Leave it alone
 unless the task is explicitly a copy change.
 
-- Copy lives in `src/lib/data/*.js` and in text inside `.svelte` files. Refactors,
+- Copy lives in `src/lib/content/*.yaml` (see `EDITING.md`) and in text inside `.svelte` files. Refactors,
   restyling, accessibility fixes and dependency upgrades must leave every
   reader-facing string as it is: body text, headings, titles, meta descriptions,
-  `aria-label` text and the strings in the data files.
-- Before starting work, run `git status`. Uncommitted changes in `src/lib/data/`
+  `aria-label` text and the strings in the content files.
+- Before starting work, run `git status`. Uncommitted changes in `src/lib/content/`
   are the author's work in progress. Don't edit, revert, stash or commit those
   files. If the task needs them, stop and ask.
 - Change files with Edit, never Write. Write replaces the whole file, and that is

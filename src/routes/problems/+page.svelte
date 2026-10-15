@@ -1,6 +1,8 @@
 <script>
   import { base } from '$app/paths';
-  import { intro, problems, placeholder } from '$lib/data/problems.js';
+  import content from '$lib/content/problems.yaml';
+
+  const { intro, problems, placeholder } = content;
 
   const layers = [
     { key: 'see', label: 'What people see' },
