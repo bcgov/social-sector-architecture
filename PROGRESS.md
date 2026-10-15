@@ -25,11 +25,11 @@ event-driven. Kept separate from `../site`, whose copy is locked.
 ## Status
 
 - [x] Scaffold, tokens, data contract, skeleton data
-- [ ] Content: salesforce-s.js (agent)
-- [ ] Content: salesforce-h.js (agent)
+- [x] Content: salesforce-s.js ("Worker console" renamed "Worker screens")
+- [x] Content: salesforce-h.js (renames: Service front door, Change feed, Analysis store)
 - [ ] Content: event-driven.js (agent)
 - [ ] Content: timeline.js (agent)
-- [ ] Content: problems.js + home.js (agent)
-- [ ] UI: layout, home, option pages, diagram + modal
-- [ ] UI: problems page, timeline page
+- [x] Content: problems.js + home.js (causes are Sample: text)
+- [x] UI: layout, home, option pages, diagram + modal (untested)
+- [x] UI: problems page, timeline page (untested)
 - [ ] Accessibility audit (axe) and reading-level pass
