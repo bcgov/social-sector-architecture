@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "copy:check": "node scripts/copy-lock.js check",
+    "copy:update": "node scripts/copy-lock.js update",
+    "copy:save": "node scripts/copy-lock.js save",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",

@@ -1,0 +1,4 @@
+#!/bin/sh
+# Refuse a commit whose wording differs from copy.lock.txt.
+# Your own wording change: npm run copy:save -- "what you changed"  (updates the lock and commits)
+exec node scripts/copy-lock.js check

@@ -17,6 +17,36 @@ npm run build    # static output in build/
 npm run preview
 ```
 
+## Editing copy
+
+1. Edit the text in `src/lib/data/` (or in a `.svelte` page). Keep the quotes and
+   commas around each string; change only the words inside them.
+2. Check it in the browser with `npm run dev`.
+3. Save it:
+
+   ```bash
+   npm run copy:save -- "Rewrite the Route H ledger explanation"
+   ```
+
+   This updates `copy.lock.txt` and commits your text and the lock together.
+
+Your wording is protected in three ways:
+
+- **The lock.** `copy.lock.txt` holds every string. `npm run copy:check` lists any
+  string that differs from it, by location, e.g.
+  `salesforce-h › components › ledger › why`.
+- **The commit check.** A git pre-commit hook runs the copy check. Code changes
+  that alter wording can't be committed unless the lock is updated too, and only
+  `copy:save` / `copy:update` do that.
+- **The Claude hook.** `scripts/guard-copy.sh` (wired in `../.claude/settings.json`)
+  stops Claude from rewriting whole copy files. It also asks you first before
+  Claude edits a data file that has uncommitted changes, or runs `copy:save` /
+  `copy:update`. `CLAUDE.md` sets out the same rules.
+
+If you're midway through edits and want Claude to do other work, commit your
+draft first with `copy:save`, or just leave it uncommitted and Claude will ask
+before touching those files.
+
 ## Where the words live
 
 All reader-facing text sits in `src/lib/data/`. The pages only lay it out.
