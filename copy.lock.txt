@@ -399,8 +399,8 @@ event-driven › components › icm-api › watch › text: A partial API over I
 === src/lib/content/home.yaml
 home › compare › heading: The options side by side
 home › compare › rows › 1 › question: Who controls when it changes?
-home › compare › rows › 1 › s: Salesforce. It sets three major updates a year, and the ministry cannot pause them.
-home › compare › rows › 1 › h: Salesforce for case work and rules. The ministry for the payment run.
+home › compare › rows › 1 › s: SaaS Provider. It sets three major updates a year, and the ministry cannot pause them.
+home › compare › rows › 1 › h: SaaS Provider for case work and rules. The ministry for the payment run.
 home › compare › rows › 1 › e: The ministry. It runs the parts on its own servers and sets its own timing.
 home › compare › rows › 2 › question: What happens if the supplier cuts us off?
 home › compare › rows › 2 › s: A copy of records can be kept. Payments fall back to a manual procedure.
@@ -429,55 +429,50 @@ home › compare › rows › 7 › e: About month 9 in our timeline sketch, wit
 home › cta › heading: Start with an option
 home › cta › text: Pick an option to see its diagram and what it would mean for staff, clients and money. Nothing here is a decision. The ministry has not chosen an option.
 home › hero › title: Three ways to replace ICM
-home › hero › lede: ICM supports employment assistance, disability assistance and child protection. This site shows three ways it could be replaced, in plain words, so you can see what each would mean.
+home › hero › lede: ICM powers the social sector. This site shows three ways it could be replaced.
 home › howToRead › heading: How to read the diagrams
-home › howToRead › steps › 1: Each option has a diagram. Boxes are grouped by who runs them, such as Salesforce or the ministry.
+home › howToRead › steps › 1: Each option has a diagram. Boxes are grouped by who runs them, such as the SaaS provider or the ministry.
 home › howToRead › steps › 2: Click or tap any box to learn what it is, what it does and why it matters.
 home › howToRead › steps › 3: Look for the coloured notes. They show where an option falls short or fixes a problem.
 home › optionsIntro › heading: The three options
-home › optionsIntro › text: Salesforce S puts everything on Salesforce and runs it the way ICM runs today. Salesforce H uses Salesforce for case work and rules, and keeps money, evidence and records on the ministry's own servers. Event-driven has the ministry build in parts, buy or reuse common parts, and link them by passing messages whenever something happens, such as a payment being issued.
+home › optionsIntro › text: SaaS S puts everything on a SaaS CRM and runs it the way ICM runs today. SaaS H has the SaaS product used for case work and rules, and keeps money, evidence and records on the ministry's own servers. Event-driven has the ministry build in parts, buy or adopt common components, and link them through an event stream updated when something happens, such as a payment being issued.
 home › why › heading: Why ICM needs replacing
-home › why › paragraphs › 1: ICM works, but it takes a lot of effort to keep it working. Staff move between several systems to finish one task, and they type the same numbers more than once. The rules that decide what people get are spread across six places, including spreadsheets.
-home › why › paragraphs › 2: Running ICM costs more each year as support and licence fees grow. The last project replaced only about a third of the older systems. The most important older system is still running beside ICM.
+home › why › paragraphs › 1: ICM works...except when it doesn't. It takes a lot of effort to keep it working. Workers must contend with an arcane and complex system that makes even simple things tediously complex and slow.
+home › why › paragraphs › 2: It is not just slow or clunky, ICM is missing core capabilities such as the ability to manage monthly payments. It has failed to keep pace with the changes needed by business - leading to a sprawling mess of hacks, workarounds and bolt-ons.
+home › why › paragraphs › 3: ICM costs more and more each year, but the value it provides has been shrinking, and it never delivered on its promises.
 
 === src/lib/content/problems.yaml
-problems › intro: ICM has carried employment assistance, disability assistance and child protection for years. Staff make it work every day, often by working around it. This page sets out six problems people run into. For each one we show what people see, what seems to cause it, and what really causes it. Knowing the real cause tells us what a replacement has to do differently.
-problems › problems › 1 › title: One task, several systems
-problems › problems › 1 › who: Caseworkers in employment and disability assistance
-problems › problems › 1 › see: Workers jump between screens and systems to finish one piece of work. They type the same numbers in more than once.
-problems › problems › 1 › apparent: Sample: It looks like staff need more training, or that the screens are badly laid out.
-problems › problems › 1 › real: Sample: The systems were never built to share information. Each one holds part of the case, so the worker becomes the link between them.
-problems › problems › 1 › example: Recovering an overpayment means working out the amount in a separate web tool, printing it, scanning it back into the case, and typing it into the old payments system by hand. Across 326 written procedures, 207 need two or more systems to finish one task.
-problems › problems › 2 › title: Too many people can see too much
-problems › problems › 2 › who: Clients, families, and the staff who protect their privacy
-problems › problems › 2 › see: Staff can open records they have no reason to see. Links to other systems can get around the access rules altogether.
-problems › problems › 2 › apparent: Sample: It looks like a few people were given the wrong permissions by mistake.
-problems › problems › 2 › real: Sample: Access is granted by hand, one person at a time, and nothing ties it back to the job a person does or the law that allows the sharing. Over the years it drifts.
-problems › problems › 2 › example: An audit found that more than a third of about 9,400 users had access outside the approved access model.
-problems › problems › 3 › title: The rules live in six places
-problems › problems › 3 › who: Policy staff, caseworkers, and clients who need a fair and correct decision
-problems › problems › 3 › see: When a rate or rule changes, it has to be found and changed in several places. Some of those places are spreadsheets on a shared drive.
-problems › problems › 3 › apparent: Sample: It looks like rule changes are slow because the technology team is busy.
-problems › problems › 3 › real: Sample: No single place holds the rules. Each new need was met wherever it was quickest at the time, and nobody owns the whole picture.
-problems › problems › 3 › example: Rules sit in a rules engine with 29 rulebases, the old payments system, formulas inside the case system, a database table, 18 SharePoint spreadsheets and the policy manual. Five of the spreadsheets decide what people are entitled to, with no version control or audit trail.
-problems › problems › 4 › title: Money is checked by eye
-problems › problems › 4 › who: Finance staff, and clients waiting on a payment or a correction
-problems › problems › 4 › see: Staff check that payments add up by comparing reports by hand. Mistakes can take a long time to find.
-problems › problems › 4 › apparent: Sample: It looks like the finance team needs more people at month end.
-problems › problems › 4 › real: Sample: There is no proper set of books for benefit payments. The system records that a payment happened, but not in a way that balances on its own.
-problems › problems › 4 › example: Reconciliation today is done by eye, with an Excel log of cheques kept alongside it.
-problems › problems › 5 › title: A spreadsheet decides who does what
-problems › problems › 5 › who: Supervisors and staff who manage work queues
-problems › problems › 5 › see: Work lands in a queue with a priority and a deadline, but nobody can see in the system why. Changing how work is routed means editing a spreadsheet.
-problems › problems › 5 › apparent: Sample: It looks like a small admin task that someone keeps up as a favour.
-problems › problems › 5 › real: Sample: ICM cannot hold the service targets and routing rules itself, so they moved outside it. They are now kept up by hand with no record of who changed what.
-problems › problems › 5 › example: One Excel workbook decides which queue a request joins, how urgent it is and how long it has. Fifty-six procedures point to it, and one sheet maps 445 form numbers to how each is handled.
-problems › problems › 6 › title: The last replacement stopped partway
-problems › problems › 6 › who: Everyone who uses or pays for ICM
-problems › problems › 6 › see: Old systems still run beside ICM. Staff keep using them, and the province keeps paying to run them.
-problems › problems › 6 › apparent: Sample: It looks like the last project simply ran out of time.
-problems › problems › 6 › real: Sample: Each year, small budget cuts and short-term fixes added up. No firm date forced the old systems to be switched off, so they stayed on.
-problems › problems › 6 › example: The project that built ICM spent $182 million in capital and replaced about a third of the older systems. The most important older system is still in use.
+problems › intro: ICM-Siebel has carried social sector business processes for many years. Thousands of front-line staff make it work daily, often by working around it. This page outlines a handful of problems people run into and have been the subject of voluble and long-running complaints. It is important to draw the right lessons from each problem by identifying the root cause - which tells us what a replacement has to do differently.
+problems › problems › 1 › title: Clunky, Slow, Obtuse UX
+problems › problems › 1 › who: Everyone who uses ICM
+problems › problems › 1 › see: Simple tasks are convoluted. Everything is complicated. Spinny wheel forever. Six weeks of training to just use a case management system.
+problems › problems › 1 › apparent: The system is old. Bad engineering has bogged it down. It's too bloated. Nobody listens to users.
+problems › problems › 1 › real: The way Siebel is designed makes feature development indirect and very rigidly constrained. Because Siebel has one UX for everyone, the UI remains generic, rather than ergonomic. The data model in Siebel makes it difficult to create fast behaviour, and easy to make very slow features.
+problems › problems › 1 › example: Displaying a single PDF form can take a dozen clicks, and tens of minutes to render. Some queries can bog the system down so badly it crashes. The UI has not been updated since 2011.
+problems › problems › 2 › title: Even small changes are expensive, slow and risky
+problems › problems › 2 › who: EAWs, managers
+problems › problems › 2 › see: Release management is an Apollo launch mission. The live defect count will never reach zero. Each problem gets worse, problems get more frequent, and enhancement requests get sliced thinner and thinner. The cost of the system climbs steadily despite producing the same or less value.
+problems › problems › 2 › apparent: Sloppy and hasty work has accumulated technical debt that never got paid down.
+problems › problems › 2 › real: Case-file centricity means every system component depends on a single core entity. Limitations of the model and the way features can be developed require hacky work arounds as the only viable solution. The core system mismatches the business domain, resulting in bolted-on features which are difficult to test.
+problems › problems › 2 › example: Invalid EFT information can go unnoticed until after cheque issue. Social insurance numbers can be arbitrary strings. A defect in one small component can cascade to a full system failure, resulting in roll-backs, emergency fixes and heroics. Defects can go undetected or unremedied for months or years - and are almost always discovered first by end users.
+problems › problems › 3 › title: Core features are after thoughts.
+problems › problems › 3 › who: Policy, EAWs, operations teams
+problems › problems › 3 › see: Core business activities involved heavy customizations, hacks and bolt-on components to make possible.
+problems › problems › 3 › apparent: COTS + Customization is a common anti-pattern.
+problems › problems › 3 › real: System was selected for fit on only a single dimension. Siebel, a monolithic application, was treated like a platform. Many features were anticipated to be native, never materialized.
+problems › problems › 3 › example: Complex financial processing remains locked with MIS because no equivalent capability is possible within Siebel. Cheque issue, the most important activity in the social sector, and Siebel can't deliver it.
+problems › problems › 4 › title: Extension is infeasible
+problems › problems › 4 › who: EAWs, partner programs, clients
+problems › problems › 4 › see: ICM's API requires a "Trusted Systems" model that doesn't scale and conflicts with government strategy.
+problems › problems › 4 › apparent: The system has been too heavily customized to use an API.
+problems › problems › 4 › real: The API circumvents all authorization access requiring downstream applications to implement all security measures. The data schema is unintelligible without the application layer to link things together.
+problems › problems › 4 › example: CFD Mobility project must maintain a large middleware stack to compensate for the lack of a security service. Request payloads require processing overhead of Siebel even for simple queries.
+problems › problems › 5 › title: Auditing and reviews rely on poor security practice
+problems › problems › 5 › who: Security and privacy staff, Managers, Tribunals and Auditors.
+problems › problems › 5 › see: System logs are the primary mechanism for auditing system behaviour, including user actions and evaluations. The system itself has no concept of change over time, and so tracking data changes is a special feature for each instance. System logs capture highly sensitive information in plain text in a consolidated, easily downloaded format. Auditing and incident response is a sleuthing exercise rather than a simple query.
+problems › problems › 5 › apparent: It has not been prioritized as a target for development.
+problems › problems › 5 › real: ICM lacks an alternative structure to capture bitemporal information - it is completely out of band. Change events are captured implicitly by the database and are not themselves system data. The sensitivity of the log contents and lack of protections eliminate most log processing tools from consideration.
+problems › problems › 5 › example: An information incident requires manual recovery and are typically only discovered well after the fact. Tribunals rely on incomplete information when making determinations - because full details are not captured.
 
 === src/lib/content/salesforce-h.yaml
 salesforce-h › name: Salesforce H
