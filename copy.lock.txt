@@ -643,164 +643,156 @@ event-driven › components › client-context › name: Client Experiences
 event-driven › components › client-context › short: What people already receiving help use
 event-driven › components › client-context › what: The online screens for people already receiving assistance or services, and for those acting on their behalf.
 event-driven › components › client-context › does: Lets clients report changes, upload documents, read their notices and see their payments. Anything they can do online can also be done by phone, in person or on paper.
-event-driven › components › client-context › why: Many clients cannot easily use a website. The design says no right or deadline can be online only, so clients get the same result whichever way they reach the ministry.
-event-driven › components › client-context › buildBuy › label: Build from the shared library of screen parts
-event-driven › components › client-context › buildBuy › summary: Client screens use the same shared building blocks as the worker screens. They reach the system through the same doorway, so they keep working as parts behind it are replaced. No product comparison has been done for client screens.
+event-driven › components › client-context › why: Many clients cannot easily use a website. The design says no core process can be online only, so clients get the same result whichever way they reach the ministry.
+event-driven › components › client-context › buildBuy › label: Build from the smart component library
+event-driven › components › client-context › buildBuy › summary: Client experiences use the same shared building blocks as the worker screens. They reach the system through the same doorway, so they keep working as parts behind it are replaced. Different modalities (mobile, phone, in-person etc.) all share the same backing APIs, only the UX changes.
 event-driven › components › client-context › buildBuy › options › 1 › name: Shared library of screen parts
 event-driven › components › client-context › buildBuy › options › 1 › note: Same blocks as the worker screens.
 event-driven › components › client-context › buildBuy › options › 2 › name: Provincial design system
 event-driven › components › client-context › buildBuy › options › 2 › note: Used where it fits, behind the ministry's library.
-event-driven › components › applicant-context › name: Applicant screens
-event-driven › components › applicant-context › short: Where people apply for help
-event-driven › components › applicant-context › what: The screens for people applying for the first time, on their own or with help from a worker or agency.
-event-driven › components › applicant-context › does: Takes an application, collects the facts and documents needed, and starts the eligibility check. A worker can complete an application on someone's behalf, and the system records who did it.
-event-driven › components › applicant-context › why: Applying is the first contact many people have with the ministry, often at a hard moment. A clear application with no lost paperwork means faster decisions and fewer repeat visits.
-event-driven › components › applicant-context › buildBuy › label: Build from the shared library of screen parts
-event-driven › components › applicant-context › buildBuy › summary: Built with the same shared building blocks as the other screens. No product comparison has been done for application screens.
-event-driven › components › applicant-context › buildBuy › options › 1 › name: Shared library of screen parts
-event-driven › components › applicant-context › buildBuy › options › 1 › note: Same blocks as the other screens.
+event-driven › components › applicant-context › name: Applicant process
+event-driven › components › applicant-context › short: Where people apply
+event-driven › components › applicant-context › what: These experiences are for those applying (or re-applying) for assistance, regardless of method (web, mobile, phone, in-person)
+event-driven › components › applicant-context › does: Manages the application process from information seeking to application decision. Delegates and workers have a dedicated experience, and the additional data is captured. Context is never lost so clients can go from web to in-person without starting over.
+event-driven › components › applicant-context › why: Application processing is the single largest and most complex workload item for the ministry, it warrants a dedicated its own context. Ensuring applications are easy, reliable and accurate means clients get their needs met quickly, and the ministry cuts caseload significantly.
+event-driven › components › applicant-context › buildBuy › label: MySS replacement underway
+event-driven › components › applicant-context › buildBuy › summary: The MySS rebuild is already under way, the framework and components can all be re-used to develop the other experience contexts.
+event-driven › components › applicant-context › buildBuy › options › 1 › name: Smart Component Library
+event-driven › components › applicant-context › buildBuy › options › 1 › note: Set the foundation for unified UX
 event-driven › components › applicant-context › buildBuy › options › 2 › name: Provincial design system
-event-driven › components › applicant-context › buildBuy › options › 2 › note: Used where it fits.
-event-driven › components › vendor-context › name: Partner and vendor screens
+event-driven › components › applicant-context › buildBuy › options › 2 › note: Adopt and extend.
+event-driven › components › vendor-context › name: Partner and vendor experiences
 event-driven › components › vendor-context › short: What service providers and partners use
-event-driven › components › vendor-context › what: The screens and connections for outside organisations, such as service providers, contracted agencies and other partners.
-event-driven › components › vendor-context › does: Lets partners see referrals and service agreements, report on services delivered, and send or receive information the law allows them to share.
+event-driven › components › vendor-context › what: The processes and connections for outside organisations, such as service providers, contracted agencies and other partners.
+event-driven › components › vendor-context › does: Lets partners see referrals and service agreements, report on services delivered, and send or receive information the law allows them to share. Also allows partners to configure self-service API end-points to securely integrate with our systems using verified credentials.
 event-driven › components › vendor-context › why: Partners do much of the hands-on work for clients. Giving them their own access, limited to what an agreement allows, cuts phone calls and paper and protects client privacy.
-event-driven › components › vendor-context › buildBuy › label: Build from the shared library of screen parts
-event-driven › components › vendor-context › buildBuy › summary: Built with the same building blocks as the other screens. What each partner may see is set by information-sharing agreements held in a register, not granted by hand. No product comparison has been done for partner screens.
-event-driven › components › vendor-context › buildBuy › options › 1 › name: Shared library of screen parts
-event-driven › components › vendor-context › buildBuy › options › 1 › note: Same blocks as the other screens.
+event-driven › components › vendor-context › buildBuy › label: Build from the smart component library
+event-driven › components › vendor-context › buildBuy › summary: Built with the same building blocks as the other experiences. What each partner may see is set by information-sharing agreements held in a register and enforced by the system itself, not granted by hand. The self-serve APIs and user experiences are backed by the same systems - simplifying access control.
+event-driven › components › vendor-context › buildBuy › options › 1 › name: Shared library smart components
+event-driven › components › vendor-context › buildBuy › options › 1 › note: Same blocks as the other experiences.
 event-driven › components › service-layer › name: Service abstraction layer
-event-driven › components › service-layer › short: One doorway into the system (APIs)
-event-driven › components › service-layer › what: The single doorway that every screen, partner and report uses to reach the system. It is made of APIs. An API is a published, agreed way for one computer program to ask another for information or to get something done, a bit like a standard order form.
-event-driven › components › service-layer › does: Takes each request, checks the person is allowed to make it, records it, and passes it to the right part. Behind it sit microservices: small programs that each do one job, like a counter that only handles one kind of request.
-event-driven › components › service-layer › why: This doorway stays the same while the parts behind it change. Today some requests go to ICM; later the same requests go to new parts. Screens and partners do not have to change each time, which saves money and avoids disruption.
+event-driven › components › service-layer › short: Developer & AI friendly access to business systems (APIs)
+event-driven › components › service-layer › what: A unified access pathway to the back-end systems using APIs with published, standards ways for providing capabilities.
+event-driven › components › service-layer › does: Standardizes the way UX components work with back-end systems, provides a broad surface area for automation. It allows AI and developers to quickly assemble targeted capabilities by composing underlying systems rather than writing entire functions from the ground up. Provides numerous built-in properties like security, persistence, scalability and durability that would otherwise be coded for each feature.
+event-driven › components › service-layer › why: This layer can remain stable and accessible while the parts behind it or in front vary. Front-end developers can modify or add experiences, and back-end developers can adjust or replace components without either side needing to do anything. This also allows for a smooth transition from ICM - as requests would be initially routed to the legacy system before being taken over by the new one. Conversely, ICM can consume newer services providing immediate benefit to ICM users before a complete replacement is available.
 event-driven › components › service-layer › buildBuy › label: Build the doorway, reuse the Province's API tools
-event-driven › components › service-layer › buildBuy › summary: The agreed request formats are the ministry's own and must outlive every part behind them, so they are designed and owned in-house. The design reuses the Province's API programme for the gateway software and directory. The research did not compare products for this part.
-event-driven › components › service-layer › buildBuy › options › 1 › name: Ministry-owned request formats
-event-driven › components › service-layer › buildBuy › options › 1 › note: Owned by the ministry, built to last longer than any one part.
-event-driven › components › service-layer › buildBuy › options › 2 › name: Provincial API programme
-event-driven › components › service-layer › buildBuy › options › 2 › note: Gateway and directory, reused.
-event-driven › components › service-layer › watch › text: If ICM's own codes and record numbers leak into the doorway and a partner starts relying on them, the doorway can no longer outlive ICM. The design names this as its quietest risk and checks for it automatically.
+event-driven › components › service-layer › buildBuy › summary: The API structure (it's schema) are managed internally, and are subject to collaborative governance. The components that publish those, and provide a single connectivity point are already built - that's the core capability of the APS team.
+event-driven › components › service-layer › buildBuy › options › 1 › name: API Governance
+event-driven › components › service-layer › buildBuy › options › 1 › note: Both the process and the software tools to support it can be developed quickly in-house.
+event-driven › components › service-layer › buildBuy › options › 2 › name: APS Team
+event-driven › components › service-layer › buildBuy › options › 2 › note: Gateway and directory, adopted.
+event-driven › components › service-layer › watch › text: Designing the API is a careful activity. If certain identifiers or data structures unique to ICM "leak through" we may inadvertantly undo the benefits of migrating to a modern architecture. Vigilance and engineering discipline are crucial.
 event-driven › components › participant-identity › name: Participant identity
 event-driven › components › participant-identity › short: Knowing two records are the same person
-event-driven › components › participant-identity › what: A deliberately small part that holds the identifiers for each person the ministry serves, such as BC Services Card number and program numbers, and just enough detail to match records.
-event-driven › components › participant-identity › does: Spots records that belong to the same person and sends uncertain matches to a staff member to decide. When records are merged or split, it tells every other part, and a wrong merge can be undone.
-event-driven › components › participant-identity › why: ICM has many duplicate records and a search that only finds exact matches. Mixing up two people can mean wrong payments or a privacy breach. Getting identity right underpins everything else.
-event-driven › components › participant-identity › buildBuy › label: Build a small service, adopt a matching library inside it
-event-driven › components › participant-identity › buildBuy › summary: Matching names and dates is a common problem, so the research recommends adopting an existing matching library rather than writing one. The small service around it, with the review screen and undoable merges, is built. Products that hold a single master record of each client were ruled out, because that record would hold information that belongs to other parts.
+event-driven › components › participant-identity › what: This is ordinarily what a CRM element would do - and carry all the pertinent information about a person (their case). In this architecture, this part is very thin - holding just enough information to reliably correlate a person across all the data stores in the social sector (and potentially beyond).
+event-driven › components › participant-identity › does: Handles retrieval of records across systems to surface as part of the user experiences. Also provides anonymization, redaction, and other privacy protection measures. When a person's record in one place is altered, other components use this one to validate the identity in their own data.
+event-driven › components › participant-identity › why: A CRM, by holding all the information about an individual in a single database imposes strict limits on the scale and complexity of the processes that can be supported. All business applications must manipulate this unified shared representation of a client - if there are any differences the system breaks. Moreover, only a subset of information about a person is relevant at any given time for any given process. This is why government does not hold a monolithic store of all information about citizens. That same logic applies within the social sector.
+event-driven › components › participant-identity › buildBuy › label: A small microservice with a highly secured database
+event-driven › components › participant-identity › buildBuy › summary: A single identity provider within the social sector extends the architecture of government as a whole (e.g. the BC Services Card) - it provides a unified index for an unlimited number of services to coordinate their data. By having the identity matching service built in, we maximize the ability to identify a client's context and provide relevant services - even when we lack precise identifiers.
 event-driven › components › participant-identity › buildBuy › options › 1 › name: Splink, Zingg, dedupe
-event-driven › components › participant-identity › buildBuy › options › 1 › note: Free matching libraries that run on the ministry's own servers.
+event-driven › components › participant-identity › buildBuy › options › 1 › note: Free matching libraries that run on CSBC servers.
 event-driven › components › participant-identity › buildBuy › options › 2 › name: Senzing SDK
-event-driven › components › participant-identity › buildBuy › options › 2 › note: Commercial matching library that runs on the ministry's own servers.
-event-driven › components › participant-identity › buildBuy › options › 3 › name: Tamr, Reltio, Informatica, Semarchy
-event-driven › components › participant-identity › buildBuy › options › 3 › note: Not recommended. They keep a master copy of each person.
+event-driven › components › participant-identity › buildBuy › options › 2 › note: Commercial matching library that runs on CSBC servers.
 event-driven › components › financial-components › name: Financial components
-event-driven › components › financial-components › short: The ministry's record of money owed and paid
-event-driven › components › financial-components › what: The ministry's own ledger for benefits: what each person is owed, what was paid, what was recovered and what was written off. The Province's corporate financial system stays the official book.
-event-driven › components › financial-components › does: Turns each approved decision into a payment instruction. It checks its totals every day against the bank and the corporate financial system. It also tracks money paid now that may have to be repaid later, such as help while an appeal is decided.
-event-driven › components › financial-components › why: This is where public money is accounted for. Clean daily checks catch errors before they reach clients, and keeping the ledger apart from the payment run means each can be audited on its own.
-event-driven › components › financial-components › buildBuy › label: Build in the ministry's own database (proposed)
-event-driven › components › financial-components › buildBuy › summary: A test compared a plain ledger table in the ministry's own database with three open-source ledger products. The plain table passed all nine tests, including posting a full monthly run of about 74,000 entries in under two seconds. No product did better. This direction is in a decision record that has not yet been accepted. How to check the ledger against the bank each day is still open, and suppliers may be asked to quote.
+event-driven › components › financial-components › short: An encapsulated accrual accounting and transaction management system
+event-driven › components › financial-components › what: Most decisions around a client ultimately result in an accrual accounting decision - their entitlement increments or decrements. Each month, whatever they are owed is paid and their balance is zeroed-out. The ledger of accruals must be immutable and separate from but traceable to an upstream decision or determination.
+event-driven › components › financial-components › does: Converts each decision into an accrual accounting instruction (credit, debit, interest etc.) When payment is issues, balances the account in accordance with policy or specific instructions and issues a payment as appropriate. It also handles overpayment tracking and receivables.
+event-driven › components › financial-components › why: Using an accrual accounting scheme with payment as a balancing action provides a clean, easy-to-audit, and easy to reason about record. Making the ledger immutable ensures all actions are captured and process defects are detectable (e.g. if certain actions routinely trigger reversals, this can be picked up and fixed) By having every accrual action linked directly to a discrete decision, the integrity of the entire process is traceable from end to end, explaining payments to clients becomes trivial, and payment totals can be updated in real time. By separating the payment management from the ledger - flexible payment schedules and types become easy to adopt.
+event-driven › components › financial-components › buildBuy › label: Build with a simple CSBC-hosted database
+event-driven › components › financial-components › buildBuy › summary: A test compared a simple ledger table in PostgreSQL with three open-source ledger products. The plain table passed all nine tests, including tabulating 8 million entries in under five seconds. This is unsurprising as relational databases were invented for precisely this purpose.
 event-driven › components › financial-components › buildBuy › options › 1 › name: Ledger table in the ministry's own database
-event-driven › components › financial-components › buildBuy › options › 1 › note: Proposed. Passed all nine tests, but it was one test.
+event-driven › components › financial-components › buildBuy › options › 1 › note: A simple PostgreSQL table conformant with ledger accounting standards.
 event-driven › components › financial-components › buildBuy › options › 2 › name: TigerBeetle, Formance Ledger, Blnk Core
-event-driven › components › financial-components › buildBuy › options › 2 › note: Not recommended. Each adds a second store, and two let the link to the decision be rewritten.
+event-driven › components › financial-components › buildBuy › options › 2 › note: Not recommended. Each requires special maintenance and only one ensures immutability.
 event-driven › components › financial-components › buildBuy › options › 3 › name: Apache Fineract, Kill Bill
-event-driven › components › financial-components › buildBuy › options › 3 › note: Not recommended. They hold payments and debts together in one model.
-event-driven › components › financial-components › buildBuy › options › 4 › name: Commercial reconciliation products
-event-driven › components › financial-components › buildBuy › options › 4 › note: Not yet decided. Prices on request only.
-event-driven › components › financial-components › watch › text: Provincial financial policy says ministries must use the Province's corporate financial systems where practical, and a new financial system needs the Comptroller General's approval. The research did not consider this, and the answer is not yet known.
+event-driven › components › financial-components › buildBuy › options › 3 › note: Less recommended. They provide significantly more functionality than is necessary.
+event-driven › components › financial-components › buildBuy › options › 4 › name: Commercial accural accounting products.
+event-driven › components › financial-components › buildBuy › options › 4 › note: Initial research indicates market leaders would require heavy customization to suit the social sector context.
+event-driven › components › financial-components › watch › text: The development of this mechanism, and indeed any financial components, must be done in concert with the Comptroller General. This will add additional time and risk. Historically, the Social Sector was unique in handling its own payments. By volume, SDPR processes more transaction than the rest of government combined.
 event-driven › components › service-delivery › name: Service delivery
 event-driven › components › service-delivery › short: Case work, one area per program
-event-driven › components › service-delivery › what: The everyday case work, split into five separate areas: employment assistance, persons with disabilities, child care subsidy, employment services and child protection. Each has its own records and its own team.
-event-driven › components › service-delivery › does: Handles applications, eligibility checks, supplements, service plans and case reviews for its program. Each area uses the shared parts for identity, evidence, rules, workflow and letters.
-event-driven › components › service-delivery › why: Child protection and child care subsidy work very differently. Forcing them into one shared case model is what made ICM hard to change. Separate areas let each program improve without risking the others.
+event-driven › components › service-delivery › what: The everyday case work, divided into components that correspond to business domains. Each component has its own database and functionality - but they collectively use the same commodity components.
+event-driven › components › service-delivery › does: Handles applications, eligibility checks, supplements, service plans and case reviews and other work items for its program. Each area uses the same shared components for common needs like authentication, printing, notifications, scanning, etc.
+event-driven › components › service-delivery › why: Constraining each program to conform to a standard model makes the software harder to develop and limits the opportunities for innovation and optimization, as we see in ICM. Different areas have different needs and the software supporting them should be shaped around those - not the other way around. By the same token, these programs share much in common - by separating the common elements from the unique ones, we can maximize the re-use of common components and minimize the duplication of effort.
 event-driven › components › service-delivery › buildBuy › label: Build (assemble on the shared parts)
-event-driven › components › service-delivery › buildBuy › summary: The research recommends building the five program areas and not buying a case platform to hold the record. Platforms like a SaaS CRM, Dynamics 365, Pega and Appian keep only the current state of a case, not the full history of facts, and published licence prices for about 9,400 staff run from about CAD 49 to 164 million over three years before setup. An independent check later found Merative Cúram does keep that history, so this direction is now rated low in firmness.
-event-driven › components › service-delivery › buildBuy › options › 1 › name: Five program areas built on shared parts
-event-driven › components › service-delivery › buildBuy › options › 1 › note: Recommended, low firmness. Needs a funded team.
-event-driven › components › service-delivery › buildBuy › options › 2 › name: Merative Cúram
-event-driven › components › service-delivery › buildBuy › options › 2 › note: Meets the legal needs on current documents, but is one shared case model. A demonstration has been suggested.
-event-driven › components › service-delivery › buildBuy › options › 3 › name: A SaaS CRM, Dynamics 365, Pega, Appian
-event-driven › components › service-delivery › buildBuy › options › 3 › note: Not recommended as the record. Keep current state, not history.
-event-driven › components › service-delivery › watch › text: The main reason for building was that no product keeps the history of facts. That does not hold for Cúram. A legal answer on what a tribunal needs, and a second look at the reasons for building, are needed before deciding.
+event-driven › components › service-delivery › buildBuy › summary: Miniziming the footprint of redundant components means building custom. A case platform is a single monolithic product that is not designed to be broken into parts. Moreover, platforms like a SaaS CRM, Dynamics 365, Pega and Appian reliably only the current state of a case, not the full history of facts. Where it history is kept, it is as an unstructured log. Licence prices for about 9,400 staff run from about CAD 49 to 164 million over three years before setup.
+event-driven › components › service-delivery › buildBuy › options › 1 › name: Program areas built on shared parts
+event-driven › components › service-delivery › buildBuy › options › 1 › note: Recommended. Each program area is built on the shared parts, with its own database and team (though teams may have multiple program area components).
+event-driven › components › service-delivery › buildBuy › options › 2 › name: A SaaS CRM, Cúram, Dynamics 365, Pega, Appian
+event-driven › components › service-delivery › buildBuy › options › 2 › note: Not recommended as the record. Indivisible monolith, anemic history modeling.
+event-driven › components › service-delivery › watch › text: Without deliberate planning and adequate knowledge management, building the business components can result in a either a tangled, tightly coupled mess just like ICM, or a zoo of incompatible components. Design standards are paramount, engineering discipline must be maintained, and a strong knowledge management program is required to ensure that the design is followed and the parts are compatible. These internally focused efforts are frequently dispensed with in favour of "getting the work done" - but this is a false economy.
 event-driven › components › provider-outcome › name: Provider and outcome management
 event-driven › components › provider-outcome › short: Service providers, placements and results
-event-driven › components › provider-outcome › what: The part that manages outside services: facilities, placements, service agreements, referrals, plans and how well services worked.
-event-driven › components › provider-outcome › does: Records which provider is authorised to deliver which service to whom, under what agreement, and tracks the results.
+event-driven › components › provider-outcome › what: The part that manages external services: facilities, placements, service agreements, referrals, plans and how well services worked.
+event-driven › components › provider-outcome › does: Records which provider is authorised to deliver which service to whom, under what agreement, and tracks the results. Works with the financial components to handle accounts payable.
 event-driven › components › provider-outcome › why: Much of the help clients get comes from contracted providers. Clear agreements and outcome tracking help the ministry pay the right providers and see which services actually help people.
-event-driven › components › provider-outcome › buildBuy › label: Not yet analysed (default: build on the shared parts)
-event-driven › components › provider-outcome › buildBuy › summary: No build-vs-buy analysis has been done for this part yet. The design treats it like the other program areas, with its own records and team. The sensible default is to build it on the shared parts, while checking whether a provider-management product could serve as its store without becoming a second official record.
-event-driven › components › provider-outcome › buildBuy › options › 1 › name: Build on shared parts
-event-driven › components › provider-outcome › buildBuy › options › 1 › note: Default, not yet analysed.
+event-driven › components › provider-outcome › buildBuy › label: Comprehensive analysis of the market is still required, however early research indicates a strong market of commercially supported self-hosted open source products that would be suitable for this part.
+event-driven › components › provider-outcome › buildBuy › summary: Detailed build-vs-buy analysis is underway. Initial findings indicate several viable commercial and open-source products.
+event-driven › components › provider-outcome › buildBuy › options › 1 › name: Buy or adopt
+event-driven › components › provider-outcome › buildBuy › options › 1 › note: Weak recommendation. Market research is still underway.
 event-driven › components › evidence-verification › name: Evidence and verification
 event-driven › components › evidence-verification › short: The permanent record of every fact
-event-driven › components › evidence-verification › what: The permanent record of every fact the ministry relies on, such as income, rent or family size. Each fact keeps three dates: when it was true, when the ministry recorded it, and, for facts carried over from ICM, when ICM said it.
-event-driven › components › evidence-verification › does: Records facts, corrections and changes without ever erasing the old version. It tracks whether each fact has been checked, and announces every change so other parts can act on it.
-event-driven › components › evidence-verification › why: A tribunal may ask years later what the ministry knew and when. This record answers that. It also tells a ministry mistake apart from a change in the client's life, which decides whether a client owes money back.
-event-driven › components › evidence-verification › buildBuy › label: Build on top of the free event broker
-event-driven › components › evidence-verification › buildBuy › summary: The research recommends building the evidence store on the open-source message software. How the ministry records facts, corrections and dates is specific to its needs, and no ordinary database or event store tracks the third date. The independent check noted Cúram also keeps fact history, but as part of one shared case model.
+event-driven › components › evidence-verification › what: The permanent record of every claim made by a client or applicant, the evidence provided to support it, and the determination by the ministry worker of whether it is true. This combination of claim, evidence and determination is called a "fact". The fact is the unit of truth in the social sector platform. The permanent record of every fact the ministry relies on, such as income, rent or family size. Each fact keeps track of several dates: when it was true, when it was asserted, when evidence was provided, when that evidence was verified, and when the ministry made a decision about it.
+event-driven › components › evidence-verification › does: Records lifecycle of each fact, without erasing old versions. It tracks whether each fact has been checked, and announces every change so other parts can act on it.
+event-driven › components › evidence-verification › why: Auditors, researchers, tribunals, and managers may ask what the ministry knew and when over long timespans. This record makes it easy to answer. It also provides an authoritative timeline of events, which is crucial for retroactive determinations, exceptions etc.
+event-driven › components › evidence-verification › buildBuy › label: Build on top of event broker
+event-driven › components › evidence-verification › buildBuy › summary: Recommended approach is to store each element of the fact record as an event in the event stream. This re-uses an existing component the system and makes workflow orchestration and automation easier to develop. How the social sector establishes and records facts, corrections, retractions etc is very specific to its needs, and evolves constantly. No ordinary database deals well with this "bitemporal" data - but event stores are designed for it.
 event-driven › components › evidence-verification › buildBuy › options › 1 › name: Evidence store built on Apache Kafka
 event-driven › components › evidence-verification › buildBuy › options › 1 › note: Recommended.
-event-driven › components › evidence-verification › buildBuy › options › 2 › name: Merative Cúram
-event-driven › components › evidence-verification › buildBuy › options › 2 › note: Keeps fact history, but only inside its own case model.
 event-driven › components › rules-engine › name: Rules engine
-event-driven › components › rules-engine › short: Works out who is eligible, and for what
-event-driven › components › rules-engine › what: The part that applies BC's laws and policies to the facts to work out who is eligible and how much they get. Policy staff write the rules; the engine runs them.
-event-driven › components › rules-engine › does: Takes the facts and the rules in force on a given date and produces a decision with its reasons. It saves exactly what it used, so any past decision can be re-run and checked.
-event-driven › components › rules-engine › why: Rules are BC law written as code, and they change often. Getting them wrong means people are paid wrongly or go without. Letting policy staff test and release rule changes safely saves time and protects clients.
-event-driven › components › rules-engine › buildBuy › label: Build the rule-writing tools, on a free open-source engine (ZEN)
-event-driven › components › rules-engine › buildBuy › summary: The design has chosen GoRules' free ZEN engine, which runs inside the ministry's own decision service so past decisions can be re-run exactly. The ministry builds the tools to write, test and release rules. GoRules' paid authoring product already covers about two thirds of those tools, so a quote is to be sought for comparison. Oracle Intelligent Advisor and IBM Operational Decision Manager were first ruled out on a wrong fact and could be looked at again.
-event-driven › components › rules-engine › buildBuy › options › 1 › name: ZEN engine plus ministry-built tools
-event-driven › components › rules-engine › buildBuy › options › 1 › note: Recommended, medium firmness.
+event-driven › components › rules-engine › short: Ensures all policies are applied, and eligibility determined correctly.
+event-driven › components › rules-engine › what: The rules engine provides a way to capture and run the policy rules that determine procedural and substantive outcomes. More than a simple decision automator, it provides a full set of tools for policy staff to write, test and release rules safely. New rules can be tested against past facts, and past decisions can be re-run against new rules to see what would have happened.
+event-driven › components › rules-engine › does: Accepts facts and rules as input, and produces a decision event with reasons. This event can trigger other parts to respond.
+event-driven › components › rules-engine › why: Rules are policy expressed as code, and they change often. Closing the gap between policy experts and the implementation saves time and reduces errors. Letting policy staff test rules against production systems enables precisely accurate forecasting and research.
+event-driven › components › rules-engine › buildBuy › label: Complete the Business Rules Engine work paused as part of AMP.
+event-driven › components › rules-engine › buildBuy › summary: The Application Modernization Program (AMP) built a rules management system (BRE), but it did not complete the migration of the rules itself. With AI tools and the new architecture, developing the complete ruleset could be done in a fraction of the time. The BRE uses the GoRules ZEN engine held in CSBC servers. The tools to write, test, release and manage rules were built. In the alternative GoRule's commercial authoring product could be used, or other decision automation products considered.
+event-driven › components › rules-engine › buildBuy › options › 1 › name: Business Rules Engine (BRE)
+event-driven › components › rules-engine › buildBuy › options › 1 › note: Recommended
 event-driven › components › rules-engine › buildBuy › options › 2 › name: GoRules paid authoring product
-event-driven › components › rules-engine › buildBuy › options › 2 › note: Quote to be sought for comparison.
-event-driven › components › rules-engine › buildBuy › options › 3 › name: Oracle Intelligent Advisor, IBM Operational Decision Manager
-event-driven › components › rules-engine › buildBuy › options › 3 › note: Wrongly ruled out at first. Whether to ask them is open again.
+event-driven › components › rules-engine › buildBuy › options › 2 › note: Not recommended. The BRE already has the authoring tools tailored to this usecase.
+event-driven › components › rules-engine › buildBuy › options › 3 › name: KIE Drools / Red Hat Decision Manager
+event-driven › components › rules-engine › buildBuy › options › 3 › note: The Apache KIE platform is a mature, well-supported business process automation system. If this were adopted as a corporate common component, it could be used to replace the BRE. However, it is a platform solution - too large to be used in a single project.
 event-driven › components › rules-engine › buildBuy › options › 4 › name: InRule
-event-driven › components › rules-engine › buildBuy › options › 4 › note: Runs only as a separate network service, so it cannot re-run past decisions the way the design requires.
-event-driven › components › rules-engine › watch › text: Nobody has yet tested whether policy analysts can write and release a real rate change on their own with these tools. The design calls for two analysts to try it, unassisted.
+event-driven › components › rules-engine › buildBuy › options › 4 › note: Not recommended. Product support has slowed, nearly abandonware.
+event-driven › components › rules-engine › watch › text: The BRE was developed in collaboration with both RIPD and SDD. The project was led by a policy expert, and the product was shaped specifically for this usage context. It is already well-supported by business.
 event-driven › components › orchestration › name: Workflow (orchestration)
-event-driven › components › orchestration › short: Moves work between people and systems
-event-driven › components › orchestration › what: The part that moves work along: work queues, due dates set by law, supervision and escalation, scheduled reviews, and long jobs like a payment run.
-event-driven › components › orchestration › does: Puts tasks in the right queue, tracks deadlines and flags work that is overdue. If a long job fails part way, it picks up where it stopped or undoes the steps already done.
-event-driven › components › orchestration › why: Missed deadlines in child protection or on a reconsideration can harm people and break the law. Clear queues and automatic reminders help staff keep on top of their work.
-event-driven › components › orchestration › buildBuy › label: Adopt free open-source software (jBPM)
-event-driven › components › orchestration › buildBuy › summary: This is a common need with mature products, and every assessment agreed. The strongest option, jBPM, costs nothing to license and can run on the ministry's own servers. Free to license is not free to run: hosting, support and setup need a budget.
-event-driven › components › orchestration › buildBuy › options › 1 › name: jBPM
-event-driven › components › orchestration › buildBuy › options › 1 › note: Recommended. Must be tested on undoing steps cleanly.
-event-driven › components › orchestration › buildBuy › options › 2 › name: Orkes Conductor
-event-driven › components › orchestration › buildBuy › options › 2 › note: Commercial. Can keep a current copy of data on ministry servers.
+event-driven › components › orchestration › short: Moves work through the systems
+event-driven › components › orchestration › what: Most work sequencing is handled via the event broker, but some workflows have a highly specific sequence of steps that must be validated, gated and tracked. This can be built using the event broker alone, the combination makes it easier to build and maintain.
+event-driven › components › orchestration › does: Puts tasks in a sequential queue, parallelizes work where possible, and tracks completion, errors and deadlines. If a long job fails, it can pick up where it left, if it returns invalid data, it can redo the work. Works with the business rules engine and event broker to ensure the right work is done in the right order the right way.
+event-driven › components › orchestration › why: Large scale time sensitive workflows like monthly payments require highly reliable sequencing and exception handling. Long timescale workflows like annual check-ins require tracking and reminders. Clear queues, automatic reminders, and automated escalation procedures help staff keep on top of their work without manually capturing and tracking every step.
+event-driven › components › orchestration › buildBuy › label: Use the existing component, Apache Airflow.
+event-driven › components › orchestration › buildBuy › summary: The CriDIR project is building a production-ready Airflow instance within the ministry's private cloud. It, with Spark, is to be used to replace the informatica workflows.
+event-driven › components › orchestration › buildBuy › options › 1 › name: Hybrid Airflow / KIE
+event-driven › components › orchestration › buildBuy › options › 1 › note: Recommended. Airflow is already deployed as part of CriDIR, adding Apache KIE provides a full-suite business and data automation layer.
+event-driven › components › orchestration › buildBuy › options › 2 › name: Apache KIE
+event-driven › components › orchestration › buildBuy › options › 2 › note: Complete business automation platform, too large for a single product but if adopted as a common component, could be a viable replacement for many subsystems.
 event-driven › components › orchestration › buildBuy › options › 3 › name: Camunda and Flowable cloud services
 event-driven › components › orchestration › buildBuy › options › 3 › note: Not for this core part. Cannot show a ministry-held copy of data.
-event-driven › components › orchestration › buildBuy › options › 4 › name: Temporal Cloud
-event-driven › components › orchestration › buildBuy › options › 4 › note: Copies only finished work, not work in progress.
 event-driven › components › intelligence › name: Intelligence
 event-driven › components › intelligence › short: Learning from the data
-event-driven › components › intelligence › what: Tools for studying the ministry's data as a whole: spotting trends, planning services and, in future, using machine learning on data with personal details removed.
-event-driven › components › intelligence › does: Lets analysts ask questions of the data without making new copies of it. Any work in the public cloud uses only data stripped of personal details.
-event-driven › components › intelligence › why: Today data is copied again and again for reports, and each copy is a privacy risk. Asking questions of one well-protected store means better planning with less exposure.
-event-driven › components › intelligence › buildBuy › label: Not yet analysed (default: free open-source tools)
-event-driven › components › intelligence › buildBuy › summary: The build-vs-buy research did not cover this part. The design names free open-source tools, such as Apache Spark, working over one protected data store on the ministry's own servers. Treat that as the default until it is analysed.
+event-driven › components › intelligence › what: This architecture was designed for AI integration from the ground up. The intelligence component is where AI tools can be applied to the data and processes to improve service quality, reduce costs, and improve outcomes. The AI can use the same analytical tools as our Business Intelligence team to spot trends, plan services and adapt to changes.
+event-driven › components › intelligence › does: Lets agents safely interface with the system at many different leves. MCP endpoints allow AI to act as a user, or another component. The analytics tools allow AI to answer questions about the system as a whole. The orchestration components can use AI to perform tasks. All of this is done without exposing sensitive data outside government servers.
+event-driven › components › intelligence › why: Today, data is copied and transformed and copied again and again for analysis. Increasing adoption of AI is going to massively accelerate this problem - with each copy being a privacy risk. By hybridizing analytics, orchestration, automation and AI, we provide the richest context and best observability for AI to act within.
+event-driven › components › intelligence › buildBuy › label: Apache Spark, and the datalake along with open source AI integration tools.
+event-driven › components › intelligence › buildBuy › summary: The CriDIR project is building a production-ready Spark instance within the private cloud. It, with Airflow, is to be used to replace the informatica workflows. The datalake will be built on top of this, and open-source AI integration tools will be used to provide a rich set of capabilities for AI to act within the system.
 event-driven › components › intelligence › buildBuy › options › 1 › name: Apache Spark and related open-source tools
-event-driven › components › intelligence › buildBuy › options › 1 › note: Named in the design. Not yet analysed.
+event-driven › components › intelligence › buildBuy › options › 1 › note: Already under development
 event-driven › components › event-broker › name: Event broker
 event-driven › components › event-broker › short: Carries news of every change
 event-driven › components › event-broker › what: The message line that links all the parts. An event is a short message that says something happened, like "income reported" or "payment approved". The broker delivers each event to every part that needs to know.
 event-driven › components › event-broker › does: Carries every fact and decision between the parts, and checks each message has the agreed shape. It keeps messages in order so a part that was offline can catch up.
 event-driven › components › event-broker › why: Because parts only talk through events, any part can be swapped out without rewiring the others. This is what lets ICM be replaced a piece at a time.
-event-driven › components › event-broker › buildBuy › label: Adopt free open-source software (Apache Kafka with Strimzi)
-event-driven › components › event-broker › buildBuy › summary: The messaging layer is standard, widely used and free to license. The research recommends Apache Kafka, run on the Province's private cloud with the Strimzi tool, and an open-source register of message formats. Some commercial versions carry licence terms that limit how they can be used, so they are not recommended.
-event-driven › components › event-broker › buildBuy › options › 1 › name: Apache Kafka with Strimzi
+event-driven › components › event-broker › buildBuy › label: Commercially supported open source products are recommended.
+event-driven › components › event-broker › buildBuy › summary: The messaging layer is standard, widely used and free to license. Apache Kafka is the most widely adopted and documented, with a long roster of support vendors. IBM-Confluent is the recommended commercial product if a corporate common component is the desired approach.
+event-driven › components › event-broker › buildBuy › options › 1 › name: Apache Kafka
 event-driven › components › event-broker › buildBuy › options › 1 › note: Recommended.
 event-driven › components › event-broker › buildBuy › options › 2 › name: Apicurio Registry or Karapace
 event-driven › components › event-broker › buildBuy › options › 2 › note: Register of agreed message formats.
 event-driven › components › event-broker › buildBuy › options › 3 › name: Confluent
-event-driven › components › event-broker › buildBuy › options › 3 › note: Not recommended. Licence terms restrict use.
+event-driven › components › event-broker › buildBuy › options › 3 › note: Recommended as corporate common component solution.
 event-driven › components › event-broker › buildBuy › options › 4 › name: Redpanda
-event-driven › components › event-broker › buildBuy › options › 4 › note: Not recommended. Useful features are behind a paid licence.
-event-driven › components › event-broker › watch › text: Kafka is not yet on the provincial platform's supported list, so the support arrangement must be confirmed in writing first. Teams must also hold the line on the agreed message formats, or the parts will tangle again.
+event-driven › components › event-broker › buildBuy › options › 4 › note: Best commercial product for single-project use.
+event-driven › components › event-broker › watch › text: Kafka is a complex product, so internal teams must be adequately trained and supported. Proper governance on message formats is crucial to avoid a tangled, tightly coupled mess like ICM. This governance should be rolled into the API governance processes.
 event-driven › components › client-identity › name: Client identity service
 event-driven › components › client-identity › short: Proving who a client is
 event-driven › components › client-identity › what: The provincial BC Services Card service, which proves a person is who they say they are when they sign in online.
@@ -829,28 +821,22 @@ event-driven › components › documents › what: The tools that build letters
 event-driven › components › documents › does: Fills a notice template with the decision, its reasons and the client's appeal rights. It stores documents and links each one to the fact it supports.
 event-driven › components › documents › why: A notice must always match its decision and state the right appeal period. Getting this right protects clients' rights and the ministry at a tribunal.
 event-driven › components › documents › buildBuy › label: Buy or adopt several tools; build the link to each decision
-event-driven › components › documents › buildBuy › summary: Producing, storing and signing documents are common needs with many low-cost tools. The research recommends using provincial services where they fit, buying or adopting the rest, and building only the link that ties each notice to its decision. Expect several tools, not one. A request for information on electronic signatures was proposed.
+event-driven › components › documents › buildBuy › summary: Producing, and storing documents are common needs. Common components are available, so the design targets these were possible. This problem space typically requires a suite of tools, not a single product.
 event-driven › components › documents › buildBuy › options › 1 › name: Common Document Generation Service (CDOGS)
 event-driven › components › documents › buildBuy › options › 1 › note: Provincial service for building documents from templates.
-event-driven › components › documents › buildBuy › options › 2 › name: OneSpan Sign
-event-driven › components › documents › buildBuy › options › 2 › note: Electronic signatures. Request for information proposed.
-event-driven › components › documents › buildBuy › options › 3 › name: Docusign, OpenText, SmartCOMM, Quadient
-event-driven › components › documents › buildBuy › options › 3 › note: Other commercial options looked at.
-event-driven › components › documents › buildBuy › options › 4 › name: Documenso, DocuSeal
-event-driven › components › documents › buildBuy › options › 4 › note: Free electronic signature options.
-event-driven › components › documents › watch › text: Per-user pricing for electronic signatures could become large if every staff account needs a licence.
+event-driven › components › documents › watch › text: There is widespread belief signatures are a legal requirement. This is a false, but seemingly very persistent belief.
 event-driven › components › chat-bots › name: Chat bots
 event-driven › components › chat-bots › short: Automatic answers to common questions
 event-driven › components › chat-bots › what: Online helpers that answer common questions by chat, any time of day.
 event-driven › components › chat-bots › does: Answers questions like when the next payment is due or what documents to bring, and passes harder questions to a person.
 event-driven › components › chat-bots › why: Quick answers to simple questions can cut phone wait times and free staff for clients who need more help.
-event-driven › components › chat-bots › buildBuy › label: Not yet analysed (default: buy or reuse)
-event-driven › components › chat-bots › buildBuy › summary: No build-vs-buy analysis has been done for chat bots yet. As a common tool, the design's rule points to buying or reusing one rather than building it, and it must never make decisions about eligibility.
-event-driven › components › chat-bots › buildBuy › options › 1 › name: Commercial or government chat service
+event-driven › components › chat-bots › buildBuy › label: Defer market analysis until closer to procurement - market is too volatile to make a decision now.
+event-driven › components › chat-bots › buildBuy › summary: The pace at which this market evolves makes early analysis very unreliable. Recommendation is to defer selection as much as possible.
+event-driven › components › chat-bots › buildBuy › options › 1 › name: Commercial or corporate chat bot service (if available)
 event-driven › components › chat-bots › buildBuy › options › 1 › note: Default, not yet analysed.
 event-driven › components › printing › name: Printing
 event-driven › components › printing › short: Paper letters and cheques
-event-driven › components › printing › what: The Province's own print-and-mail service, which prints and posts letters and cheques.
+event-driven › components › printing › what: Integration with existing print-on-demand, push-print and mail services provided by BCMailPlus etc. Integration pattern is an coordinated sequence managed by the orchestration component to manage print queues etc.
 event-driven › components › printing › does: Receives letters and cheques in batches, prints them and mails them, and reports back when they were sent.
 event-driven › components › printing › why: Many clients rely on paper. When a client prefers paper, every decision notice goes out on paper by default, with the same deadlines as online.
 event-driven › components › printing › buildBuy › label: Existing: provincial print-and-mail service
@@ -871,64 +857,66 @@ event-driven › components › document-scanning › short: Turning paper into 
 event-driven › components › document-scanning › what: Tools that scan paper documents, sort them, and read key details from them.
 event-driven › components › document-scanning › does: Takes in documents from mail, fax, email, uploads and offices. It records the date each arrived, because legal deadlines run from that date.
 event-driven › components › document-scanning › why: Lost or slow paperwork delays decisions. Values read by a machine are treated as unconfirmed until checked, so a scanning error cannot silently change a client's benefit.
-event-driven › components › document-scanning › buildBuy › label: Adopt or buy; no product chosen yet
-event-driven › components › document-scanning › buildBuy › summary: The research looked at capture tools as part of documents and notices but gave no clear winner. The direction is to adopt or buy, not build.
-event-driven › components › document-scanning › buildBuy › options › 1 › name: Paperless-ngx
-event-driven › components › document-scanning › buildBuy › options › 1 › note: Free scanning, indexing and archiving.
-event-driven › components › document-scanning › buildBuy › options › 2 › name: ABBYY Vantage
-event-driven › components › document-scanning › buildBuy › options › 2 › note: Commercial capture and data extraction.
+event-driven › components › document-scanning › buildBuy › label: Adopt & Buy
+event-driven › components › document-scanning › buildBuy › summary: Digitization of paper forms requires a full intake pipeline - from document capture (mobile capture, faxing, scanning etc.) to recognition and extraction. Pipeline orchestration is handled by the orchestration layer, with pluggable components.
+event-driven › components › document-scanning › buildBuy › options › 1 › name: Microsoft Document Intelligence
+event-driven › components › document-scanning › buildBuy › options › 1 › note: Existing supported component, incomplete solution.
+event-driven › components › document-scanning › buildBuy › options › 2 › name: Paperless-ngx
+event-driven › components › document-scanning › buildBuy › options › 2 › note: Free scanning, indexing and archiving.
+event-driven › components › document-scanning › buildBuy › options › 3 › name: ABBYY Vantage
+event-driven › components › document-scanning › buildBuy › options › 3 › note: Commercial capture and data extraction.
 event-driven › components › speech › name: Text-to-speech and speech-to-text
 event-driven › components › speech › short: Reading aloud and typing from speech
 event-driven › components › speech › what: Tools that read text aloud and turn spoken words into text.
-event-driven › components › speech › does: Reads screens and letters aloud for people who need it, and lets staff or clients speak instead of type.
-event-driven › components › speech › why: Some clients have trouble reading or typing. These tools help them use the service on equal terms, and they can save staff time on notes.
-event-driven › components › speech › buildBuy › label: Not yet analysed (default: buy)
-event-driven › components › speech › buildBuy › summary: No build-vs-buy analysis has been done for speech tools yet. These are common products, so the default is to buy or adopt one that keeps data in Canada.
+event-driven › components › speech › does: Reads screens and letters aloud for people who need it, and lets staff or clients speak instead of type. Can capture call-centre conversations in real-time and surface information and propose actions as appropriate.
+event-driven › components › speech › why: Text-to-speech is a crucial accessibility affordance, as many clients require but do not possess screen readers and other tools. Conversely, speech-to-text allows front line staff to have more direct and fluid interactions with clients and attend fully to the person in front of them or on the line.
+event-driven › components › speech › buildBuy › label: Defer assessment
+event-driven › components › speech › buildBuy › summary: This sector is under tremendous innovation, with new technology refinements released almost weekly. Recommendation is to defer this until closer to development time.
 event-driven › components › speech › buildBuy › options › 1 › name: Commercial speech service
-event-driven › components › speech › buildBuy › options › 1 › note: Default, not yet analysed.
+event-driven › components › speech › buildBuy › options › 1 › note: Defer until necessary.
 event-driven › components › call-centre › name: Call centre systems
 event-driven › components › call-centre › short: Phones and contact centre tools
 event-driven › components › call-centre › what: The phone system and tools the contact centre uses to take calls.
 event-driven › components › call-centre › does: Routes calls and shows the agent the caller's file as the call arrives. Agents get their own screens, built for their tasks and time pressure.
-event-driven › components › call-centre › why: The phone is how many clients reach the ministry. Agents who see the right file at once can resolve calls faster and with fewer transfers.
-event-driven › components › call-centre › buildBuy › label: Not yet analysed (default: keep and connect the current phone system)
-event-driven › components › call-centre › buildBuy › summary: No build-vs-buy analysis has been done for call centre systems yet. The design says the current phone system's links to ICM must first be mapped, then connected through the shared doorway. Keeping the existing phone system is the default.
+event-driven › components › call-centre › why: Phone contact has its own unique contextual requirements that should be designed around. Front line staff should have tailor built tools to maximize service quality and throughput.
+event-driven › components › call-centre › buildBuy › label: There are many mature and powerful call centre management systems that have well documented APIs for integration. Configuring a VoIP or phone tree system is a commodity problem. Integration work and UX for the web application should be in-sourced.
+event-driven › components › call-centre › buildBuy › summary: This is among the most commoditized solutions within the social sector, there is little yield in a custom solution.
 event-driven › components › call-centre › buildBuy › options › 1 › name: Current contact centre phone system
-event-driven › components › call-centre › buildBuy › options › 1 › note: How it links to ICM today is not yet known.
+event-driven › components › call-centre › buildBuy › options › 1 › note: It may make the most sense to continue using existing system or consolidate with other groups.
 event-driven › components › payment-processing › name: Payment processing
 event-driven › components › payment-processing › short: Sends money by deposit and cheque
-event-driven › components › payment-processing › what: The single controlled path every payment leaves by: the monthly and off-cycle payment runs, direct deposit and cheques.
-event-driven › components › payment-processing › does: Takes approved payment instructions and sends the money. It handles stop payments, reissues, returned payments and month-end cutoffs, and makes sure nothing is paid twice.
-event-driven › components › payment-processing › why: A system that decides correctly but does not pay has failed completely. Clients depend on these payments for basic needs, so this part comes first if a supplier ever cuts off access.
-event-driven › components › payment-processing › buildBuy › label: Build one payment service (proposed); reuse provincial services
-event-driven › components › payment-processing › buildBuy › summary: The design builds one payment service that every payment passes through. The highest-scoring products held payments, ledgers and debts together, which the design does not allow, and no hosted product showed it keeps data in Canada with a ministry-held copy. Card payments go through the Province's approved payment path, and the corporate financial system remains the official book. This direction is in a decision record not yet accepted.
-event-driven › components › payment-processing › buildBuy › options › 1 › name: Ministry-built payment service
-event-driven › components › payment-processing › buildBuy › options › 1 › note: Proposed.
+event-driven › components › payment-processing › what: Segmenting this from the financial components minimizes coupling between how payments are calculated and track from the particulars of ensuring money shows up in someone's account.
+event-driven › components › payment-processing › does: Processes payment instructions, sends money, and reports results, e.g. stop payments reissues, returned payments, month-end cutoffs. Ensures payments track the financial details exactly.
+event-driven › components › payment-processing › why: Flexibility and durability of payment processing is a mission-critical priority. Supporting a range of payment provision mechanisms with a standard interface ensures a diversified portfoli of options.
+event-driven › components › payment-processing › buildBuy › label: Build one payment API (proposed); reuse provincial services
+event-driven › components › payment-processing › buildBuy › summary: The design builds a payment API that creates a single interface to multiple payment providers. All payment traffic goes through this. Card payments, cheque payments, declining balance cards and others can be adopted, vendors changed added or removed, without altering any internal systems.
+event-driven › components › payment-processing › buildBuy › options › 1 › name: Payment API
+event-driven › components › payment-processing › buildBuy › options › 1 › note: Standardized payment API for internal systems, can be built and adapted using AI.
 event-driven › components › payment-processing › buildBuy › options › 2 › name: Provincial payment path and corporate financial system
 event-driven › components › payment-processing › buildBuy › options › 2 › note: Card payments and accounting go through these.
 event-driven › components › payment-processing › buildBuy › options › 3 › name: cadeft
-event-driven › components › payment-processing › buildBuy › options › 3 › note: Small library to write the bank file. Still being developed.
+event-driven › components › payment-processing › buildBuy › options › 3 › note: Small library to write the bank file.
 event-driven › components › payment-processing › buildBuy › options › 4 › name: Hosted payment hubs
-event-driven › components › payment-processing › buildBuy › options › 4 › note: Not shortlisted. None showed Canadian data or a ministry-held copy.
-event-driven › components › payment-processing › watch › text: Provincial policy says payments are made by the Ministry of Finance unless approved otherwise. Whether the ministry sends a file to the bank at all, and in what format, is not yet known.
+event-driven › components › payment-processing › buildBuy › options › 4 › note: Payment hubs can handle discharge, reconciliation, retries, verification etc.
+event-driven › components › payment-processing › watch › text: Historically, the social sector has handled all payment processing internally - fully replicating Finance's process using social sector staff and contractors.
 event-driven › components › user-analytics › name: User analytics
-event-driven › components › user-analytics › short: How people use the screens
-event-driven › components › user-analytics › what: Tools that measure how people use the screens, such as where they get stuck or give up.
-event-driven › components › user-analytics › does: Counts visits, clicks and drop-offs, and compares how clients do by phone, in person and online.
-event-driven › components › user-analytics › why: It shows where a screen confuses people, so it can be fixed. It also checks that clients who do not go online get the same results.
-event-driven › components › user-analytics › buildBuy › label: Not yet analysed (default: adopt a free tool)
-event-driven › components › user-analytics › buildBuy › summary: No build-vs-buy analysis has been done for user analytics yet. The default is a free open-source tool run on the ministry's own servers, so data about clients' visits stays in Canada.
+event-driven › components › user-analytics › short: How people use our systems.
+event-driven › components › user-analytics › what: Tools that measure how people use experiences, where they get stuck, drop off, visit regularly, etc.
+event-driven › components › user-analytics › does: Tracks visits, clicks, and drop-offs, can provide more fine-grained analyics (time in focus, time on screen etc.) for targeted sections. Can connect users across all contexts - phone, in-person, web, etc so we can measure the user journeys.
+event-driven › components › user-analytics › why: One cannot manage what they do not measure - a unified user analytics system that's configured to conform to the real business demystifies design decision-making.
+event-driven › components › user-analytics › buildBuy › label: Apache Flagon, Plausible, Matomo - this ensures granular data collection without privacy or disclosure risks.
+event-driven › components › user-analytics › buildBuy › summary: A self-hosted solution is the most reliable and privacy protecting solution. There is little advantage with commercially supported options vs. widely adopted open-source solutions.
 event-driven › components › user-analytics › buildBuy › options › 1 › name: Open-source web analytics
-event-driven › components › user-analytics › buildBuy › options › 1 › note: Default, not yet analysed.
+event-driven › components › user-analytics › buildBuy › options › 1 › note: Apache Flagon
 event-driven › components › reporting › name: Reporting
-event-driven › components › reporting › short: Reports without extra copies
+event-driven › components › reporting › short: Reports without copying data
 event-driven › components › reporting › what: The reports managers, finance and the public rely on, drawn from one protected data store.
-event-driven › components › reporting › does: Produces caseload, payment and performance reports by reading from one store, rather than from a new copy of the data for each report.
+event-driven › components › reporting › does: Produces caseload, payment and performance reports by reading from a single data lake, rather than from an ETL'ed copy of a copy of a copy...
 event-driven › components › reporting › why: ICM's data is copied over and over for reports, and every copy is another privacy risk. One store makes it possible to answer where a client's information is held.
-event-driven › components › reporting › buildBuy › label: Not yet analysed (default: free open-source tools)
-event-driven › components › reporting › buildBuy › summary: The build-vs-buy research did not cover reporting. The design names free open-source tools, Apache Iceberg for storing tables and Trino for queries, on the Province's own storage. Treat that as the default until analysed.
-event-driven › components › reporting › buildBuy › options › 1 › name: Apache Iceberg and Trino
-event-driven › components › reporting › buildBuy › options › 1 › note: Named in the design. Not yet analysed.
+event-driven › components › reporting › buildBuy › label: This infrastructure is what CriDIR is building - this component can be integrated easily.
+event-driven › components › reporting › buildBuy › summary: Reporting should not be treated as a monolith. Internal operational reports should be captured by the user experience development. Aggregate reports and research should be made available via the data lake as an authoritative store and analytics teams can choose which tools they prefer.
+event-driven › components › reporting › buildBuy › options › 1 › name: Apache Iceberg and Spark
+event-driven › components › reporting › buildBuy › options › 1 › note: Part of the CriDIR infrastructure. Additional processing applications like Trino may be desired.
 event-driven › components › health-monitoring › name: Health monitoring
 event-driven › components › health-monitoring › short: Spotting problems early
 event-driven › components › health-monitoring › what: Tools that watch every part of the system and alert the support team when something slows down or breaks.
@@ -940,15 +928,15 @@ event-driven › components › health-monitoring › buildBuy › options › 1
 event-driven › components › health-monitoring › buildBuy › options › 1 › note: For parts on the platform.
 event-driven › components › health-monitoring › buildBuy › options › 2 › name: Provincial monitoring service
 event-driven › components › health-monitoring › buildBuy › options › 2 › note: For parts outside the platform.
-event-driven › components › policy-governance › name: Policy governance
+event-driven › components › policy-governance › name: Access policy governance
 event-driven › components › policy-governance › short: Written, tested rules on who sees what
-event-driven › components › policy-governance › what: Rules about who may see or change which records, written down as tested files rather than settings scattered across the system.
-event-driven › components › policy-governance › does: Checks every request against the access rules and records who looked at what, for what purpose, and under what law.
-event-driven › components › policy-governance › why: An audit found over a third of ICM's 9,400 users had access outside the approved model. Written, tested rules make it clear who can see a child protection file, and why.
-event-driven › components › policy-governance › buildBuy › label: Adopt a free open-source policy engine
-event-driven › components › policy-governance › buildBuy › summary: The design adopts a free general-purpose policy engine for access rules, released through the same tested process as eligibility rules. It is not used for eligibility itself. No product-by-product research has been done.
-event-driven › components › policy-governance › buildBuy › options › 1 › name: Open-source policy engine (for example Rego or Cedar based)
-event-driven › components › policy-governance › buildBuy › options › 1 › note: Named in the design.
+event-driven › components › policy-governance › what: Not to be confused with government policy - access policy governance is an automated system. Rules about who may see or change which records, written as testable, portable code rather than managed through traceless configuration settings.
+event-driven › components › policy-governance › does: Checks every request against the access rules and records who looked at what, for what purpose, and under what law. Integrates with APS P2P to fulfill transparency requirements.
+event-driven › components › policy-governance › why: Multiple heterogenous systems need to support authorization - conventional methods mean each must develop and maintain their own authorization scheme and these must be kept in sync. Externalizing it as a service provides a single control plane for every application with comprehensive auditing.
+event-driven › components › policy-governance › buildBuy › label: Adopt business rules engine
+event-driven › components › policy-governance › buildBuy › summary: The business rules engine is suitable for access management purposes - whichever system is selected for that should be adopted here (and vice versa)
+event-driven › components › policy-governance › buildBuy › options › 1 › name: Open-source policy engine
+event-driven › components › policy-governance › buildBuy › options › 1 › note: Rego or Cedar based solution is recommended.
 event-driven › components › auth › name: Sign-in and access
 event-driven › components › auth › short: Signing in for staff and businesses
 event-driven › components › auth › what: The provincial sign-in services for staff, businesses and partners.
@@ -965,23 +953,23 @@ event-driven › components › data-gateway › short: Sharing data with other 
 event-driven › components › data-gateway › what: The approved route for sharing information with other ministries and organisations, through the Province's Secure Data Exchange.
 event-driven › components › data-gateway › does: Checks that each exchange is allowed under a recorded agreement and law, sends it securely, and keeps proof of what was shared.
 event-driven › components › data-gateway › why: Clients' information must only go where the law allows. Keeping proof of every exchange protects clients and lets the ministry answer access-to-information requests.
-event-driven › components › data-gateway › buildBuy › label: Existing: Secure Data Exchange, with ministry-built proof records
-event-driven › components › data-gateway › buildBuy › summary: The design uses the Province's Secure Data Exchange for transport and access control. It does not keep tamper-proof records of what was shared, so the ministry builds that part. No product research has been done.
-event-driven › components › data-gateway › buildBuy › options › 1 › name: Provincial Secure Data Exchange
-event-driven › components › data-gateway › buildBuy › options › 1 › note: Still early in its development.
+event-driven › components › data-gateway › buildBuy › label: Eligibility Factor Verification and APS P2P provide a full connectivity and data availability solution.
+event-driven › components › data-gateway › buildBuy › summary: APS P2P provides transport and access, whereas the EFV provides data transformation, integration and enrichment functionality. Extending either of these with the desired functionality has the best ROI.
+event-driven › components › data-gateway › buildBuy › options › 1 › name: APS P2P and EFV
+event-driven › components › data-gateway › buildBuy › options › 1 › note: Both under early development.
 event-driven › components › data-gateway › buildBuy › options › 2 › name: Proof-of-exchange records
-event-driven › components › data-gateway › buildBuy › options › 2 › note: Built by the ministry.
-event-driven › components › data-gateway › watch › text: The Secure Data Exchange is still at an early stage, and the part that checks legal permission is not yet funded. Dates and availability need confirming in writing.
+event-driven › components › data-gateway › buildBuy › options › 2 › note: X-Road server or equivalent proof-of-record.
+event-driven › components › data-gateway › watch › text: EFV and APS P2P are in early stages of adoption, and policy-as-a-service is not yet deployed. EFV scope would increase to accommodate the full breadth of possible data inputs and outputs for ICM.
 event-driven › components › icm-api › name: ICM API
 event-driven › components › icm-api › short: Temporary bridge to the old system
 event-driven › components › icm-api › what: A temporary bridge into ICM, so new parts and ICM can work side by side while ICM is replaced piece by piece.
 event-driven › components › icm-api › does: Translates requests between the new system's language and ICM's. It sends changes made in ICM out as events, and writes back to ICM where needed.
-event-driven › components › icm-api › why: It avoids a risky single switch-over day. Its team's job is to shrink it until it can be turned off, so ICM is truly retired and its costs end.
-event-driven › components › icm-api › buildBuy › label: Build, then remove
-event-driven › components › icm-api › buildBuy › summary: Nothing on the market is shaped like a bridge to one specific old system that is meant to be thrown away. The ministry builds it, and its team is set up to take it apart. It also needs changes inside ICM itself, made by whoever holds ICM's configuration.
-event-driven › components › icm-api › buildBuy › options › 1 › name: Ministry-built bridge
+event-driven › components › icm-api › why: It avoids a risky single switch-over day and allows ICM to enjoy some enhancements. The goal is to shrink the ICM side of the API until it is completely handled by the replacement system. New system remains backwards compatible with ICM-integrated systems.
+event-driven › components › icm-api › buildBuy › label: Apache Camel
+event-driven › components › icm-api › buildBuy › summary: Apache Camel is purpose-built for live integration between modern and legacy systems. It can form the backing service for the ICM API in a scalable and easily managed system as opposed to a library of microservices.
+event-driven › components › icm-api › buildBuy › options › 1 › name: Camel
 event-driven › components › icm-api › buildBuy › options › 1 › note: Temporary by design.
-event-driven › components › icm-api › watch › text: A partial API over ICM is already in use. If it exposes ICM's own codes and record numbers, the people using it are tied to ICM. A decision is needed before more users depend on it.
+event-driven › components › icm-api › watch › text: The API contract exposed to external systems must avoid reproducing ICM's idiosyncratic design patterns. There is no automated way to ensure this, design rigor and governance of the API contract are required.
 
 === src/lib/content/home.yaml
 home › compare › heading: The options side by side
@@ -1555,18 +1543,20 @@ timeline › team › 5 › focus: Lead the team. Get the funding, decisions and
 
 === page text in .svelte files (sorted)
 , in
-A plain-language guide to three options for replacing ICM. It draws on the project's research. Nothing here is a government decision or commitment.
+A brief guide on three options for replacing ICM. It draws on six years of research and daily experience with ICM, and the feedback, advice, grievances, and analyses of dozens. Nothing herein is an official government position, decision, or commitment. It is offered for discussion and consideration. Views are those of the author and may not reflect the official position of government.
 A release
 Already in government
 An open question or risk to manage
 Anything bought from a company goes through government procurement. Work that needs it can't start until it lands.
 Build or buy
 Cannot be met
+Despite the pervasiveness of the issues plaguing ICM, identifying root causes so they can be resolved has proven elusive. After years of research, some core problems have become clear.
 Dig below the surface
 Done, but in a weaker way
 Draft for discussion
 Each option deals with these root causes in a different way. See what each one would change.
 Each plan puts something real in front of staff or clients as early as it can, then releases on a steady beat. That can make the whole project longer. It also means less risk and sooner benefits.
+Everyone agrees on the itch, nobody agrees on where to scratch.
 Felt by:
 First people use it
 First value
@@ -1591,7 +1581,6 @@ Purchases and what they hold up
 Read about the problems with ICM today
 Release to users
 Risk to watch
-Sample text.
 See how long
 See the parts of
 See the timelines
@@ -1607,7 +1596,6 @@ Switching off the old system
 The assumptions behind this plan
 The problem
 The problem with ICM today | Future of Case Management
-The problems and examples come from project documents. The causes are placeholders, waiting for the project team's own analysis.
 The team
 There are
 Things to buy first

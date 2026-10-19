@@ -21,8 +21,8 @@
   <p class="lede">{intro}</p>
   {#if placeholder}
     <p class="notice" role="note">
-      <strong>Sample text.</strong> The problems and examples come from project documents. The
-      causes are placeholders, waiting for the project team's own analysis.
+      <strong>Everyone agrees on the itch, nobody agrees on where to scratch.</strong> Despite the pervasiveness of the issues plaguing ICM, 
+      identifying root causes so they can be resolved has proven elusive. After years of research, some core problems have become clear.
     </p>
   {/if}
 </header>

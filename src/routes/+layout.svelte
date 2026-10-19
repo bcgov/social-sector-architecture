@@ -51,8 +51,9 @@
 <footer class="foot">
   <div class="wrap">
     <p>
-      A plain-language guide to three options for replacing ICM. It draws on the project's
-      research. Nothing here is a government decision or commitment.
+      A brief guide on three options for replacing ICM. It draws on six years of research and daily experience with ICM, and the feedback, advice,
+      grievances, and analyses of dozens. Nothing herein is an official government position, decision, or commitment. It is offered for discussion and consideration. 
+      Views are those of the author and may not reflect the official position of government.
     </p>
     <p class="draft">Draft for discussion</p>
   </div>
