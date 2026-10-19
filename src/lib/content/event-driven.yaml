@@ -10,74 +10,83 @@ tagline: >-
   Smaller replaceable parts linked by messages. Reuse or buy common parts; build what is
   unique to BC.
 summary:
-  - This is the ministry's own target design. Instead of one big system, it is a set of
-    smaller parts. Each part does one job, keeps its own records and has its own team.
-    Common parts, like sign-in, email and printing, are reused from government or
-    adopted as free software. The ministry builds only the parts that are unique to BC's
-    programs, such as eligibility rules and the record of facts behind each decision.
+  - This design was devised over several years including extensive field research, interviews,
+    landscape analyses and other research. Instead of a single tightly integrated monolith,
+    it is a set of smaller parts. Each part does one job, keeps its own records and belongs to a team.
+    Common components can be adopted, like authentication, email, printing, or document intelligence or made available 
+    like the event-broker, business rules engine, or orchestration service. CSBC builds only
+    the parts that are unique to business' programs, such as eligibility rules and the management of
+    determination of facts from claims and evidence, or process handling for the hundreds of exceptions, edge-cases
+    and carve outs.
   - The parts talk to each other through events. An event is a short message that says
-    something happened, like "a client reported new income" or "a payment was approved".
+    something happened, like "a client submitted a monthly report" or "a payment was approved".
     Any part that cares can listen and act. Because no part reaches into another part's
     records, one part can be replaced without breaking the rest.
   - The new parts are switched on one area at a time, while ICM keeps running. A bridge
     into ICM lets old and new work side by side until each piece of ICM can be turned
-    off. The first stage builds the foundations and replaces nothing that staff will
-    see.
+    off.
 facts:
-  - label: Rough cost
+  - label: Labour effort
     value: >-
-      $142M to $249M over 9 to 13 years (early estimate, no supplier quotes)
-  - label: First 6 to 12 months
-    value: Foundations only. Nothing in ICM is replaced yet
-  - label: First money saved
+      680 labour-months, in a range of 560 to 750.
+  - label: Time to initial value
+    value: 6-10 months.
+  - label: Clear Win
     value: >-
-      At stage three, when notices and letters move off ICM and that part of ICM is
-      turned off
-  - label: Bought vs free software
+      Notices, letters, forms and data validation can be implemented quickly and will immediately
+      benefit ICM and be usable in future systems.
+  - label: Build vs. Buy
     value: >-
-      Mostly free open-source software and existing government services. Few commercial
-      purchases
+      Mostly mature, well-supported open source products, many with commercial support.
+      Build is focused on high-impact, mission critical components. 
 goodAt:
-  - Each part can be replaced on its own, so the ministry is not locked to one supplier.
-  - Every decision keeps the facts and the version of the rules used, so it can be
-    explained at a reconsideration or tribunal years later.
-  - Policy staff can change rates and rules through a tested release process, without
-    waiting for a full software release.
-  - ICM is replaced a piece at a time, with no single big switch-over day.
-  - Sensitive data stays on the Province's own servers, and payments can carry on if any
-    supplier cuts off access.
+  - Each element can be modified or replaced independently, so there is no vendor lock-in
+    or software stack monopoly. These components can be re-used by other projects or spun
+    out into common components. 
+  - Every element is captured as structured data, including the claims, evidence, rules and processes, so it can be
+    tested, validated and automated.
+  - Policy staff can self-manage rates, and business rules through a tested release process and 
+    a tool set they've already validated. No technician, no waiting for release.
+  - ICM is replaced incrementally, with many features benefiting both the new system and ICM, and no "big bang."
+  - Sensitive data and critical processes stay on the Province's own servers using trustworthy software.
+  - Several components are already built or under way - a workflow orchestration system (Airflow in CriDIR),
+    a business rules management system (BRE), a data integration gateway (EFV in DMI), a UX construction framework (MySS rebuild),
+    a real-time data processing system and data lake (Spark, CriDIR), an anti-corruption layer for seamless migration (ICM-API)
+  - Business areas were invested in and support of an event-driven architecture
+  - Maximizing in-sourcing and internal knowledge development
+  - Designed for AI from the ground up, every facet of the system can leverage AI tools now or in the future.
 watchOut:
-  - The first 6 to 12 months build foundations and replace nothing visible. There will
-    be pressure to cut this short, and stopping here is the worst place to stop.
-  - Running costs go up before they come down, for two to three years, because old and
-    new systems run side by side.
-  - The ministry, or those it hires, must build and run several parts itself. It needs a
-    funded team, and who builds it is not yet decided.
-  - Teams must keep to the agreed message formats. If parts start reading each other's
-    records, they become tangled again like ICM.
-  - An independent check found one product, Merative Cúram, could meet the legal needs.
-    The reasons for building case work still need a second look.
+  - Many of the design commitments may be unfamiliar or unintuitive (e.g. there is no "CRM")
+  - Initial development will focus on establishing a "kit" of capabilities, while they can be demonstrated
+    they do not provide the immediate gratification of a commercial CRM tool.
+  - Because there is no cut-over, both systems will run side-by-side for a time. Some improvements can be 
+    back-migrated to ICM, this may seem like wasted investment, but the timelines warrant it.
+  - CSBC, or those it hires, must build and run several elements itself. It needs a stable, capable team.
+  - Engineering discipline must be maintained as part of team culture, rather than enforced by the 
+    system itself, e.g. the event log can be misused, resulting in the tangled, tightly coupled mess of ICM.
 zones:
   experience:
     name: Unified user experience
     blurb: >-
-      The screens people use, one set for each kind of user, all built from the same
-      shared building blocks.
+      AI-augmented from day 1. The screens and workflows people use, tailored to suit their context
+      using an ever-growing library of smart components.
   api:
     name: Service abstraction layer
     blurb: >-
-      One shared doorway that every screen and partner uses to reach the system, so the
-      parts behind it can change without anyone noticing.
+      An easy to use API layer for application authors (and AI) to construct service experiences.
+      Frees developers and services designers from back-end implementation considerations.
+      Allows back-end developers to make changes without disturbing the UX.
+      These can be assembled very quickly by AI
   domain:
     name: Domain capabilities
     blurb: >-
-      The parts unique to BC's programs, each with its own records and its own team.
-      Most of these are built by the ministry.
+      These domain capabilities encapsulate the elements of the system that are unique and high-value.
+      By keeping them contained, this prevents commodity boilerplate from creeping in.
+      These can be built by different teams in a polyglot environment and are easy for AI to reliably engineer.
   intelligence:
     name: Service intelligence
     blurb: >-
-      The parts that work out eligibility, move work along, and help the ministry learn
-      from its data.
+      These components allow the system to react adaptively to changes through orchestration and agents.
   events:
     name: Event broker
     blurb: >-
@@ -93,42 +102,46 @@ zones:
       Bridges to other organisations, and to ICM while old and new run side by side.
 parts:
   worker-context:
-    name: Worker screens
+    name: Worker Experiences
     short: What caseworkers and contact centre staff use
     what: >-
-      The screens ministry staff use every day. Caseworkers, supervisors and contact
-      centre staff each get screens shaped to their own tasks.
+      The workflows, wizards, and agents ministry staff use daily. Caseworkers, supervisors, and contact centre staff
+      each have tailored experiences for maximized ergonomics.
     does: >-
-      Shows a client's case, evidence, decisions, payments and tasks in one place. Staff
-      record facts, act on work queues and see what is overdue.
+      Surfaces a client's context, aids in discovering necessary information, ensuring service quality and 
+      managing tasks. Staff fulfill processes, act on work queues and access reports and information.
+      The UX is self-explaining where it is not self-evident, accessible and multi-modal. 
     why: >-
-      Staff work in ICM today with many screens and workarounds. Screens built around
-      their real tasks save time on every case, and they can be improved without
-      touching the records underneath.
+      Staff must manage dozens of generic screens with workflows scattered and disorder among them.
+      UX tools built around the specific needs for their tasks saves time and improves data and serve quality.
+      The combination of component libraries, automated tests, and AI tooling makes designing, building, validating and testing 
+      these very fast and very cheap.
     buildBuy:
       approach: build
-      label: Build from a shared library of screen parts
+      label: Build from a shared library of smart components
       summary: >-
-        The design builds screens from a shared library of building blocks, with the
-        Province's design system used where it fits. The research found a case platform
-        would add little here: at most it could supply screens, at platform prices. No
-        product-by-product comparison of screen tools has been done.
+        The design builds experiences from a common library of smart components built atop the GovBC design system.
+        Smart components are not just UI widgets, they come pre-wired with the data to make them usable. 
+        AI tools like Copilot can be provided skills or specialized agents to construct experiences through chat.
+        Developers can also use AI to develop new components to add to the library.
+        Rather than devolving into a junk drawer of gadgets, AI can both contend with tens of thousands of components easily
+        and provide mechanisms for curation, deduplication, refactoring etc.
       options:
-        - name: Shared library of screen parts
+        - name: Shared library of smart components
           kind: build
           note: >-
-            The design's choice. Each building block is tested for accessibility.
+            Accessibility is designed in, not applied later. Full experiences, not just UI widgets.
         - name: Provincial design system
           kind: existing
           note: >-
-            Used behind the ministry's own library. Still early, about 20 to 30 parts.
+            Provides a kernel for expansion as new UI elements are developed.
         - name: >-
             Case platform screens (a SaaS CRM, Dynamics 365, Pega, Appian)
           kind: buy
           note: >-
-            Not recommended. High licence cost for a small part of the product.
+            Not recommended. Full price for a sliver of the product, underlying model doesn't map well to new system.
   client-context:
-    name: Client screens
+    name: Client Experiences
     short: What people already receiving help use
     what: >-
       The online screens for people already receiving assistance or services, and for
@@ -138,16 +151,17 @@ parts:
       payments. Anything they can do online can also be done by phone, in person or on
       paper.
     why: >-
-      Many clients cannot easily use a website. The design says no right or deadline can
+      Many clients cannot easily use a website. The design says no core process can
       be online only, so clients get the same result whichever way they reach the
       ministry.
     buildBuy:
       approach: build
-      label: Build from the shared library of screen parts
+      label: Build from the smart component library
       summary: >-
-        Client screens use the same shared building blocks as the worker screens. They
+        Client experiences use the same shared building blocks as the worker screens. They
         reach the system through the same doorway, so they keep working as parts behind
-        it are replaced. No product comparison has been done for client screens.
+        it are replaced. Different modalities (mobile, phone, in-person etc.) all share the same backing APIs, only 
+        the UX changes.
       options:
         - name: Shared library of screen parts
           kind: build
@@ -157,399 +171,400 @@ parts:
           note: >-
             Used where it fits, behind the ministry's library.
   applicant-context:
-    name: Applicant screens
-    short: Where people apply for help
+    name: Applicant process
+    short: Where people apply 
     what: >-
-      The screens for people applying for the first time, on their own or with help from
-      a worker or agency.
+      These experiences are for those applying (or re-applying) for assistance, regardless of 
+      method (web, mobile, phone, in-person)
     does: >-
-      Takes an application, collects the facts and documents needed, and starts the
-      eligibility check. A worker can complete an application on someone's behalf, and
-      the system records who did it.
+      Manages the application process from information seeking to application decision.
+      Delegates and workers have a dedicated experience, and the additional data is captured.
+      Context is never lost so clients can go from web to in-person without starting over.
     why: >-
-      Applying is the first contact many people have with the ministry, often at a hard
-      moment. A clear application with no lost paperwork means faster decisions and
-      fewer repeat visits.
+      Application processing is the single largest and most complex workload item for the ministry,
+      it warrants a dedicated its own context. Ensuring applications are easy, reliable and accurate
+      means clients get their needs met quickly, and the ministry cuts caseload significantly.
     buildBuy:
       approach: build
-      label: Build from the shared library of screen parts
+      label: MySS replacement underway
       summary: >-
-        Built with the same shared building blocks as the other screens. No product
-        comparison has been done for application screens.
+        The MySS rebuild is already under way, the framework and components can all be re-used to
+        develop the other experience contexts.
       options:
-        - name: Shared library of screen parts
+        - name: Smart Component Library
           kind: build
-          note: Same blocks as the other screens.
+          note: Set the foundation for unified UX
         - name: Provincial design system
           kind: existing
-          note: Used where it fits.
+          note: Adopt and extend.
   vendor-context:
-    name: Partner and vendor screens
+    name: Partner and vendor experiences
     short: What service providers and partners use
     what: >-
-      The screens and connections for outside organisations, such as service providers,
+      The processes and connections for outside organisations, such as service providers,
       contracted agencies and other partners.
     does: >-
       Lets partners see referrals and service agreements, report on services delivered,
       and send or receive information the law allows them to share.
+      Also allows partners to configure self-service API end-points to securely integrate with our systems
+      using verified credentials.
     why: >-
       Partners do much of the hands-on work for clients. Giving them their own access,
       limited to what an agreement allows, cuts phone calls and paper and protects
       client privacy.
     buildBuy:
       approach: build
-      label: Build from the shared library of screen parts
+      label: Build from the smart component library
       summary: >-
-        Built with the same building blocks as the other screens. What each partner may
-        see is set by information-sharing agreements held in a register, not granted by
-        hand. No product comparison has been done for partner screens.
+        Built with the same building blocks as the other experiences. What each partner may
+        see is set by information-sharing agreements held in a register and enforced by the system itself, not granted by
+        hand. The self-serve APIs and user experiences are backed by the same systems - simplifying access control.
       options:
-        - name: Shared library of screen parts
+        - name: Shared library smart components
           kind: build
-          note: Same blocks as the other screens.
+          note: Same blocks as the other experiences.
   service-layer:
     name: Service abstraction layer
-    short: One doorway into the system (APIs)
+    short: Developer & AI friendly access to business systems (APIs)
     what: >-
-      The single doorway that every screen, partner and report uses to reach the system.
-      It is made of APIs. An API is a published, agreed way for one computer program to
-      ask another for information or to get something done, a bit like a standard order
-      form.
+      A unified access pathway to the back-end systems using APIs with published, standards ways 
+      for providing capabilities.
     does: >-
-      Takes each request, checks the person is allowed to make it, records it, and
-      passes it to the right part. Behind it sit microservices: small programs that each
-      do one job, like a counter that only handles one kind of request.
+      Standardizes the way UX components work with back-end systems, provides a broad surface area for automation.
+      It allows AI and developers to quickly assemble targeted capabilities by composing underlying systems rather than writing entire
+      functions from the ground up. Provides numerous built-in properties like security, persistence, scalability and durability that would otherwise be 
+      coded for each feature.
     why: >-
-      This doorway stays the same while the parts behind it change. Today some requests
-      go to ICM; later the same requests go to new parts. Screens and partners do not
-      have to change each time, which saves money and avoids disruption.
+      This layer can remain stable and accessible while the parts behind it or in front vary.
+      Front-end developers can modify or add experiences, and back-end developers can adjust or replace components without
+      either side needing to do anything. This also allows for a smooth transition from ICM - as requests would be initially
+      routed to the legacy system before being taken over by the new one. Conversely, ICM can consume newer services 
+      providing immediate benefit to ICM users before a complete replacement is available.
     buildBuy:
       approach: build
       label: >-
         Build the doorway, reuse the Province's API tools
       summary: >-
-        The agreed request formats are the ministry's own and must outlive every part
-        behind them, so they are designed and owned in-house. The design reuses the
-        Province's API programme for the gateway software and directory. The research
-        did not compare products for this part.
+        The API structure (it's schema) are managed internally, and are subject to collaborative 
+        governance. The components that publish those, and provide a single connectivity point are 
+        already built - that's the core capability of the APS team.
       options:
-        - name: Ministry-owned request formats
+        - name: API Governance
           kind: build
           note: >-
-            Owned by the ministry, built to last longer than any one part.
-        - name: Provincial API programme
+           Both the process and the software tools to support it can be developed quickly in-house. 
+        - name: APS Team
           kind: existing
-          note: Gateway and directory, reused.
+          note: Gateway and directory, adopted.
     watch:
       tone: risk
       text: >-
-        If ICM's own codes and record numbers leak into the doorway and a partner starts
-        relying on them, the doorway can no longer outlive ICM. The design names this as
-        its quietest risk and checks for it automatically.
+        Designing the API is a careful activity. If certain identifiers or data structures unique to ICM "leak through" we may
+        inadvertantly undo the benefits of migrating to a modern architecture. Vigilance and engineering discipline are crucial.
   participant-identity:
     name: Participant identity
     short: Knowing two records are the same person
     what: >-
-      A deliberately small part that holds the identifiers for each person the ministry
-      serves, such as BC Services Card number and program numbers, and just enough
-      detail to match records.
+      This is ordinarily what a CRM element would do - and carry all the pertinent information about a person (their case).
+      In this architecture, this part is very thin - holding just enough information to reliably correlate a person across all
+      the data stores in the social sector (and potentially beyond). 
     does: >-
-      Spots records that belong to the same person and sends uncertain matches to a
-      staff member to decide. When records are merged or split, it tells every other
-      part, and a wrong merge can be undone.
+      Handles retrieval of records across systems to surface as part of the user experiences.
+      Also provides anonymization, redaction, and other privacy protection measures.
+      When a person's record in one place is altered, other components use this one to validate
+      the identity in their own data.  
     why: >-
-      ICM has many duplicate records and a search that only finds exact matches. Mixing
-      up two people can mean wrong payments or a privacy breach. Getting identity right
-      underpins everything else.
+      A CRM, by holding all the information about an individual in a single database imposes strict
+      limits on the scale and complexity of the processes that can be supported. All business applications
+      must manipulate this unified shared representation of a client - if there are any differences the system breaks.
+      Moreover, only a subset of information about a person is relevant at any given time for any given process.
+      This is why government does not hold a monolithic store of all information about citizens. That same logic applies 
+      within the social sector. 
     buildBuy:
       approach: build
       label: >-
-        Build a small service, adopt a matching library inside it
+        A small microservice with a highly secured database
       summary: >-
-        Matching names and dates is a common problem, so the research recommends
-        adopting an existing matching library rather than writing one. The small service
-        around it, with the review screen and undoable merges, is built. Products that
-        hold a single master record of each client were ruled out, because that record
-        would hold information that belongs to other parts.
+        A single identity provider within the social sector extends the architecture of government as a whole
+        (e.g. the BC Services Card) - it provides a unified index for an unlimited number of services to 
+        coordinate their data.
+        By having the identity matching service built in, we maximize the ability to identify a client's context
+        and provide relevant services - even when we lack precise identifiers.
       options:
         - name: Splink, Zingg, dedupe
           kind: open-source
           note: >-
-            Free matching libraries that run on the ministry's own servers.
+            Free matching libraries that run on CSBC servers.
         - name: Senzing SDK
           kind: buy
           note: >-
-            Commercial matching library that runs on the ministry's own servers.
-        - name: Tamr, Reltio, Informatica, Semarchy
-          kind: buy
-          note: >-
-            Not recommended. They keep a master copy of each person.
+            Commercial matching library that runs on CSBC servers.
   financial-components:
     name: Financial components
-    short: The ministry's record of money owed and paid
+    short: An encapsulated accrual accounting and transaction management system
     what: >-
-      The ministry's own ledger for benefits: what each person is owed, what was paid,
-      what was recovered and what was written off. The Province's corporate financial
-      system stays the official book.
+      Most decisions around a client ultimately result in an accrual accounting decision -
+      their entitlement increments or decrements. Each month, whatever they are owed is paid
+      and their balance is zeroed-out. The ledger of accruals must be immutable and separate from but traceable to
+      an upstream decision or determination. 
     does: >-
-      Turns each approved decision into a payment instruction. It checks its totals
-      every day against the bank and the corporate financial system. It also tracks
-      money paid now that may have to be repaid later, such as help while an appeal is
-      decided.
+      Converts each decision into an accrual accounting instruction (credit, debit, interest etc.)
+      When payment is issues, balances the account in accordance with policy or specific instructions
+      and issues a payment as appropriate. It also handles overpayment tracking and receivables. 
     why: >-
-      This is where public money is accounted for. Clean daily checks catch errors
-      before they reach clients, and keeping the ledger apart from the payment run means
-      each can be audited on its own.
+      Using an accrual accounting scheme with payment as a balancing action provides a clean,
+      easy-to-audit, and easy to reason about record.
+      Making the ledger immutable ensures all actions are captured and process defects are detectable 
+      (e.g. if certain actions routinely trigger reversals, this can be picked up and fixed)
+      By having every accrual action linked directly to a discrete decision, the integrity of the entire process
+      is traceable from end to end, explaining payments to clients becomes trivial, and payment totals can be updated in real time.
+      By separating the payment management from the ledger - flexible payment schedules and types become easy to adopt.
     buildBuy:
       approach: build
-      label: Build in the ministry's own database (proposed)
+      label: Build with a simple CSBC-hosted database
       summary: >-
-        A test compared a plain ledger table in the ministry's own database with three
-        open-source ledger products. The plain table passed all nine tests, including
-        posting a full monthly run of about 74,000 entries in under two seconds. No
-        product did better. This direction is in a decision record that has not yet been
-        accepted. How to check the ledger against the bank each day is still open, and
-        suppliers may be asked to quote.
+        A test compared a simple ledger table in PostgreSQL with three open-source ledger products.
+        The plain table passed all nine tests, including tabulating 8 million entries in under five seconds. 
+        This is unsurprising as relational databases were invented for precisely this purpose. 
       options:
         - name: Ledger table in the ministry's own database
           kind: build
           note: >-
-            Proposed. Passed all nine tests, but it was one test.
+            A simple PostgreSQL table conformant with ledger accounting standards.
         - name: TigerBeetle, Formance Ledger, Blnk Core
           kind: open-source
           note: >-
-            Not recommended. Each adds a second store, and two let the link to the
-            decision be rewritten.
+            Not recommended. Each requires special maintenance and only one ensures immutability.
         - name: Apache Fineract, Kill Bill
           kind: open-source
           note: >-
-            Not recommended. They hold payments and debts together in one model.
-        - name: Commercial reconciliation products
+            Less recommended. They provide significantly more functionality than is necessary.
+        - name: Commercial accural accounting products.
           kind: buy
-          note: Not yet decided. Prices on request only.
+          note: Initial research indicates market leaders would require heavy customization to suit the social sector context.
     watch:
       tone: risk
       text: >-
-        Provincial financial policy says ministries must use the Province's corporate
-        financial systems where practical, and a new financial system needs the
-        Comptroller General's approval. The research did not consider this, and the
-        answer is not yet known.
+        The development of this mechanism, and indeed any financial components, must be 
+        done in concert with the Comptroller General. This will add additional time and risk.
+        Historically, the Social Sector was unique in handling its own payments. By volume,
+        SDPR processes more transaction than the rest of government combined. 
   service-delivery:
     name: Service delivery
     short: Case work, one area per program
     what: >-
-      The everyday case work, split into five separate areas: employment assistance,
-      persons with disabilities, child care subsidy, employment services and child
-      protection. Each has its own records and its own team.
+      The everyday case work, divided into components that correspond to business domains.
+      Each component has its own database and functionality - but they collectively use
+      the same commodity components. 
     does: >-
       Handles applications, eligibility checks, supplements, service plans and case
-      reviews for its program. Each area uses the shared parts for identity, evidence,
-      rules, workflow and letters.
+      reviews and other work items for its program. Each area uses the same 
+      shared components for common needs like authentication, printing, notifications, scanning, etc.
     why: >-
-      Child protection and child care subsidy work very differently. Forcing them into
-      one shared case model is what made ICM hard to change. Separate areas let each
-      program improve without risking the others.
+      Constraining each program to conform to a standard model makes the software harder to develop
+      and limits the opportunities for innovation and optimization, as we see in ICM. 
+      Different areas have different needs and the software supporting them should be shaped around those
+       - not the other way around.
+      By the same token, these programs share much in common - by separating the common elements from the 
+      unique ones, we can maximize the re-use of common components and minimize the duplication of effort.
     buildBuy:
       approach: build
       label: Build (assemble on the shared parts)
       summary: >-
-        The research recommends building the five program areas and not buying a case
-        platform to hold the record. Platforms like a SaaS CRM, Dynamics 365, Pega and
-        Appian keep only the current state of a case, not the full history of facts, and
-        published licence prices for about 9,400 staff run from about CAD 49 to 164
-        million over three years before setup. An independent check later found Merative
-        Cúram does keep that history, so this direction is now rated low in firmness.
+        Miniziming the footprint of redundant components means building custom. A case
+        platform is a single monolithic product that is not designed to be broken into parts.
+        Moreover, platforms like a SaaS CRM, Dynamics 365, Pega and Appian reliably only the current state of a case, 
+        not the full history of facts. Where it history is kept, it is as an unstructured log. Licence prices for about 9,400 staff run from about CAD 49 to 164
+        million over three years before setup.
       options:
-        - name: Five program areas built on shared parts
+        - name: Program areas built on shared parts
           kind: build
-          note: Recommended, low firmness. Needs a funded team.
-        - name: Merative Cúram
+          note: >-
+            Recommended. Each program area is built on the shared parts, with its own
+            database and team (though teams may have multiple program area components).
+        - name: A SaaS CRM, Cúram, Dynamics 365, Pega, Appian
           kind: buy
           note: >-
-            Meets the legal needs on current documents, but is one shared case model. A
-            demonstration has been suggested.
-        - name: A SaaS CRM, Dynamics 365, Pega, Appian
-          kind: buy
-          note: >-
-            Not recommended as the record. Keep current state, not history.
+            Not recommended as the record. Indivisible monolith, anemic history modeling.
     watch:
       tone: risk
       text: >-
-        The main reason for building was that no product keeps the history of facts.
-        That does not hold for Cúram. A legal answer on what a tribunal needs, and a
-        second look at the reasons for building, are needed before deciding.
+        Without deliberate planning and adequate knowledge management, building the business components
+        can result in a either a tangled, tightly coupled mess just like ICM, or a zoo of incompatible components. 
+        Design standards are paramount, engineering discipline must be maintained, and a strong knowledge management program is 
+        required to ensure that the design is followed and the parts are compatible. These internally focused efforts are frequently
+        dispensed with in favour of "getting the work done" - but this is a false economy.
   provider-outcome:
     name: Provider and outcome management
     short: Service providers, placements and results
     what: >-
-      The part that manages outside services: facilities, placements, service
+      The part that manages external services: facilities, placements, service
       agreements, referrals, plans and how well services worked.
     does: >-
       Records which provider is authorised to deliver which service to whom, under what
-      agreement, and tracks the results.
+      agreement, and tracks the results. Works with the financial components to handle 
+      accounts payable.
     why: >-
       Much of the help clients get comes from contracted providers. Clear agreements and
       outcome tracking help the ministry pay the right providers and see which services
       actually help people.
     buildBuy:
-      approach: build
+      approach: buy
       label: >-
-        Not yet analysed (default: build on the shared parts)
+        Comprehensive analysis of the market is still required, however early research
+        indicates a strong market of commercially supported self-hosted open source products
+        that would be suitable for this part.
       summary: >-
-        No build-vs-buy analysis has been done for this part yet. The design treats it
-        like the other program areas, with its own records and team. The sensible
-        default is to build it on the shared parts, while checking whether a
-        provider-management product could serve as its store without becoming a second
-        official record.
+        Detailed build-vs-buy analysis is underway. Initial findings indicate several
+        viable commercial and open-source products.
       options:
-        - name: Build on shared parts
-          kind: build
-          note: Default, not yet analysed.
+        - name: Buy or adopt
+          kind: buy
+          note: Weak recommendation. Market research is still underway.
   evidence-verification:
     name: Evidence and verification
     short: The permanent record of every fact
     what: >-
+      The permanent record of every claim made by a client or applicant, the evidence 
+      provided to support it, and the determination by the ministry worker of whether it is true.
+      This combination of claim, evidence and determination is called a "fact". 
+      The fact is the unit of truth in the social sector platform.
       The permanent record of every fact the ministry relies on, such as income, rent or
-      family size. Each fact keeps three dates: when it was true, when the ministry
-      recorded it, and, for facts carried over from ICM, when ICM said it.
+      family size. Each fact keeps track of several dates: when it was true, when it was asserted,
+      when evidence was provided, when that evidence was verified, and when the ministry made a 
+      decision about it. 
     does: >-
-      Records facts, corrections and changes without ever erasing the old version. It
+      Records lifecycle of each fact, without erasing old versions. It
       tracks whether each fact has been checked, and announces every change so other
       parts can act on it.
     why: >-
-      A tribunal may ask years later what the ministry knew and when. This record
-      answers that. It also tells a ministry mistake apart from a change in the client's
-      life, which decides whether a client owes money back.
+      Auditors, researchers, tribunals, and managers may ask what the ministry knew and when over long timespans.
+      This record makes it easy to answer. It also provides an authoritative timeline of events, which is crucial
+      for retroactive determinations, exceptions etc.
     buildBuy:
       approach: build
-      label: Build on top of the free event broker
+      label: Build on top of event broker
       summary: >-
-        The research recommends building the evidence store on the open-source message
-        software. How the ministry records facts, corrections and dates is specific to
-        its needs, and no ordinary database or event store tracks the third date. The
-        independent check noted Cúram also keeps fact history, but as part of one shared
-        case model.
+        Recommended approach is to store each element of the fact record as an event in the event stream.
+        This re-uses an existing component the system and makes workflow orchestration and automation easier to develop.
+        How the social sector establishes and records facts, corrections, retractions etc is very specific to its needs,
+        and evolves constantly. No ordinary database deals well with this "bitemporal" data - but event stores are designed for it.
       options:
         - name: Evidence store built on Apache Kafka
           kind: build
           note: Recommended.
-        - name: Merative Cúram
-          kind: buy
-          note: >-
-            Keeps fact history, but only inside its own case model.
   rules-engine:
     name: Rules engine
-    short: Works out who is eligible, and for what
+    short: Ensures all policies are applied, and eligibility determined correctly.
     what: >-
-      The part that applies BC's laws and policies to the facts to work out who is
-      eligible and how much they get. Policy staff write the rules; the engine runs
-      them.
+      The rules engine provides a way to capture and run the policy rules that determine procedural and substantive outcomes.
+      More than a simple decision automator, it provides a full set of tools for policy staff to write, test and release rules safely.
+      New rules can be tested against past facts, and past decisions can be re-run against new rules to see what would have happened.
     does: >-
-      Takes the facts and the rules in force on a given date and produces a decision
-      with its reasons. It saves exactly what it used, so any past decision can be
-      re-run and checked.
+      Accepts facts and rules as input, and produces a decision event with reasons. This event can trigger other parts to respond.
     why: >-
-      Rules are BC law written as code, and they change often. Getting them wrong means
-      people are paid wrongly or go without. Letting policy staff test and release rule
-      changes safely saves time and protects clients.
+      Rules are policy expressed as code, and they change often. Closing the gap 
+      between policy experts and the implementation saves time and reduces errors. 
+      Letting policy staff test rules against production systems enables precisely accurate forecasting and research.
     buildBuy:
       approach: build
       label: >-
-        Build the rule-writing tools, on a free open-source engine (ZEN)
+        Complete the Business Rules Engine work paused as part of AMP.
       summary: >-
-        The design has chosen GoRules' free ZEN engine, which runs inside the ministry's
-        own decision service so past decisions can be re-run exactly. The ministry
-        builds the tools to write, test and release rules. GoRules' paid authoring
-        product already covers about two thirds of those tools, so a quote is to be
-        sought for comparison. Oracle Intelligent Advisor and IBM Operational Decision
-        Manager were first ruled out on a wrong fact and could be looked at again.
+        The Application Modernization Program (AMP) built a rules management system (BRE), 
+        but it did not complete the migration of the rules itself.
+        With AI tools and the new architecture, developing the complete ruleset could be done in a fraction of the time.
+        The BRE uses the GoRules ZEN engine held in CSBC servers. The tools to 
+        write, test, release and manage rules were built. In the alternative
+        GoRule's commercial authoring product could be used, or other decision automation products considered.
       options:
-        - name: ZEN engine plus ministry-built tools
+        - name: Business Rules Engine (BRE)
           kind: build
-          note: Recommended, medium firmness.
+          note: Recommended
         - name: GoRules paid authoring product
           kind: buy
-          note: Quote to be sought for comparison.
-        - name: >-
-            Oracle Intelligent Advisor, IBM Operational Decision Manager
-          kind: buy
           note: >-
-            Wrongly ruled out at first. Whether to ask them is open again.
+            Not recommended. The BRE already has the authoring tools tailored to this usecase.
+        - name: >-
+            KIE Drools / Red Hat Decision Manager
+          kind: buy-adopt
+          note: >-
+            The Apache KIE platform is a mature, well-supported business process automation system.
+            If this were adopted as a corporate common component, it could be used to replace the BRE.
+            However, it is a platform solution - too large to be used in a single project.
         - name: InRule
           kind: buy
           note: >-
-            Runs only as a separate network service, so it cannot re-run past decisions
-            the way the design requires.
+            Not recommended. Product support has slowed, nearly abandonware.
     watch:
-      tone: risk
+      tone: fixed
       text: >-
-        Nobody has yet tested whether policy analysts can write and release a real rate
-        change on their own with these tools. The design calls for two analysts to try
-        it, unassisted.
+        The BRE was developed in collaboration with both RIPD and SDD. The project was led by a policy expert, and 
+        the product was shaped specifically for this usage context. It is already well-supported by business.
   orchestration:
     name: Workflow (orchestration)
-    short: Moves work between people and systems
+    short: Moves work through the systems
     what: >-
-      The part that moves work along: work queues, due dates set by law, supervision and
-      escalation, scheduled reviews, and long jobs like a payment run.
+      Most work sequencing is handled via the event broker, but some workflows have a highly specific 
+      sequence of steps that must be validated, gated and tracked. This can be built using the event broker alone,
+      the combination makes it easier to build and maintain.
     does: >-
-      Puts tasks in the right queue, tracks deadlines and flags work that is overdue. If
-      a long job fails part way, it picks up where it stopped or undoes the steps
-      already done.
+      Puts tasks in a sequential queue, parallelizes work where possible, and tracks completion, errors and deadlines.
+      If a long job fails, it can pick up where it left, if it returns invalid data, it can redo the work. Works with
+      the business rules engine and event broker to ensure the right work is done in the right order the right way.
     why: >-
-      Missed deadlines in child protection or on a reconsideration can harm people and
-      break the law. Clear queues and automatic reminders help staff keep on top of
-      their work.
+      Large scale time sensitive workflows like monthly payments require highly reliable sequencing and exception handling.
+      Long timescale workflows like annual check-ins require tracking and reminders.
+      Clear queues, automatic reminders, and automated escalation procedures help staff keep on top of their work without manually capturing and tracking every step.
     buildBuy:
-      approach: open-source
-      label: Adopt free open-source software (jBPM)
+      approach: adopt
+      label: Use the existing component, Apache Airflow.
       summary: >-
-        This is a common need with mature products, and every assessment agreed. The
-        strongest option, jBPM, costs nothing to license and can run on the ministry's
-        own servers. Free to license is not free to run: hosting, support and setup need
-        a budget.
+        The CriDIR project is building a production-ready Airflow instance within the ministry's private cloud.
+        It, with Spark, is to be used to replace the informatica workflows.
       options:
-        - name: jBPM
+        - name: Hybrid Airflow / KIE
           kind: open-source
           note: >-
-            Recommended. Must be tested on undoing steps cleanly.
-        - name: Orkes Conductor
-          kind: buy
+            Recommended. Airflow is already deployed as part of CriDIR, adding Apache KIE provides a full-suite business and data automation layer.
+        - name: Apache KIE
+          kind: open-source
           note: >-
-            Commercial. Can keep a current copy of data on ministry servers.
+            Complete business automation platform, too large for a single product but if adopted as a common component, could be a viable replacement for many subsystems.
         - name: Camunda and Flowable cloud services
           kind: buy
           note: >-
             Not for this core part. Cannot show a ministry-held copy of data.
-        - name: Temporal Cloud
-          kind: buy
-          note: Copies only finished work, not work in progress.
   intelligence:
     name: Intelligence
     short: Learning from the data
     what: >-
-      Tools for studying the ministry's data as a whole: spotting trends, planning
-      services and, in future, using machine learning on data with personal details
-      removed.
+      This architecture was designed for AI integration from the ground up.
+      The intelligence component is where AI tools can be applied to the data and processes to improve service quality, reduce costs, and improve outcomes.
+      The AI can use the same analytical tools as our Business Intelligence team to spot trends, plan services and adapt to changes.
     does: >-
-      Lets analysts ask questions of the data without making new copies of it. Any work
-      in the public cloud uses only data stripped of personal details.
+      Lets agents safely interface with the system at many different leves. 
+      MCP endpoints allow AI to act as a user, or another component. The analytics tools
+      allow AI to answer questions about the system as a whole. The orchestration components can use AI to perform tasks.
+      All of this is done without exposing sensitive data outside government servers. 
     why: >-
-      Today data is copied again and again for reports, and each copy is a privacy risk.
-      Asking questions of one well-protected store means better planning with less
-      exposure.
+      Today, data is copied and transformed and copied again and again for analysis.
+      Increasing adoption of AI is going to massively accelerate this problem - with each copy being a privacy risk.
+      By hybridizing analytics, orchestration, automation and AI, we provide the richest context and best observability
+      for AI to act within. 
     buildBuy:
-      approach: open-source
+      approach: adopt
       label: >-
-        Not yet analysed (default: free open-source tools)
+        Apache Spark, and the datalake along with open source AI integration tools.
       summary: >-
-        The build-vs-buy research did not cover this part. The design names free
-        open-source tools, such as Apache Spark, working over one protected data store
-        on the ministry's own servers. Treat that as the default until it is analysed.
+        The CriDIR project is building a production-ready Spark instance within the private cloud.
+        It, with Airflow, is to be used to replace the informatica workflows. 
+        The datalake will be built on top of this, and open-source AI integration tools will be used to provide
+        a rich set of capabilities for AI to act within the system.
       options:
         - name: Apache Spark and related open-source tools
           kind: open-source
-          note: Named in the design. Not yet analysed.
+          note: Already under development
   event-broker:
     name: Event broker
     short: Carries news of every change
@@ -566,15 +581,13 @@ parts:
     buildBuy:
       approach: open-source
       label: >-
-        Adopt free open-source software (Apache Kafka with Strimzi)
+        Commercially supported open source products are recommended.
       summary: >-
-        The messaging layer is standard, widely used and free to license. The research
-        recommends Apache Kafka, run on the Province's private cloud with the Strimzi
-        tool, and an open-source register of message formats. Some commercial versions
-        carry licence terms that limit how they can be used, so they are not
-        recommended.
+        The messaging layer is standard, widely used and free to license. Apache Kafka
+        is the most widely adopted and documented, with a long roster of support vendors.
+        IBM-Confluent is the recommended commercial product if a corporate common component is the desired approach.
       options:
-        - name: Apache Kafka with Strimzi
+        - name: Apache Kafka
           kind: open-source
           note: Recommended.
         - name: Apicurio Registry or Karapace
@@ -582,17 +595,17 @@ parts:
           note: Register of agreed message formats.
         - name: Confluent
           kind: buy
-          note: Not recommended. Licence terms restrict use.
+          note: Recommended as corporate common component solution.
         - name: Redpanda
           kind: buy
           note: >-
-            Not recommended. Useful features are behind a paid licence.
+           Best commercial product for single-project use.
     watch:
       tone: risk
       text: >-
-        Kafka is not yet on the provincial platform's supported list, so the support
-        arrangement must be confirmed in writing first. Teams must also hold the line on
-        the agreed message formats, or the parts will tangle again.
+        Kafka is a complex product, so internal teams must be adequately trained and supported.
+        Proper governance on message formats is crucial to avoid a tangled, tightly coupled mess like ICM.
+        This governance should be rolled into the API governance processes.
   client-identity:
     name: Client identity service
     short: Proving who a client is
@@ -665,31 +678,18 @@ parts:
       label: >-
         Buy or adopt several tools; build the link to each decision
       summary: >-
-        Producing, storing and signing documents are common needs with many low-cost
-        tools. The research recommends using provincial services where they fit, buying
-        or adopting the rest, and building only the link that ties each notice to its
-        decision. Expect several tools, not one. A request for information on electronic
-        signatures was proposed.
+        Producing, and storing documents are common needs. 
+        Common components are available, so the design targets these were possible. 
+        This problem space typically requires a suite of tools, not a single product. 
       options:
         - name: Common Document Generation Service (CDOGS)
           kind: existing
           note: >-
             Provincial service for building documents from templates.
-        - name: OneSpan Sign
-          kind: buy
-          note: >-
-            Electronic signatures. Request for information proposed.
-        - name: Docusign, OpenText, SmartCOMM, Quadient
-          kind: buy
-          note: Other commercial options looked at.
-        - name: Documenso, DocuSeal
-          kind: open-source
-          note: Free electronic signature options.
     watch:
       tone: risk
       text: >-
-        Per-user pricing for electronic signatures could become large if every staff
-        account needs a licence.
+        There is widespread belief signatures are a legal requirement. This is a false, but seemingly very persistent belief.
     procurement: true
   chat-bots:
     name: Chat bots
@@ -705,21 +705,20 @@ parts:
     buildBuy:
       approach: buy
       label: >-
-        Not yet analysed (default: buy or reuse)
+        Defer market analysis until closer to procurement - market is too volatile to make a decision now.
       summary: >-
-        No build-vs-buy analysis has been done for chat bots yet. As a common tool, the
-        design's rule points to buying or reusing one rather than building it, and it
-        must never make decisions about eligibility.
+        The pace at which this market evolves makes early analysis very unreliable. Recommendation is to 
+        defer selection as much as possible.
       options:
-        - name: Commercial or government chat service
+        - name: Commercial or corporate chat bot service (if available)
           kind: buy
           note: Default, not yet analysed.
   printing:
     name: Printing
     short: Paper letters and cheques
     what: >-
-      The Province's own print-and-mail service, which prints and posts letters and
-      cheques.
+      Integration with existing print-on-demand, push-print and mail services provided by BCMailPlus etc.
+      Integration pattern is an coordinated sequence managed by the orchestration component to manage print queues etc. 
     does: >-
       Receives letters and cheques in batches, prints them and mails them, and reports
       back when they were sent.
@@ -776,11 +775,14 @@ parts:
       benefit.
     buildBuy:
       approach: open-source
-      label: Adopt or buy; no product chosen yet
+      label: Adopt & Buy
       summary: >-
-        The research looked at capture tools as part of documents and notices but gave
-        no clear winner. The direction is to adopt or buy, not build.
+        Digitization of paper forms requires a full intake pipeline - from document capture (mobile capture, faxing, scanning etc.)
+        to recognition and extraction. Pipeline orchestration is handled by the orchestration layer, with pluggable components.
       options:
+        - name: Microsoft Document Intelligence
+          kind: buy
+          note: Existing supported component, incomplete solution.
         - name: Paperless-ngx
           kind: open-source
           note: Free scanning, indexing and archiving.
@@ -794,21 +796,24 @@ parts:
       Tools that read text aloud and turn spoken words into text.
     does: >-
       Reads screens and letters aloud for people who need it, and lets staff or clients
-      speak instead of type.
+      speak instead of type. Can capture call-centre conversations in real-time and surface
+      information and propose actions as appropriate.
     why: >-
-      Some clients have trouble reading or typing. These tools help them use the service
-      on equal terms, and they can save staff time on notes.
+      Text-to-speech is a crucial accessibility affordance, as many clients require but do not
+      possess screen readers and other tools. Conversely, speech-to-text allows front line staff
+      to have more direct and fluid interactions with clients and attend fully to the person in front
+      of them or on the line. 
     buildBuy:
       approach: buy
       label: >-
-        Not yet analysed (default: buy)
+        Defer assessment
       summary: >-
-        No build-vs-buy analysis has been done for speech tools yet. These are common
-        products, so the default is to buy or adopt one that keeps data in Canada.
+        This sector is under tremendous innovation, with new technology refinements released almost weekly.
+        Recommendation is to defer this until closer to development time.
       options:
         - name: Commercial speech service
           kind: buy
-          note: Default, not yet analysed.
+          note: Defer until necessary.
   call-centre:
     name: Call centre systems
     short: Phones and contact centre tools
@@ -818,50 +823,45 @@ parts:
       Routes calls and shows the agent the caller's file as the call arrives. Agents get
       their own screens, built for their tasks and time pressure.
     why: >-
-      The phone is how many clients reach the ministry. Agents who see the right file at
-      once can resolve calls faster and with fewer transfers.
+      Phone contact has its own unique contextual requirements that should be designed around.
+      Front line staff should have tailor built tools to maximize service quality and throughput.
     buildBuy:
-      approach: existing
+      approach: buy
       label: >-
-        Not yet analysed (default: keep and connect the current phone system)
+        There are many mature and powerful call centre management systems that have well documented 
+        APIs for integration. Configuring a VoIP or phone tree system is a commodity problem. 
+        Integration work and UX for the web application should be in-sourced.
       summary: >-
-        No build-vs-buy analysis has been done for call centre systems yet. The design
-        says the current phone system's links to ICM must first be mapped, then
-        connected through the shared doorway. Keeping the existing phone system is the
-        default.
+        This is among the most commoditized solutions within the social sector, there is little yield in a custom solution.
       options:
         - name: Current contact centre phone system
           kind: existing
-          note: How it links to ICM today is not yet known.
+          note: It may make the most sense to continue using existing system or consolidate with other groups.
   payment-processing:
     name: Payment processing
     short: Sends money by deposit and cheque
     what: >-
-      The single controlled path every payment leaves by: the monthly and off-cycle
-      payment runs, direct deposit and cheques.
+      Segmenting this from the financial components minimizes coupling between how payments are
+      calculated and track from the particulars of ensuring money shows up in someone's account.
     does: >-
-      Takes approved payment instructions and sends the money. It handles stop payments,
-      reissues, returned payments and month-end cutoffs, and makes sure nothing is paid
-      twice.
+      Processes payment instructions, sends money, and reports results, e.g. stop payments reissues, returned
+      payments, month-end cutoffs. Ensures payments track the financial details exactly.
     why: >-
-      A system that decides correctly but does not pay has failed completely. Clients
-      depend on these payments for basic needs, so this part comes first if a supplier
-      ever cuts off access.
+      Flexibility and durability of payment processing is a mission-critical priority. 
+      Supporting a range of payment provision mechanisms with a standard interface 
+      ensures a diversified portfoli of options.
     buildBuy:
       approach: build
       label: >-
-        Build one payment service (proposed); reuse provincial services
+        Build one payment API (proposed); reuse provincial services
       summary: >-
-        The design builds one payment service that every payment passes through. The
-        highest-scoring products held payments, ledgers and debts together, which the
-        design does not allow, and no hosted product showed it keeps data in Canada with
-        a ministry-held copy. Card payments go through the Province's approved payment
-        path, and the corporate financial system remains the official book. This
-        direction is in a decision record not yet accepted.
+        The design builds a payment API that creates a single interface to multiple payment providers.
+        All payment traffic goes through this. Card payments, cheque payments, declining balance cards
+        and others can be adopted, vendors changed added or removed, without altering any internal systems.
       options:
-        - name: Ministry-built payment service
+        - name: Payment API
           kind: build
-          note: Proposed.
+          note: Standardized payment API for internal systems, can be built and adapted using AI.
         - name: >-
             Provincial payment path and corporate financial system
           kind: existing
@@ -869,65 +869,61 @@ parts:
         - name: cadeft
           kind: open-source
           note: >-
-            Small library to write the bank file. Still being developed.
+            Small library to write the bank file.
         - name: Hosted payment hubs
           kind: buy
           note: >-
-            Not shortlisted. None showed Canadian data or a ministry-held copy.
+            Payment hubs can handle discharge, reconciliation, retries, verification etc.
     watch:
       tone: risk
       text: >-
-        Provincial policy says payments are made by the Ministry of Finance unless
-        approved otherwise. Whether the ministry sends a file to the bank at all, and in
-        what format, is not yet known.
+        Historically, the social sector has handled all payment processing internally - fully
+        replicating Finance's process using social sector staff and contractors.
   user-analytics:
     name: User analytics
-    short: How people use the screens
+    short: How people use our systems.
     what: >-
-      Tools that measure how people use the screens, such as where they get stuck or
-      give up.
+      Tools that measure how people use experiences, where they get stuck, drop off, visit regularly, etc.
     does: >-
-      Counts visits, clicks and drop-offs, and compares how clients do by phone, in
-      person and online.
+      Tracks visits, clicks, and drop-offs, can provide more fine-grained analyics (time in focus, time on screen etc.) for targeted
+      sections. Can connect users across all contexts - phone, in-person, web, etc so we can measure the user journeys.
     why: >-
-      It shows where a screen confuses people, so it can be fixed. It also checks that
-      clients who do not go online get the same results.
+      One cannot manage what they do not measure - a unified user analytics system that's configured to conform to 
+      the real business demystifies design decision-making.
     buildBuy:
       approach: open-source
-      label: >-
-        Not yet analysed (default: adopt a free tool)
+      label: >- 
+        Apache Flagon, Plausible, Matomo - this ensures granular data collection without privacy or disclosure risks.
       summary: >-
-        No build-vs-buy analysis has been done for user analytics yet. The default is a
-        free open-source tool run on the ministry's own servers, so data about clients'
-        visits stays in Canada.
+        A self-hosted solution is the most reliable and privacy protecting solution. There is little advantage with
+        commercially supported options vs. widely adopted open-source solutions.
       options:
         - name: Open-source web analytics
           kind: open-source
-          note: Default, not yet analysed.
+          note: Apache Flagon
   reporting:
     name: Reporting
-    short: Reports without extra copies
+    short: Reports without copying data
     what: >-
       The reports managers, finance and the public rely on, drawn from one protected
       data store.
     does: >-
-      Produces caseload, payment and performance reports by reading from one store,
-      rather than from a new copy of the data for each report.
+      Produces caseload, payment and performance reports by reading from a single data lake,
+      rather than from an ETL'ed copy of a copy of a copy...
     why: >-
       ICM's data is copied over and over for reports, and every copy is another privacy
       risk. One store makes it possible to answer where a client's information is held.
     buildBuy:
-      approach: open-source
+      approach: Build
       label: >-
-        Not yet analysed (default: free open-source tools)
+        This infrastructure is what CriDIR is building - this component can be integrated easily.
       summary: >-
-        The build-vs-buy research did not cover reporting. The design names free
-        open-source tools, Apache Iceberg for storing tables and Trino for queries, on
-        the Province's own storage. Treat that as the default until analysed.
+       Reporting should not be treated as a monolith. Internal operational reports should be captured by the user experience development.
+       Aggregate reports and research should be made available via the data lake as an authoritative store and analytics teams can choose which tools they prefer.
       options:
-        - name: Apache Iceberg and Trino
+        - name: Apache Iceberg and Spark
           kind: open-source
-          note: Named in the design. Not yet analysed.
+          note: Part of the CriDIR infrastructure. Additional processing applications like Trino may be desired.
   health-monitoring:
     name: Health monitoring
     short: Spotting problems early
@@ -956,30 +952,30 @@ parts:
           kind: existing
           note: For parts outside the platform.
   policy-governance:
-    name: Policy governance
+    name: Access policy governance
     short: Written, tested rules on who sees what
     what: >-
-      Rules about who may see or change which records, written down as tested files
-      rather than settings scattered across the system.
+      Not to be confused with government policy - access policy governance is an automated system.
+      Rules about who may see or change which records, written as testable, portable code rather than 
+      managed through traceless configuration settings.  
     does: >-
       Checks every request against the access rules and records who looked at what, for
-      what purpose, and under what law.
+      what purpose, and under what law. Integrates with APS P2P to fulfill transparency requirements.
     why: >-
-      An audit found over a third of ICM's 9,400 users had access outside the approved
-      model. Written, tested rules make it clear who can see a child protection file,
-      and why.
+      Multiple heterogenous systems need to support authorization - conventional methods mean each
+      must develop and maintain their own authorization scheme and these must be kept in sync.
+      Externalizing it as a service provides a single control plane for every application with comprehensive auditing.
     buildBuy:
       approach: open-source
-      label: Adopt a free open-source policy engine
+      label: Adopt business rules engine
       summary: >-
-        The design adopts a free general-purpose policy engine for access rules,
-        released through the same tested process as eligibility rules. It is not used
-        for eligibility itself. No product-by-product research has been done.
+        The business rules engine is suitable for access management purposes - whichever system is selected
+        for that should be adopted here (and vice versa)
       options:
         - name: >-
-            Open-source policy engine (for example Rego or Cedar based)
+            Open-source policy engine
           kind: open-source
-          note: Named in the design.
+          note: Rego or Cedar based solution is recommended.
   auth:
     name: Sign-in and access
     short: Signing in for staff and businesses
@@ -1024,24 +1020,22 @@ parts:
     buildBuy:
       approach: existing
       label: >-
-        Existing: Secure Data Exchange, with ministry-built proof records
+        Eligibility Factor Verification and APS P2P provide a full connectivity and data availability solution.
       summary: >-
-        The design uses the Province's Secure Data Exchange for transport and access
-        control. It does not keep tamper-proof records of what was shared, so the
-        ministry builds that part. No product research has been done.
+        APS P2P provides transport and access, whereas the EFV provides data transformation, integration and enrichment functionality.
+        Extending either of these with the desired functionality has the best ROI.
       options:
-        - name: Provincial Secure Data Exchange
+        - name: APS P2P and EFV
           kind: existing
-          note: Still early in its development.
+          note: Both under early development.
         - name: Proof-of-exchange records
           kind: build
-          note: Built by the ministry.
+          note: X-Road server or equivalent proof-of-record.
     watch:
       tone: risk
       text: >-
-        The Secure Data Exchange is still at an early stage, and the part that checks
-        legal permission is not yet funded. Dates and availability need confirming in
-        writing.
+        EFV and APS P2P are in early stages of adoption, and policy-as-a-service is not yet deployed. 
+        EFV scope would increase to accommodate the full breadth of possible data inputs and outputs for ICM.
   icm-api:
     name: ICM API
     short: Temporary bridge to the old system
@@ -1052,23 +1046,22 @@ parts:
       Translates requests between the new system's language and ICM's. It sends changes
       made in ICM out as events, and writes back to ICM where needed.
     why: >-
-      It avoids a risky single switch-over day. Its team's job is to shrink it until it
-      can be turned off, so ICM is truly retired and its costs end.
+      It avoids a risky single switch-over day and allows ICM to enjoy some enhancements.
+      The goal is to shrink the ICM side of the API until it is completely handled by the replacement system.
+      New system remains backwards compatible with ICM-integrated systems.
     buildBuy:
-      approach: build
-      label: Build, then remove
+      approach: open-source
+      label: Apache Camel
       summary: >-
-        Nothing on the market is shaped like a bridge to one specific old system that is
-        meant to be thrown away. The ministry builds it, and its team is set up to take
-        it apart. It also needs changes inside ICM itself, made by whoever holds ICM's
-        configuration.
+        Apache Camel is purpose-built for live integration between modern and legacy systems. 
+        It can form the backing service for the ICM API in a scalable and easily managed system
+        as opposed to a library of microservices.
       options:
-        - name: Ministry-built bridge
-          kind: build
+        - name: Camel 
+          kind: open-source
           note: Temporary by design.
     watch:
       tone: risk
       text: >-
-        A partial API over ICM is already in use. If it exposes ICM's own codes and
-        record numbers, the people using it are tied to ICM. A decision is needed before
-        more users depend on it.
+        The API contract exposed to external systems must avoid reproducing ICM's idiosyncratic design patterns.
+        There is no automated way to ensure this, design rigor and governance of the API contract are required.

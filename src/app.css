@@ -165,3 +165,11 @@ a:hover { text-decoration-thickness: 0.16em; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Content hidden between parse and hydration while the sign-in curtain is on.
+   See the inline script in app.html. */
+html[data-prelock] #main,
+html[data-prelock] .foot,
+html[data-prelock] .masthead nav {
+  visibility: hidden;
+}

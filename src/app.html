@@ -6,6 +6,20 @@
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
     %sveltekit.head%
+    <script>
+      // The pages are prerendered, so their text is in this file. When the
+      // sign-in curtain is on and nobody is signed in, hide the content before
+      // it is painted; the app takes the attribute off once it has hydrated.
+      // This hides the copy from view, not from anyone reading the source.
+      try {
+        if (
+          document.querySelector('meta[name="sso-gate"][content="on"]') &&
+          !sessionStorage.getItem('sso.held')
+        ) {
+          document.documentElement.setAttribute('data-prelock', '');
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body data-sveltekit-preload-data="hover">
     <div style="display: contents">%sveltekit.body%</div>

@@ -21,8 +21,8 @@ optionsIntro:
   text: >-
     SaaS S puts everything on a SaaS CRM and runs it the way ICM runs today.
     SaaS H has the SaaS product used for case work and rules, and keeps money, evidence and
-    records on the ministry's own servers. Event-driven has the ministry build in parts,
-    buy or adopt common components, and link them through an event stream updated when something
+    records on the ministry's own servers. 
+    Event-driven has the ministry build in parts buy or adopt common components, and link them through an event stream updated when something
     happens, such as a payment being issued.
 howToRead:
   heading: How to read the diagrams
@@ -37,54 +37,53 @@ compare:
   rows:
     - question: Who controls when it changes?
       s: >-
-        SaaS Provider. It sets three major updates a year, and the ministry cannot pause
+        SaaS Provider. SaaS providers set the update cadence, and CSBC cannot pause
         them.
       h: >-
-        SaaS Provider for case work and rules. The ministry for the payment run.
+        SaaS Provider for case work and rules. CSBC for the payment run.
       e: >-
-        The ministry. It runs the parts on its own servers and sets its own timing.
+        CSBC. It runs the parts on its own servers and sets its own timing.
     - question: What happens if the supplier cuts us off?
       s: >-
         A copy of records can be kept. Payments fall back to a manual procedure.
       h: >-
-        A ministry copy keeps intake, case viewing and repeats of the last payments
-        running.
+        A ministry copy keeps intake, case viewing and payment records - processing proceeds as normal.
       e: >-
-        Data stays on ministry servers. Open source parts limit reliance on one supplier.
+        Data stays on ministry servers. Strategic component selection reduces reliance on one supplier.
     - question: Where does the money run?
-      s: On the CRM platform, in a monthly batch run.
+      s: Using the CRM account ledger, pushed to a monthly batch EFT process, print cheques require custom solution.
       h: >-
-        On the ministry's own servers, with the ministry's own ledger.
+        On the ministry's own servers, with the ministry's own ledger, EFTs can use existing components, print cheques can proceed as is.
       e: >-
-        In payment and finance parts built for the ministry, on its own servers.
+        In payment and finance parts built for the ministry, on its own servers. Payment methods and processes can be fine-tuned.
     - question: How much custom work?
       s: >-
-        A lot. 346 of 481 requirements need building on top of the CRM platform.
+        A lot. Only about 1/4 of functionality comes "out of the box", half can be built using the platform's tools, with the remainder being custom extensions to the platform.
       h: >-
-        The same as S, plus the parts kept off the CRM platform.
+        By moving some functionality off to separate component, more functionality is available by default, that is partially offset by integration work. Custom work remains relatively constant. 
       e: >-
-        Custom building only for work unique to the ministry. Open source elsewhere.
+        Maximal use of acquired or adopted components; custom development only where business needs are unique.
     - question: What are the yearly licence costs?
       s: >-
-        About US$31M to $56M a year at list price, before any discount.
+        About $44M to $80M a year at list price, before any discount.
       h: >-
-        About US$31M to $56M a year at list price, before any discount.
-      e: Not yet estimated
-    - question: Is it worse than today anywhere?
+        About $44M to $80M a year at list price, before any discount.
+      e: Variable based on components purchased vs. developed.
+    - question: Do we lose anything by migrating?
       s: >-
         Yes. The ministry loses its change freeze around the monthly cheque run.
       h: >-
         Less so. The payment run keeps its freeze; work on the CRM platform does not.
-      e: Not yet estimated
-    - question: When could people use something new?
+      e: This can be chosen rather than determined by vendor choices.
+    - question: When could people use something new (assuming a product team of approx. 12)?
       s: >-
-        About month 13 in our timeline sketch, after the licences are bought.
+        With a product team of 12, about 13 months after licenses are acquired.
       h: >-
-        About month 13 in our timeline sketch, after the licences are bought.
+        13 months after license procurement, though some non-user-facing components can be be built before licensing.
       e: >-
-        About month 9 in our timeline sketch, with a read-only worker view.
+        Depending on sequencing choices, as early as month three - but most likely month nine. 
 cta:
   heading: Start with an option
   text: >-
     Pick an option to see its diagram and what it would mean for staff, clients and
-    money. Nothing here is a decision. The ministry has not chosen an option.
+    money. 

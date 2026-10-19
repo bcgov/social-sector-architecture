@@ -5,71 +5,68 @@
 # wrap them however you like. Save with: npm run copy:save -- "what you changed"
 
 name: SaaS CRM H
-nickname: CRM platform plus ministry servers
+nickname: CRM platform plus CSBC servers
 tagline: >-
   Case work and rules on the CRM platform. Money, decision records and a backup copy stay with
-  the ministry.
+  CSBC.
 summary:
   - In this option, workers, clients and partners use the CRM platform for case work, online
-    portals, notices and the rules that work out what people get. The CRM platform is a large
-    commercial product that runs on the supplier's own computers, not the ministry's.
-  - The parts that carry the most risk move to the ministry's own servers. These are the
-    payment run, the record of money owed and paid, the evidence, the record of each
-    decision, and a live backup copy of the records. The ministry changes those parts on
+    portals, notices and the business rules that drive process. The CRM platform is a large
+    software-as-a-service running on the providers systems, not the CSBC's.
+  - The parts that are most critical move to CSBC's own servers. These are the
+    payment run, the financial ledger, the evidence (documents and submissions), the record of each
+    decision, and a live backup copy of the records. CSBC changes those parts on
     its own calendar, so the CRM provider's upgrade dates cannot land in the middle of the
     monthly payment run.
   - This costs more than putting everything on the CRM platform. The team has to build and run
-    the ministry-side parts and join two platforms together. In return, if the CRM platform
+    the CSBC-side parts and join two platforms together. In return, if the CRM platform
     ever cut off access, clients could still be paid the same amount as last time. New
     decisions would wait until the CRM platform came back.
 facts:
   - label: CRM-side effort (likely)
     value: >-
-      22,185 person-days, in a range of 14,225 to 34,380. About $24M to $38M at the
-      architecture's day rates.
-  - label: Ministry-side parts
+      750 labour-months, in a range of 474 to 1,146. Approx $34M to $53M in labour costs.
+  - label: CSBC-side parts
     value: >-
-      Not estimated in the research. The money, evidence, decision record and backup
-      parts come on top of the CRM figure.
+      320 labour-months, in a range of 280 to 725. Approx $14.5M to $23M in labour costs.
+      This scope is: financial components, evidence/document management, decision records and back-up.
   - label: CRM licences
     value: >-
-      Roughly USD 31M to 56M a year at list price for about 9,400 staff, before
-      discount. Portal logins, the integration platform and add-ons are extra.
+      Varies according to vendor, given market average: $44M to $80M a year at list price for about 9,400 staff, before
+      discount. Portal logins, the integration platform and add-ons are extra and like make the discount a wash.
   - label: Upgrade testing
     value: >-
-      About 90 to 210 person-days a year to test each of the CRM provider's three yearly
+      About 90 to 210 labour-days a year to test each of the CRM provider's three yearly
       upgrades.
 goodAt:
-  - The monthly payment run sits on the ministry's own servers and is changed on the
-    ministry's own calendar.
-  - Each decision is copied off the CRM platform into a store that shows if anyone changes it
-    later.
-  - If the CRM provider cut off access, staff could still view cases, take new applications
+  - The monthly payment run sits on the CSBC's own servers and is changed on
+    CSBC's own calendar.
+  - Each decision is copied off the CRM platform into an queryable and auditable store.
+  - If the CRM provider cut off access, staff can still view case snapshots, manually process new applications
     and repeat last month's payments.
-  - The ministry gets a real ledger that balances every payment and checks it against
-    the bank every day.
-  - Most day-to-day screens, portals and rules come ready-made with the CRM platform, as in
-    the all-CRM option.
+  - CSBC gets a trusted internal ledger that balances every transaction and accrual.
+  - Work screens, portals, and business rules capabilities come built-in with the CRM platform - but still require customization, as in the all-CRM option.
 watchOut:
-  - If the CRM provider cut off access, no new decisions could be made. The rules only run
-    inside the CRM platform.
-  - Anything left in the CRM platform, including the rules, still gets upgraded on
-    the CRM provider's dates, three times a year.
-  - The ministry-side parts have no cost estimate yet, so the full price is unknown.
+  - If the CRM provider cuts off access, ordinary business processing halts - back-ups capture point in time, but regular business activity requires CRM.
+  - Everything within the CRM platform, including business rules, gets upgraded on CRM provider's schedule.
+  - The CSBC-side estimates are predicated on small licensing footprint, additional proprietary systems will drive up licensing.
   - Two platforms must be joined and kept in step, which adds work and more places for
     things to break.
-  - Licences are large and recurring, and no quote has been sought.
+  - All SaaS major CRM providers are subject to the USA CLOUD Act regardless of residency of the system 
+    and social sector data (regardless of classification) must flow through their managed Landing Zones, which are opaque to government. 
+  - The CRM is unlikely to make effective use of the on-premise data lake being built as part of CriDIR
+  - The work on the MySS rebuilt would be invalidated and a rebuild within the CRM tool would be necessary
+  - Licences are large, recurring and complex to optimize.
 zones:
   people:
     name: People and partners
     blurb: >-
-      The people who use the system every day: ministry staff, clients and the agencies
-      and caregivers who work with them.
+      The people who use the system every day:  government staff, clients and the agencies
+      and service providers who work with them.
   finance:
     name: Finance partners
     blurb: >-
-      The bank and government finance offices that receive payment files and send back
-      what was paid.
+      Banks, credit unions and government financial authorities that manage payment distribution.
   crm:
     name: SaaS CRM platform
     blurb: >-
@@ -80,37 +77,35 @@ zones:
       case-work: Case work
       services-in-crm: Services in the CRM platform
   integration:
-    name: Integration platform, on ministry servers
+    name: Integration platform, on CSBC servers
     blurb: >-
-      Connecting software, bought from the CRM provider but run on the ministry's own servers,
+      Connecting software, bought from the CRM provider but run on CSBC's own servers,
       that carries information between the CRM platform and everything else.
   ministry:
-    name: The ministry's own servers
+    name: The CSBC's own servers
     blurb: >-
-      The parts the ministry runs itself and changes on its own calendar: money,
+      The parts the CSBC runs itself and changes on its own calendar: money,
       decision records, evidence and the backup copy.
     groups:
       money: Money
       decisions-and-evidence: Decisions and evidence
       events-and-backup: Events and backup
   government:
-    name: Government and justice partners
+    name: Partner systems
     blurb: >-
-      Other governments, courts, police and health partners that share information with
-      the ministry.
+      Social sector partners that help deliver services, or whose information contributes to a connected service experience.
 parts:
   workers:
     name: Workers
-    short: About 9,400 ministry staff
+    short: About 9,400 government staff
     what: >-
-      Caseworkers, supervisors, intake staff and the people who answer the child
-      protection reporting line. The research counts about 9,400 staff accounts.
+      Employment assistance workers, aseworkers, supervisors, intake staff etc.
     does: >-
-      They take applications, check eligibility, plan services, protect children and
+      They take applications, check eligibility, plan services, and
       approve payments. They do almost all of this in CRM screens.
     why: >-
       Staff spend their whole working day in this system. How well it works decides how
-      fast clients get help and how much time goes to paperwork.
+      fast clients get help and how much time gets wasted in process.
   clients:
     name: Clients and representatives
     short: People applying for or getting help
@@ -122,7 +117,7 @@ parts:
       looked at again and upload documents through online portals.
     why: >-
       Clients depend on the money and services arriving on time. A system they can use
-      on their own saves them trips and phone calls.
+      on their own saves them trips, time and phone calls.
   partners:
     name: Partners
     short: Agencies, caregivers and youth
@@ -166,20 +161,20 @@ parts:
       label: >-
         Buy: CRM licence for each staff member
       summary: >-
-        The console comes with the CRM provider's public sector product, licensed per staff
-        member. The phone feature is a separate per-user licence plus phone charges.
+        The console comes bundled with most CRM providers', licensed per staff
+        member. The phone feature is typically a separate per-user licence.
       options:
-        - name: Public sector package console
+        - name: Phone bank console
           kind: buy
           note: Included in the per-user licence.
-        - name: Phone add-on for the service desk product
+        - name: VoIP add-on for the service desk product
           kind: buy
           note: >-
             For reporting-line calls. Extra per-user licence plus phone charges.
     watch:
       tone: gap
       text: >-
-        The CRM provider upgrades this three times a year on its own dates. The ministry
+        The CRM provider upgrades this three times a year on its own dates. CSBC
         cannot pause those upgrades.
     procurement: true
   portals:
@@ -199,8 +194,7 @@ parts:
       label: >-
         Buy: the CRM portal product
       summary: >-
-        Portals use the CRM portal product, licensed per member or per login. The
-        ministry already runs some CRM portals today.
+        Portals use the CRM portal product, licensed per member or per login. CSBC has numerous CRM portals today.
       options:
         - name: CRM portal product
           kind: buy
@@ -215,111 +209,96 @@ parts:
     name: Case work
     short: Applications, case plans, deadlines, approvals
     what: >-
-      The heart of the system, built on the CRM provider's public sector product. There is one
-      package for each program family, such as adult assistance and child protection.
+      The heart of the system, built on the CRM provider's SaaS product. Typically the product is broken up into packages, one per service category.
     does: >-
       It handles intake, case plans, court steps, work lists and legal deadlines. It
       also checks that a worker has the authority to make a decision on that date.
     why: >-
-      This is where most of the building happens. No product knows BC law, so the rules,
+      This is where most of the building happens. No product comes prepackaged to model acts and regulations, bespoke business processes or domain specific rules, so the rules,
       deadlines and approval checks are custom work on any product.
     buildBuy:
       approach: buy
       label: >-
-        Buy: the CRM provider's public sector package, then configure
+        Buy: the CRM provider's package, then configure
       summary: >-
-        The CRM provider supplies the basic records for benefits, care plans, providers and
-        court steps. The ministry's own law and practice are built on top. The research
-        found the same was true of Merative Cúram.
+        The CRM provider supplies generic record containers for benefits, care plans, providers and
+        court steps. BC's specific policies and rules are built on top.
       options:
-        - name: CRM public sector package
+        - name: CRM package
           kind: buy
           note: >-
-            Basic records and workflow. BC-specific work is built on top.
-        - name: Merative Cúram
-          kind: buy
-          note: >-
-            Separate research found the same amount of custom work for BC.
+            Basic records and workflow. BC-specific work is built on top. The closer the CRM default is to existing models, the less customization work is needed.
     watch:
       tone: limit
       text: >-
-        All programs share one CRM setup, so they cannot be changed and released
-        fully on their own.
+        All programs share a single CRM, so they cannot be changed and released
+        fully on their ownk, and program-level customizations are very limited.
     procurement: true
   rules:
     name: Rules
     short: Works out eligibility and amounts
     what: >-
-      The CRM provider's rules engine. It holds every rule that decides who qualifies
-      and how much they get, with the date each rule starts.
+      The CRM provider's rules engine. It holds every processing and evaluation rule, including eligibility, 
+      how much they get, with the date each rule starts.
     does: >-
-      It works out eligibility and payment amounts and explains how it got there. Each
+      It works out elements like eligibility and payment amounts and explains how it got there. Each
       result, with its inputs and the rule version used, is sent off the CRM platform as the
       record of the decision.
     why: >-
-      Rules decide what people get, so they must be right and traceable. This option
-      keeps them in the CRM platform to save building a separate rules system.
+      Policy determines eligibility and entitlements deterministically - once the relevant facts are established, there is no room for human judgement.
+      Workers evaluate claims and the submitted evidence and make determinations as to the sufficiency of this evidence. A rules engine ensures administrative fairness,
+      improves processing speed and reliability, and enhances traceability and auditability.
     buildBuy:
       approach: platform
       label: >-
         Platform: part of the CRM licence
       summary: >-
-        The rules engine comes with the CRM provider's public sector product. Running rules
-        off the CRM platform was looked at in an earlier version and dropped, once the
-        programme decided a full stored record of each decision is enough evidence.
+        Most CRM vendors include some sort of business rules component or an integration with a common commercial tool (e.g. Camunda). 
       options:
         - name: CRM rules engine
           kind: buy
           note: >-
             Included. Monthly usage limit not confirmed by the CRM provider.
-        - name: Separate rules service on ministry servers
+        - name: Separate rules service on CSBC servers
           kind: build
-          note: Earlier design, now set aside for this option.
+          note: Earlier projects developed a business rules management system, this could be quickly refactored for use.
     watch:
       tone: gap
       text: >-
-        If the CRM provider cut off access, no new decisions could be made. The rules only run
-        inside the CRM platform.
+        If the CRM provider cuts off access both the rules system and its inputs become unavailable. A self-hosted rules engine still depends on data collected by and held in the CRM.
   notices:
     name: Notices and documents
     short: Letters, forms and court papers
     what: >-
-      The CRM provider's document tool. It fills in letters, notices, forms and court
-      documents from approved templates.
+      Most CRM systems offer a document generator and management mechanism for letters, notifications etc.
     does: >-
       It produces each notice and keeps the finished copy as the record of what was
-      sent. Children's services alone need about 150 templates.
+      sent. There are currently over 1,200 such documents or forms managed today.
     why: >-
-      Clients have a right to know what was decided and why. The stored copy is what
-      goes to a reconsideration or appeal.
+      Document management is a significant portion of the labour effort in ICM today for both business and IT staff. Even small efficiencies here will pay dividends.
     buildBuy:
       approach: platform
       label: >-
         Platform: part of the CRM licence
       summary: >-
-        Document creation comes with the CRM provider's public sector product. The CRM provider does
-        not sell its own e-signature product, so that would come from another supplier.
+        Document creation is typically included with the CRM SaaS product, or an integration an integration with a leading commercial product (e.g. Adobe Experience Manager) is also available.
+        Most CRM providers do not include an e-signature product - as this is not a requirement of any business process, it can be excluded.
       options:
         - name: CRM document generation
           kind: buy
           note: >-
-            Included. Reported limit of about 1,000 documents an hour, not confirmed.
-        - name: DocuSign
-          kind: existing
-          note: >-
-            Already used by the ministry with another CRM system, for e-signature.
+            Typically included, where it is not, license with integrated provider is next-best alternative.
     watch:
       tone: limit
       text: >-
-        Month-end runs may hit the CRM provider's hourly document limit. The research could
-        not confirm that limit.
+        Many CRM systems impose limits on the throughput of documents and have steep overage charges - or fractionally less steep subscriptions.
   platform-services:
     name: Platform services
     short: Security, privacy, backup add-ons
     what: >-
-      Add-ons bought from the CRM provider. The security add-on handles encryption and access monitoring.
-      Other add-ons handle privacy requests, hiding personal data in test copies, and
-      backup.
+      Most CRMs have a long list of security, logging, instrumentation, privacy protection, encryption, and back-up addons. 
+      These are often ignored or excluded from initial estimates. Additional add-ons include personal data request management, data redaction features, etc.
+      Many CRM SaaS providers delegate these features to the extension marketplace. 
     does: >-
       They encrypt data, watch who opens what, keep field history for up to 10 years,
       and apply retention and deletion rules.
@@ -331,8 +310,7 @@ parts:
       label: >-
         Buy: CRM add-ons
       summary: >-
-        Each is a separate CRM product. The security add-on is priced as a share of total
-        CRM spend. The others are per-organization add-ons.
+        Each is a separate CRM product whose cost typically scales with the total size of the CRM rather than usage of the specific tool.
       options:
         - name: Security add-on
           kind: buy
@@ -349,34 +327,31 @@ parts:
     watch:
       tone: limit
       text: >-
-        Encryption keys cover the whole CRM setup, not one person, so one
-        person's data cannot be erased by destroying their key.
+        By default, CRM SaaS products use a single site-wide encryption key - so crypto-shredding is impossible.
     procurement: true
   open-host:
-    name: Service front door
+    name: Service API
     short: One agreed way in and out
     what: >-
-      A single, published way for other systems to talk to the case system, using the
-      ministry's own words for things. It runs on the integration platform on ministry servers.
+      A single API for other systems to talk to the case system, using the
+      business's own words for things. It runs on the integration platform on CSBC servers.
     does: >-
       It brings decision records, evidence and payment requests out of the CRM platform to the
-      ministry-side parts. It sends payment status back in.
+      CSBC-side parts. It sends payment status back in.
     why: >-
-      Other systems connect to this front door, not to the CRM platform's inner workings. That
-      makes it easier to change or replace parts later.
+      Other systems connect to this API, not to the CRM platform's inner workings.
     buildBuy:
       approach: buy
       label: >-
-        Buy: the integration platform, run on ministry servers
+        Buy: the integration platform, run on CSBC servers
       summary: >-
-        The integration platform is the CRM provider's own connecting software. Here it runs on the ministry's
-        servers rather than the CRM provider's. Licences are priced by computing capacity or
-        by connection.
+        Most CRM providers have a standard integration solution - either as a subsidiary or as a de facto standard. 
+        This integration tool runs within CSBC servers. In most cases, licensing is either free (where open source) or a combination of capacity and consumption.
       options:
         - name: Integration platform
           kind: buy
           note: >-
-            Run on ministry servers, with the gateway managed by the ministry.
+            Run on CSBC servers, with the gateway managed by CSBC.
     procurement: true
   change-relay:
     name: Change feed
@@ -384,78 +359,74 @@ parts:
     what: >-
       A feed that notices each change to records in the CRM platform and passes it on.
     does: >-
-      It passes changes to the event stream on ministry servers. From there they reach
+      It passes changes to the event stream on CSBC servers. From there they reach
       the backup copy and the analysis store.
     why: >-
-      This is what keeps the ministry's backup copy current. Without it the backup would
+      This is what keeps CSBC's backup copy current. Without it the backup would
       be out of date when it is needed most.
     buildBuy:
       approach: buy
       label: >-
         Buy: CRM add-on, carried by the integration platform
       summary: >-
-        The CRM provider sells a change-feed add-on with higher limits, priced by use.
-        The integration platform carries the changes to the ministry's servers.
+        Most CRMs providers have a very basic built-in change-feed and sell a change-feed add-on or subscription with more data, higher limits.
+        They are typically priced with a flat-fee plus a usage rate.
+        The integration platform carries the changes to CSBC's servers.
       options:
         - name: >-
             CRM platform events and change data capture add-on
           kind: buy
           note: >-
-            Default limit is 50,000 delivered events a day; more can be bought.
+            Most CRM providers have a low default limit, which must be raised through payment.
         - name: Integration platform
           kind: buy
-          note: Carries the feed to ministry servers.
+          note: Carries the feed to CSBC servers.
     watch:
       tone: limit
       text: >-
-        The CRM platform keeps changes for only 72 hours. A long weekend outage of the feed
-        could lose changes.
+        Most CRM platforms do not support durable event logs - with change feeds lasting a few days. 
+        If connectivity to the change feed is lost for long periods, desyncronization between systems is possible, recovery is difficult and manual.
     procurement: true
   secure-exchange:
-    name: Secure data exchange
-    short: Logged sharing with other ministries
+    name: APS P2P
+    short: A secure data exchange among government organizations
     what: >-
-      The connection to the province's secure data exchange service, run on the integration platform on
-      ministry servers.
+      The connection to the province's APS P2P, this is an end-point for the integration platform.
     does: >-
-      It sends and receives information with other ministries and keeps a chained log of
-      each exchange as evidence.
+      It provides a security server to enable connectivity to the APS P2P network for connected data.
     why: >-
-      Sharing personal information between ministries must follow the law. A log of each
-      exchange shows what was shared, when and why.
+      To ensure secure, privacy respecting and transparent data usage. A log of each
+      exchange shows what data was shared, with whom and when.
     buildBuy:
       approach: platform
       label: >-
-        Platform: built on the integration platform licence
+        Utilize the existing APS P2P platform security server pattern.
       summary: >-
-        The CRM platform cannot hold this itself, so the integration platform acts as the client to the
-        province's exchange. The logging is a custom add-on to the integration platform.
+        The CRM product cannot host the security server itself, so the integration platform acts as the conduit - 
+        both client and server to the connected service network.
       options:
-        - name: Integration platform with a custom logging policy
-          kind: buy
-          note: Uses the integration platform licence already needed.
+        - name: APS P2P
+          kind: adopt
+          note: Uses the APS P2P common component.
   financial-components:
     name: Financial components
     short: Debts, recovery and payment amounts
     what: >-
-      The ministry-built part that turns each decision into amounts to pay and tracks
-      money owed back. It covers overpayments and repayable amounts.
+      The CSBC-built module that turns decisions and actions into accrual accounting events and transactions.
+      It ocvers overpayments, repayable amounts, and can be expanded to capture flexible payment schedules and types. 
     does: >-
-      It creates payment requests from decisions, works out overpayments and sets up
-      repayment. It writes every entry to the ledger.
+      It converts decisions made into accrual accounting events, works out overpayments, underpayments, receivables, establishes repayment plans, etc.
+      It maintains the authoritative ledger and reconciles accounts based on transaction records return by payment providers.
     why: >-
-      Today overpayments are printed, scanned and retyped into another system. Getting
-      debts right protects clients from wrong deductions and the province from lost
-      money.
+      The current financial calculations and processings are embedded entirely within the mainframe system. 
+      Managing the many edge-cases and regular irregularities of payments gracefully would bring tremendous productivity yields.
     buildBuy:
       approach: build
       label: >-
-        Build: on the ministry's own servers
+        Build: on the CSBC's own servers
       summary: >-
-        Research compared open-source finance suites and a commercial debt product.
-        Suites such as Apache Fineract and Kill Bill keep payments, ledger and debts in
-        one model of their own, and none models BC overpayment rules. The direction, not
-        yet accepted, is to build.
+        Four successive research projects starting in 2022 through to 2026 have compared dozens of financial products.
+        The recommendation of each such analysis was the same - build. This recommendation holds. 
       options:
         - name: Build
           kind: build
@@ -464,37 +435,29 @@ parts:
           kind: open-source
           note: >-
             Top score, but brings its own client and loan model.
-        - name: Kill Bill
-          kind: open-source
-          note: Built for subscriptions; same problem.
-        - name: C&R Software Debt Manager
-          kind: buy
-          note: >-
-            Commercial collections product; only relevant to outside collections.
     watch:
       tone: fixed
       text: >-
-        Overpayments and debts are kept off the CRM platform, out of reach of CRM administrators and its upgrade dates.
+        Pulling financial processing out of the CRM ensures total control over the highest risk component and prevents disruption caused by CRM updates.
   ledger:
     name: Ledger
     short: The money record, balanced every day
     what: >-
-      A ledger is the book of every dollar owed, paid, recovered or written off. Each
-      entry balances, so money cannot appear or vanish. Here it is a locked table in the
-      ministry's own database.
+      The ledger is the authoritative account maintained by the financial components.
+      It is compliant with established standards and ensures a rigorous, immutable log of all financial activity is kept and recoverable.
+      Here it is an append-only table in a CSBC-managed database.
     does: >-
       It records every payment and recovery as balanced entries that can never be
       changed. It is checked against the bank and the government's accounts every day.
     why: >-
-      Today reconciliation is done by eye with a spreadsheet of cheques. A ledger that
-      balances daily catches errors and fraud early.
+      Reconciliation is a scattershot and largely manual process today.
     buildBuy:
       approach: build
       label: >-
-        Build: a locked table in the ministry's own database
+        Build: a locked table in CSBC's database
       summary: >-
         A test compared a plain table in the free PostgreSQL database with three
-        open-source ledger engines: TigerBeetle, Formance Ledger and Blnk Core. The
+        leading ledger engines: TigerBeetle, Formance Ledger and Blnk Core. The
         plain table passed all nine tests and no engine did better, so the proposed
         direction is to build. TigerBeetle is the one to revisit if volumes outgrow one
         database.
@@ -508,11 +471,11 @@ parts:
           note: >-
             Fast, but needs a second store for details. Revisit if volumes grow.
         - name: Formance Ledger
-          kind: open-source
+          kind: commercially supported open-source
           note: >-
             Allowed details to be rewritten; kept deleted values.
         - name: Blnk Core
-          kind: open-source
+          kind: commercially supported open-source
           note: >-
             Allowed details to be rewritten; needs extra moving parts.
         - name: Apache Fineract
@@ -521,94 +484,87 @@ parts:
     watch:
       tone: fixed
       text: >-
-        On all-CRM there is no true ledger. Here every entry balances and is
-        checked against the bank daily.
+        The CRM-S route lacks a true ledger - which is a crucial element of financial management that costs the province thousands of labour-hours and millions of dollars.
   payments:
     name: Payments and benefit issuance
     short: The monthly payment run
     what: >-
-      The one place payments leave the ministry. It runs on ministry servers and makes
+      The one place payments leave CSBC. It runs on CSBC servers and makes
       the direct deposit and cheque files.
     does: >-
       It turns approved payment requests into files for the bank, BC Mail Plus and
       government accounts. It records what was paid, returned or rejected.
     why: >-
-      Clients count on money arriving on the same day each month. Running it on the
-      ministry's servers means a CRM upgrade cannot land in the middle of a
-      payment run.
+      The volume of low-value payments issued by the social sector vastly outstrips the processing capabilities and transaction limits of common government providers like CFS.
+      Instead, all payment processing is currently handled by MIS, and this will be taken up in the modern system by a dedicated component.
+      The sensitivity of this component is such that it must run on CSBC's servers.
     buildBuy:
       approach: build
       label: >-
-        Build: on the ministry's own servers
+        Build: on the CSBC's own servers
       summary: >-
-        Research compared commercial payment hubs, Bottomline and Kyriba, with
-        open-source options. The commercial hubs are hosted by the supplier and showed
-        no Canadian hosting or backup copy, so they were set aside. The proposed
-        direction is to build, maybe with a free library for direct deposit files.
-        Matching payments to the bank is still open, and a request for information to
-        suppliers is drafted.
+        Research has examined 58 commercial payment hobs and providers, as well as open-source or self-hosted commercial payment management systems.
+        Of the 58 commercial providers, 52 were subsidiaries of foreign financial institutions (USA, China, Ukraine, Luxembourg, and Curaçao.
+        Of the Canadian options, the transparency and logging mechanism would almost certainly fall short of government accounting standards. 
+        Thus, the proposed direction is to build, using an existing framework, a payment management utility that extends the financial components.  
       options:
         - name: Build
           kind: build
           note: Recommended direction.
         - name: Bottomline Payments Hub
           kind: buy
-          note: Top score, but hosted by the supplier.
+          note: Top score among commercial providers.
         - name: Kyriba Payments
           kind: buy
-          note: Hosted by the supplier.
+          note: Next-best.
         - name: moov-io/cadeft
           kind: open-source
           note: >-
-            Library for direct deposit files; still in development.
+            Library for direct deposit files; not mature.
         - name: Payment Hub EE and OpenG2P
           kind: open-source
           note: Designs to learn from, not to adopt.
     watch:
       tone: fixed
       text: >-
-        The payment run is released on the ministry's own calendar, so it can be frozen
-        around payment day. All-CRM cannot do this.
+        The payment run is released on CSBC's own calendar, so it can be frozen
+        around payment day. CRM-S cannot do this.
   decision-store:
     name: Decision record store
     short: Locked record of every decision
     what: >-
-      A store on ministry servers that keeps the full record of each decision. Records
+      A store on CSBC servers that keeps the full record of each decision. Records
       are linked in a chain, so any later change shows.
     does: >-
       It receives each decision's inputs, the rules version used, the step-by-step
-      working and the outcome from the CRM platform. It keeps them for as long as the law
-      requires.
+      working and the outcome from the CRM platform. It keeps them for as long as required.
     why: >-
       When a client asks for a review or appeals, this record shows exactly what was
-      decided and why. Nobody, including CRM provider staff, can quietly change it.
+      decided and why and is instantly queryable and recoverable.
     buildBuy:
       approach: build
       label: >-
-        Build: on the ministry's own servers
+        Build: on the CSBC's own servers
       summary: >-
-        No product keeps decision records the way the ministry needs. The design already
-        planned to build this store. The programme decided a full stored record is
-        enough to show a past decision, so the old decision does not need to be run
-        again.
+        There are numerous highly-specific ways this record must be stored, presented, secured, queryed and managed.
+        No commercial product keeps decision records the way the social sector requires. 
       options:
         - name: Build
           kind: build
-          note: Already part of the target design.
+          note: Highest security, most ergonomic.
         - name: Keep the record inside the CRM platform
           kind: buy
           note: >-
-            The all-CRM way. Administrators could change it.
+            CRM provider has limitless and indefinite access to every record in the system.
     watch:
       tone: fixed
       text: >-
-        Decision records are kept off the CRM platform in a chain that shows any change. On
-        all-CRM, administrators could edit them.
+        Decision records are kept off the CRM platform in a chain that shows any change. Kept on the CRM, every record could captured, corrupted or tampered with at any time. 
   rules-archive:
     name: Rules snapshot archive
     short: A copy of every rules version
     what: >-
-      A store on ministry servers holding an exact copy of every version of the rules,
+      A store on CSBC servers holding an exact copy of every version of the rules,
       made the moment it is switched on.
     does: >-
       Each copy gets a fingerprint. Each decision record carries the fingerprint of the
@@ -619,7 +575,7 @@ parts:
     buildBuy:
       approach: build
       label: >-
-        Build: on the ministry's own servers
+        Build: on the CSBC's own servers
       summary: >-
         The rules are exported from the CRM platform when each version is switched on and
         stored here. This is new work for this option.
@@ -637,50 +593,45 @@ parts:
     name: Drift check
     short: Catches rules changed in place
     what: >-
-      A scheduled check that compares the live rules in the CRM platform with the archived
-      copies.
+      A scheduled check that validates the rule base for currency, correctness and coherence.
     does: >-
-      If they differ, it raises an alarm and lists every decision made since the last
-      clean check.
+      If there are issues with the rule base, it is rolled back to the last valid state and notifications raised. 
     why: >-
-      A CRM administrator could switch off a rules version, edit it and switch it
-      back on. This check is how the ministry would find out.
+      Business rules changes (such as rate changes) can go-live accidentally, or changes can conflict with existing rules inadvertantly.
+      This check ensures that rules changes never break the rule set and never go live accidentally.
     buildBuy:
       approach: build
       label: >-
         Build: a scheduled check
       summary: >-
-        The CRM provider does not offer this check, so the team builds it with the rules
-        archive.
+        No reviewed CRM provider includes integrity or coherence checks as part of the rules platform - these would need to be developed.
       options:
         - name: Build
           kind: build
-          note: Small piece of work, part of the rules archive.
+          note: Can be added to the rules archive
     watch:
       tone: limit
       text: >-
-        It finds changes after they happen. It cannot stop an administrator changing a
-        rule.
+        It cannot actively block bad updates - administrators must remember to test the draft ruleset before deploying.
   evidence-store:
     name: Evidence and verification store
-    short: Permanent record of the facts
+    short: Permanent record of claims, evidence and determinations.
     what: >-
-      A store on ministry servers that keeps every fact about a client's case. Facts are
-      added, never overwritten.
+      A store on CSBC servers that keeps every claim a client made, the evidence they provided to corroborate it, and the determination made by the worker about that claim.
+      This record is immutable and append-only.
     does: >-
-      It keeps when each fact was true, when the ministry learned it, and whether it was
-      a correction. It holds this for the full retention period.
+      It keeps a chronology of all submissions, assertions, evidence and facts, including corrections, redactions, and rescindments.
+      It holds this for the full retention period.
     why: >-
-      Decisions are only as good as the facts behind them. A full history shows what the
-      ministry knew on any date, which matters in appeals and audits.
+      Evidence and claims are the constituent element of a client's submission, determinations are space for judgment on the part of the worker.
+      Decision reviews, audits and tribunals are only as effective as the quality of the evidence they can review. A full history makes such review work straightforward.
     buildBuy:
       approach: build
       label: >-
         Build: on the event stream
       summary: >-
-        Research found no product that records facts and corrections the way the
-        ministry needs. The direction is to adopt free event software and build the
-        evidence store on top.
+        Three rounds of research (2023, 2024, 2026) found no commercial product or mature open source project that captures the evidence record in a workable fashion.
+        The recommendation is to adopt an open source event broker, and build the evidence store using that.
       options:
         - name: Build on Apache Kafka
           kind: build
@@ -688,73 +639,76 @@ parts:
         - name: Evidence kept in the CRM platform
           kind: buy
           note: >-
-            The all-CRM way: dated records that can be edited.
+            CRMs charge for storage usage and transfer bandwidth - evidence records typically include binary files like scanned documents or PDF documents.
+            CRM providers cannot be reasonably expected to comply with the retention periods contemplated by CFD.
+            CRM providers do not have the forensic capabilities to make this capability fully mature.
     watch:
       tone: fixed
       text: >-
-        Facts are kept off the CRM platform as a permanent history. On all-CRM they are
-        editable records with partial history.
+        Fact records are maintained off the CRM platform as the permanent, immutable and authoritative history. 
+        The CRM records are an ephemeral "working copy"
   kafka:
     name: Event stream (Kafka)
     short: Carries every change, in order
     what: >-
-      Kafka is free software that works like a conveyor belt for messages. Each change
+      Kafka is free software that works like a conveyor belt for events. Each change
       or decision goes on in order and stays there for as long as needed. A registry
-      checks every message has the agreed shape.
+      checks every event has the agreed shape.
     does: >-
       It carries changes from the CRM platform to the evidence store, backup copy and analysis
       store. Any part can replay past messages to rebuild its records.
     why: >-
       The CRM platform's own messages vanish after 72 hours. This stream keeps them, so a part
-      that falls behind can catch up without losing anything.
+      that falls behind can catch up without losing anything, and system behaviour can be monitored effectively.
+      Event-driven orchestration of services is the most sustainable and scalable way to offer a "ask once" connected service experience.
     buildBuy:
       approach: open-source
       label: >-
-        Open source: Apache Kafka, run by the ministry
+        Open source: Apache Kafka, run by CSBC
       summary: >-
-        The direction is to adopt Apache Kafka, run with the Strimzi tool on the
-        provincial platform, with a free schema registry. Commercial versions with
-        restrictive licences are not recommended. Support on the provincial platform
-        still has to be confirmed.
+        The recommendation is to either adopt Apache Kafka has a corporate common component (an enterprise needs only one Kafka instance),
+        or barring that, use a light-weight event broker such as Red Panda or NATS.
       options:
-        - name: Apache Kafka with Strimzi
+        - name: Apache Kafka common component
           kind: open-source
           note: Recommended.
         - name: Apicurio Registry or Karapace
           kind: open-source
           note: >-
-            Free schema registries named by the architecture.
+            Free schema registries
         - name: Confluent or Redpanda
           kind: buy
-          note: Not recommended because of licence terms.
+          note: Recommended only if use is limited to social sector.
+        - name: NATS, Polars
+          kind: open-source
+          note: Lighter-weight alternatives to Kafka, recommended only if use is limited to social sector.
         - name: CRM event bus
           kind: buy
           note: Keeps messages only 72 hours.
     watch:
       tone: fixed
       text: >-
-        Changes can be replayed long after 72 hours, in order. All-CRM cannot do
+        Changes can be replayed long after 72 hours, in order. CRM-S cannot do
         this.
   continuity-copy:
     name: Continuity copy
     short: Live backup of the records
     what: >-
-      A copy of the case records kept on ministry servers. It is updated all the time
+      A copy of the case records kept on CSBC servers. It is updated all the time
       while the CRM platform is running.
     does: >-
       It keeps the records current, so the fallback applications can run from it if
       the CRM platform is cut off.
     why: >-
-      If the supplier ever cut off access, the ministry would still have its records. A
-      nightly export would not be current enough.
+      If the supplier ever cut off access, the ministry would still have its records.
     buildBuy:
       approach: build
       label: >-
-        Build: on the ministry's own servers
+        Build: on CSBC's own servers
       summary: >-
-        The ministry requires a live, on-premise copy for any core product run by a
+        CSBC requires a live, on-premise copy for any core product run by a
         supplier. The CRM platform's change feed fills it. The copy itself is built and run by
-        the ministry.
+        CSBC.
       options:
         - name: Build, fed by the change feed
           kind: build
@@ -767,12 +721,12 @@ parts:
     watch:
       tone: fixed
       text: >-
-        The records stay current on ministry servers if the CRM platform is cut off.
+        The records stay current on CSBC servers if the CRM platform is cut off.
   fallback-apps:
     name: Fallback applications
     short: Keep going if the CRM platform is cut off
     what: >-
-      Small applications on ministry servers that run from the continuity copy.
+      Small applications on CSBC servers that run from the continuity copy.
     does: >-
       They let staff view cases and take new applications. They also run a payment that
       repeats last month's amounts through the same ledger checks.
@@ -782,7 +736,7 @@ parts:
     buildBuy:
       approach: build
       label: >-
-        Build: on the ministry's own servers
+        Build: on CSBC's own servers
       summary: >-
         The team builds a case viewer, intake and a repeat-payment run. No business area
         has yet said it needs more than repeating last month's payments.
@@ -803,7 +757,7 @@ parts:
     name: Analysis store
     short: Reports without extra copies
     what: >-
-      A store on ministry servers for reports and analysis, fed from the event stream.
+      A store on CSBC servers for reports and analysis, fed from the event stream.
     does: >-
       It lets analysts and managers report on caseloads, payments and outcomes from the
       same records the system uses.
@@ -811,21 +765,20 @@ parts:
       Today reporting relies on a separate copy of the data. Each extra copy is another
       place personal information can leak or go out of date.
   reporting-line:
-    name: Reporting-line backup path
-    short: Child protection calls during outages
+    name: Emergency & Reporting-line Backup Path
+    short: Emergency & Child protection calls during outages
     what: >-
-      A simple intake path on ministry servers for the 24-hour child protection
+      A simple intake path on CSBC servers for emergency requests and the 24-hour child protection
       reporting line.
     does: >-
-      It lets staff record reports of a child at risk when the CRM platform is down for
-      maintenance or cut off. The reports are added to the case later with their true
-      times.
+      It lets staff respond to a subset of issues and record reports of a child at risk when the CRM platform is unavailable. 
+      The reports are correlated with their case files when connectivity is re-established.
     why: >-
       The director must receive and assess every report, day or night. CRM maintenance often falls at nights and weekends, when these lines are busiest.
     buildBuy:
       approach: build
       label: >-
-        Build: on the ministry's own servers
+        Build: on CSBC's own servers
       summary: >-
         The CRM provider cannot exempt one part of the system from its maintenance. A small
         separate path is built instead.

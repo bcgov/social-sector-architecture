@@ -14,24 +14,23 @@ summary:
     system and the monthly cheque run. Case work, applications, rules, notices, payments
     and the online portals all live in one CRM system. Rules, payments and
     history keep the shape they have today.
-  - The research found the whole system can be built this way. Of 481 business
-    requirements, 107 are met by setting up CRM products and 346 by custom work
-    inside the CRM platform. None is impossible as a whole. In most areas the result is no
-    worse than ICM today, and in several it is better.
-  - "The catch is control. The CRM provider, not the ministry, decides when the platform
-    changes and whether it runs. Six needs cannot be met at all on the CRM platform, and two
-    of them are worse than today: the freeze around the monthly cheque run, and keeping
-    key services going if the CRM provider cuts off access."
+  - Prototyping and research has found that a replacement of ICM can technically be built this way,
+    but the trade-offs are significant. Roughly a quarter of the total business capabilities required are included "out of the box"
+    with the remainder being custom work built inside the SaaS platform. None of this is impossible as a whole - but the improvements 
+    over the current ICM mechanisms are largely cosmetic and performance - the constraints are only marginally less confining that in ICM.
+  - Beyond the technical complexity, the biggest catch is control. The CRM provider, not government, decides how the platform behaves,
+    when it changes, and whether it runs at all. Moreover, all data must go through infrastructure wholly out of sight of government.
+    Beyond that, there are several compromises business will have to agree to in order to make adoption workable.
 facts:
   - label: Likely build effort
-    value: 19,385 person-days, about 88 person-years
+    value: 646 labour-months
   - label: Effort range
-    value: 12,475 to 29,940 person-days
-  - label: Staff licences at list price
+    value: 415 to 998 labour-months
+  - label: Staff licenses given average posted prices
     value: >-
-      About US$31M to $56M a year, before discount and add-ons
+      About $44M to $80M a year, before discount and add-ons
   - label: Requirements met by setup alone
-    value: 107 of 481
+    value: 107 of 481 (22%)
 goodAt:
   - It is the lowest-effort way to build the system on the CRM platform.
   - Rules become dated versions in one place, instead of old and new rule sets kept side
@@ -39,19 +38,19 @@ goodAt:
   - Sealed records become possible. ICM has no way to seal a record today.
   - Overpayment amounts are worked out in the system, not printed, scanned and typed
     into the mainframe again.
-  - The ministry already runs the CRM platform for contract management and some portals, so it
-    is not new.
+  - There is familiarity within CSBC with several leading commercial CRM providers
 watchOut:
-  - The CRM provider sets its own upgrade dates three times a year. The ministry cannot freeze
+  - The CRM provider sets its own upgrade dates. CSBC cannot freeze
     change around the monthly cheque run, which it can do today.
   - If the CRM provider cuts off access, no rules or screens can run anywhere else. Staff fall
-    back to a manual payment procedure.
-  - The CRM provider publishes no promise on how much recent data could be lost in an outage,
-    and no availability guarantee.
+    back to a manual procedures.
+  - Most CRM providers do not make guarantees as to data recoverability, and typically offer SLOs with credit
   - Licences cost tens of millions of dollars a year at list price, every year, on top
     of the build.
-  - Administrators can change records and payment logic. Problems are caught after the
-    fact, not blocked.
+  - The investment in the Data Lake and CriDIR would be discarded.
+  - Any progress in MySS rebuild work would be discarded
+  - In all but some CRM providers, administrative users often wield nearly unlimited permissions with potentially untraceable actions.
+   Many actions cannot be strictly forbidden, only caught after the fact.
 zones:
   people:
     name: People and partners
@@ -68,18 +67,18 @@ zones:
       case-work-one-package-per-program-family: Case work, one package per program family
       shared-services: Shared services
   integration:
-    name: Integration platform, on ministry servers
+    name: Integration platform, on CSBC servers
     blurb: >-
       The integration platform is the CRM provider's product that connects the new system to banks, other
-      governments and old systems. It runs on ministry servers.
+      governments and old systems. It runs on CSBC servers.
   counterparties:
     name: Outside organizations
     blurb: >-
       Banks, payment partners and other governments that send or receive information.
   ministry:
-    name: The ministry's own servers
+    name: The CSBC's own servers
     blurb: >-
-      A few pieces stay on the ministry's own servers: reports, a backup copy of
+      A few pieces stay on the CSBC's own servers: reports, a backup copy of
       records, the emergency payment plan and Siebel until it is switched off.
 parts:
   workers:
@@ -87,7 +86,7 @@ parts:
     short: About 9,400 ministry staff
     what: >-
       The ministry staff who use the system every day. That includes employment
-      assistance and disability workers, child protection social workers, supervisors
+      assistance and disability workers, CFD social workers, supervisors
       and finance staff.
     does: >-
       They take applications, assess need, record evidence, make decisions, issue
@@ -181,7 +180,7 @@ parts:
         - name: Existing CRM portals
           kind: existing
           note: >-
-            Some current ministry portals already run on the CRM platform
+            Some current ministry portals already run on a commercial CRM platform
     procurement: true
   field-service:
     name: Field service
@@ -537,7 +536,7 @@ parts:
       files on a schedule.
     why: >-
       Payments, identity checks and court work all depend on these links. Running it on
-      ministry servers keeps it under the ministry's control.
+      CSBC servers keeps it under the ministry's control.
     buildBuy:
       approach: buy
       label: >-
@@ -599,7 +598,7 @@ parts:
     name: Reporting store
     short: Reports for managers and planners
     what: >-
-      A copy of the data on ministry servers, updated each night. It replaces the
+      A copy of the data on CSBC servers, updated each night. It replaces the
       current data warehouse.
     does: >-
       Managers and analysts use it for reports and planning without slowing the main
@@ -610,7 +609,7 @@ parts:
     buildBuy:
       approach: build
       label: >-
-        Build: nightly extract to ministry servers
+        Build: nightly extract to CSBC servers
       summary: >-
         CRM dashboards come from the CRM provider's analytics tools. A nightly extract
         feeds the ministry's own reporting store.
@@ -620,7 +619,7 @@ parts:
           note: CRM dashboards, priced per user
         - name: Separate dashboard product
           kind: buy
-          note: Can also run on ministry servers
+          note: Can also run on CSBC servers
     watch:
       tone: limit
       text: >-
@@ -630,7 +629,7 @@ parts:
     name: Continuity store
     short: Backup copy of records, no functions
     what: >-
-      A copy of the system's records on ministry servers, kept up to date by a steady
+      A copy of the system's records on CSBC servers, kept up to date by a steady
       feed of changes from the CRM platform.
     does: >-
       It holds the records so staff can still look up cases and drive emergency payments
@@ -640,7 +639,7 @@ parts:
       clients with no payments.
     buildBuy:
       approach: build
-      label: Build on ministry servers, fed from the CRM platform
+      label: Build on CSBC servers, fed from the CRM platform
       summary: >-
         The feed uses the CRM platform's change data capture, a paid add-on. The CRM backup add-on adds a second copy.
       options:

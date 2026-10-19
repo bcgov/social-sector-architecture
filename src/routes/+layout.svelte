@@ -4,11 +4,54 @@
   import '@fontsource/atkinson-hyperlegible-next/400-italic.css';
   import '@fontsource/atkinson-hyperlegible-next/700.css';
   import '../app.css';
+  import { onMount } from 'svelte';
   import { page } from '$app/state';
   import { base } from '$app/paths';
+  import { goto } from '$app/navigation';
   import { options } from '$lib/options.js';
+  import SignIn from '$lib/components/SignIn.svelte';
+  import { enabled as gateOn, session, signIn, signOut, complete } from '$lib/sso.js';
 
   let { children } = $props();
+
+  // The page is prerendered with its content in place, so `locked` starts
+  // false and the curtain is drawn after hydration. app.html hides the
+  // content before first paint so the copy is not flashed on the way.
+  let locked = $state(false);
+  let who = $state(null);
+  let busy = $state(false);
+  let gateError = $state('');
+
+  function settle() {
+    who = session();
+    locked = gateOn && !who;
+    // app.html hid the prerendered content before paint; hydration owns it now.
+    document.documentElement.removeAttribute('data-prelock');
+  }
+
+  onMount(async () => {
+    if (!gateOn) return;
+    settle();
+    try {
+      const returnTo = await complete();
+      settle();
+      if (returnTo) await goto(returnTo, { replaceState: true });
+    } catch (e) {
+      gateError = e instanceof Error ? e.message : String(e);
+      settle();
+    }
+  });
+
+  async function startSignIn() {
+    busy = true;
+    gateError = '';
+    try {
+      await signIn(page.url.pathname);
+    } catch (e) {
+      gateError = e instanceof Error ? e.message : String(e);
+      busy = false;
+    }
+  }
 
   const links = [
     { href: '/problems/', label: 'The problem' },
@@ -19,6 +62,10 @@
   const current = (href) => page.url.pathname.replace(base, '') === href;
 </script>
 
+<svelte:head>
+  {#if gateOn}<meta name="sso-gate" content="on" />{/if}
+</svelte:head>
+
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
@@ -27,6 +74,11 @@
       <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
       <span>Future of Case Management</span>
     </a>
+    {#if locked}
+      {#if who}
+        <p class="who">Signed in as {who.name} <button class="out" onclick={signOut}>Sign out</button></p>
+      {/if}
+    {:else}
     <nav aria-label="Main">
       <ul>
         {#each links as l}
@@ -41,11 +93,16 @@
         {/each}
       </ul>
     </nav>
+    {/if}
   </div>
 </header>
 
 <main id="main" tabindex="-1">
-  {@render children()}
+  {#if locked}
+    <SignIn onSignIn={startSignIn} {busy} error={gateError} />
+  {:else}
+    {@render children()}
+  {/if}
 </main>
 
 <footer class="foot">
@@ -135,6 +192,27 @@
     background: var(--ink);
     color: var(--paper);
   }
+
+  .who {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+  }
+  .out {
+    font: inherit;
+    color: var(--ink);
+    background: none;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    min-height: 44px;
+    padding: 0 0.9rem;
+    cursor: pointer;
+  }
+  .out:hover { background: var(--surface-2); }
 
   main:focus { outline: none; }
 

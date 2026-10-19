@@ -1576,6 +1576,7 @@ Met in a weaker form
 Moving data
 Next option
 Nothing in this plan has to be bought commercially.
+Nothing on this site is a government commitment, and none of it is a record of any real person.
 Open source
 Purchases and what they hold up
 Read about the problems with ICM today
@@ -1585,6 +1586,8 @@ See how long
 See the parts of
 See the timelines
 Show the plan for
+Sign out
+Signed in as
 Six problems with ICM, from what people see down to what really causes them.
 Skip to content
 Solves a problem another option has
@@ -1599,6 +1602,7 @@ The problem with ICM today | Future of Case Management
 The team
 There are
 Things to buy first
+This is an internal working draft. Sign in with your government account to read it.
 Three ways forward
 Timeline | Future of Case Management
 Typical time to buy
